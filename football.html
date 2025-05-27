@@ -11,64 +11,7 @@
 <body>
 
 
-   <style>
-    a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #2b2b2b;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: background 0.3s, color 0.3s;
-    }
-    a:hover {
-      background-color: #007bff;
-      color: #fff;
-    }
-    nav a.special {
-      background-color: #28a745;
-      color: white;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 15px 20px !important;
-        flex-wrap: wrap !important;
-      }
-      .search-container {
-        order: 3;
-        flex-basis: 100%;
-        justify-content: flex-start !important;
-        margin: 10px 0 !important;
-      }
-      .search-box {
-        width: 100% !important;
-      }
-      #mainNav {
-        display: none !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        background: #f0f4f8 !important;
-        position: absolute !important;
-        top: 70px !important;
-        left: 0;
-        padding: 10px 20px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        z-index: 100;
-      }
-      #mainNav.active {
-        display: flex !important;
-      }
-      #hamburgerMenu {
-        display: flex !important;
-      }
-      #mainNav a {
-        margin: 10px 0;
-        text-align: center;
-      }
-    }
-  </style>
-<header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
         <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
         <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
         SportZone
@@ -79,10 +22,73 @@
         <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
         </div>
         <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+        <div style="position:relative;">
         <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
-            <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+            <input id="searchInput" type="text" placeholder="Search..." 
+                style="border:none;outline:none;font-size:14px;width:100%;" 
+                onkeyup="handleInput(event)" 
+                autocomplete="off" />
             <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
         </div>
+        <ul id="suggestions" style="list-style:none;padding:0;margin:0;position:absolute;top:40px;left:0;background:#fff;border:1px solid #ccc;width:100%;max-height:150px;overflow-y:auto;display:none;z-index:999;border-radius:5px;"></ul>
+        </div>
+
+        <script>
+            const availablePages = [
+                "archery", "athletic", "badminton", "baseball", "basketball", "befit", "boxing",
+                "chess", "cricket", "football", "games", "golf", "handball", "hockey", "icehockey",
+                "ipl", "judo", "karate", "poker", "rugby", "snowboarding", "sports", "surfing",
+                "swimming", "taekwondo", "tennis", "volleyball", "wrestling"
+            ];
+
+            function handleInput(event) {
+                const input = event.target.value.toLowerCase().trim();
+                const suggestionsBox = document.getElementById("suggestions");
+                suggestionsBox.innerHTML = "";
+
+                if (input.length === 0) {
+                    suggestionsBox.style.display = "none";
+                    return;
+                }
+
+                const matches = availablePages.filter(page => page.includes(input));
+
+                if (matches.length === 0) {
+                    suggestionsBox.style.display = "none";
+                    return;
+                }
+
+                matches.forEach(match => {
+                    const li = document.createElement("li");
+                    li.textContent = match;
+                    li.style.padding = "8px 10px";
+                    li.style.cursor = "pointer";
+                    li.addEventListener("click", () => {
+                        window.location.href = match + ".html";
+                    });
+                    li.addEventListener("mouseover", () => {
+                        li.style.background = "#f0f0f0";
+                    });
+                    li.addEventListener("mouseout", () => {
+                        li.style.background = "#fff";
+                    });
+                    suggestionsBox.appendChild(li);
+                });
+
+                suggestionsBox.style.display = "block";
+            }
+
+            // Optional: Hide suggestions when clicking outside
+            document.addEventListener("click", function (e) {
+                const suggestionsBox = document.getElementById("suggestions");
+                const searchInput = document.getElementById("searchInput");
+                if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                    suggestionsBox.style.display = "none";
+                }
+            });
+        </script>
+
+
         </div>
         <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
         <a href="index.html">Home</a>
@@ -104,7 +110,63 @@
             </div>
         </div>
     </header>
+  <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
 
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+    </style>
   <script>
     function searchSections() {
       const query = document.getElementById('searchInput').value.toLowerCase();

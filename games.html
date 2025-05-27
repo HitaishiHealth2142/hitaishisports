@@ -243,10 +243,73 @@
         <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
         </div>
         <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+        <div style="position:relative;">
         <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
-            <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+            <input id="searchInput" type="text" placeholder="Search..." 
+                style="border:none;outline:none;font-size:14px;width:100%;" 
+                onkeyup="handleInput(event)" 
+                autocomplete="off" />
             <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
         </div>
+        <ul id="suggestions" style="list-style:none;padding:0;margin:0;position:absolute;top:40px;left:0;background:#fff;border:1px solid #ccc;width:100%;max-height:150px;overflow-y:auto;display:none;z-index:999;border-radius:5px;"></ul>
+        </div>
+
+        <script>
+            const availablePages = [
+                "archery", "athletic", "badminton", "baseball", "basketball", "befit", "boxing",
+                "chess", "cricket", "football", "games", "golf", "handball", "hockey", "icehockey",
+                "ipl", "judo", "karate", "poker", "rugby", "snowboarding", "sports", "surfing",
+                "swimming", "taekwondo", "tennis", "volleyball", "wrestling"
+            ];
+
+            function handleInput(event) {
+                const input = event.target.value.toLowerCase().trim();
+                const suggestionsBox = document.getElementById("suggestions");
+                suggestionsBox.innerHTML = "";
+
+                if (input.length === 0) {
+                    suggestionsBox.style.display = "none";
+                    return;
+                }
+
+                const matches = availablePages.filter(page => page.includes(input));
+
+                if (matches.length === 0) {
+                    suggestionsBox.style.display = "none";
+                    return;
+                }
+
+                matches.forEach(match => {
+                    const li = document.createElement("li");
+                    li.textContent = match;
+                    li.style.padding = "8px 10px";
+                    li.style.cursor = "pointer";
+                    li.addEventListener("click", () => {
+                        window.location.href = match + ".html";
+                    });
+                    li.addEventListener("mouseover", () => {
+                        li.style.background = "#f0f0f0";
+                    });
+                    li.addEventListener("mouseout", () => {
+                        li.style.background = "#fff";
+                    });
+                    suggestionsBox.appendChild(li);
+                });
+
+                suggestionsBox.style.display = "block";
+            }
+
+            // Optional: Hide suggestions when clicking outside
+            document.addEventListener("click", function (e) {
+                const suggestionsBox = document.getElementById("suggestions");
+                const searchInput = document.getElementById("searchInput");
+                if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                    suggestionsBox.style.display = "none";
+                }
+            });
+        </script>
+
+
         </div>
         <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
         <a href="index.html">Home</a>
