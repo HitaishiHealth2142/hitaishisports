@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premier basketball resource for news, training, NBA updates, and player stats. Learn basketball techniques and follow your favorite teams.">
+    <meta name="keywords" content="basketball, NBA, basketball training, basketball news, basketball stats, basketball techniques">
+    <title>Elite Hoops | Premier Basketball Resource | News, Training & Stats</title>
+    <link rel="canonical" href="https://www.example.com">
+    <style>
+        @keyframes heroAnimation { 0% { background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } 25% { background-image: url('https://images.unsplash.com/photo-1519861531473-9200262188bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'); } 50% { background-image: url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1347&q=80'); } 75% { background-image: url('https://images.unsplash.com/photo-1524401033441-e87cab019093?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } 100% { background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } }
+    </style>
+</head>
+<body style="margin:0;padding:0;font-family:'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;line-height:1.6;color:#333;background-color:#f8f9fa;">
+  
+
+
+    <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
+
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+    </style>
+
+
+    <header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+        <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+        <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+        SportZone
+        </div>
+        <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        </div>
+        <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+        <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+            <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+            <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+        </div>
+        </div>
+        <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="befit.html">BeFit</a>
+        <a href="">Sports</a>
+        <a href="">Games</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="special">Join Us</a>
+        </nav>
+        
+        <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+            <div >
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+            </div>
+        </div>
+    </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+    <!-- Animated Hero Section -->
+    <section style="height:80vh;background-size:cover;background-position:center;animation:heroAnimation 20s infinite;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;margin-top:60px;">
+        <div style="background-color:rgba(0,0,0,0.7);padding:2rem;border-radius:10px;max-width:800px;margin:0 1rem;">
+            <h1 style="font-size:3.5rem;margin-bottom:1rem;text-shadow:2px 2px 4px rgba(0,0,0,0.5);">ELEVATE YOUR BASKETBALL GAME</h1>
+            <p style="font-size:1.2rem;margin-bottom:2rem;text-shadow:1px 1px 2px rgba(0,0,0,0.5);">Your premier destination for NBA news, player stats, training tips, and basketball gear</p>
+            <a href="#news" style="background-color:#e63946;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;">EXPLORE NOW</a>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="news" style="padding:5rem 5%;max-width:1000px;margin:0 auto;overflow-x:auto;">
+    <h2 style="font-size:2.5rem;text-align:center; margin-top:-50px;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+        LATEST BASKETBALL NEWS 
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+    </h2>
+
+    <div style="display:flex;gap:2rem;flex-wrap:nowrap;overflow-x:auto;padding-bottom:1rem;">
+        
+        <!-- Article 1 -->
+        <article style="min-width:300px;max-width:300px;flex:0 0 auto;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="NBA playoffs update" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:1.5rem;">
+            <h3 style="margin-top:0;color:#1a2a3a;">NBA Playoffs: Conference Finals Update</h3>
+            <p style="color:#666;">
+            Breaking down the latest matchups...
+            <span class="more-text" style="display:none;">The Western and Eastern Conference Finals are heating up with intense rivalries and strategic adjustments. Experts weigh in on the outcomes.</span>
+            </p>
+            <button onclick="toggleText(this)" style="color:#e63946;background:none;border:none;font-weight:600;cursor:pointer;padding:0;margin-top:1rem;">Read More →</button>
+        </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article style="min-width:300px;max-width:300px;flex:0 0 auto;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Draft prospects 2023" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:1.5rem;">
+            <h3 style="margin-top:0;color:#1a2a3a;">2023 Draft: Top 10 Prospects Analysis</h3>
+            <p style="color:#666;">
+            Scouting reports and projections...
+            <span class="more-text" style="display:none;">We analyze skill sets, college stats, and long-term potential of the top 10 NBA draft picks, highlighting key standouts and under-the-radar prospects.</span>
+            </p>
+            <button onclick="toggleText(this)" style="color:#e63946;background:none;border:none;font-weight:600;cursor:pointer;padding:0;margin-top:1rem;">Read More →</button>
+        </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article style="min-width:300px;max-width:300px;flex:0 0 auto;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1484482340112-e1e2682b4856?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Euroleague basketball" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:1.5rem;">
+            <h3 style="margin-top:0;color:#1a2a3a;">Euroleague Final Four Preview</h3>
+            <p style="color:#666;">
+            Everything you need to know...
+            <span class="more-text" style="display:none;">The four best teams in Europe battle it out in what promises to be a high-stakes, high-drama conclusion to the Euroleague season.</span>
+            </p>
+            <button onclick="toggleText(this)" style="color:#e63946;background:none;border:none;font-weight:600;cursor:pointer;padding:0;margin-top:1rem;">Read More →</button>
+        </div>
+        </article>
+
+    </div>
+    </section>
+
+    <script>
+    function toggleText(button) {
+        const moreText = button.parentElement.querySelector(".more-text");
+        if (moreText.style.display === "none" || moreText.style.display === "") {
+        moreText.style.display = "inline";
+        button.innerText = "Read Less ←";
+        } else {
+        moreText.style.display = "none";
+        button.innerText = "Read More →";
+        }
+    }
+    </script>
+
+
+    <!-- Stats Leaderboard Section -->
+    <section id="stats" style="background-color:#1a2a3a;padding:5rem 5%;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-top: -50px;margin-bottom:3rem;position:relative;">
+        NBA STATS LEADERBOARD 
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+        </h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;text-align:center;">
+        
+        <div class="stat-card" style="background-color:rgba(255,255,255,0.1);padding:2rem;border-radius:8px;transition:transform 0.3s ease, background-color 0.3s ease;">
+            <h3 style="color:#e63946;margin-top:0;">Points Per Game</h3>
+            <ol style="text-align:left;padding-left:20px;">
+            <li style="margin-bottom:0.5rem;">Luka Dončić - 32.4</li>
+            <li style="margin-bottom:0.5rem;">Joel Embiid - 30.6</li>
+            <li style="margin-bottom:0.5rem;">Giannis Antetokounmpo - 29.5</li>
+            </ol>
+        </div>
+
+        <div class="stat-card" style="background-color:rgba(255,255,255,0.1);padding:2rem;border-radius:8px;transition:transform 0.3s ease, background-color 0.3s ease;">
+            <h3 style="color:#e63946;margin-top:0;">Assists Per Game</h3>
+            <ol style="text-align:left;padding-left:20px;">
+            <li style="margin-bottom:0.5rem;">James Harden - 10.7</li>
+            <li style="margin-bottom:0.5rem;">Trae Young - 10.2</li>
+            <li style="margin-bottom:0.5rem;">Nikola Jokić - 9.8</li>
+            </ol>
+        </div>
+
+        <div class="stat-card" style="background-color:rgba(255,255,255,0.1);padding:2rem;border-radius:8px;transition:transform 0.3s ease, background-color 0.3s ease;">
+            <h3 style="color:#e63946;margin-top:0;">Rebounds Per Game</h3>
+            <ol style="text-align:left;padding-left:20px;">
+            <li style="margin-bottom:0.5rem;">Domantas Sabonis - 12.3</li>
+            <li style="margin-bottom:0.5rem;">Nikola Jokić - 11.8</li>
+            <li style="margin-bottom:0.5rem;">Rudy Gobert - 11.4</li>
+            </ol>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <style>
+    .stat-card:hover {
+        transform: scale(1.05);
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    </style>
+
+
+    <!-- Training Tips Section -->
+    <section id="training" style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+    <h2 style="font-size:2.5rem;text-align:center;margin-top:-50px;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+        BASKETBALL TRAINING TIPS
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+    </h2>
+
+    <div style="display:flex;justify-content:space-between;gap:1.5rem;">
+        <div onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'" style="width:32%;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease, box-shadow 0.3s ease;">
+        <div style="padding:1.5rem;">
+            <h3 style="margin-top:0;color:#1a2a3a;display:flex;align-items:center;">
+            <span style="background-color:#e63946;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:1rem;">1</span> Shooting Form
+            </h3>
+            <p style="color:#666;">Master the BEEF technique (Balance, Eyes, Elbow, Follow-through) for consistent shooting. Practice form shooting daily from close range before moving back.</p>
+        </div>
+        </div>
+
+        <div onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'" style="width:32%;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease, box-shadow 0.3s ease;">
+        <div style="padding:1.5rem;">
+            <h3 style="margin-top:0;color:#1a2a3a;display:flex;align-items:center;">
+            <span style="background-color:#e63946;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:1rem;">2</span> Ball Handling
+            </h3>
+            <p style="color:#666;">Develop your weak hand by spending 70% of dribbling drills with your non-dominant hand. Try the "two-ball dribble" drill to improve coordination.</p>
+        </div>
+        </div>
+
+        <div onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'" style="width:32%;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease, box-shadow 0.3s ease;">
+        <div style="padding:1.5rem;">
+            <h3 style="margin-top:0;color:#1a2a3a;display:flex;align-items:center;">
+            <span style="background-color:#e63946;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:1rem;">3</span> Defense Stance
+            </h3>
+            <p style="color:#666;">Maintain a low, wide stance with active hands. Focus on sliding your feet rather than crossing them to maintain balance and quick direction changes.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Basketball World Cup Matches Section -->
+    <section id="worldcup" style="padding:5rem 5%;background:linear-gradient(rgba(26,42,58,0.9),rgba(26,42,58,0.9)),url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');background-size:cover;background-position:center;color:#fff;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;margin-top:-50px;position:relative;">FIBA BASKETBALL WORLD CUP <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span></h2>
+            
+            <!-- Match Navigation Tabs -->
+            <div style="display:flex;justify-content:center;margin-bottom:2rem;border-bottom:2px solid #2d3e50;">
+                <button style="background:none;border:none;color:#fff;padding:0.8rem 2rem;font-weight:600;cursor:pointer;border-bottom:3px solid #e63946;">Upcoming</button>
+            </div>
+
+            <!-- Upcoming Matches -->
+            <div>
+                <h3 style="color:#e63946;margin-top:0;font-size:1.5rem;display:flex;align-items:center;">
+                    <svg style="width:24px;height:24px;margin-right:10px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    UPCOMING MATCHES
+                </h3>
+                
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:1.5rem;">
+                    <!-- Match 1 -->
+                    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:8px;padding:1.5rem;border-left:4px solid #e63946;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                        <div style="text-align:center;flex:1;">
+                            <p style="font-weight:600;margin:0;font-size:1.1rem;">USA</p>
+                            <p style="margin:0;font-size:0.8rem;color:#aaa;">(3-0)</p>
+                        </div>
+                        <div style="text-align:center;flex:0 0 80px;">
+                            <p style="font-size:0.8rem;margin:0 0 0.5rem;color:#e63946;">GROUP C</p>
+                            <p style="font-size:1.5rem;font-weight:700;margin:0.5rem 0;">VS</p>
+                            <p style="font-size:0.9rem;margin:0;">20:30 GMT</p>
+                        </div>
+                        <div style="text-align:center;flex:1;">
+                            <p style="font-weight:600;margin:0;font-size:1.1rem;">Greece</p>
+                            <p style="margin:0;font-size:0.8rem;color:#aaa;">(2-1)</p>
+                        </div>
+                        </div>
+                        <div style="text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+                        <p style="margin:0;font-weight:600;">August 28, 2023 • Mall of Asia Arena, Manila</p>
+                        <a href="#" style="color:#e63946;text-decoration:none;font-weight:600;display:inline-block;margin-top:0.5rem;font-size:0.9rem;">+ REMIND ME</a>
+                        </div>
+                    </div>
+
+                    <!-- Match 2 -->
+                    <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:8px;padding:1.5rem;border-left:4px solid #e63946;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                        <div style="text-align:center;flex:1;">
+                            <p style="font-weight:600;margin:0;font-size:1.1rem;">Australia</p>
+                            <p style="margin:0;font-size:0.8rem;color:#aaa;">(3-0)</p>
+                        </div>
+                        <div style="text-align:center;flex:0 0 80px;">
+                            <p style="font-size:0.8rem;margin:0 0 0.5rem;color:#e63946;">GROUP E</p>
+                            <p style="font-size:1.5rem;font-weight:700;margin:0.5rem 0;">VS</p>
+                            <p style="font-size:0.9rem;margin:0;">16:00 GMT</p>
+                        </div>
+                        <div style="text-align:center;flex:1;">
+                            <p style="font-weight:600;margin:0;font-size:1.1rem;">Slovenia</p>
+                            <p style="margin:0;font-size:0.8rem;color:#aaa;">(2-1)</p>
+                        </div>
+                        </div>
+                        <div style="text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+                        <p style="margin:0;font-weight:600;">August 29, 2023 • Okinawa Arena</p>
+                        <a href="#" style="color:#e63946;text-decoration:none;font-weight:600;display:inline-block;margin-top:0.5rem;font-size:0.9rem;">+ REMIND ME</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Completed Matches -->
+            <div style="margin-top:4rem;">
+                <h3 style="color:#e63946;margin-top:0;font-size:1.5rem;display:flex;align-items:center;">
+                    <svg style="width:24px;height:24px;margin-right:10px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    RECENT RESULTS
+                </h3>
+                
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;margin-top:1.5rem;">
+                        <thead>
+                            <tr style="background-color:rgba(230,57,70,0.2);">
+                                <th style="padding:1rem;text-align:left;">Match</th>
+                                <th style="padding:1rem;text-align:center;">Score</th>
+                                <th style="padding:1rem;text-align:right;">Stage</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                        <td style="padding:1rem;">
+                        <div style="display:flex;align-items:center;">
+                            <span style="font-weight:600;">Spain</span>
+                        </div>
+                        <div style="display:flex;align-items:center;margin-top:0.5rem;">
+                            <span style="font-weight:600;">Canada</span>
+                        </div>
+                        </td>
+                        <td style="padding:1rem;text-align:center;font-size:1.2rem;font-weight:700;">
+                        <span style="color:#4CAF50;">88</span> - <span style="color:#F44336;">85</span>
+                        </td>
+                        <td style="padding:1rem;text-align:right;color:#aaa;">Group G</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                        <td style="padding:1rem;">
+                        <div style="display:flex;align-items:center;">
+                            <span style="font-weight:600;">France</span>
+                        </div>
+                        <div style="display:flex;align-items:center;margin-top:0.5rem;">
+                            <span style="font-weight:600;">Latvia</span>
+                        </div>
+                        </td>
+                        <td style="padding:1rem;text-align:center;font-size:1.2rem;font-weight:700;">
+                        <span style="color:#4CAF50;">86</span> - <span style="color:#F44336;">88</span>
+                        </td>
+                        <td style="padding:1rem;text-align:right;color:#aaa;">Group H</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:1rem;">
+                        <div style="display:flex;align-items:center;">
+                            <span style="font-weight:600;">USA</span>
+                        </div>
+                        <div style="display:flex;align-items:center;margin-top:0.5rem;">
+                            <span style="font-weight:600;">Montenegro</span>
+                        </div>
+                        </td>
+                        <td style="padding:1rem;text-align:center;font-size:1.2rem;font-weight:700;">
+                        <span style="color:#4CAF50;">102</span> - <span style="color:#F44336;">76</span>
+                        </td>
+                        <td style="padding:1rem;text-align:right;color:#aaa;">Group C</td>
+                    </tr>
+                    </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tournament Progress -->
+            <div style="margin-top:4rem;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:8px;padding:2rem;">
+                <h3 style="color:#e63946;margin-top:0;font-size:1.5rem;display:flex;align-items:center;">
+                    <svg style="width:24px;height:24px;margin-right:10px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                    TOURNAMENT PROGRESS
+                </h3>
+                
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2rem;position:relative;">
+                    <div style="position:absolute;top:50%;left:0;right:0;height:4px;background-color:#2d3e50;z-index:1;"></div>
+                    
+                    <div style="text-align:center;z-index:2;">
+                        <div style="width:40px;height:40px;border-radius:50%;background-color:#e63946;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;">
+                            <svg style="width:20px;height:20px;" fill="none" stroke="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <p style="margin:0;font-weight:600;">Group Stage</p>
+                        <p style="margin:0;font-size:0.8rem;color:#aaa;">Completed</p>
+                    </div>
+                    
+                    <div style="text-align:center;z-index:2;">
+                        <div style="width:40px;height:40px;border-radius:50%;background-color:#e63946;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;">
+                            <span style="color:#fff;font-weight:600;">2</span>
+                        </div>
+                        <p style="margin:0;font-weight:600;">Round of 16</p>
+                        <p style="margin:0;font-size:0.8rem;color:#aaa;">Aug 31-Sep 3</p>
+                    </div>
+                    
+                    <div style="text-align:center;z-index:2;">
+                        <div style="width:40px;height:40px;border-radius:50%;background-color:#2d3e50;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;">
+                            <span style="color:#aaa;font-weight:600;">3</span>
+                        </div>
+                        <p style="margin:0;font-weight:600;">Quarterfinals</p>
+                        <p style="margin:0;font-size:0.8rem;color:#aaa;">Sep 5-6</p>
+                    </div>
+                    
+                    <div style="text-align:center;z-index:2;">
+                        <div style="width:40px;height:40px;border-radius:50%;background-color:#2d3e50;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;">
+                            <span style="color:#aaa;font-weight:600;">4</span>
+                        </div>
+                        <p style="margin:0;font-weight:600;">Semifinals</p>
+                        <p style="margin:0;font-size:0.8rem;color:#aaa;">Sep 8</p>
+                    </div>
+                    
+                    <div style="text-align:center;z-index:2;">
+                        <div style="width:40px;height:40px;border-radius:50%;background-color:#2d3e50;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;">
+                            <span style="color:#aaa;font-weight:600;">5</span>
+                        </div>
+                        <p style="margin:0;font-weight:600;">Finals</p>
+                        <p style="margin:0;font-size:0.8rem;color:#aaa;">Sep 10</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Schedule Button -->
+        <div style="text-align:center;margin-top:3rem;">
+        <a href="javascript:void(0);" id="viewBtn" onclick="document.getElementById('schedule-list').style.display='block'; this.style.display='none'; document.getElementById('closeBtn').style.display='inline-block';" style="background-color:#e63946;color:#fff;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;font-size:1.1rem;">VIEW COMPLETE WORLD CUP SCHEDULE</a>
+
+        <a href="javascript:void(0);" id="closeBtn" onclick="document.getElementById('schedule-list').style.display='none'; this.style.display='none'; document.getElementById('viewBtn').style.display='inline-block';" style="background-color:#1a2a3a;color:#fff;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:none;font-size:1.1rem;">CLOSE SCHEDULE</a>
+        </div>
+
+        <div id="schedule-list" style="display:none;margin-top:2rem;max-width:800px;margin-left:auto;margin-right:auto;text-align:left;font-size:1rem;line-height:1.6;color:#1a2a3a;">
+        <ul style="list-style:none;padding:0;">
+            <li style="background:#f8f8f8;padding:1rem;margin-bottom:1rem;border-radius:8px;">
+            <strong>June 12:</strong> USA vs Spain – 6:00 PM
+            </li>
+            <li style="background:#f8f8f8;padding:1rem;margin-bottom:1rem;border-radius:8px;">
+            <strong>June 14:</strong> France vs Argentina – 4:30 PM
+            </li>
+            <li style="background:#f8f8f8;padding:1rem;margin-bottom:1rem;border-radius:8px;">
+            <strong>June 15:</strong> Brazil vs Australia – 3:00 PM
+            </li>
+            <li style="background:#f8f8f8;padding:1rem;margin-bottom:1rem;border-radius:8px;">
+            <strong>June 18:</strong> Germany vs Canada – 7:15 PM
+            </li>
+        </ul>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section id="teams" style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+    <h2 style="font-size:2.5rem;text-align:center;margin-top:-50px;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+        NBA TEAMS 
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+    </h2>
+
+    <!-- Always-visible logos -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.5rem;text-align:center;">
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612737/primary/L/logo.svg" alt="Atlanta Hawks" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Atlanta Hawks</p>
+        </div>
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612738/primary/L/logo.svg" alt="Boston Celtics" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Boston Celtics</p>
+        </div>
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612751/primary/L/logo.svg" alt="Brooklyn Nets" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Brooklyn Nets</p>
+        </div>
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612766/primary/L/logo.svg" alt="Charlotte Hornets" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Charlotte Hornets</p>
+        </div>
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612741/primary/L/logo.svg" alt="Chicago Bulls" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Chicago Bulls</p>
+        </div>
+    </div>
+
+    <!-- Hidden extra logos -->
+    <div id="more-teams" style="display:none;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.5rem;text-align:center;margin-top:2rem;">
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612739/primary/L/logo.svg" alt="Cleveland Cavaliers" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Cleveland Cavaliers</p>
+        </div>
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612744/primary/L/logo.svg" alt="Golden State Warriors" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Golden State Warriors</p>
+        </div>
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg" alt="Philadelphia 76ers" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">Philadelphia 76ers</p>
+        </div>
+        <div style="transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://cdn.nba.com/logos/nba/1610612760/primary/L/logo.svg" alt="Oklahoma City Thunder" style="width:100px;height:100px;object-fit:contain;">
+        <p style="font-weight:600;margin-top:0.5rem;">OKC Thunder</p>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div style="text-align:center;margin-top:3rem;">
+        <a href="javascript:void(0);" id="show-more" onclick="document.getElementById('more-teams').style.display='grid';this.style.display='none';document.getElementById('hide-more').style.display='inline-block';" style="background-color:#1a2a3a;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;">VIEW ALL TEAMS</a>
+        
+        <a href="javascript:void(0);" id="hide-more" onclick="document.getElementById('more-teams').style.display='none';this.style.display='none';document.getElementById('show-more').style.display='inline-block';" style="display:none;background-color:#e63946;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;">CLOSE</a>
+    </div>
+    </section>
+
+    <!-- Player Spotlight Section -->
+    <section style="background-color:#1a2a3a;padding:5rem 5%;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.5rem;margin-top:-50px;margin-bottom:3rem;text-align:center;position:relative;">PLAYER SPOTLIGHT 
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+        </h2>
+        
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:3rem;flex-direction:row;">
+        
+        <!-- Text content on the left -->
+        <div style="flex:1;min-width:300px;">
+            <h3 style="font-size:2rem;color:#e63946;margin-top:0;">Nikola Jokić</h3>
+            <p style="font-size:1.1rem;margin-bottom:1.5rem;">Denver Nuggets • Center • #15</p>
+            <p style="margin-bottom:1.5rem;">Two-time NBA MVP and one of the most skilled big men in league history. Known for his incredible passing, basketball IQ, and unique offensive skillset.</p>
+            
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem;">
+            <div>
+                <p style="font-weight:600;margin-bottom:0.5rem;">PPG</p>
+                <p style="font-size:1.5rem;margin:0;">24.5</p>
+            </div>
+            <div>
+                <p style="font-weight:600;margin-bottom:0.5rem;">RPG</p>
+                <p style="font-size:1.5rem;margin:0;">11.8</p>
+            </div>
+            <div>
+                <p style="font-weight:600;margin-bottom:0.5rem;">APG</p>
+                <p style="font-size:1.5rem;margin:0;">9.8</p>
+            </div>
+            <div>
+                <p style="font-weight:600;margin-bottom:0.5rem;">FG%</p>
+                <p style="font-size:1.5rem;margin:0;">63.2%</p>
+            </div>
+            </div>
+            
+            <a href="#" style="background-color:#e63946;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;">FULL PROFILE</a>
+        </div>
+
+        <!-- Image on the right (larger, no red border) -->
+        <div style="flex:1;min-width:400px;text-align:center;">
+            <img src="https://cdn.nba.com/headshots/nba/latest/1040x760/203999.png" alt="Nikola Jokić" style="width:100%;max-width:400px;height:400px;object-fit:cover;border-radius:8px;">
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- Upcoming Games Section -->
+    <section style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+    <h2 style="font-size:2.5rem;text-align:center;margin-top:-50px;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+        UPCOMING GAMES 
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+    </h2>
+    <div style="background-color:#fff;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,0.1);overflow:hidden;">
+        <!-- Always visible schedules -->
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.5rem;border-bottom:1px solid #eee;">
+        <div style="text-align:right;">
+            <p style="font-weight:600;margin:0;">Boston Celtics</p>
+            <p style="color:#666;margin:0;">45-12 (1st East)</p>
+        </div>
+        <div style="text-align:center;padding:0 1.5rem;">
+            <p style="font-weight:600;color:#e63946;margin:0;">Wed, Feb 28</p>
+            <p style="margin:0;">8:00 PM ET</p>
+        </div>
+        <div style="text-align:left;">
+            <p style="font-weight:600;margin:0;">Miami Heat</p>
+            <p style="color:#666;margin:0;">32-25 (6th East)</p>
+        </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.5rem;border-bottom:1px solid #eee;">
+        <div style="text-align:right;">
+            <p style="font-weight:600;margin:0;">Denver Nuggets</p>
+            <p style="color:#666;margin:0;">42-18 (1st West)</p>
+        </div>
+        <div style="text-align:center;padding:0 1.5rem;">
+            <p style="font-weight:600;color:#e63946;margin:0;">Thu, Feb 29</p>
+            <p style="margin:0;">10:00 PM ET</p>
+        </div>
+        <div style="text-align:left;">
+            <p style="font-weight:600;margin:0;">Sacramento Kings</p>
+            <p style="color:#666;margin:0;">34-25 (5th West)</p>
+        </div>
+        </div>
+
+        <!-- Hidden extra schedules -->
+        <div id="extra-schedules" style="display:none;">
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.5rem;border-bottom:1px solid #eee;">
+            <div style="text-align:right;">
+            <p style="font-weight:600;margin:0;">Golden State Warriors</p>
+            <p style="color:#666;margin:0;">38-20 (3rd West)</p>
+            </div>
+            <div style="text-align:center;padding:0 1.5rem;">
+            <p style="font-weight:600;color:#e63946;margin:0;">Fri, Mar 1</p>
+            <p style="margin:0;">9:30 PM ET</p>
+            </div>
+            <div style="text-align:left;">
+            <p style="font-weight:600;margin:0;">Los Angeles Lakers</p>
+            <p style="color:#666;margin:0;">30-28 (7th West)</p>
+            </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.5rem;border-bottom:1px solid #eee;">
+            <div style="text-align:right;">
+            <p style="font-weight:600;margin:0;">Philadelphia 76ers</p>
+            <p style="color:#666;margin:0;">40-17 (2nd East)</p>
+            </div>
+            <div style="text-align:center;padding:0 1.5rem;">
+            <p style="font-weight:600;color:#e63946;margin:0;">Sat, Mar 2</p>
+            <p style="margin:0;">7:00 PM ET</p>
+            </div>
+            <div style="text-align:left;">
+            <p style="font-weight:600;margin:0;">Toronto Raptors</p>
+            <p style="color:#666;margin:0;">28-30 (8th East)</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- Buttons container -->
+        <div id="buttons-container" style="text-align:center;padding:2rem;">
+        <a href="#" id="view-schedule-btn" style="background-color:#1a2a3a;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;">
+            VIEW FULL SCHEDULE
+        </a>
+        <a href="#" id="close-schedule-btn" style="background-color:#e63946;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:none;margin-left:1rem;">
+            CLOSE FULL SCHEDULE
+        </a>
+        </div>
+    </div>
+
+    <script>
+        const viewBtn = document.getElementById('view-schedule-btn');
+        const closeBtn = document.getElementById('close-schedule-btn');
+        const extraSchedules = document.getElementById('extra-schedules');
+
+        viewBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        extraSchedules.style.display = 'block';
+        viewBtn.style.display = 'none';
+        closeBtn.style.display = 'inline-block';
+        });
+
+        closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        extraSchedules.style.display = 'none';
+        viewBtn.style.display = 'inline-block';
+        closeBtn.style.display = 'none';
+        });
+    </script>
+    </section>
+
+    <!-- Basketball History Section -->
+    <section style="padding: 4rem 5%; max-width: 1200px; margin: auto; background: linear-gradient(180deg, #ffffff, #f8f9fa); font-family: Arial, sans-serif;">
+    <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #1a2a3a; position: relative; font-weight: 700; letter-spacing: 1px;">
+        BASKETBALL HISTORY
+        <span style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background-color: #e63946; border-radius: 2px;"></span>
+    </h2>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem; position: relative;">
+        <div style="position: absolute; left: 50%; transform: translateX(-50%); width: 4px; background-color: #e63946; height: 100%; opacity: 0.2;"></div>
+
+        <!-- TIMELINE CARD FUNCTION -->
+        <script>
+        function hoverEffect(el, hover) {
+            el.style.boxShadow = hover ? '0 12px 24px rgba(0,0,0,0.12)' : '0 8px 20px rgba(0,0,0,0.08)';
+        }
+        function toggleHistory() {
+            var extra = document.getElementById('extra');
+            var viewMore = document.getElementById('viewMoreBtn');
+            var viewLess = document.getElementById('viewLessBtn');
+            if (extra.style.display === 'none') {
+            extra.style.display = 'block';
+            viewMore.style.display = 'none';
+            viewLess.style.display = 'inline-block';
+            }
+        }
+        function hideHistory() {
+            var extra = document.getElementById('extra');
+            var viewMore = document.getElementById('viewMoreBtn');
+            var viewLess = document.getElementById('viewLessBtn');
+            extra.style.display = 'none';
+            viewMore.style.display = 'inline-block';
+            viewLess.style.display = 'none';
+        }
+        </script>
+
+        <!-- CARD 1 -->
+        <div style="background:#fff; border-radius:12px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.08); margin-left:10%; margin-right:5%; position:relative;"
+        onmouseover="hoverEffect(this, true)" onmouseout="hoverEffect(this, false)">
+        <div style="position:absolute; left:-40px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#e63946; border-radius:50%; border:3px solid #fff; box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>
+        <h3 style="margin:0; color:#1a2a3a; font-size:1.5rem;"><span style="color:#e63946;">1891</span> - The Birth of Basketball</h3>
+        <p style="color:#555; font-size:1rem; line-height:1.6; margin:1rem 0;">Dr. James Naismith invents basketball using a soccer ball and peach baskets.</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div style="background:#fff; border-radius:12px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.08); margin-right:10%; margin-left:5%; position:relative;"
+        onmouseover="hoverEffect(this, true)" onmouseout="hoverEffect(this, false)">
+        <div style="position:absolute; right:-40px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#e63946; border-radius:50%; border:3px solid #fff; box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>
+        <h3 style="margin:0; color:#1a2a3a; font-size:1.5rem;"><span style="color:#e63946;">1946</span> - NBA Founded</h3>
+        <p style="color:#555; font-size:1rem; line-height:1.6; margin:1rem 0;">The BAA, which later becomes the NBA, is established.</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div style="background:#fff; border-radius:12px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.08); margin-left:10%; margin-right:5%; position:relative;"
+        onmouseover="hoverEffect(this, true)" onmouseout="hoverEffect(this, false)">
+        <div style="position:absolute; left:-40px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#e63946; border-radius:50%; border:3px solid #fff; box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>
+        <h3 style="margin:0; color:#1a2a3a; font-size:1.5rem;"><span style="color:#e63946;">1984</span> - Michael Jordan's Debut</h3>
+        <p style="color:#555; font-size:1rem; line-height:1.6; margin:1rem 0;">Michael Jordan joins the Chicago Bulls, revolutionizing basketball globally.</p>
+        </div>
+
+        <!-- HIDDEN TIMELINE -->
+        <div id="extra" style="display:none;">
+        <!-- CARD 4 -->
+        <div style="background:#fff; border-radius:12px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.08); margin-right:10%; margin-left:5%; position:relative;"
+            onmouseover="hoverEffect(this, true)" onmouseout="hoverEffect(this, false)">
+            <div style="position:absolute; right:-40px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#e63946; border-radius:50%; border:3px solid #fff; box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>
+            <h3 style="margin:0; color:#1a2a3a; font-size:1.5rem;"><span style="color:#e63946;">1992</span> - Dream Team</h3>
+            <p style="color:#555; font-size:1rem; line-height:1.6; margin:1rem 0;">U.S. Olympic Dream Team dominates the Barcelona Games.</p>
+        </div>
+
+        <!-- CARD 5 -->
+        <div style="background:#fff; border-radius:12px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.08); margin-right:10%; margin-left:5%; position:relative;"
+            onmouseover="hoverEffect(this, true)" onmouseout="hoverEffect(this, false)">
+            <div style="position:absolute; left:-40px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#e63946; border-radius:50%; border:3px solid #fff; box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>
+            <h3 style="margin:0; color:#1a2a3a; font-size:1.5rem;"><span style="color:#e63946;">2003</span> - LeBron James Debuts</h3>
+            <p style="color:#555; font-size:1rem; line-height:1.6; margin:1rem 0;">LeBron James enters the NBA and becomes a legend.</p>
+        </div>
+
+        <!-- CARD 6 -->
+        <div style="background:#fff; border-radius:12px; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.08); margin-right:10%; margin-left:5%; position:relative;"
+            onmouseover="hoverEffect(this, true)" onmouseout="hoverEffect(this, false)">
+            <div style="position:absolute; right:-40px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:#e63946; border-radius:50%; border:3px solid #fff; box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>
+            <h3 style="margin:0; color:#1a2a3a; font-size:1.5rem;"><span style="color:#e63946;">2010</span> - Global Expansion</h3>
+            <p style="color:#555; font-size:1rem; line-height:1.6; margin:1rem 0;">Basketball gains worldwide popularity, with stars from every continent.</p>
+        </div>
+        </div>
+
+        <!-- CTA BUTTONS -->
+        <div style="text-align: center; margin-top: 2rem;">
+        <a id="viewMoreBtn" href="javascript:void(0);" onclick="toggleHistory()"
+            style="background:#e63946; color:#fff; padding:1rem 3rem; border-radius:50px; text-decoration:none; font-weight:600; font-size:1.1rem; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:inline-block;">
+            Explore More History
+        </a>
+        <a id="viewLessBtn" href="javascript:void(0);" onclick="hideHistory()"
+            style="background:#333; color:#fff; padding:1rem 3rem; border-radius:50px; text-decoration:none; font-weight:600; font-size:1.1rem; box-shadow:0 4px 12px rgba(0,0,0,0.15); display:none; margin-left:1rem;">
+            View Less History
+        </a>
+        </div>
+    </div>
+    </section>
+
+    <!-- Equipment Guide Section -->
+    <section id="shop" style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+    <h2 style="font-size:2.5rem;text-align:center;margin-top:-50px;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+        BASKETBALL EQUIPMENT GUIDE
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;">
+        <div style="text-align:center;">
+        <img 
+            src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+            alt="Basketball shoes" 
+            style="width:150px;height:150px;object-fit:cover;border-radius:50%;margin-bottom:1rem;transition: transform 0.3s ease; cursor:pointer;" 
+            onmouseover="this.style.transform='scale(1.1)'" 
+            onmouseout="this.style.transform='scale(1)'"
+        >
+        <h3 style="margin-top:0;color:#1a2a3a;">Basketball Shoes</h3>
+        <p style="color:#666;">Find the perfect pair for your position and playing style with our comprehensive shoe guide.</p>
+        </div>
+        <div style="text-align:center;">
+        <img 
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+            alt="Apparel" 
+            style="width:150px;height:150px;object-fit:cover;border-radius:50%;margin-bottom:1rem;transition: transform 0.3s ease; cursor:pointer;" 
+            onmouseover="this.style.transform='scale(1.1)'" 
+            onmouseout="this.style.transform='scale(1)'"
+        >
+        <h3 style="margin-top:0;color:#1a2a3a;">Apparel</h3>
+        <p style="color:#666;">Performance gear that keeps you comfortable and mobile on the court.</p>
+        </div>
+        <div style="text-align:center;">
+        <img 
+            src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+            alt="Training equipment" 
+            style="width:150px;height:150px;object-fit:cover;border-radius:50%;margin-bottom:1rem;transition: transform 0.3s ease; cursor:pointer;" 
+            onmouseover="this.style.transform='scale(1.1)'" 
+            onmouseout="this.style.transform='scale(1)'"
+        >
+        <h3 style="margin-top:0;color:#1a2a3a;">Training Equipment</h3>
+        <p style="color:#666;">Dribble goggles, shooting sleeves, resistance bands and more to elevate your game.</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Community Forum Section -->
+    <section style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+    <h2 style="font-size:2.5rem;text-align:center;margin-top:-50px;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+        COMMUNITY FORUM
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
+        <div style="background-color:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <h3 style="margin-top:0;color:#1a2a3a;display:flex;align-items:center;">
+            <span style="background-color:#e63946;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:1rem;"><i>🔥</i></span> Hot Topics
+        </h3>
+        <ul style="list-style-type:none;padding:0;">
+            <li style="padding:0.5rem 0;border-bottom:1px solid #eee;"><a href="#" style="color:#1a2a3a;text-decoration:none;transition:color 0.3s ease;">Who will win MVP this season?</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid #eee;"><a href="#" style="color:#1a2a3a;text-decoration:none;transition:color 0.3s ease;">Best draft picks of the last decade</a></li>
+            <li style="padding:0.5rem 0;"><a href="#" style="color:#1a2a3a;text-decoration:none;transition:color 0.3s ease;">Most underrated players right now</a></li>
+        </ul>
+        </div>
+        <div style="background-color:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <h3 style="margin-top:0;color:#1a2a3a;display:flex;align-items:center;">
+            <span style="background-color:#e63946;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:1rem;"><i>💬</i></span> Recent Discussions
+        </h3>
+        <ul style="list-style-type:none;padding:0;">
+            <li style="padding:0.5rem 0;border-bottom:1px solid #eee;"><a href="#" style="color:#1a2a3a;text-decoration:none;transition:color 0.3s ease;">Improving vertical jump - what worked for you?</a></li>
+            <li style="padding:0.5rem 0;border-bottom:1px solid #eee;"><a href="#" style="color:#1a2a3a;text-decoration:none;transition:color 0.3s ease;">Best basketball documentaries</a></li>
+            <li style="padding:0.5rem 0;"><a href="#" style="color:#1a2a3a;text-decoration:none;transition:color 0.3s ease;">Favorite basketball movies</a></li>
+        </ul>
+        </div>
+        <div style="background-color:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 5px 15px rgba(0,0,0,0.1);position:relative;">
+        <h3 style="margin-top:0;color:#1a2a3a;display:flex;align-items:center;">
+            <span style="background-color:#e63946;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:1rem;"><i>🏀</i></span> Join the Conversation
+        </h3>
+        <p style="color:#666;margin-bottom:1.5rem;">Connect with thousands of basketball fans around the world.</p>
+        <a href="javascript:void(0)" 
+            style="background-color:#1a2a3a;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;cursor:pointer;"
+            onclick="document.getElementById('signupModal').style.display='flex'">
+            SIGN UP FOR FREE
+        </a>
+        </div>
+    </div>
+
+    <!-- Modal for signup form -->
+    <div id="signupModal" 
+        style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:1000;">
+        <div style="background:#fff;padding:2rem;border-radius:8px;max-width:400px;width:90%;position:relative;box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+        <button 
+            onclick="document.getElementById('signupModal').style.display='none'" 
+            style="position:absolute;top:10px;right:10px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#666;">
+            &times;
+        </button>
+        <h3 style="margin-top:0;color:#1a2a3a;text-align:center;margin-bottom:1.5rem;">Sign Up for Free</h3>
+        <form style="display:flex;flex-direction:column;gap:1rem;">
+            <input type="text" placeholder="Name" required style="padding:0.8rem;border:1px solid #ccc;border-radius:4px;font-size:1rem;">
+            <input type="email" placeholder="Email" required style="padding:0.8rem;border:1px solid #ccc;border-radius:4px;font-size:1rem;">
+            <button type="submit" style="background:#e63946;color:#fff;padding:0.8rem;font-weight:600;border:none;border-radius:4px;cursor:pointer;transition:background 0.3s ease;">
+            Submit
+            </button>
+        </form>
+        </div>
+    </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section style="background-color:#e63946;padding:5rem 5%;color:#fff;">
+        <div style="max-width:800px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:2.5rem;margin-top:-50px;margin-bottom:1rem;">STAY UPDATED</h2>
+            <p style="font-size:1.2rem;margin-bottom:2rem;">Subscribe to our newsletter for weekly basketball news, exclusive content, and special offers.</p>
+            <form style="display:flex;max-width:500px;margin:0 auto;">
+                <input type="email" placeholder="Your email address" style="flex:1;padding:0.8rem 1rem;border:none;border-radius:50px 0 0 50px;font-size:1rem;">
+                <button type="submit" style="background-color:#1a2a3a;color:#fff;padding:0 2rem;border:none;border-radius:0 50px 50px 0;font-weight:600;cursor:pointer;transition:background-color 0.3s ease;">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+ 
+</body>
+</html>

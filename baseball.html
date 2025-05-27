@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Baseball Hub - News, Stats, and Community</title>
+    <meta name="description" content="Explore the Ultimate Baseball Hub for the latest baseball news, live scores, player stats, team updates, and community events. Join baseball fans worldwide!">
+    <meta name="keywords" content="baseball, MLB, baseball news, live scores, player stats, baseball community, baseball events, baseball tips">
+    <meta name="author" content="Baseball Hub Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.baseballhub.com">
+</head>
+<body style="margin:0;font-family:Arial,sans-serif;background:#f4f4f4;color:#333;overflow-x:hidden;">
+
+
+
+
+    <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
+
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+    </style>
+
+
+    <header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+        <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+        <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+        SportZone
+        </div>
+        <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        </div>
+        <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+        <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+            <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+            <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+        </div>
+        </div>
+        <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="befit.html">BeFit</a>
+        <a href="">Sports</a>
+        <a href="">Games</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="special">Join Us</a>
+        </nav>
+        
+        <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+            <div >
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+            </div>
+        </div>
+    </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+
+
+
+    <!-- Hero Section -->
+    <section id="home" style="height:100vh;background:linear-gradient(rgba(0,45,114,0.8),rgba(0,45,114,0.8)),url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;padding:0 20px;margin-top:60px;position:relative;overflow:hidden;">
+        <div style="max-width:800px;z-index:2;animation:fadeIn 1.5s ease-in-out;">
+            <h1 style="font-size:4rem;margin-bottom:20px;text-shadow:2px 2px 5px rgba(0,0,0,0.5);">YOUR ULTIMATE BASEBALL DESTINATION</h1>
+            <p style="font-size:1.5rem;margin-bottom:30px;text-shadow:1px 1px 3px rgba(0,0,0,0.5);">Get the latest MLB news, scores, stats, and analysis from around the league</p>
+           <div style="display:flex;gap:20px;justify-content:center;">
+            <a href="#live-scores" style="text-decoration:none;">
+                <button
+                style="background-color:#D50032;color:white;border:none;padding:12px 25px;border-radius:30px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.2);"
+                onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)'"
+                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)'"
+                >
+                Live Scores
+                </button>
+            </a>
+            <a href="#team-rankings" style="text-decoration:none;">
+                <button
+                style="background-color:transparent;color:white;border:2px solid white;padding:12px 25px;border-radius:30px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.2);"
+                onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';this.style.backgroundColor='rgba(255,255,255,0.1)'"
+                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';this.style.backgroundColor='transparent'"
+                >
+                Team Rankings
+                </button>
+            </a>
+        </div>
+
+        </div>
+        <div style="position:absolute;bottom:0;left:0;width:100%;overflow:hidden;line-height:0;transform:rotate(180deg);">
+            <svg style="position:relative;display:block;width:calc(100% + 1.3px);height:150px;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path style="fill:#f5f5f5;" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path style="fill:#f5f5f5;" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path style="fill:#f5f5f5;" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="padding:80px 5%;background:#f8f9fa;text-align:center;">
+        <div style="max-width:1000px;margin:0 auto;">
+            <h2 style="font-size:40px;color:#e63946;margin-top:-50px;margin-bottom:20px;text-transform:uppercase;letter-spacing:2px;">
+            About <span style="color:#1a2a3a;">Baseball Hub</span>
+            </h2>
+            <p style="font-size:18px;line-height:1.8;color:#333;margin-bottom:40px;">
+            Baseball Hub is more than just a news site — it's the heart of the baseball community. Whether you're a die-hard MLB follower, a weekend league enthusiast, or a curious newcomer, we bring you closer to the action with unmatched passion and precision.
+            </p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left;">
+            <div style="background:#fff;padding:30px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.05);transition:transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='none'">
+                <h4 style="margin-top:0;color:#e63946;">Live Scores & Updates</h4>
+                <p style="color:#555;">Stay in sync with real-time scores, game-day stats, and detailed match coverage from leagues across the globe.</p>
+            </div>
+            <div style="background:#fff;padding:30px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.05);transition:transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='none'">
+                <h4 style="margin-top:0;color:#e63946;">Player Spotlights</h4>
+                <p style="color:#555;">Get exclusive insights, interviews, and career highlights of both seasoned stars and rising young talents.</p>
+            </div>
+            <div style="background:#fff;padding:30px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.05);transition:transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='none'">
+                <h4 style="margin-top:0;color:#e63946;">Fan Community</h4>
+                <p style="color:#555;">Join conversations, participate in polls, and connect with fellow baseball lovers in our growing online community.</p>
+            </div>
+            </div>
+
+            <div style="margin-top:50px;">
+            <a href="#news" style="display:inline-block;padding:14px 35px;background:#e63946;color:#fff;text-decoration:none;border-radius:50px;font-weight:bold;font-size:16px;transition:all 0.3s ease;" 
+                onmouseover="this.style.background='#d32f2f'" 
+                onmouseout="this.style.background='#e63946'">
+                Discover the Latest News →
+            </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="news" style="padding:80px 5%;background-color:#f5f5f5;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-top:-50px;margin-bottom:50px;color:#002D72;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">
+            LATEST BASEBALL NEWS <span style="color:#D50032;">.</span>
+            </h2>
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:30px;">
+            <!-- Card 1 -->
+            <div style="background-color:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;" 
+                onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Baseball player hitting home run" style="width:100%;height:200px;object-fit:cover;">
+                <div style="padding:20px;">
+                <span style="background-color:#D50032;color:white;padding:5px 10px;border-radius:5px;font-size:0.8rem;font-weight:600;">BREAKING</span>
+                <h3 style="margin-top:15px;font-size:1.5rem;color:#002D72;">Historic Home Run Record Broken</h3>
+                <p style="color:#666;margin:10px 0 15px;">New York Yankees slugger sets new single-season home run record in dramatic fashion.</p>
+                <p id="news1-more" style="display:none;color:#444;margin-top:10px;line-height:1.5;">
+                    The player smashed 55 home runs, surpassing a decades-old record. Fans and analysts alike are calling it a season-defining achievement that highlights his unmatched power and consistency.
+                </p>
+                <a href="javascript:void(0);" onclick="toggleRead('news1')" style="color:#D50032;text-decoration:none;font-weight:600;cursor:pointer;display:inline-block;margin-top:10px;">
+                    Read More
+                </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="background-color:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;" 
+                onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Baseball pitcher throwing ball" style="width:100%;height:200px;object-fit:cover;">
+                <div style="padding:20px;">
+                <span style="background-color:#002D72;color:white;padding:5px 10px;border-radius:5px;font-size:0.8rem;font-weight:600;">ANALYSIS</span>
+                <h3 style="margin-top:15px;font-size:1.5rem;color:#002D72;">Pitching Dominance: The New Era</h3>
+                <p style="color:#666;margin:10px 0 15px;">How modern pitchers are changing the game with unprecedented strikeout numbers.</p>
+                <p id="news2-more" style="display:none;color:#444;margin-top:10px;line-height:1.5;">
+                    The emergence of new training techniques and advanced analytics is helping pitchers increase velocity and control, leading to a surge in strikeouts and reduced batting averages league-wide.
+                </p>
+                <a href="javascript:void(0);" onclick="toggleRead('news2')" style="color:#D50032;text-decoration:none;font-weight:600;cursor:pointer;display:inline-block;margin-top:10px;">
+                    Read More
+                </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="background-color:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;" 
+                onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Baseball stadium with fans" style="width:100%;height:200px;object-fit:cover;">
+                <div style="padding:20px;">
+                <span style="background-color:#FFD700;color:#333;padding:5px 10px;border-radius:5px;font-size:0.8rem;font-weight:600;">TRENDING</span>
+                <h3 style="margin-top:15px;font-size:1.5rem;color:#002D72;">Ballpark Attendance Hits Record High</h3>
+                <p style="color:#666;margin:10px 0 15px;">Fans return to stadiums in record numbers as baseball's popularity soars.</p>
+                <p id="news3-more" style="display:none;color:#444;margin-top:10px;line-height:1.5;">
+                    With new stadium experiences and community events, attendance numbers have exceeded expectations, signaling a strong comeback for live baseball entertainment.
+                </p>
+                <a href="javascript:void(0);" onclick="toggleRead('news3')" style="color:#D50032;text-decoration:none;font-weight:600;cursor:pointer;display:inline-block;margin-top:10px;">
+                    Read More
+                </a>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+    function toggleRead(id) {
+        const moreText = document.getElementById(id + "-more");
+        const link = event.target;
+        if (moreText.style.display === "none" || moreText.style.display === "") {
+        moreText.style.display = "block";
+        link.textContent = "Read Less";
+        } else {
+        moreText.style.display = "none";
+        link.textContent = "Read More";
+        }
+    }
+    </script>
+
+    <!-- Teams Section -->
+    <section id="teams" style="padding:80px 5%;background-color:#002D72;color:white;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-top:-50px;margin-bottom:50px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">
+            MLB TEAMS <span style="color:#D50032;">.</span>
+            </h2>
+            <div id="teams-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;">
+            
+            <!-- Always visible teams -->
+            <div style="background-color:rgba(255,255,255,0.1);border-radius:10px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='rgba(213,0,50,0.2)'"
+                onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='rgba(255,255,255,0.1)'">
+                <h3 style="margin:0;font-size:1.2rem;">New York Yankees</h3>
+                <p style="margin:5px 0 0;color:#ccc;font-size:0.9rem;">AL East</p>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.1);border-radius:10px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='rgba(213,0,50,0.2)'"
+                onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='rgba(255,255,255,0.1)'">
+                <h3 style="margin:0;font-size:1.2rem;">Los Angeles Dodgers</h3>
+                <p style="margin:5px 0 0;color:#ccc;font-size:0.9rem;">NL West</p>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.1);border-radius:10px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='rgba(213,0,50,0.2)'"
+                onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='rgba(255,255,255,0.1)'">
+                <h3 style="margin:0;font-size:1.2rem;">Houston Astros</h3>
+                <p style="margin:5px 0 0;color:#ccc;font-size:0.9rem;">AL West</p>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.1);border-radius:10px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='rgba(213,0,50,0.2)'"
+                onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='rgba(255,255,255,0.1)'">
+                <h3 style="margin:0;font-size:1.2rem;">Atlanta Braves</h3>
+                <p style="margin:5px 0 0;color:#ccc;font-size:0.9rem;">NL East</p>
+            </div>
+            
+            <!-- Hidden teams -->
+            <div class="extra-team" style="display:none;background-color:rgba(255,255,255,0.1);border-radius:10px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='rgba(213,0,50,0.2)'"
+                onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='rgba(255,255,255,0.1)'">
+                <h3 style="margin:0;font-size:1.2rem;">Chicago Cubs</h3>
+                <p style="margin:5px 0 0;color:#ccc;font-size:0.9rem;">NL Central</p>
+            </div>
+            <div class="extra-team" style="display:none;background-color:rgba(255,255,255,0.1);border-radius:10px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='rgba(213,0,50,0.2)'"
+                onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='rgba(255,255,255,0.1)'">
+                <h3 style="margin:0;font-size:1.2rem;">St. Louis Cardinals</h3>
+                <p style="margin:5px 0 0;color:#ccc;font-size:0.9rem;">NL Central</p>
+            </div>
+            <div class="extra-team" style="display:none;background-color:rgba(255,255,255,0.1);border-radius:10px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='rgba(213,0,50,0.2)'"
+                onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='rgba(255,255,255,0.1)'">
+                <h3 style="margin:0;font-size:1.2rem;">Minnesota Twins</h3>
+                <p style="margin:5px 0 0;color:#ccc;font-size:0.9rem;">AL Central</p>
+            </div>
+
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+            <button id="toggleTeamsBtn" 
+                    style="background-color:#D50032;color:white;border:none;padding:12px 30px;border-radius:30px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.2);display:inline-flex;align-items:center;gap:10px;" 
+                    onmouseover="this.style.transform='scale(1.05)';this.style.backgroundColor='#b3002a'" 
+                    onmouseout="this.style.transform='scale(1)';this.style.backgroundColor='#D50032'"
+                    onclick="toggleTeams()">
+                View All Teams <i class="fas fa-chevron-down"></i>
+            </button>
+            </div>
+        </div>
+
+        <script>
+            function toggleTeams() {
+            const extras = document.querySelectorAll('.extra-team');
+            const btn = document.getElementById('toggleTeamsBtn');
+            let anyHidden = false;
+            
+            extras.forEach(div => {
+                if (div.style.display === "none" || div.style.display === "") {
+                anyHidden = true;
+                }
+            });
+
+            if (anyHidden) {
+                extras.forEach(div => div.style.display = 'block');
+                btn.innerHTML = 'Less Teams <i class="fas fa-chevron-up"></i>';
+            } else {
+                extras.forEach(div => div.style.display = 'none');
+                btn.innerHTML = 'View All Teams <i class="fas fa-chevron-down"></i>';
+            }
+            }
+        </script>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" style="padding:80px 5%;background-color:#f5f5f5;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-top:-50px;margin-bottom:50px;color:#002D72;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">PLAYER STATISTICS <span style="color:#D50032;">.</span></h2>
+            <div style="background-color:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);overflow:hidden;">
+                <div style="display:flex;border-bottom:1px solid #eee;background-color:#002D72;color:white;">
+                    <div style="flex:1;padding:15px;font-weight:600;">Player</div>
+                    <div style="flex:1;padding:15px;font-weight:600;text-align:center;">Team</div>
+                    <div style="flex:1;padding:15px;font-weight:600;text-align:center;">AVG</div>
+                    <div style="flex:1;padding:15px;font-weight:600;text-align:center;">HR</div>
+                    <div style="flex:1;padding:15px;font-weight:600;text-align:center;">RBI</div>
+                </div>
+                <div style="display:flex;border-bottom:1px solid #eee;transition:background-color 0.3s;" onmouseover="this.style.backgroundColor='rgba(0,45,114,0.05)'" onmouseout="this.style.backgroundColor='white'">
+                    <div style="flex:1;padding:15px;display:flex;align-items:center;gap:10px;">
+                        <img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/660271/headshot/67/current" alt="Shohei Ohtani" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+                        <span>Shohei Ohtani</span>
+                    </div>
+                    <div style="flex:1;padding:15px;text-align:center;color:#666;">LAA</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">.312</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#D50032;">44</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">95</div>
+                </div>
+                <div style="display:flex;border-bottom:1px solid #eee;transition:background-color 0.3s;" onmouseover="this.style.backgroundColor='rgba(0,45,114,0.05)'" onmouseout="this.style.backgroundColor='white'">
+                    <div style="flex:1;padding:15px;display:flex;align-items:center;gap:10px;">
+                        <img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/592450/headshot/67/current" alt="Aaron Judge" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+                        <span>Aaron Judge</span>
+                    </div>
+                    <div style="flex:1;padding:15px;text-align:center;color:#666;">NYY</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">.291</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#D50032;">39</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">85</div>
+                </div>
+                <div style="display:flex;border-bottom:1px solid #eee;transition:background-color 0.3s;" onmouseover="this.style.backgroundColor='rgba(0,45,114,0.05)'" onmouseout="this.style.backgroundColor='white'">
+                    <div style="flex:1;padding:15px;display:flex;align-items:center;gap:10px;">
+                        <img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/665487/headshot/67/current" alt="Ronald Acuña Jr." style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+                        <span>Ronald Acuña Jr.</span>
+                    </div>
+                    <div style="flex:1;padding:15px;text-align:center;color:#666;">ATL</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">.336</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#D50032;">32</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">71</div>
+                </div>
+                <div style="display:flex;border-bottom:1px solid #eee;transition:background-color 0.3s;" onmouseover="this.style.backgroundColor='rgba(0,45,114,0.05)'" onmouseout="this.style.backgroundColor='white'">
+                    <div style="flex:1;padding:15px;display:flex;align-items:center;gap:10px;">
+                        <img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/608331/headshot/67/current" alt="Mookie Betts" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+                        <span>Mookie Betts</span>
+                    </div>
+                    <div style="flex:1;padding:15px;text-align:center;color:#666;">LAD</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">.307</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#D50032;">31</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">80</div>
+                </div>
+                <div style="display:flex;transition:background-color 0.3s;" onmouseover="this.style.backgroundColor='rgba(0,45,114,0.05)'" onmouseout="this.style.backgroundColor='white'">
+                    <div style="flex:1;padding:15px;display:flex;align-items:center;gap:10px;">
+                        <img src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/547180/headshot/67/current" alt="Freddie Freeman" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+                        <span>Freddie Freeman</span>
+                    </div>
+                    <div style="flex:1;padding:15px;text-align:center;color:#666;">LAD</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">.331</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#D50032;">25</div>
+                    <div style="flex:1;padding:15px;text-align:center;font-weight:600;color:#002D72;">88</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Scores Section -->
+    <section id="live-scores" style="padding:60px 20px;background:#1d3557;color:#fff;text-align:center;">
+        <h2 style="font-size:36px;margin-bottom:20px;">Live Scores</h2>
+        <p style="font-size:18px;max-width:800px;margin:0 auto 20px;">Stay updated with real-time scores from MLB and other major leagues. Check back for live game updates!</p>
+        <div style="display:flex;justify-content:center;gap:20px;">
+            <div style="background:#fff;color:#333;padding:20px;border-radius:10px;width:200px;animation:fadeIn 1s ease-in-out;">
+                <h3 style="font-size:20px;margin:0;">Yankees vs. Dodgers</h3>
+                <p style="font-size:16px;">3 - 2 (7th Inning)</p>
+            </div>
+            <div style="background:#fff;color:#333;padding:20px;border-radius:10px;width:200px;animation:fadeIn 1s ease-in-out 0.2s;">
+                <h3 style="font-size:20px;margin:0;">Red Sox vs. Cubs</h3>
+                <p style="font-size:16px;">1 - 4 (5th Inning)</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Rankings Section -->
+    <section id="team-rankings" style="padding:80px 5%;background:linear-gradient(135deg,#f8f9fa,#e9ecef);text-align:center;position:relative;overflow:hidden;">
+        <!-- Decorative elements -->
+        <div style="position:absolute;top:-50px;left:-50px;width:200px;height:200px;background:rgba(230,57,70,0.1);border-radius:50%;z-index:0;"></div>
+        <div style="position:absolute;bottom:-30px;right:-30px;width:150px;height:150px;background:rgba(0,53,128,0.1);border-radius:50%;z-index:0;"></div>
+        
+        <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.8rem;color:#e63946;margin-top:-50px;margin-bottom:15px;text-shadow:1px 1px 3px rgba(0,0,0,0.1);position:relative;display:inline-block;">
+                <span style="display:block;width:60%;height:4px;background:#e63946;margin:10px auto 0;"></span>
+                2025 TEAM RANKINGS
+            </h2>
+            <p style="font-size:1.2rem;max-width:800px;margin:0 auto 40px;color:#495057;line-height:1.6;">Discover which MLB teams are dominating the 2025 season with our comprehensive power rankings updated weekly.</p>
+            
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:30px;">
+                <!-- Team 1 -->
+                <div style="background:#fff;padding:25px;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.08);width:200px;transition:all 0.4s ease;position:relative;overflow:hidden;border-top:5px solid #e63946;animation:fadeInUp 0.8s ease-out;"
+                    onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 15px 30px rgba(0,0,0,0.12)'"
+                    onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.08)'">
+                    <div style="position:absolute;top:0;left:0;width:100%;height:5px;background:#e63946;"></div>
+                    <div style="background:#e63946;color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.5rem;margin:0 auto 15px;box-shadow:0 4px 8px rgba(230,57,70,0.3);">1</div>
+                    <h3 style="font-size:1.5rem;margin:0 0 5px;color:#212529;">Los Angeles Dodgers</h3>
+                    <p style="font-size:1.1rem;color:#6c757d;margin:0 0 10px;">NL West</p>
+                    <div style="display:flex;justify-content:center;gap:15px;margin-top:15px;">
+                        <div style="text-align:center;">
+                            <span style="display:block;font-size:0.9rem;color:#6c757d;">Record</span>
+                            <span style="font-size:1.3rem;font-weight:bold;color:#212529;">92-70</span>
+                        </div>
+                        <div style="height:40px;width:1px;background:#dee2e6;"></div>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-size:0.9rem;color:#6c757d;">Streak</span>
+                            <span style="font-size:1.3rem;font-weight:bold;color:#2a9d8f;">W5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team 2 -->
+                <div style="background:#fff;padding:25px;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.08);width:200px;transition:all 0.4s ease;position:relative;overflow:hidden;border-top:5px solid #003366;animation:fadeInUp 0.8s ease-out 0.2s;"
+                    onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 15px 30px rgba(0,0,0,0.12)'"
+                    onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.08)'">
+                    <div style="position:absolute;top:0;left:0;width:100%;height:5px;background:#003366;"></div>
+                    <div style="background:#003366;color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.5rem;margin:0 auto 15px;box-shadow:0 4px 8px rgba(0,51,102,0.3);">2</div>
+                    <h3 style="font-size:1.5rem;margin:0 0 5px;color:#212529;">New York Yankees</h3>
+                    <p style="font-size:1.1rem;color:#6c757d;margin:0 0 10px;">AL East</p>
+                    <div style="display:flex;justify-content:center;gap:15px;margin-top:15px;">
+                        <div style="text-align:center;">
+                            <span style="display:block;font-size:0.9rem;color:#6c757d;">Record</span>
+                            <span style="font-size:1.3rem;font-weight:bold;color:#212529;">89-73</span>
+                        </div>
+                        <div style="height:40px;width:1px;background:#dee2e6;"></div>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-size:0.9rem;color:#6c757d;">Streak</span>
+                            <span style="font-size:1.3rem;font-weight:bold;color:#2a9d8f;">W3</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team 3 -->
+                <div style="background:#fff;padding:25px;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.08);width:200px;transition:all 0.4s ease;position:relative;overflow:hidden;border-top:5px solid #CE1141;animation:fadeInUp 0.8s ease-out 0.4s;"
+                    onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 15px 30px rgba(0,0,0,0.12)'"
+                    onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 20px rgba(0,0,0,0.08)'">
+                    <div style="position:absolute;top:0;left:0;width:100%;height:5px;background:#CE1141;"></div>
+                    <div style="background:#CE1141;color:white;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.5rem;margin:0 auto 15px;box-shadow:0 4px 8px rgba(206,17,65,0.3);">3</div>
+                    <h3 style="font-size:1.5rem;margin:0 0 5px;color:#212529;">Chicago White Sox</h3>
+                    <p style="font-size:1.1rem;color:#6c757d;margin:0 0 10px;">AL Central</p>
+                    <div style="display:flex;justify-content:center;gap:15px;margin-top:15px;">
+                        <div style="text-align:center;">
+                            <span style="display:block;font-size:0.9rem;color:#6c757d;">Record</span>
+                            <span style="font-size:1.3rem;font-weight:bold;color:#212529;">86-76</span>
+                        </div>
+                        <div style="height:40px;width:1px;background:#dee2e6;"></div>
+                        <div style="text-align:center;">
+                            <span style="display:block;font-size:0.9rem;color:#6c757d;">Streak</span>
+                            <span style="font-size:1.3rem;font-weight:bold;color:#e63946;">L1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    
+    <!-- Events Section -->
+    <section id="events" style="padding:80px 5%;background:linear-gradient(to right, #f8f9fa, #e9ecef);position:relative;overflow:hidden;">
+        <!-- Decorative elements -->
+        <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:rgba(230,57,70,0.05);border-radius:50%;transform:translate(50%,-50%);"></div>
+        <div style="position:absolute;bottom:0;left:0;width:300px;height:300px;background:rgba(0,53,128,0.05);border-radius:50%;transform:translate(-50%,50%);"></div>
+        
+        <div style="max-width:1200px;margin:0 auto;position:relative;">
+            <h2 style="font-size:2.8rem;text-align:center;color:#e63946;margin-top:-50px;margin-bottom:15px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">
+                UPCOMING BASEBALL EVENTS
+                <span style="display:block;width:80px;height:4px;background:#e63946;margin:15px auto 0;border-radius:2px;"></span>
+            </h2>
+            <p style="font-size:1.2rem;text-align:center;color:#495057;max-width:800px;margin:0 auto 50px;line-height:1.6;">
+                Don't miss the most exciting baseball events of the 2025 season. Mark your calendars!
+            </p>
+            
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:30px; max-width: 1200px; margin:auto; padding:20px;">
+
+            <!-- Event Card 1 -->
+            <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);
+                        transition:all 0.4s ease; position:relative; animation:fadeInUp 0.8s ease-out;
+                        display:flex; flex-direction:column;"
+                onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 15px 40px rgba(0,0,0,0.12)'"
+                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.08)'">
+                <div style="height:180px; overflow:hidden; position:relative;">
+                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="All-Star Game"
+                    style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'">
+                <div style="position:absolute; top:15px; right:15px; background:rgba(230,57,70,0.9);
+                            color:white; padding:5px 15px; border-radius:20px; font-size:0.9rem; font-weight:600;">
+                    FEATURED
+                </div>
+                </div>
+                <div style="padding:25px; flex-grow:1; display:flex; flex-direction: column; justify-content: space-between;">
+                <div style="display:flex; align-items:center; margin-bottom:15px;">
+                    <div style="background:#e63946; width:50px; height:50px; border-radius:8px;
+                                display:flex; flex-direction:column; align-items:center; justify-content:center;
+                                margin-right:15px; flex-shrink:0;">
+                    <span style="color:white; font-size:1.2rem; font-weight:700; line-height:1;">15</span>
+                    <span style="color:white; font-size:0.7rem; text-transform:uppercase;">JUL</span>
+                    </div>
+                    <div>
+                    <h3 style="font-size:1.5rem; margin:0 0 5px; color:#212529;">MLB All-Star Game</h3>
+                    <p style="font-size:1rem; color:#6c757d; margin:0;">Truist Park, Atlanta, GA</p>
+                    </div>
+                </div>
+                <p style="color:#495057; margin-bottom:20px; line-height:1.6;">
+                    The 95th MLB All-Star Game featuring the best players from the American and National Leagues.
+                </p>
+                <div style="display:flex; justify-content:flex-start; align-items:center;">
+                    <span style="background:#f1faee; color:#1d3557; padding:5px 10px; border-radius:5px; font-size:0.9rem; font-weight:600;">
+                    7:30 PM ET
+                    </span>
+                </div>
+                </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);
+                        transition:all 0.4s ease; position:relative; animation:fadeInUp 0.8s ease-out 0.2s;
+                        display:flex; flex-direction:column;"
+                onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 15px 40px rgba(0,0,0,0.12)'"
+                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.08)'">
+                <div style="height:180px; overflow:hidden; position:relative;">
+                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Fan Fest"
+                    style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'">
+                <div style="position:absolute; top:15px; right:15px; background:rgba(0,53,128,0.9);
+                            color:white; padding:5px 15px; border-radius:20px; font-size:0.9rem; font-weight:600;">
+                    FAMILY FRIENDLY
+                </div>
+                </div>
+                <div style="padding:25px; flex-grow:1; display:flex; flex-direction: column; justify-content: space-between;">
+                <div style="display:flex; align-items:center; margin-bottom:15px;">
+                    <div style="background:#003366; width:50px; height:50px; border-radius:8px;
+                                display:flex; flex-direction:column; align-items:center; justify-content:center;
+                                margin-right:15px; flex-shrink:0;">
+                    <span style="color:white; font-size:1.2rem; font-weight:700; line-height:1;">10</span>
+                    <span style="color:white; font-size:0.7rem; text-transform:uppercase;">AUG</span>
+                    </div>
+                    <div>
+                    <h3 style="font-size:1.5rem; margin:0 0 5px; color:#212529;">MLB Fan Fest</h3>
+                    <p style="font-size:1rem; color:#6c757d; margin:0;">Guaranteed Rate Field, Chicago, IL</p>
+                    </div>
+                </div>
+                <p style="color:#495057; margin-bottom:20px; line-height:1.6;">
+                    The ultimate baseball fan experience with player appearances, interactive exhibits, and memorabilia.
+                </p>
+                <div style="display:flex; justify-content:flex-start; align-items:center;">
+                    <span style="background:#f1faee; color:#1d3557; padding:5px 10px; border-radius:5px; font-size:0.9rem; font-weight:600;">
+                    10:00 AM - 6:00 PM
+                    </span>
+                </div>
+                </div>
+            </div>
+
+            <!-- Event Card 3 -->
+            <div style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);
+                        transition:all 0.4s ease; position:relative; animation:fadeInUp 0.8s ease-out 0.4s;
+                        display:flex; flex-direction:column;"
+                onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 15px 40px rgba(0,0,0,0.12)'"
+                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.08)'">
+                <div style="height:180px; overflow:hidden; position:relative;">
+                <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Home Run Derby"
+                    style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'">
+                <div style="position:absolute; top:15px; right:15px; background:rgba(29,53,87,0.9);
+                            color:white; padding:5px 15px; border-radius:20px; font-size:0.9rem; font-weight:600;">
+                    PREMIUM EVENT
+                </div>
+                </div>
+                <div style="padding:25px; flex-grow:1; display:flex; flex-direction: column; justify-content: space-between;">
+                <div style="display:flex; align-items:center; margin-bottom:15px;">
+                    <div style="background:#1d3557; width:50px; height:50px; border-radius:8px;
+                                display:flex; flex-direction:column; align-items:center; justify-content:center;
+                                margin-right:15px; flex-shrink:0;">
+                    <span style="color:white; font-size:1.2rem; font-weight:700; line-height:1;">14</span>
+                    <span style="color:white; font-size:0.7rem; text-transform:uppercase;">JUL</span>
+                    </div>
+                    <div>
+                    <h3 style="font-size:1.5rem; margin:0 0 5px; color:#212529;">Home Run Derby</h3>
+                    <p style="font-size:1rem; color:#6c757d; margin:0;">Truist Park, Atlanta, GA</p>
+                    </div>
+                </div>
+                <p style="color:#495057; margin-bottom:20px; line-height:1.6;">
+                    Watch baseball's biggest sluggers compete in the most exciting power-hitting competition.
+                </p>
+                <div style="display:flex; justify-content:flex-start; align-items:center;">
+                    <span style="background:#f1faee; color:#1d3557; padding:5px 10px; border-radius:5px; font-size:0.9rem; font-weight:600;">
+                    8:00 PM ET
+                    </span>
+                </div>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding:60px 20px;background:#fff;text-align:center;">
+        <h2 style="font-size:36px;color:#e63946;margin-bottom:20px;">Contact Us</h2>
+        <p style="font-size:18px;max-width:800px;margin:0 auto 20px;">Have questions? Reach out to us!</p>
+        <form style="max-width:600px;margin:0 auto;">
+            <input type="text" placeholder="Name" style="width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:5px;font-size:16px;">
+            <input type="email" placeholder="Email" style="width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:5px;font-size:16px;">
+            <textarea placeholder="Message" style="width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:5px;font-size:16px;height:100px;"></textarea>
+            <button type="submit" style="padding:15px 30px;background:#e63946;color:#fff;border:none;border-radius:5px;font-size:18px;cursor:pointer;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding:20px;background:#1d3557;color:#fff;text-align:center;">
+        <p style="margin:0;font-size:16px;">&copy; 2025 Baseball Hub. All rights reserved.</p>
+        <div style="margin-top:10px;">
+            <a href="#" style="color:#fff;text-decoration:none;margin:0 10px;">Privacy Policy</a>
+            <a href="#" style="color:#fff;text-decoration:none;margin:0 10px;">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Animations -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity:0; }
+            to { opacity:1; }
+        }
+        @keyframes slideIn {
+            from { transform:translateY(50px);opacity:0; }
+            to { transform:translateY(0);opacity:1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform:translateY(0); }
+            50% { transform:translateY(-10px); }
+        }
+        @media (max-width:768px) {
+            section h2 { font-size:28px; }
+            section p { font-size:16px; }
+            section div { flex-direction:column; }
+            section div article, section div li, section div div { width:100%; }
+        }
+    </style>
+
+
+
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

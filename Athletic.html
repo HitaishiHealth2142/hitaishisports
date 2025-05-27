@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive athletics news, event highlights, upcoming meets, and athletics literature">
+    <meta name="keywords" content="athletics, track and field, running, jumping, throwing, sports news">
+    <title>Athletics Universe - News, Events & Stories</title>
+    <style>body{margin:0;font-family:'Arial',sans-serif;scroll-behavior:smooth;}a{text-decoration:none;}</style>
+</head>
+<body>
+
+   <style>
+    a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    nav a.special {
+      background-color: #28a745;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px !important;
+        flex-wrap: wrap !important;
+      }
+      .search-container {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: flex-start !important;
+        margin: 10px 0 !important;
+      }
+      .search-box {
+        width: 100% !important;
+      }
+      #mainNav {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        background: #f0f4f8 !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      #mainNav.active {
+        display: flex !important;
+      }
+      #hamburgerMenu {
+        display: flex !important;
+      }
+      #mainNav a {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+  </style>
+  <header style="max-width: 100%; display:flex; gap: 40px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px;">
+        <div>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+  </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+    <!-- Hero Section with Animated Background -->
+    <section id="hero" style="height:80vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:white;text-align:center;">
+    <!-- Background image layers -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('https://media.istockphoto.com/id/643035724/vector/run-people-illustration.jpg?s=612x612&w=0&k=20&c=Y51VMciiSXjvx7_B-zQiK0Za-3IJyabghVMsyUlZjLQ=');background-size:cover;background-position:center;animation:fade1 24s infinite;z-index:-1;opacity:0;"></div>
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('https://www.sportsintegrityinitiative.com/wp-content/uploads/2016/03/L20121500m.jpg');background-size:cover;background-position:center;animation:fade2 24s infinite;z-index:-1;opacity:0;"></div>
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('https://st2.depositphotos.com/1782790/11365/i/450/depositphotos_113657072-stock-photo-brooke-stratton-in-the-long.jpg');background-size:cover;background-position:center;animation:fade3 24s infinite;z-index:-1;opacity:0;"></div>
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('https://cloudfront-us-east-2.images.arcpublishing.com/reuters/ZAZJXKT7RZIEPMHBJNVKPMZVAQ.jpg');background-size:cover;background-position:center;animation:fade4 24s infinite;z-index:-1;opacity:0;"></div>
+    <!-- Content -->
+    <div style="z-index:1;max-width:800px;padding:30px;background-color:rgba(0,0,0,0.7);border-radius:15px;backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.1);">
+        <h1 style="font-size:4rem;margin-bottom:25px;text-shadow:2px 2px 8px #000;font-weight:800;letter-spacing:1px;">Athletics Universe</h1>
+        <p style="font-size:1.5rem;margin-bottom:40px;text-shadow:1px 1px 3px #000;">Your ultimate destination for athletics news, events and stories</p>
+        <a href="#world-champs" style="padding:15px 40px;background:#f59e42;color:white;border-radius:50px;font-weight:bold;transition:all 0.3s;display:inline-block;font-size:1.1rem;box-shadow:0 4px 15px rgba(245,158,66,0.4);"
+        onmouseover="this.style.transform='scale(1.05)';this.style.background='#d97706'"
+        onmouseout="this.style.transform='scale(1)';this.style.background='#f59e42'">Explore Events</a>
+    </div>
+    </section>
+
+    <style>
+    @keyframes fade1 {
+    0% { opacity: 0.8; }
+    25% { opacity: 0; }
+    100% { opacity: 0.8; }
+    }
+    @keyframes fade2 {
+    0%, 25% { opacity: 0; }
+    25%, 50% { opacity: 0.8; }
+    50%, 100% { opacity: 0; }
+    }
+    @keyframes fade3 {
+    0%, 50% { opacity: 0; }
+    50%, 75% { opacity: 0.8; }
+    75%, 100% { opacity: 0; }
+    }
+    @keyframes fade4 {
+    0%, 75% { opacity: 0; }
+    75%, 100% { opacity: 0.8; }
+    }
+    </style>
+
+    <!-- Latest News Section -->
+    <section id="news" style="padding:80px 20px;background-color:#f8f9fa;position:relative;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#333;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">Latest Athletics News</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px;">
+                <!-- News Card 1 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#f59e42;">World Record Smashed</h3>
+                    <p style="color:#666;">A new world record in the men's 100m dash electrifies the athletics world.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#f59e42;font-weight:bold;" id="toggle-link-more1">Read More →</a>
+                    <div id="more1" style="display:none;color:#444;margin-top:10px;">
+                        The sprinter clocked an astonishing 9.57 seconds, rewriting history and inspiring a new generation of athletes.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#f59e42;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- News Card 2 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#f59e42;">Diamond League Returns</h3>
+                    <p style="color:#666;">The prestigious Diamond League circuit is back with thrilling competitions across the globe.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#f59e42;font-weight:bold;" id="toggle-link-more2">Read More →</a>
+                    <div id="more2" style="display:none;color:#444;margin-top:10px;">
+                        Top athletes from every continent compete for glory in sprints, jumps, throws, and distance events.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#f59e42;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- News Card 3 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#f59e42;">Rising Star in Pole Vault</h3>
+                    <p style="color:#666;">A teenage sensation clears 6.20m, setting a new junior world record in pole vault.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#f59e42;font-weight:bold;" id="toggle-link-more3">Read More →</a>
+                    <div id="more3" style="display:none;color:#444;margin-top:10px;">
+                        The young athlete's performance has stunned the athletics community and promises a bright future.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#f59e42;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- News Card 4 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#f59e42;">Historic Marathon Finish</h3>
+                    <p style="color:#666;">An epic marathon finish sees two athletes tie for first place in a dramatic sprint to the line.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more4')" style="color:#f59e42;font-weight:bold;" id="toggle-link-more4">Read More →</a>
+                    <div id="more4" style="display:none;color:#444;margin-top:10px;">
+                        The historic race ended with both runners crossing the finish line at exactly the same time, marking the first-ever tie in the event's history. The crowd erupted as the athletes embraced, celebrating sportsmanship and endurance.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more4')" style="color:#f59e42;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+    function toggleText(id) {
+        const content = document.getElementById(id);
+        const link = document.getElementById("toggle-link-" + id);
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            link.style.display = "none";
+        } else {
+            content.style.display = "none";
+            link.style.display = "inline";
+        }
+    }
+    </script>
+
+    <!-- World Championships Section -->
+    <section>
+        <div id="world-champs" style="font-family: 'Segoe UI', sans-serif; max-width: 80%; margin: auto; padding: 25px; background: linear-gradient(135deg, #f5f7fa 0%, #ffe5b4 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden;">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h1 style="margin: 0; font-size: 2.5rem; background: linear-gradient(to right, #f59e42, #fbbf24); -webkit-background-clip: text; background-clip: text; color: transparent; animation: fadeIn 0.8s ease-in-out;">WORLD ATHLETICS CHAMPIONSHIPS 2025</h1>
+                <p style="color: #555; font-size: 1.2rem;">Countdown: <span id="countdown" style="font-weight: bold; color: #f59e42; animation: pulse 2s infinite;">-- days --:--:--</span></p>
+            </div>
+            <div style="width: 100%; overflow-x: auto; padding: 10px 0; -webkit-overflow-scrolling: touch;">
+                <div style="display: flex; gap: 20px; padding: 20px 0; width: max-content; min-width: 100%;">
+                    <!-- Card 1 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.5s ease-out;">
+                        <h3 style="color:#f59e42;">Men's 100m Final</h3>
+                        <p style="color:#555;">Witness the fastest men on earth compete for gold.</p>
+                        <div style="font-size:1.1rem;color:#f59e42;">Aug 23, 2025 • 19:00 GMT</div>
+                        <div style="font-size:0.9em;color:#666;">National Stadium, Tokyo</div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.7s ease-out;">
+                        <h3 style="color:#f59e42;">Women's Marathon</h3>
+                        <p style="color:#555;">Elite runners battle through the streets for the world title.</p>
+                        <div style="font-size:1.1rem;color:#f59e42;">Aug 24, 2025 • 06:00 GMT</div>
+                        <div style="font-size:0.9em;color:#666;">Tokyo City Course</div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.9s ease-out;">
+                        <h3 style="color:#f59e42;">Men's Long Jump</h3>
+                        <p style="color:#555;">Who will soar the farthest in this classic field event?</p>
+                        <div style="font-size:1.1rem;color:#f59e42;">Aug 25, 2025 • 17:00 GMT</div>
+                        <div style="font-size:0.9em;color:#666;">National Stadium, Tokyo</div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.1s ease-out;">
+                        <h3 style="color:#f59e42;">Women's 400m Hurdles</h3>
+                        <p style="color:#555;">The world’s top hurdlers face off in a test of speed, stamina, and technique over ten barriers.</p>
+                        <div style="font-size:1.1rem;color:#f59e42;">Aug 26, 2025 • 18:30 GMT</div>
+                        <div style="font-size:0.9em;color:#666;">National Stadium, Tokyo</div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.3s ease-out;">
+                        <h3 style="color:#f59e42;">Men's Shot Put</h3>
+                        <p style="color:#555;">Power and precision collide as the world’s strongest athletes compete for gold in the shot put ring.</p>
+                        <div style="font-size:1.1rem;color:#f59e42;">Aug 27, 2025 • 15:00 GMT</div>
+                        <div style="font-size:0.9em;color:#666;">National Stadium, Tokyo</div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.5s ease-out;">
+                        <h3 style="color:#f59e42;">Women's 1500m Final</h3>
+                        <p style="color:#555;">A tactical battle of speed and endurance as the world’s best middle-distance runners vie for the title.</p>
+                        <div style="font-size:1.1rem;color:#f59e42;">Aug 28, 2025 • 20:10 GMT</div>
+                        <div style="font-size:0.9em;color:#666;">National Stadium, Tokyo</div>
+                    </div>
+                </div>
+            </div>
+            <style>
+            @keyframes slideInUp {
+                0% { opacity: 0; transform: translateY(40px);}
+                100% { opacity: 1; transform: translateY(0);}
+            }
+            </style>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+                <button id="alertBtn"
+                        style="padding: 12px 30px; border: none; border-radius: 50px; background: linear-gradient(to right, #f59e42, #fbbf24); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(245,158,66,0.3); display: flex; align-items: center; gap: 10px; font-size: 1.1rem;"
+                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(245,158,66,0.4)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 20px rgba(245,158,66,0.3)'"
+                        onclick="toggleAlerts()">
+                    <i class="fas fa-bell" id="bellIcon" style="font-size: 1.2rem;"></i>
+                    <span id="alertText">Get Event Alerts</span>
+                    <i class="fas fa-check" id="checkIcon" style="display: none; margin-left: 8px; font-size: 1.2rem;"></i>
+                </button>
+            </div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            <script>
+                let alertsActive = false;
+                function toggleAlerts() {
+                    const bellIcon = document.getElementById('bellIcon');
+                    const checkIcon = document.getElementById('checkIcon');
+                    const alertText = document.getElementById('alertText');
+                    const alertBtn = document.getElementById('alertBtn');
+                    alertsActive = !alertsActive;
+                    if (alertsActive) {
+                        bellIcon.style.display = 'none';
+                        checkIcon.style.display = 'inline';
+                        alertText.textContent = 'Subscribed!';
+                        alertBtn.style.background = 'linear-gradient(to right, #22c55e, #16a34a)';
+                        setTimeout(() => {
+                            bellIcon.style.display = 'inline';
+                            checkIcon.style.display = 'none';
+                            alertText.textContent = 'Get Event Alerts';
+                            alertBtn.style.background = 'linear-gradient(to right, #f59e42, #fbbf24)';
+                            alertsActive = false;
+                        }, 2000);
+                    }
+                }
+                // Set the target date (Aug 23, 2025)
+                const targetDate = new Date("2025-08-23T19:00:00Z").getTime();
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const distance = targetDate - now;
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    document.getElementById("countdown").innerHTML =
+                        days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+                }
+                setInterval(updateCountdown, 1000);
+                updateCountdown();
+            </script>
+        </div>
+    </section>
+
+    <!-- Previous Events Section -->
+    <section id="events" style="padding:80px 20px;background:linear-gradient(135deg, #d1ad86, #363122, #fffde4);color:white;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;text-shadow:1px 1px 3px rgba(0,0,0,0.3);">Previous Event Highlights</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(350px, 1fr));gap:30px;">
+                <!-- Event 1 -->
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);">
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Men's 400m Hurdles</p>
+                        </div>
+                        <div style="flex:0 0 90px;text-align:center;">
+                            <div style="font-size:2rem;font-weight:bold;margin:5px 0;">46.70s</div>
+                            <div style="font-size:0.9rem;background:rgba(0,0,0,0.3);padding:3px 8px;border-radius:15px;display:inline-block;">Tokyo 2021</div>
+                        </div>
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Karsten Warholm</p>
+                        </div>
+                    </div>
+                    <div style="padding:20px;">
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">Warholm shattered the world record in a breathtaking race, cementing his legacy as one of the greatest hurdlers.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+                            <span style="font-size:0.85rem;opacity:0.8;">Aug 3, 2021</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 2 -->
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);">
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Women's Javelin</p>
+                        </div>
+                        <div style="flex:0 0 90px;text-align:center;">
+                            <div style="font-size:2rem;font-weight:bold;margin:5px 0;">66.34m</div>
+                            <div style="font-size:0.9rem;background:rgba(0,0,0,0.3);padding:3px 8px;border-radius:15px;display:inline-block;">Doha 2019</div>
+                        </div>
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Kelsey-Lee Barber</p>
+                        </div>
+                    </div>
+                    <div style="padding:20px;">
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">Barber's final throw clinched gold in a dramatic finish at the World Championships.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+                            <span style="font-size:0.85rem;opacity:0.8;">Oct 6, 2019</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 3 -->
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);">
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Men's Pole Vault</p>
+                        </div>
+                        <div style="flex:0 0 90px;text-align:center;">
+                            <div style="font-size:2rem;font-weight:bold;margin:5px 0;">6.21m</div>
+                            <div style="font-size:0.9rem;background:rgba(0,0,0,0.3);padding:3px 8px;border-radius:15px;display:inline-block;">Eugene 2022</div>
+                        </div>
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Armand Duplantis</p>
+                        </div>
+                    </div>
+                    <div style="padding:20px;">
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">Duplantis soared to a new world record, thrilling fans with his incredible pole vaulting skills.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+                            <span style="font-size:0.85rem;opacity:0.8;">July 24, 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Athletes Section -->
+    <section id="athletes" style="padding:80px 20px;background-color:#f1faee;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#f59e42;">Top Athletes of the Season</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));gap:30px;">
+                <!-- Top Athlete 1 -->
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.athlete-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.athlete-stats').style.opacity='0'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/USATF_day_2_2018_%2828094034057%29.jpg" alt="Top athlete 1" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="athlete-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(245,158,66,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#fffde4;">Noah Lyles</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>100m PB:</span><span>9.83s</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>200m PB:</span><span>19.31s</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>USA</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#f59e42;">Noah Lyles</h3>
+                        <p style="margin:5px 0 0;color:#fbbf24;font-size:0.9rem;">Sprinter</p>
+                    </div>
+                </div>
+                <!-- Top Athlete 2 -->
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.athlete-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.athlete-stats').style.opacity='0'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/WKBO4094_triplejump_W_final_Rojas_%2853173093736%29.jpg" alt="Top athlete 2" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="athlete-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(245,158,66,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#fffde4;">Yulimar Rojas</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Triple Jump PB:</span><span>15.74m</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Venezuela</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#f59e42;">Yulimar Rojas</h3>
+                        <p style="margin:5px 0 0;color:#fbbf24;font-size:0.9rem;">Triple Jumper</p>
+                    </div>
+                </div>
+                <!-- Top Athlete 3 -->
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.athlete-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.athlete-stats').style.opacity='0'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Armand_Duplantis_after_his_6.0_m_jump-1.jpg" alt="Top athlete 3" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="athlete-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(245,158,66,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#fffde4;">Armand Duplantis</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Pole Vault PB:</span><span>6.23m</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Sweden</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#f59e42;">Armand Duplantis</h3>
+                        <p style="margin:5px 0 0;color:#fbbf24;font-size:0.9rem;">Pole Vaulter</p>
+                    </div>
+                </div>
+                <!-- Top Athlete 4 -->
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.athlete-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.athlete-stats').style.opacity='0'">
+                    <img src="https://live.staticflickr.com/4649/25724516147_4a7b3c56eb_b.jpg" alt="Top athlete 4" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="athlete-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(245,158,66,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#fffde4;">Faith Kipyegon</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>1500m PB:</span><span>3:49.11</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Kenya</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#f59e42;">Faith Kipyegon</h3>
+                        <p style="margin:5px 0 0;color:#fbbf24;font-size:0.9rem;">Middle Distance</p>
+                    </div>
+                </div>
+                <!-- Top Athlete 5 -->
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.athlete-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.athlete-stats').style.opacity='0'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/2019_USA_Indoor_Track_and_Field_Championships_%2833345637978%29.jpg" alt="Top athlete 5" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="athlete-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(245,158,66,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#fffde4;">Ryan Crouser</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Shot Put PB:</span><span>23.56m</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>USA</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#f59e42;">Ryan Crouser</h3>
+                        <p style="margin:5px 0 0;color:#fbbf24;font-size:0.9rem;">Shot Putter</p>
+                    </div>
+                </div>
+                <!-- Top Athlete 6 -->
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.athlete-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.athlete-stats').style.opacity='0'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/ShericaMeeting_de_Paris%2C_Stade_Charlety.jpg" alt="Top athlete 6" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="athlete-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(245,158,66,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#fffde4;">Shericka Jackson</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>200m PB:</span><span>21.41s</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Jamaica</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#f59e42;">Shericka Jackson</h3>
+                        <p style="margin:5px 0 0;color:#fbbf24;font-size:0.9rem;">Sprinter</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" style="padding:80px 20px;background-color:#fff2df;">
+        <div style="max-width:600px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:2rem;margin-bottom:20px;color:#f59e42;">Stay Updated</h2>
+            <p style="color:#fbbf24;margin-bottom:30px;">Subscribe to our newsletter for the latest athletics news, event analysis, and exclusive content.</p>
+            <form style="display:flex;max-width:500px;margin:0 auto;">
+                <input type="email" placeholder="Your email address" style="flex:1;padding:12px 15px;border:1px solid #ddd;border-radius:30px 0 0 30px;font-size:1rem;outline:none;">
+                <button type="submit" style="padding:12px 25px;background:#f59e42;color:white;border:none;border-radius:0 30px 30px 0;font-weight:bold;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.background='#d97706'" onmouseout="this.style.background='#f59e42'">Subscribe</button>
+            </form>
+            <p style="font-size:0.8rem;color:#666;margin-top:20px;">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <style>
+        @keyframes heroAnim {
+            0%, 100% { opacity: 0.8; }
+            25% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+            75% { opacity: 0.4; }
+        }
+        .athlete-stats::-webkit-scrollbar {
+            width: 8px;
+        }
+        .athlete-stats::-webkit-scrollbar-track {
+            background: #fffde4;
+        }
+        .athlete-stats::-webkit-scrollbar-thumb {
+            background: #f59e42;
+            border-radius: 4px;
+        }
+    </style>
+
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

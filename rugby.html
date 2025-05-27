@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your rugby hub for live scores, world rankings, Six Nations, Rugby World Cup news, and expert analysis. Stay updated with the latest rugby action.">
+    <meta name="keywords" content="rugby, World Rugby, Six Nations, Rugby World Cup, rankings, live scores, All Blacks, Springboks, England Rugby">
+    <title>RUGBY CENTRAL | Live Scores, Rankings & World Cup News</title>
+    <link rel="canonical" href="https://www.example.com/rugby">
+    <style>
+        @keyframes heroRugby { 0% { background-image: url('https://monacolife.net/wp-content/uploads/2023/05/Rugby-League.jpeg'); } 25% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1a/ST_vs_Gloucester_-_Match_-_23.JPG'); } 50% { background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1350&q=80'); } 75% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/db/General_Rugby_Union_backplay.JPG'); } 100% { background-image: url('https://www.thetimes.com/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F5ad6349e-2f16-4822-9a68-f3574dd8b637.jpg?crop=3044%2C2030%2C0%2C0&resize=618'); } }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body >
+
+
+
+
+<header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+        <div >
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+</header>
+
+
+
+    <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
+
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+    </style>
+
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+
+
+    <!-- 1. Animated Hero Section (Floating Ball Effect) -->
+    <section style="height:80vh;background-size:cover;background-position:center;animation:heroRugby 20s infinite;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;">
+        <div style="background:rgba(0,0,0,0.65);padding:3rem;border-radius:15px;max-width:800px;margin:0 1rem;backdrop-filter:blur(5px);box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+            <h1 style="font-size:3.5rem;margin-bottom:1rem;text-shadow:2px 2px 5px rgba(0,0,0,0.5);">CONQUER THE PITCH</h1>
+            <p style="font-size:1.3rem;margin-bottom:2rem;text-shadow:1px 1px 3px rgba(0,0,0,0.5);">Live scores, world rankings, and Rugby World Cup news</p>
+            <div style="display:flex;gap:1rem;justify-content:center;">
+                <a href="#live-scores" style="background:#388e3c;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;animation:pulse 2s infinite;">LIVE SCORES</a>
+                <a href="#rankings" style="background:transparent;color:#fff;border:2px solid #fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;">RANKINGS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Live Scores Section (Card Slider Effect) -->
+    <section id="live-scores" style="width:100vw; overflow-x:hidden; background: #f9f9f9; color:#222; padding: 20px 0; font-family: Arial, sans-serif;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;position:relative; margin-top:-10px; color:#333;">Live Scores</h2>
+        <div style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden;">
+            <div id="slider" style="display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 0; scrollbar-width:none; -ms-overflow-style:none;">
+                <style>
+                    #slider::-webkit-scrollbar { display: none; }
+                </style>
+                <!-- Cards -->
+                <div style="min-width: 280px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #388e3c;" 
+                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="text-align:center; margin-bottom: 15px;">
+                        <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#388e3c;">New Zealand vs South Africa</p>
+                        <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Rugby Championship</p>
+                        <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #388e3c;">24 - 27</p>
+                        <p style="font-size: 0.85rem; color: #999;">Full Time</p>
+                    </div>
+                </div>
+                <div style="min-width: 280px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #1976d2;" 
+                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="text-align:center; margin-bottom: 15px;">
+                        <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#1976d2;">England vs France</p>
+                        <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Six Nations</p>
+                        <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #1976d2;">19 - 19</p>
+                        <p style="font-size: 0.85rem; color: #999;">Full Time</p>
+                    </div>
+                </div>
+                <div style="min-width: 280px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #fbc02d;" 
+                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="text-align:center; margin-bottom: 15px;">
+                        <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#fbc02d;">Australia vs Ireland</p>
+                        <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Autumn Internationals</p>
+                        <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #fbc02d;">17 - 22</p>
+                        <p style="font-size: 0.85rem; color: #999;">Full Time</p>
+                    </div>
+                </div>
+                <div style="min-width: 280px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #d84315;" 
+                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="text-align:center; margin-bottom: 15px;">
+                        <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#d84315;">Wales vs Scotland</p>
+                        <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Six Nations</p>
+                        <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #d84315;">21 - 18</p>
+                        <p style="font-size: 0.85rem; color: #999;">Full Time</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Arrows -->
+            <button onclick="document.getElementById('slider').scrollBy({left: -300, behavior: 'smooth'})" 
+                style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: rgba(0,0,0,0.1); border: none; border-radius: 50%; width: 40px; height: 40px; color: #333; font-size: 24px; cursor: pointer; user-select:none; transition: background 0.3s;">
+                &#8592;
+            </button>
+            <button onclick="document.getElementById('slider').scrollBy({left: 300, behavior: 'smooth'})" 
+                style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background: rgba(0,0,0,0.1); border: none; border-radius: 50%; width: 40px; height: 40px; color: #333; font-size: 24px; cursor: pointer; user-select:none; transition: background 0.3s;">
+                &#8594;
+            </button>
+        </div>
+    </section>
+
+    <!-- 3. Rankings Section (Interactive Table) -->
+    <section id="rankings" style="background:#1a2a3a;padding:5rem 5%;color:#fff;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.5rem;text-align:center;margin-top:-50px;margin-bottom:3rem;position:relative;">
+                WORLD RUGBY RANKINGS
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#388e3c;"></span>
+            </h2>
+            <div style="background:rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
+                <table style="width:100%;border-collapse:collapse;">
+                    <thead>
+                        <tr style="background:rgba(56,142,60,0.2);">
+                            <th style="padding:1rem;text-align:left;">Rank</th>
+                            <th style="padding:1rem;text-align:left;">Team</th>
+                            <th style="padding:1rem;text-align:right;">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                            <td style="padding:1rem;font-weight:600;">1</td>
+                            <td style="padding:1rem;">South Africa</td>
+                            <td style="padding:1rem;text-align:right;font-weight:600;">94.54</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                            <td style="padding:1rem;font-weight:600;">2</td>
+                            <td style="padding:1rem;">Ireland</td>
+                            <td style="padding:1rem;text-align:right;font-weight:600;">90.69</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                            <td style="padding:1rem;font-weight:600;">3</td>
+                            <td style="padding:1rem;">New Zealand</td>
+                            <td style="padding:1rem;text-align:right;font-weight:600;">89.80</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                            <td style="padding:1rem;font-weight:600;">4</td>
+                            <td style="padding:1rem;">France</td>
+                            <td style="padding:1rem;text-align:right;font-weight:600;">87.92</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:1rem;font-weight:600;">5</td>
+                            <td style="padding:1rem;">England</td>
+                            <td style="padding:1rem;text-align:right;font-weight:600;">85.46</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Major Tournaments Section (Card Grid) -->
+    <section style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+            MAJOR RUGBY TOURNAMENTS
+            <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#388e3c;"></span>
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;">
+            <!-- Rugby World Cup -->
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1000&q=80" alt="Rugby World Cup" style="width:100%;height:150px;object-fit:cover;">
+                <div style="padding:1.5rem;">
+                    <h3 style="margin-top:0;color:#1a2a3a;">Rugby World Cup</h3>
+                    <p style="color:#666;margin-bottom:1.5rem;">Global | Every 4 Years</p>
+                    <div id="more1" style="display:none;color:#444;margin-bottom:1rem;">
+                        The Rugby World Cup is the sport’s premier event, held every four years and featuring the top nations competing for the Webb Ellis Cup.
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <p style="margin:0;font-weight:600;color:#388e3c;">Sep 8–Oct 28, 2023</p>
+                        <a href="javascript:void(0);" onclick="toggleMore('1')" id="btn1" style="color:#1a2a3a;text-decoration:none;font-weight:600;">READ MORE →</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Six Nations -->
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;">
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1000&q=80" alt="Six Nations" style="width:100%;height:150px;object-fit:cover;">
+                <div style="padding:1.5rem;">
+                    <h3 style="margin-top:0;color:#1a2a3a;">Six Nations</h3>
+                    <p style="color:#666;margin-bottom:1.5rem;">Europe | Annual</p>
+                    <div id="more2" style="display:none;color:#444;margin-bottom:1rem;">
+                        The Six Nations is Europe’s oldest rugby tournament, featuring England, France, Ireland, Italy, Scotland, and Wales in a round-robin battle for continental supremacy.
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <p style="margin:0;font-weight:600;color:#388e3c;">Feb–Mar 2025</p>
+                        <a href="javascript:void(0);" onclick="toggleMore('2')" id="btn2" style="color:#1a2a3a;text-decoration:none;font-weight:600;">READ MORE →</a>
+                    </div>
+                </div>
+            </div>
+            <!-- The Rugby Championship -->
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbb1vBkmRR91YnxzO95j5IFcg2t8CKnx8E0ZqpwMyZPVevuTmmtqmsC_J9sHte8e2cFDY&usqp=CAU" alt="Rugby Championship" style="width:100%;height:150px;object-fit:cover;">
+                <div style="padding:1.5rem;">
+                    <h3 style="margin-top:0;color:#1a2a3a;">The Rugby Championship</h3>
+                    <p style="color:#666;margin-bottom:1.5rem;">Southern Hemisphere | Annual</p>
+                    <div id="more3" style="display:none;color:#444;margin-bottom:1rem;">
+                        The Rugby Championship features the best of the Southern Hemisphere: New Zealand, South Africa, Australia, and Argentina, in a fierce yearly contest.
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <p style="margin:0;font-weight:600;color:#388e3c;">Jul–Sep 2025</p>
+                        <a href="javascript:void(0);" onclick="toggleMore('3')" id="btn3" style="color:#1a2a3a;text-decoration:none;font-weight:600;">READ MORE →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleMore(id) {
+            var content = document.getElementById("more" + id);
+            var button = document.getElementById("btn" + id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                button.textContent = "READ LESS ←";
+            } else {
+                content.style.display = "none";
+                button.textContent = "READ MORE →";
+            }
+        }
+    </script>
+
+    <!-- 5. Player Spotlight (Floating Card Effect) -->
+    <section style="background:#f1f1f1;padding:5rem 5%;">
+        <div style="max-width:1200px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:2.5rem;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+                PLAYER SPOTLIGHT 
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#388e3c;"></span>
+            </h2>
+            <div style="background:#fff;border-radius:15px;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,0.1);max-width:800px;margin:0 auto;transition:transform 0.3s ease;">
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:3rem;align-items:center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2OzchrFC0i7lDcUds3W23I44-FvtyI-zxHg&s" alt="Siya Kolisi" style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:5px solid #388e3c;">
+                    <div style="text-align:left;max-width:400px;">
+                        <h3 style="font-size:1.8rem;color:#388e3c;margin-top:0;">Siya Kolisi</h3>
+                        <p style="font-size:1.1rem;margin-bottom:1.5rem;">South Africa | Age: 33 | Position: Flanker</p>
+                        <p style="margin-bottom:1.5rem;">The inspirational captain who led the Springboks to Rugby World Cup glory in 2019 and 2023, known for his leadership and relentless work rate.</p>
+                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem;">
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">Caps</p>
+                                <p style="font-size:1.5rem;margin:0;color:#388e3c;">83</p>
+                            </div>
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">Tries</p>
+                                <p style="font-size:1.5rem;margin:0;color:#388e3c;">13</p>
+                            </div>
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">World Cups</p>
+                                <p style="font-size:1.5rem;margin:0;color:#388e3c;">2</p>
+                            </div>
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">Win %</p>
+                                <p style="font-size:1.5rem;margin:0;color:#388e3c;">68%</p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0);" onclick="toggleProfile()" id="profileBtn" style="background-color:#1a2a3a;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;">FULL PROFILE</a>
+                        <div id="fullProfile" style="display:none;margin-top:1.5rem;color:#444;">
+                            <p><strong>Career Overview:</strong> Siya Kolisi made history as the first black captain of the Springboks, leading South Africa to two World Cup titles. His journey from humble beginnings to global rugby icon is an inspiration worldwide.</p>
+                            <p><strong>Notable Wins:</strong> Rugby World Cup victories in 2019 and 2023, Rugby Championship titles, and numerous wins over top-tier nations.</p>
+                            <p><strong>Playing Style:</strong> Renowned for his physicality, breakdown skills, and ability to inspire teammates with his leadership on and off the field.</p>
+                            <a href="javascript:void(0);" onclick="toggleProfile()" style="color:#388e3c;text-decoration:none;font-weight:600;">CLOSE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleProfile() {
+            var full = document.getElementById("fullProfile");
+            var btn = document.getElementById("profileBtn");
+            if (full.style.display === "none") {
+                full.style.display = "block";
+                btn.textContent = "LESS PROFILE";
+            } else {
+                full.style.display = "none";
+                btn.textContent = "FULL PROFILE";
+            }
+        }
+    </script>
+
+    <!-- 6. Training Tips (Accordion Style) -->
+    <section style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;color:#1a2a3a;position:relative;">RUGBY TRAINING TIPS <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#388e3c;"></span></h2>
+        <div style="background:#fff;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);overflow:hidden;">
+            <div style="border-bottom:1px solid #eee;">
+                <button style="width:100%;padding:1.5rem;text-align:left;border:none;background:none;font-weight:600;font-size:1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+                    <span>Perfect Your Tackle Technique</span>
+                    <svg style="width:20px;height:20px;transition:transform 0.3s ease;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div style="padding:0 1.5rem 1.5rem;">
+                    <p style="color:#666;">Keep your head up, drive with your legs, and wrap your arms for a safe and effective tackle. Practice with pads before full contact.</p>
+                </div>
+            </div>
+            <div style="border-bottom:1px solid #eee;">
+                <button style="width:100%;padding:1.5rem;text-align:left;border:none;background:none;font-weight:600;font-size:1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+                    <span>Improve Passing Accuracy</span>
+                    <svg style="width:20px;height:20px;transition:transform 0.3s ease;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div style="padding:0 1.5rem 1.5rem;">
+                    <p style="color:#666;">Use both hands, rotate your torso, and follow through. Practice spiral passes and quick offloads under pressure for match realism.</p>
+                </div>
+            </div>
+            <div>
+                <button style="width:100%;padding:1.5rem;text-align:left;border:none;background:none;font-weight:600;font-size:1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+                    <span>Boost Endurance & Agility</span>
+                    <svg style="width:20px;height:20px;transition:transform 0.3s ease;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div style="padding:0 1.5rem 1.5rem;">
+                    <p style="color:#666;">Incorporate shuttle runs, ladder drills, and interval sprints to build stamina and quick footwork for both attack and defense.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Top Rugby Moments -->
+    <section style="background:#1a2a3a;padding:5rem 5%;color:#fff;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;position:relative;">
+                TOP RUGBY MOMENTS
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#388e3c;"></span>
+            </h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
+                <div style="background:#fff;color:#1a2a3a;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.2);transition:transform 0.3s, box-shadow 0.3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 5px 20px rgba(0,0,0,0.2)'">
+                    <h3 style="margin-top:0;color:#388e3c;">South Africa's 2019 World Cup Triumph</h3>
+                    <p>Siya Kolisi led the Springboks to a historic third Rugby World Cup title, uniting a nation and inspiring millions around the globe.</p>
+                </div>
+                <div style="background:#fff;color:#1a2a3a;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.2);transition:transform 0.3s, box-shadow 0.3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 5px 20px rgba(0,0,0,0.2)'">
+                    <h3 style="margin-top:0;color:#388e3c;">Jonny Wilkinson's Drop Goal (2003)</h3>
+                    <p>England's Jonny Wilkinson clinched the 2003 Rugby World Cup with a last-minute drop goal in extra time against Australia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Match Highlights -->
+    <section style="background:#e2e2e2;padding:5rem 5%;color:#000000;overflow-x:hidden;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.8rem;text-align:center;margin-bottom:3rem;font-weight:700;letter-spacing:1px;position:relative;">
+                MATCH HIGHLIGHTS
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:4px;background-color:#22d3ee;border-radius:2px;"></span>
+            </h2>
+            <div style="display:flex;overflow-x:auto;gap:1.5rem;scroll-behavior:smooth;padding-bottom:1rem;-webkit-overflow-scrolling:touch;">
+                <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+                    <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Kolisi Lifts the Cup (2019)</h3>
+                    <p style="font-size:0.95rem;line-height:1.6;">Siya Kolisi becomes the first black captain to lift the Rugby World Cup, a moment of pride and unity for South Africa.</p>
+                </div>
+                <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+                    <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Wilkinson's Golden Boot</h3>
+                    <p style="font-size:0.95rem;line-height:1.6;">Jonny Wilkinson's drop goal in 2003 sealed England's first and only Rugby World Cup title in dramatic fashion.</p>
+                </div>
+                <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+                    <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">All Blacks' Haka</h3>
+                    <p style="font-size:0.95rem;line-height:1.6;">New Zealand's Haka before big matches is a spine-tingling tradition that electrifies fans and intimidates opponents.</p>
+                </div>
+                <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+                    <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Japan's Miracle Win (2015)</h3>
+                    <p style="font-size:0.95rem;line-height:1.6;">Japan stunned South Africa in the 2015 World Cup, pulling off one of the greatest upsets in rugby history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Equipment Guide -->
+    <section style="background:#f5f7fa;padding:5rem 5%;font-family:'Segoe UI', sans-serif;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.8rem;text-align:center;margin-bottom:4rem;color:#1a2a3a;position:relative;">
+                EQUIPMENT GUIDE
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:120px;height:4px;background-color:#388e3c;"></span>
+            </h2>
+            <!-- Item 1 -->
+            <div style="display:flex;flex-wrap:wrap;align-items:center;margin-bottom:4rem;">
+                <div style="flex:1;min-width:300px;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi-aKD3618Vb8pJv6pFGe0M9pl-C2OiH05hA&s" alt="Rugby Ball" style="width:100%;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex:1;min-width:300px;padding:2rem;">
+                    <h3 style="color:#388e3c;font-size:2rem;margin-bottom:1rem;">Choosing the Right Rugby Ball</h3>
+                    <p style="font-size:1.1rem;color:#333;line-height:1.6;">
+                        Match balls are made for grip and accuracy, while training balls are more durable. Size 5 is standard for adults; juniors use size 4 or 3.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div style="display:flex;flex-wrap:wrap;align-items:center;flex-direction:row-reverse;margin-bottom:4rem;">
+                <div style="flex:1;min-width:300px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/NIVIA_Shastra_shoes.jpg" alt="Rugby Boots" style="width:100%;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex:1;min-width:300px;padding:2rem;">
+                    <h3 style="color:#388e3c;font-size:2rem;margin-bottom:1rem;">Rugby Boots & Studs</h3>
+                    <p style="font-size:1.1rem;color:#333;line-height:1.6;">
+                        Boots with longer studs are best for soft, muddy pitches; shorter studs suit firm ground. Forwards often prefer 8-stud boots for grip in scrums.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div style="display:flex;flex-wrap:wrap;align-items:center;margin-bottom:4rem;">
+                <div style="flex:1;min-width:300px;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosJhCR7nozDHec0SVkjcXeYGrohtIqOFmkw&s" alt="Rugby Protective Gear" style="width:100%;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex:1;min-width:300px;padding:2rem;">
+                    <h3 style="color:#388e3c;font-size:2rem;margin-bottom:1rem;">Protective Gear</h3>
+                    <p style="font-size:1.1rem;color:#333;line-height:1.6;">
+                        Mouthguards are essential. Scrum caps and shoulder pads offer extra protection, especially for forwards and younger players.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Rugby News -->
+    <section style="background:#fff8f0;padding:5rem 5%;font-family:'Segoe UI',sans-serif;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.8rem;text-align:center;margin-bottom:4rem;color:#1a2a3a;position:relative;">
+                RUGBY NEWS
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:120px;height:4px;background-color:#388e3c;"></span>
+            </h2>
+            <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;align-items:start;">
+                <!-- Sidebar headlines -->
+                <div style="display:flex;flex-direction:column;gap:1.5rem;">
+                    <div style="background:#fff;border-left:6px solid #388e3c;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#f2fff2'" onmouseout="this.style.background='#fff'">
+                        <h4 style="margin:0;color:#1a2a3a;">Kolisi Named World Rugby Player of the Year</h4>
+                    </div>
+                    <div style="background:#fff;border-left:6px solid #388e3c;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#f2fff2'" onmouseout="this.style.background='#fff'">
+                        <h4 style="margin:0;color:#1a2a3a;">All Blacks Announce New Head Coach</h4>
+                    </div>
+                    <div style="background:#fff;border-left:6px solid #388e3c;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#f2fff2'" onmouseout="this.style.background='#fff'">
+                        <h4 style="margin:0;color:#1a2a3a;">France to Host 2027 Rugby World Cup</h4>
+                    </div>
+                    <div style="background:#fff;border-left:6px solid #388e3c;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#f2fff2'" onmouseout="this.style.background='#fff'">
+                        <h4 style="margin:0;color:#1a2a3a;">England Star Announces Retirement</h4>
+                    </div>
+                    <div style="background:#fff;border-left:6px solid #388e3c;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#f2fff2'" onmouseout="this.style.background='#fff'">
+                        <h4 style="margin:0;color:#1a2a3a;">Ireland Clinch Grand Slam</h4>
+                    </div>
+                    <div style="background:#fff;border-left:6px solid #388e3c;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#f2fff2'" onmouseout="this.style.background='#fff'">
+                        <h4 style="margin:0;color:#1a2a3a;">Australia to Revamp Domestic League</h4>
+                    </div>
+                </div>
+                <!-- Featured article -->
+                <div style="background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);overflow:hidden;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjE6VLfLfaNH_oK0JZnBHH-YmPmDf33zXKdw&s" alt="Rugby News Image" style="width:100%;height:auto;">
+                    <div style="padding:2rem;">
+                        <h3 style="color:#388e3c;margin-top:0;margin-bottom:1rem;">South Africa Wins Fourth Rugby World Cup</h3>
+                        <p id="short-story" style="font-size:1.1rem;color:#333;line-height:1.6;">
+                            The Springboks made history by winning their fourth Rugby World Cup, defeating New Zealand in a tense final...
+                        </p>
+                        <p id="full-story" style="font-size:1.1rem;color:#333;line-height:1.6;display:none;">
+                            The Springboks made history by winning their fourth Rugby World Cup, defeating New Zealand in a tense final. Siya Kolisi’s leadership and the team’s defensive resilience were key to their victory. This win cements South Africa’s legacy as one of rugby’s greatest nations and inspires future generations across the globe.
+                        </p>
+                        <a href="#" id="read-more-btn" onclick="toggleStory(event)" style="display:inline-block;margin-top:1rem;color:#388e3c;text-decoration:none;font-weight:bold;">Read Full Story →</a>
+                        <a href="#" id="read-less-btn" onclick="toggleStory(event)" style="display:none;margin-top:1rem;color:#388e3c;text-decoration:none;font-weight:bold;">Read Less ↑</a>
+                    </div>
+                </div>
+                <script>
+                    function toggleStory(event) {
+                        event.preventDefault();
+                        const shortStory = document.getElementById("short-story");
+                        const fullStory = document.getElementById("full-story");
+                        const readMore = document.getElementById("read-more-btn");
+                        const readLess = document.getElementById("read-less-btn");
+                        const isHidden = fullStory.style.display === "none";
+                        shortStory.style.display = isHidden ? "none" : "block";
+                        fullStory.style.display = isHidden ? "block" : "none";
+                        readMore.style.display = isHidden ? "none" : "inline-block";
+                        readLess.style.display = isHidden ? "inline-block" : "none";
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

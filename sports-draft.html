@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitaishi Sports & Games Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  <style>
+    /* Overlay styling */
+    .overlay {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
+
+    .overlay-content {
+      background: rgb(0, 0, 0);
+      margin: 5% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 10px;
+      overflow-y: auto;
+      max-height: 90%;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: -10px -10px 0 0;
+    }
+  </style>
+</head>
+<body style="font-family: sans-serif; margin: 0;">
+
+
+        <!-- sports -->
+        <nav style="display: flex; background-color: #f0f0f0; width: 100%; height: auto; align-items: center; padding: 10px; position: relative; z-index: 1;">
+            <!-- First Button with Dropdown -->
+            <div style="position: relative; margin-right: 20px;">
+                <button onclick="toggleDropdown('eventsDropdown')" style="background-color: white; border: 2px solid #616161; border-radius: 25px; padding: 5px 15px; cursor: pointer;" data-en="Top Events" data-hi="शीर्ष घटनाएँ" data-te="టాప్ ఈవెంట్స్" data-zh="顶级赛事" data-ja="トップイベント">
+                    Top Events
+                </button>
+                <div id="eventsDropdown" class="dropdown" style="display: none; position: absolute; background-color: white; border: 1px solid #dcdcdc; border-radius: 5px; width: 200px; margin-top: 5px; z-index: 999; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 0; padding: 10px; cursor: pointer;" onclick="selectEvent('Tennis (W)')" data-en="Tennis (W)" data-hi="टेनिस (महिला)" data-te="టెన్నిస్ (మహిళ)" data-zh="网球（女）" data-ja="テニス（女子）">Tennis (W)</p>
+                    <p style="margin: 0; padding: 10px; cursor: pointer;" onclick="selectEvent('Tennis (M)')" data-en="Tennis (M)" data-hi="टेनिस (पुरुष)" data-te="టెన్నిస్ (పురుష)" data-zh="网球（男）" data-ja="テニス（男子）">Tennis (M)</p>
+                    <p style="margin: 0; padding: 10px; cursor: pointer;" onclick="selectEvent('NBA')" data-en="NBA" data-hi="एनबीए" data-te="ఎన్‌బిఎ" data-zh="NBA" data-ja="NBA">NBA</p>
+                    <p style="margin: 0; padding: 10px; cursor: pointer;" onclick="selectEvent('World Cup Qualifying AFC')" data-en="World Cup Qualifying AFC" data-hi="विश्व कप क्वालीफाइंग एएफसी" data-te="ప్రపంచ కప్ క్వాలిఫైయింగ్ ఏఎఫ్‌సి" data-zh="世界杯预选赛亚足联" data-ja="ワールドカップ予選AFC">World Cup Qualifying AFC</p>
+                    <p style="margin: 0; padding: 10px; cursor: pointer;" onclick="selectEvent('UEL')" data-en="UEL" data-hi="यूईएल" data-te="యుఇఎల్" data-zh="欧联杯" data-ja="UEL">UEL</p>
+                    <p style="margin: 0; padding: 10px; cursor: pointer;" onclick="selectEvent('UCL')" data-en="UCL" data-hi="यूसीएल" data-te="యుసిఎల్" data-zh="欧冠" data-ja="UCL">UCL</p>
+                    <p style="margin: 0; padding: 10px; cursor: pointer;" onclick="selectEvent('EFL Cup')" data-en="EFL Cup" data-hi="ईएफएल कप" data-te="ఇఎఫ్ఎల్ కప్" data-zh="英联杯" data-ja="EFLカップ">EFL Cup</p>
+                </div>
+            </div>
+
+            <!-- Date Button with Dynamic Dropdown -->
+            <div style="position: relative;">
+                <button onclick="toggleDropdown('dateDropdown')" id="dateButton" style="background-color: white; border: 2px solid #616161; border-radius: 25px; padding: 5px 15px; cursor: pointer;">
+                    <!-- Date will be dynamically inserted -->
+                </button>
+                <div id="dateDropdown" class="dropdown" style="display: none; position: absolute; background-color: white; border: 1px solid #dcdcdc; border-radius: 5px; width: 200px; margin-top: 5px; z-index: 999; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <!-- Date dropdown options will be dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Matches -->
+            <div style="display: flex; gap: 10px; margin-left: 20px;">
+                <!-- Match 1 -->
+                <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">6:00 AM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/sa.png" alt="SA" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 11" data-hi="खिलाड़ी 11" data-te="ప్లేయర్ 11" data-zh="球员 11" data-ja="プレーヤー 11" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 11
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/in.png" alt="IN" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 12" data-hi="खिलाड़ी 12" data-te="ప్లేయర్ 12" data-zh="球员 12" data-ja="プレーヤー 12" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 12
+                        </p>
+                    </div>
+                </div>
+            
+                <!-- Match 2 -->
+                <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">7:00 AM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/br.png" alt="BR" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 21" data-hi="खिलाड़ी 21" data-te="ప్లేయర్ 21" data-zh="球员 21" data-ja="プレーヤー 21" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 21
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/ru.png" alt="RU" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 22" data-hi="खिलाड़ी 22" data-te="ప్లేయర్ 22" data-zh="球员 22" data-ja="プレーヤー 22" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 22
+                        </p>
+                    </div>
+                </div>
+            
+                <!-- Match 3 -->
+                <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">8:00 AM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/fr.png" alt="FR" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 31" data-hi="खिलाड़ी 31" data-te="ప్లేయర్ 31" data-zh="球员 31" data-ja="プレーヤー 31" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 31
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/de.png" alt="DE" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 32" data-hi="खिलाड़ी 32" data-te="ప్లేయర్ 32" data-zh="球员 32" data-ja="プレーヤー 32" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 32
+                        </p>
+                    </div>
+                </div>
+            
+                <!-- Match 4 -->
+                <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">9:00 AM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/es.png" alt="ES" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 41" data-hi="खिलाड़ी 41" data-te="ప్లేయర్ 41" data-zh="球员 41" data-ja="プレーヤー 41" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 41
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/it.png" alt="IT" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 42" data-hi="खिलाड़ी 42" data-te="ప్లేయర్ 42" data-zh="球员 42" data-ja="プレーヤー 42" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 42
+                        </p>
+                    </div>
+                </div>
+            
+                <!-- Match 5 -->
+                <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">10:00 AM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/pt.png" alt="PT" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 51" data-hi="खिलाड़ी 51" data-te="ప్లేయర్ 51" data-zh="球员 51" data-ja="プレーヤー 51" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 51
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/nl.png" alt="NL" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 52" data-hi="खिलाड़ी 52" data-te="ప్లేయర్ 52" data-zh="球员 52" data-ja="プレーヤー 52" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 52
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Match 6 -->
+                <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px ; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">11:00 AM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/eg.png" alt="EG" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 61" data-hi="खिलाड़ी 61" data-te="ప్లేయర్ 61" data-zh="球员 61" data-ja="プレーヤー 61" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 61
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/ma.png" alt="MA" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 62" data-hi="खिलाड़ी 62" data-te="ప్లేయర్ 62" data-zh="球员 62" data-ja="プレーヤー 62" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 62
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Match 7 -->
+                <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">12:00 PM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/au.png" alt="AU" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 71" data-hi="खिलाड़ी 71" data-te="ప్లేయర్ 71" data-zh="球员 71" data-ja="プレーヤー 71" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 71
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/in.png" alt="JP" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 72" data-hi="खिलाड़ी 72" data-te="ప్లేయర్ 72" data-zh="球员 72" data-ja="プレーヤー 72" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 72
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Match 8 -->
+                <!-- <div style="background-color: white; border: 1px solid #dcdcdc; border-radius: 10px; padding: 5px 5px; width: 120px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <p style="margin: 2px 0; font-size: 11px; line-height: 2;">1:00 PM</p>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/kr.png" alt="KR" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 81" data-hi="खिलाड़ी 81" data-te="ప్లేయర్ 81" data-zh="球员 81" data-ja="プレーヤー 81" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 81
+                        </p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 3px; justify-content: center;">
+                        <img src="https://flagcdn.com/w40/cn.png" alt="CN" style="width: 16px; height: 12px; border-radius: 3px;">
+                        <p data-en="Player 82" data-hi="खिलाड़ी 82" data-te="ప్లేయర్ 82" data-zh="球员 82" data-ja="プレーヤー 82" style="font-size: 11px; margin: 0; line-height: 2;">
+                            Player 82
+                        </p>
+                    </div>
+                </div> -->
+
+            </div>
+            
+        </nav><hr>
+
+        <script>
+            // Toggle dropdown and hide others
+            function toggleDropdown(dropdownId) {
+                const allDropdowns = document.querySelectorAll('.dropdown');
+                allDropdowns.forEach(dropdown => {
+                    if (dropdown.id === dropdownId) {
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                    } else {
+                        dropdown.style.display = 'none';
+                    }
+                });
+            }
+
+            // Select Event Function
+            function selectEvent(eventName) {
+                alert(`You selected: ${eventName}`);
+                toggleDropdown('eventsDropdown');
+            }
+
+            // Populate and Set Current Date in Date Dropdown
+            function setDateDropdown() {
+                const dateButton = document.getElementById('dateButton');
+                const dateDropdown = document.getElementById('dateDropdown');
+                const today = new Date();
+
+                // Format the date
+                const formatDate = (date) => {
+                    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                };
+
+                // Create date options
+                const previousDay = new Date(today);
+                previousDay.setDate(today.getDate() - 1);
+
+                const nextDay = new Date(today);
+                nextDay.setDate(today.getDate() + 1);
+
+                const dates = [
+                    { label: formatDate(previousDay), value: 'previous' },
+                    { label: formatDate(today), value: 'today' },
+                    { label: formatDate(nextDay), value: 'next' }
+                ];
+
+                // Populate the dropdown
+                dateDropdown.innerHTML = '';
+                dates.forEach((date) => {
+                    const option = document.createElement('p');
+                    option.textContent = date.label;
+                    option.style.margin = '0';
+                    option.style.padding = '10px';
+                    option.style.cursor = 'pointer';
+                    option.onclick = () => {
+                        dateButton.textContent = date.label;
+                        toggleDropdown('dateDropdown');
+                    };
+                    dateDropdown.appendChild(option);
+                });
+
+                // Set the default button text to today's date
+                dateButton.textContent = formatDate(today);
+            }
+
+            // Initialize Dropdowns and Current Date
+            setDateDropdown();
+        </script>
+
+        <!-- last highlights -->
+        <div style="background-image: url('https://img.freepik.com/premium-photo/bold-dark-soccer-ball-design-with-sleek-modern-aesthetic_1163991-980.jpg?semt=ais_incoming');">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+                <!-- Team 1: New York Knicks -->
+                <div style="display: flex; align-items: center;">
+                    <div style="width: 100px; height: 100px; margin-right: 20px; background-image: url('knicks_logo.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="font-size: 24px; font-weight: bold; color: #fff;">New York Knicks</div>
+                        <div style="font-size: 14px; color: #fff;">29-16, 15-8 Away</div>
+                    </div>
+                </div>
+        
+                <!-- Score for New York Knicks -->
+                <div style="font-size: 48px; font-weight: bold; margin: 0 20px; color: #fff;">
+                    99
+                </div>
+        
+                <div>
+                    <!-- Quarter Scores for New York Knicks -->
+                
+                    <div style="display: flex; flex-direction: row; align-items: center; ">
+                        <div style="font-size: 12px; color: #fff;">NY</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">24</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">35</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">25</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">15</div>
+                    </div>
+        
+                    <!-- Space between the scores -->
+                    <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100px; ">
+                        <!-- Brooklyn Nets Quarter Scores (BKN) -->
+                        <div style="font-size: 12px; color: #fff;">BKN</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">20</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">28</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">30</div>
+                        <div style="font-size: 16px; margin-left: 10px; color: #fff;">17</div>
+                    </div>
+                </div>
+        
+                <!-- Score for Brooklyn Nets -->
+                <div style="font-size: 48px; font-weight: bold; margin: 0 20px; color: #fff;">
+                    95
+                </div>
+        
+                <!-- Team 2: Brooklyn Nets -->
+                <div style="display: flex; align-items: center;">
+                    <div style="width: 100px; height: 100px; margin-right: 20px; background-image: url('nets_logo.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="font-size: 24px; font-weight: bold; color: #fff;">Brooklyn Nets</div>
+                        <div style="font-size: 14px; color: #fff;">14-30, 5-13 Home</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="nav-foot" style="display: flex; justify-content: space-between; padding: 20px; color: #fff; font-size: 12px; border-top: 1px solid #444;">
+                <a href="#" id="cast-button" style="color: white; text-decoration: none; transition: color 0.3s ease;">Gamecast</a>
+
+                <div>
+                    <!-- Overlay -->
+                    <div class="overlay" id="overlay">
+                        <div class="overlay-content">
+                        <span class="close-btn" id="close-btn">&times;</span>
+                        
+                            <div>
+                                <h2 style="text-align: center;">Brooklyn Nets</h2>
+                                <table style="border-collapse: collapse; width: 100%;">
+                                    <tr>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;"></th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">MIN</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">FG</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">3PT</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">FT</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">OREB</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">DREB</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">REB</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">AST</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">STL</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">BLK</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">TO</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">PF</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">+/-</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">PTS</th>
+                                    </tr>
+                                    <tr>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">Noah Clowney #21</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">26</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">4-8</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2-5</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0-0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">-1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">10</td>
+                                    </tr>
+                                    <tr>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">Spencer Dinwiddie #26</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">30</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">5-10</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">3-6</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">4-4</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">+5</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">17</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Kevin Durant #7</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">35</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">9-16</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3-6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">+7</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">23</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Kyrie Irving #11</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">32</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6-15</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">+5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">16</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">James Harden #13</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">35</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6-16</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-8</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">4-4</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">12</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">+6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">18</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Joe Harris #12</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">30</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">4-8</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0-0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">+5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">10</td>
+                                    </tr>
+                                    <!-- Add more rows for Brooklyn Nets here -->
+                                </table>
+
+                                <h2 style="text-align: center; margin-top: 50px;">New York Knicks</h2>
+                                <table style="border-collapse: collapse; width: 100%;">
+                                    <tr>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;"></th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">MIN</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">FG</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">3PT</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">FT</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">OREB</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">DREB</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">REB</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">AST</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">STL</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">BLK</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">TO</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">PF</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">+/-</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #000000;;">PTS</th>
+                                    </tr>
+                                    <tr>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">Mikal Bridges #25</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">34</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">3-13</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2-6</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2-2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">+8</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">10</td>
+                                    </tr>
+                                    <tr>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">RJ Barrett #9</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">35</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">7-15</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">3-7</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2-3</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">5</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">+6</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">19</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Julius Randle #30</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">32</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6-15</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">8</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">-6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">16</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Mitchell Robinson #23</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">25</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3-5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0-0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0-0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">7</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">-5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Derrick Rose #4</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">30</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6-15</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">-5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">16</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Nerlens Noel #3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">25</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2-4</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0-0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0-0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">6</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">0</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">-5</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">4</td>
+                                    </tr>
+                                    <!-- Add more rows for New York Knicks here -->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        // JavaScript to handle overlay functionality
+                        const overlay = document.getElementById('overlay');
+                        const castButton = document.getElementById('cast-button');
+                        const closeButton = document.getElementById('close-btn');
+
+                        // Open the overlay
+                        castButton.addEventListener('click', () => {
+                        overlay.style.display = 'block';
+                        });
+
+                        // Close the overlay
+                        closeButton.addEventListener('click', () => {
+                        overlay.style.display = 'none';
+                        });
+
+                        // Close overlay when clicking outside the content
+                        overlay.addEventListener('click', (event) => {
+                        if (event.target === overlay) {
+                            overlay.style.display = 'none';
+                        }
+                        });
+                    </script>
+                </div>
+
+                <a href="#" style="color: white; text-decoration: none; transition: color 0.3s ease;">Recap</a>
+                <a href="#" style="color: white; text-decoration: none; transition: color 0.3s ease;">Box Score</a>
+                <a href="#" style="color: white; text-decoration: none; transition: color 0.3s ease;">Play-by-Play</a>
+                <a href="#" style="color: white; text-decoration: none; transition: color 0.3s ease;">Team Stats</a>
+                <a href="#" id="playVideoButton" style="color: white; text-decoration: none; transition: color 0.3s ease;">Videos</a>
+                
+                <div>
+                    <!-- Div to display the video -->
+                    <div 
+                        id="videoOverlay" 
+                        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 9999; justify-content: center; align-items: center;">
+                        
+                        <!-- Close button -->
+                        <span 
+                            id="closeOverlay" 
+                            style="color: white; position: absolute; top: 20px; right: 30px; font-size: 30px; font-weight: bold; cursor: pointer;">
+                            &times;
+                        </span>
+                
+                        <!-- Video modal -->
+                        <div 
+                            style="background-color: #000; padding: 15px; border-radius: 8px; max-width: 90%; max-height: 80%; overflow: hidden;">
+                            <iframe 
+                                id="videoPlayer"
+                                width="560" 
+                                height="315" 
+                                src="" 
+                                title="YouTube video player" 
+                                style="border: none;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+            
+                    <script>
+                        const videoButton = document.getElementById("playVideoButton");
+                        const videoOverlay = document.getElementById("videoOverlay");
+                        const closeOverlay = document.getElementById("closeOverlay");
+                        const videoPlayer = document.getElementById("videoPlayer");
+                
+                        // Open the overlay and play video
+                        videoButton.addEventListener("click", (e) => {
+                            e.preventDefault(); // Prevent default link behavior
+                            const videoURL = "https://www.youtube.com/embed/Rjzhif0ec5U?si=Ozd_Je2TGLVrG022&autoplay=1";
+                            videoPlayer.src = videoURL;
+                            videoOverlay.style.display = "flex"; // Show the overlay
+                            videoOverlay.style.display = "flex";
+                        });
+                
+                        // Close the overlay and stop the video
+                        closeOverlay.addEventListener("click", () => {
+                            videoOverlay.style.display = "none"; // Hide the overlay
+                            videoPlayer.src = ""; // Stop the video
+                        });
+                
+                        // Close the overlay when clicking outside the modal
+                        window.addEventListener("click", (e) => {
+                            if (e.target === videoOverlay) {
+                                videoOverlay.style.display = "none"; // Hide the overlay
+                                videoPlayer.src = ""; // Stop the video
+                            }
+                        });
+                    </script>
+                </div>
+
+                <a href="#" style="color: white; text-decoration: none; transition: color 0.3s ease;">Play Fantasy Basketball</a>
+            </div>
+            
+            <style>
+                /* Hover effect */
+                nav-foot a:hover {
+                    color: #1e90ff; /* Change this to the desired hover color */
+                }
+            </style>
+            
+        </div>
+
+        <!-- online fitness -->
+        <div style="font-family: sans-serif; background-color: #fff; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; height: 50vh;">
+
+            <div style="display: flex; justify-content: space-around; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 80%; max-width: 1000px;">
+                
+                <!-- Graph Section -->
+                <div style="text-align: center; padding: 20px; border-radius: 10px; background-color: #f8f8f8; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 30%; position: relative;">
+                    <svg width="100%" height="200px" viewBox="0 0 300 200" style="border-left: 2px solid #000; border-bottom: 2px solid #000;">
+                        <polyline points="0,160 50,140 100,100 150,60 200,80 250,120 300,160" stroke="blue" fill="none" stroke-width="2" />
+                        
+                        <!-- X-axis Labels -->
+                        <text x="0" y="190" font-size="12">0</text>
+                        <text x="50" y="190" font-size="12">4</text>
+                        <text x="100" y="190" font-size="12">8</text>
+                        <text x="150" y="190" font-size="12">12</text>
+                        <text x="200" y="190" font-size="12">16</text>
+                        <text x="250" y="190" font-size="12">20</text>
+                        <text x="300" y="190" font-size="12">24</text>
+                        
+                        <!-- Y-axis Labels -->
+                        <text x="-10" y="160" font-size="12">2000</text>
+                        <text x="-10" y="100" font-size="12">5000</text>
+                        <text x="-10" y="40" font-size="12">10000</text>
+                    </svg>
+                </div>
+        
+                <!-- Circular Progress Section -->
+                <div style="text-align: center; padding: 20px; width: 30%;">
+                    <svg width="150" height="150" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#eee" />
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#ef7314" stroke-width="10" stroke-dasharray="282.6" stroke-dashoffset="calc(282.6 - (282.6 * 4282 / 10000))" transform="rotate(-90 50 50)" />
+                        <text x="50" y="55" font-size="14" text-anchor="middle" font-weight="bold">4282/10000</text>
+                    </svg>
+                    <button 
+                        style="margin-top: 10px; padding: 10px 20px; background-color: #ef7314; color: white; border: none; border-radius: 5px; cursor: pointer;" 
+                        onclick="window.location.href='file:///D:/sports_web/befit.html';">
+                        Track Your Fitness
+                    </button>
+
+                </div>
+                
+                <!-- Stats Section -->
+                <div style="text-align: center; padding: 20px; width: 30%;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlPKQlB2gHNsRLXVd3kzyGIgGUJXeHeGAdGp_3fHwsn859XLlBc-FttFd8GUZKK8Pfsvg&usqp=CAU" alt="Fitness" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="margin-bottom: 10px;">Steps: <span>4282</span></div>
+                        <div style="margin-bottom: 10px;">Kilometers: <span>3.21</span></div>
+                        <div style="margin-bottom: 10px;">Calories: <span>171.28</span></div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+
+        <!-- First Navbar -->
+        <header style="background-color: #f0f0f0; border-bottom: 1px solid #ccc;">
+            <div class="top-bar" style=" justify-content: flex-end; padding: 10px 20px;">
+                <ul style="list-style: none; margin-left: 60px; padding: 0; display: flex; gap: 20px;">
+                    <li  style="margin-right: 15px;" class="navbar-item" data-en="Football (Soccer)" data-hi="फुटबॉल" data-te="సాకర్" data-zh="足球" data-ja="サッカー"><a href="#" class="football-button" onclick="showOverlay()">Football</a></li>
+                    <!-- overlay -->
+                    <div>   
+                        <style>
+                            /* Overlay styles */
+                            .overlay {
+                              position: fixed;
+                              top: 0;
+                              left: 0;
+                              width: 100%;
+                              height: 100%;
+                              background-color: rgba(0, 0, 0, 0.7);
+                              display: none;
+                              align-items: center;
+                              justify-content: center;
+                              z-index: 1000;
+                            }
+                            .overlay-content {
+                              background-color: white;
+                              padding: 20px;
+                              border-radius: 10px;
+                              width: 80%;
+                              max-width: 1000px;
+                              max-height: 80%;
+                              overflow-y: auto;
+                            }
+                            
+                        </style>
+                        <div class="overlay" id="footballOverlay">
+                            <div class="overlay-content" style=" display: flex;">
+                                <div style="width: 200px; padding: 20px; background-color: #f0f0f0; margin-top: 60px;">
+                                  <ul style="list-style: none; padding: 0; margin: 0; gap: 60px;">
+                                    <li style="margin-bottom: 10px;">Home</li>
+                                    <li style="margin-bottom: 10px;">Scores</li>
+                                    <li style="margin-bottom: 10px;">Fixtures</li>
+                                    <li style="margin-bottom: 10px;">Tables</li>
+                                    <li style="margin-bottom: 10px;">Teams</li>
+                                    <li style="margin-bottom: 10px;">Tournaments</li>
+                                    <li style="margin-bottom: 10px;">Transfers</li>
+                                  </ul>
+                                </div>
+                            
+                                <!-- Main Content -->
+                                <div style="flex-grow: 1; padding: 20px; display: flex; gap: 40px;">
+                                  
+                                  <!-- Top Leagues Section -->
+                                  <div>
+                                    <h2 style="margin-bottom: 20px;">Top Leagues</h2>
+                                    <ul style="list-style: none; padding: 0; margin: 0;">
+                                      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <img src="https://flagcdn.com/w40/eu.png" alt="Euro 2024" style="width: 30px; height: 30px; margin-right: 10px;"> Euro 2024
+                                      </li>
+                                      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <img src="https://flagcdn.com/w40/br.png" alt="Copa America" style="width: 30px; height: 30px; margin-right: 10px;"> Copa America
+                                      </li>
+                                      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <img src="https://flagcdn.com/w40/in.png" alt="ISL" style="width: 30px; height: 30px; margin-right: 10px;"> ISL
+                                      </li>
+                                      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <img src="https://flagcdn.com/w40/gb-eng.png" alt="Premier League" style="width: 30px; height: 30px; margin-right: 10px;"> Premier League
+                                      </li>
+                                      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <img src="https://flagcdn.com/w40/es.png" alt="LALIGA" style="width: 30px; height: 30px; margin-right: 10px;"> LALIGA
+                                      </li>
+                                      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <img src="https://flagcdn.com/w40/eu.png" alt="Champions League" style="width: 30px; height: 30px; margin-right: 10px;"> Champions League
+                                      </li>
+                                      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <img src="https://flagcdn.com/w40/qa.png" alt="FIFA World Cup" style="width: 30px; height: 30px; margin-right: 10px;"> FIFA World Cup
+                                      </li>
+                                    </ul>
+                                  </div>
+                            
+                                  <!-- Top Teams Section -->
+                                  <div style="display: flex;">
+                                    <h2 style="margin-bottom: 20px;">Top Teams</h2>
+                                    <div style="margin-top: 69px; ">
+                                      <ul style="list-style: none; padding: 0; margin: 0;">
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/gb.png" alt="Arsenal" style="width: 30px; height: 30px; margin-right: 10px;"> Arsenal
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/it.png" alt="Juventus" style="width: 30px; height: 30px; margin-right: 10px;"> Juventus
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/gb.png" alt="Chelsea" style="width: 30px; height: 30px; margin-right: 10px;"> Chelsea
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/gb.png" alt="Leicester City" style="width: 30px; height: 30px; margin-right: 10px;"> Leicester City
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/gb.png" alt="Liverpool" style="width: 30px; height: 30px; margin-right: 10px;"> Liverpool
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/de.png" alt="Borussia Dortmund" style="width: 30px; height: 30px; margin-right: 10px;"> Borussia Dortmund
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <div style="margin-top: 69px;">
+                                      <ul style="list-style: none; padding: 0; margin: 0;">
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/gb.png" alt="Manchester City" style="width: 30px; height: 30px; margin-right: 10px;"> Manchester City
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/gb.png" alt="Manchester United" style="width: 30px; height: 30px; margin-right: 10px;"> Manchester United
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/es.png" alt="Barcelona" style="width: 30px; height: 30px; margin-right: 10px;"> Barcelona
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/es.png" alt="Real Madrid" style="width: 30px; height: 30px; margin-right: 10px;"> Real Madrid
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/es.png" alt="Atletico Madrid" style="width: 30px; height: 30px; margin-right: 10px;"> Atletico Madrid
+                                        </li>
+                                        <li style="display: flex; align-items: center; margin-bottom: 10px;">
+                                          <img src="https://flagcdn.com/w40/de.png" alt="Bayern Munich" style="width: 30px; height: 30px; margin-right: 10px;"> Bayern Munich
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        
+                        <script>
+                            // Show overlay
+                            function showOverlay() {
+                              document.getElementById("footballOverlay").style.display = "flex";
+                            }
+                        
+                            // Close overlay
+                            function closeOverlay() {
+                              document.getElementById("footballOverlay").style.display = "none";
+                            }
+                        </script>
+                    </div> 
+                        
+
+                    
+                    <li class="navbar-item1" style="margin-top: -10px; margin-right: 15px; position: relative; cursor: pointer; padding: 10px;" class="navbar-item" data-en="Cricket" data-hi="क्रिकेट" data-te="క్రికెట్" data-zh="板球" data-ja="クリケット">
+                          Cricket
+                          <!-- Dropdown Menu -->
+                          <ul style="display: none; position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); list-style: none; padding: 10px 0; margin: 0; z-index: 1000;" class="dropdown">
+                            <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Home</li>
+                            <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;"><a href='file:///D:/sports_web/ipl.html'>IPL</a></li>
+                            <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Scores</li>
+                            <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Series</li>
+                            <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Teams</li>
+                            <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">ICC Rankings</li>
+                            <li style="padding: 8px 20px; white-space: nowrap;">Stats</li>
+                          </ul>
+                    </li>
+                    
+                      
+                      <script>
+                        // JavaScript to toggle dropdown on click for any navbar-item
+                        document.querySelectorAll('.navbar-item1').forEach(function(item) {
+                          item.addEventListener('click', function(event) {
+                            event.stopPropagation(); // Prevent click from propagating to body
+                            const dropdown = this.querySelector('.dropdown');
+                            const isVisible = dropdown.style.display === 'block';
+                      
+                            // Toggle dropdown visibility
+                            dropdown.style.display = isVisible ? 'none' : 'block';
+                          });
+                        });
+                      
+                        // Close dropdown if clicked outside
+                        document.body.addEventListener('click', function() {
+                          const dropdowns = document.querySelectorAll('.dropdown');
+                          dropdowns.forEach(dropdown => {
+                            dropdown.style.display = 'none';
+                          });
+                        });
+                      </script>
+                      
+                          
+
+                    
+                      <li class="navbar-item2" style="margin-top: -10px; margin-right: 15px; position: relative; cursor: pointer; padding: 10px;" class="navbar-item" data-en="Basketball" data-hi="बास्केटबॉल" data-te="బాస్కెట్బాల్" data-zh="篮球" data-ja="バスケットボール">
+                        Basketball
+                        <!-- Dropdown Menu -->
+                        <ul style="display: none; position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); list-style: none; padding: 10px 0; margin: 0; z-index: 1000;" class="dropdown">
+                          <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Home</li>
+                          <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">NBA</li>
+                          <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Scores</li>
+                          <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Teams</li>
+                          <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Rankings</li>
+                          <li style="padding: 8px 20px; white-space: nowrap;">Stats</li>
+                        </ul>
+                      </li>
+                      
+                      <script>
+                        // JavaScript to toggle dropdown on click for any navbar-item
+                        document.querySelectorAll('.navbar-item2').forEach(function(item) {
+                          item.addEventListener('click', function(event) {
+                            event.stopPropagation(); // Prevent click from propagating to body
+                            const dropdown = this.querySelector('.dropdown');
+                            const isVisible = dropdown.style.display === 'block';
+                      
+                            // Toggle dropdown visibility
+                            dropdown.style.display = isVisible ? 'none' : 'block';
+                          });
+                        });
+                      
+                        // Close dropdown if clicked outside
+                        document.body.addEventListener('click', function() {
+                          const dropdowns = document.querySelectorAll('.dropdown');
+                          dropdowns.forEach(dropdown => {
+                            dropdown.style.display = 'none';
+                          });
+                        });
+                      </script>
+
+
+                    <li class="navbar-item3" style="margin-top: -10px; margin-right: 15px; position: relative; cursor: pointer; padding: 10px;" class="navbar-item" data-en="Tennis" data-hi="टेनिस" data-te="టెన్నిస్" data-zh="网球" data-ja="テニス">
+                        Tennis
+                        <!-- Dropdown Menu -->
+                        <ul style="display: none; position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); list-style: none; padding: 10px 0; margin: 0; z-index: 1000;" class="dropdown">
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Home</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">ATP</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Scores</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Grand Slams</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Players</li>
+                        <li style="padding: 8px 20px; white-space: nowrap;">Stats</li>
+                        </ul>
+                    </li>
+                    
+                    <script>
+                        // JavaScript to toggle dropdown on click for any navbar-item
+                        document.querySelectorAll('.navbar-item3').forEach(function(item) {
+                        item.addEventListener('click', function(event) {
+                            event.stopPropagation(); // Prevent click from propagating to body
+                            const dropdown = this.querySelector('.dropdown');
+                            const isVisible = dropdown.style.display === 'block';
+                    
+                            // Toggle dropdown visibility
+                            dropdown.style.display = isVisible ? 'none' : 'block';
+                        });
+                        });
+                    
+                        // Close dropdown if clicked outside
+                        document.body.addEventListener('click', function() {
+                        const dropdowns = document.querySelectorAll('.dropdown');
+                        dropdowns.forEach(dropdown => {
+                            dropdown.style.display = 'none';
+                        });
+                        });
+                    </script>
+  
+  
+                    <li class="navbar-item4" style="margin-top: -10px; margin-right: 15px; position: relative; cursor: pointer; padding: 10px;" class="navbar-item" data-en="Swimming" data-hi="तैराकी" data-te="ఈత" data-zh="游泳" data-ja="水泳">
+                        Swimming
+                        <!-- Dropdown Menu -->
+                        <ul style="display: none; position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); list-style: none; padding: 10px 0; margin: 0; z-index: 1000;" class="dropdown">
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Home</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Olympics</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Scores</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">World Championships</li>
+                        <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Swimmers</li>
+                        <li style="padding: 8px 20px; white-space: nowrap;">Stats</li>
+                        </ul>
+                    </li>
+                    
+                    <script>
+                        // JavaScript to toggle dropdown on click for any navbar-item
+                        document.querySelectorAll('.navbar-item4').forEach(function(item) {
+                        item.addEventListener('click', function(event) {
+                            event.stopPropagation(); // Prevent click from propagating to body
+                            const dropdown = this.querySelector('.dropdown');
+                            const isVisible = dropdown.style.display === 'block';
+                    
+                            // Toggle dropdown visibility
+                            dropdown.style.display = isVisible ? 'none' : 'block';
+                        });
+                        });
+                    
+                        // Close dropdown if clicked outside
+                        document.body.addEventListener('click', function() {
+                        const dropdowns = document.querySelectorAll('.dropdown');
+                        dropdowns.forEach(dropdown => {
+                            dropdown.style.display = 'none';
+                        });
+                        });
+                    </script>
+  
+                    <li class="navbar-item" style="position: relative; margin-right: 15px; cursor: pointer;" data-en="Athletics" data-hi="एथलेटिक्स" data-te="అథ్లెటిక్స్" data-zh="田径"  data-ja="陸上競技">
+                    Athletics
+                    <!-- Dropdown menu -->
+                        <ul 
+                            class="dropdown" 
+                            style="display: none; position: absolute; top: 100%; left: 0; background: #f0f0f0; padding: 10px; border: 1px solid #ddd; z-index: 1; list-style-type: none; margin: 0;"
+                        >
+                            <li style="margin: 5px 0; cursor: pointer;">Track</li>
+                            <li style="margin: 5px 0; cursor: pointer;">Field</li>
+                            <li style="margin: 5px 0; cursor: pointer;">Marathon</li>
+                            <li style="margin: 5px 0; cursor: pointer;">Relay Races</li>
+                            <li style="margin: 5px 0; cursor: pointer;">High Jump</li>
+                            <li style="margin: 5px 0; cursor: pointer;">Long Jump</li>
+                            <li style="margin: 5px 0; cursor: pointer;">Shot Put</li>
+                        </ul>
+                    </li>
+
+                    <script>
+                    const menuItems = document.querySelectorAll('.navbar-item');
+
+                    menuItems.forEach(item => {
+                    item.addEventListener('click', function () {
+                        // Close any currently open dropdowns
+                        menuItems.forEach(i => {
+                        if (i !== this) {
+                            i.querySelector('.dropdown').style.display = 'none';
+                        }
+                        });
+
+                        // Toggle the clicked dropdown
+                        const dropdown = this.querySelector('.dropdown');
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                    });
+                    });
+
+                    // Close dropdown if clicked outside
+                    document.addEventListener('click', function (e) {
+                    if (!e.target.closest('#menu')) {
+                        menuItems.forEach(item => {
+                        const dropdown = item.querySelector('.dropdown');
+                        dropdown.style.display = 'none';
+                        });
+                    }
+                    });
+                    </script>
+  
+
+                    <li style="margin-right: 15px;" class="navbar-item" data-en="Hockey" data-hi="हॉकी" data-te="హాకీ" data-zh="曲棍球" data-ja="ホッケー">Hockey</li>
+                    
+                    
+                    <li>
+                        <!-- Sign In Button -->
+                        <button class="sign-in-button" style="background-color: #e6f7ff; border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer;">
+                            <i class="fas fa-user" style="margin-right: 5px;"></i> 
+                            <span class="sign-in-text" data-en="Sign In" data-hi="साइन इन" data-te="సైన్ ఇన్" data-zh="登录" data-ja="サインイン">Sign In</span>
+                        </button>
+                    </li>
+                    <li>
+                        <select id="language-select" style="padding: 5px;">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="te">Telugu</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ja">Japanese</option>
+                        </select>
+                    </li>
+
+                </ul>
+                <ul style="list-style: none; margin-left: 60px; padding: 0; display: flex; gap: 20px;">
+                    <li style="margin-right: 20px;">Snowboarding</li>
+                    <li style="margin-right: 20px;">Figure Skating</li>
+                    <li style="margin-right: 20px;">Ice Hockey</li>
+                    <li style="margin-right: 20px;">Rugby</li>
+                    <li style="margin-right: 20px;">Base Ball</li>
+                    <li style="margin-right: 20px;">Field Hockey</li>
+                    <li style="margin-right: 20px;">Hand Ball</li>
+
+                </ul>
+            </div>
+        </header>
+        
+
+        <!-- Second Navbar -->
+        <header style="background-color: white; border-bottom: 1px solid #ccc;">
+            <div class="main-nav" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+                <a href="#" class="logo" style="margin-right: 20px;">
+                    <img src="https://www.olympics.com/images/static/b2p-images/logo_color.svg" alt="Olympic Rings Logo" style="height: 40px;">
+                </a>
+                <nav>
+                    <ul style="list-style: none; margin: 0; padding: 0; display: flex;">
+                        <li style="margin-right: 20px;"><a href="#" class="main-nav-item" data-en="Archery" data-hi="तीरंदाजी" data-te="తిరుకాణం" data-zh="射箭" data-ja="アーチェリー">Archery</a></li>
+                        <li style="margin-right: 20px;"><a href="#" class="main-nav-item" data-en="Chess" data-hi="" data-ja="" data-te="" data-zh="">Chess</a></li>
+
+                        <li style="margin-top: -10px; margin-right: 15px; position: relative; cursor: pointer; padding: 10px;" class="navbar-item" data-en="Badminton" data-hi="बैडमिंटन" data-te="బాడ్మింటన్" data-zh="羽毛球" data-ja="バドミントン">
+                            Badminton
+                            <!-- Dropdown Menu -->
+                            <ul style="display: none; position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); list-style: none; padding: 10px 0; margin: 0; z-index: 1000;" class="dropdown">
+                              <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Home</li>
+                              <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">BWF</li>
+                              <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Scores</li>
+                              <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Tournaments</li>
+                              <li style="padding: 8px 20px; white-space: nowrap; border-bottom: 1px solid #f1f1f1;">Players</li>
+                              <li style="padding: 8px 20px; white-space: nowrap;">Stats</li>
+                            </ul>
+                        </li>
+                          
+                          <script>
+                            // JavaScript to toggle dropdown on click for any navbar-item
+                            document.querySelectorAll('.navbar-item').forEach(function(item) {
+                              item.addEventListener('click', function(event) {
+                                event.stopPropagation(); // Prevent click from propagating to body
+                                const dropdown = this.querySelector('.dropdown');
+                                const isVisible = dropdown.style.display === 'block';
+                          
+                                // Toggle dropdown visibility
+                                dropdown.style.display = isVisible ? 'none' : 'block';
+                              });
+                            });
+                          
+                            // Close dropdown if clicked outside
+                            document.body.addEventListener('click', function() {
+                              const dropdowns = document.querySelectorAll('.dropdown');
+                              dropdowns.forEach(dropdown => {
+                                dropdown.style.display = 'none';
+                              });
+                            });
+                          </script>
+                          
+
+                        <li style="margin-right: 20px;"><a href="#" class="main-nav-item" data-en="Boxing" data-hi="मुक्केबाज़ी" data-te="బాక్సింగ్" data-zh="拳击" data-ja="ボクシング">Boxing</a></li>
+                        <li style="margin-right: 20px;"><a href="#" class="main-nav-item" data-en="Handball" data-hi="हैंडबॉल" data-te="హ్యాండ్‌బాల్" data-zh="手球" data-ja="ハンドボール">Handball</a></li>
+                        <li style="margin-right: 20px;"><a href="#" class="main-nav-item" data-en="Judo" data-hi="जूडो" data-te="జుడో" data-zh="柔道" data-ja="柔道">Judo</a></li>
+                        <li style="margin-right: 20px;"><a href="#" class="main-nav-item" data-en="Karate" data-hi="कराटे" data-te="కరాటే" data-zh="空手道" data-ja="空手">Karate</a></li>
+                        <li style="margin-right: 20px;"><a href="#" class="main-nav-item" data-en="Golf" data-hi="गोल्फ" data-te="గోల్ఫ్" data-zh="高尔夫" data-ja="ゴルフ">Golf</a></li>
+                    </ul>
+                    <ul style="list-style: none; margin-left: 60px; padding: 0; display: flex; gap: 20px;">
+                        <li style="margin-right: 20px;">Mixed Martial Arts</li>
+                        <li style="margin-right: 20px;">Wrestling</li>
+                        <li style="margin-right: 20px;">Taekwondo</li>
+                        <li style="margin-right: 20px;">Poker</li>
+                        <li style="margin-right: 20px;">Surfing</li>
+                        <li style="margin-right: 20px;">Hand Ball</li>
+                </nav>
+                <div class="search-bar" style="position: relative;">
+                    <input type="text" placeholder="Search" style="padding: 10px; border: 1px solid #ccc; border-radius: 3px;">
+                    <button style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: none; border: none;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+
+        <script>
+            // Function to change text based on selected language
+            document.getElementById('language-select').addEventListener('change', function(e) {
+            const selectedLang = e.target.value;
+            const elements = document.querySelectorAll('[data-' + selectedLang + ']');
+
+            elements.forEach(element => {
+                const text = element.getAttribute('data-' + selectedLang);
+                element.textContent = text;
+            });
+            });
+        </script>
+
+        <!-- Banner -->
+        <div style="background-color: #fff; padding: 15px; display: flex; align-items: center; justify-content: space-between; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); margin: 20px 0; font-family: Arial, sans-serif;">
+            <div style="display: flex; margin-left: 10%;" >
+                <h2 style="font-size: 18px; font-weight: bold; color: #333; margin-right: 15px;" class="banner-item" data-en="Olympic Winter Games Milano Cortina 2026" data-hi="ओलंपिक विंटर गेम्स मिलानो कोर्टिना 2026" data-te="ఒలింపిక్ వింటర్ గేమ్స్ మిలానో కోర్టినా 2026" data-zh="冬季奥运会 米兰科尔蒂纳 2026" data-ja="オリンピック冬季大会 ミラノ・コルティナ 2026">Olympic Winter Games Milano Cortina 2026</h2>
+            <h4 style="font-weight: bold; color: #333; margin-right: 15px;" class="banner-item" data-en="- 6 February 2026" data-hi="- 6 फरवरी 2026" data-te="- 6 ఫిబ్రవరి 2026" data-zh="- 2026年2月6日" data-ja="- 2026年2月6日">- 6 February 2026</h4> 
+            </div>
+            <div id="countdown" style="font-size: 32px; font-weight: bold; color: #ff5733;  padding: 5px 15px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
+            300:17:25:20
+            </div>
+            <img src="https://www.olympics.com/en/external/mico-omega/img/logo-omega.png" alt="Omega Logo" style="height: 45px; vertical-align: middle; margin-right: 100px;">
+        </div>
+
+        <script>
+            const countdownElement = document.getElementById('countdown');
+            const targetDate = new Date('2026-02-06T00:00:00'); // Target date for the Olympics
+        
+            function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+        
+            if (diff <= 0) {
+                countdownElement.textContent = '00:00:00:00'; 
+            } else {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+                countdownElement.textContent = `${days.toString().padStart(3, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+            }
+        
+            // Update the countdown every second
+            setInterval(updateCountdown, 1000);
+        
+            // Initial update
+            updateCountdown();
+        </script>
+
+        <!-- sports celebs -->
+        <div style="display: flex; white-space: nowrap;width: 250%; animation: marquee 30s linear infinite;">
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 20px; margin-right: 20px; box-sizing: border-box; background-color: #f4f4f4; border: 1px solid #ddd;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/P.V._Sindhu.png" alt="PV Sindhu" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 20px;">
+                <p style="font-size: 18px; margin: 0; color: #333;">PV Sindhu is an Olympic medalist and one of India’s top badminton players.</p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 20px; margin-right: 20px; box-sizing: border-box; background-color: #f4f4f4; border: 1px solid #ddd;">
+                <img src="https://e7.pngegg.com/pngimages/912/1006/png-clipart-man-in-blue-suit-jacket-ms-dhoni-chennai-super-kings-india-national-cricket-team-indian-premier-league-rising-pune-supergiant-dhoni-game-sport-thumbnail.png" alt="MS Dhoni" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 20px;">
+                <p style="font-size: 18px; margin: 0; color: #333;">MS Dhoni is a legendary cricketer and former captain of the Indian team.</p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 20px; margin-right: 20px; box-sizing: border-box; background-color: #f4f4f4; border: 1px solid #ddd;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Virat_Kohli_with_AudiQ7.png" alt="Virat Kohli" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 20px;">
+                <p style="font-size: 18px; margin: 0; color: #333;">Virat Kohli is one of the best batsmen in the history of cricket.</p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 20px; margin-right: 20px; box-sizing: border-box; background-color: #f4f4f4; border: 1px solid #ddd;">
+                <img src="https://media.freemalaysiatoday.com/wp-content/uploads/2017/12/Magnificent-Mary.jpg" alt="Mary Kom" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 20px;">
+                <p style="font-size: 18px; margin: 0; color: #333;">Mary Kom is a six-time world champion boxer and Olympic medalist.</p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 20px; margin-right: 20px; box-sizing: border-box; background-color: #f4f4f4; border: 1px solid #ddd;">
+                <img src="https://i.ytimg.com/vi/PYTc9COhDOQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgUyhMMA8=&rs=AOn4CLDvbX2lRFf-2j6O4CZgOeU9tH8mrA" alt="Neeraj Chopra" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 20px;">
+                <p style="font-size: 18px; margin: 0; color: #333;">Neeraj Chopra is India’s first Olympic gold medalist in track and field.</p>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding: 20px; margin-right: 20px; box-sizing: border-box; background-color: #f4f4f4; border: 1px solid #ddd;">
+                <img src="https://live.staticflickr.com/8448/7886722474_40c9221a2e.jpg" alt="Saina Nehwal" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 20px;">
+                <p style="font-size: 18px; margin: 0; color: #333;">Saina Nehwal is a trailblazing badminton player and an Olympic medalist.</p>
+            </div>
+            
+        </div>
+
+        <style>
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+        </style>
+
+
+
+        <!-- Games Section -->
+        <div>
+            <div class="header" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE3If6k6ltz2TVteczDRagwqD22Kx9X-MrCSOLB3jA8WwQ0fGp1ReRsH5LCz8EZh8vaQg&usqp=CAU'); background-size: cover; background-position: center; height: 250px; display: flex; justify-content: space-between; align-items: center; padding: 20px; color: white;">
+                <div class="header-text" style="font-size: 36px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+                <h1 class="game-title banner-item" data-en="MILANO CORTINA 2026" data-hi="मिलानो कोर्टिना 2026" data-te="మిలానో కోర్టినా 2026" data-zh="米兰科尔蒂纳 2026" data-ja="ミラノ・コルティナ 2026">MILANO CORTINA 2026</h1>
+                <button class="explore-button" style="background-color: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">Explore</button>
+                </div>
+                <div class="logo-container" style="width: 150px; height: 150px; background-color: rgba(255, 255, 255, 0.7); border-radius: 10px; display: flex; justify-content: center; align-items: center; padding: 10px;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE3If6k6ltz2TVteczDRagwqD22Kx9X-MrCSOLB3jA8WwQ0fGp1ReRsH5LCz8EZh8vaQg&usqp=CAU" alt="Milano Cortina 2026 Logo" class="logo" style="width: 100%; max-width: 120px; height: auto;">
+                </div>
+            </div>
+            
+            <div class="navigation" style="background-color: #f0f0f0; padding: 15px 0; text-align: center; font-size: 16px;">
+                <ul style="list-style: none; margin: 0; padding: 0;">
+                <li style="display: inline-block; margin-right: 20px;"><a href="#" onclick="showAll()" style="text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease;" class="nav-item" data-en="All" data-hi="सभी" data-te="అన్నీ" data-zh="所有" data-ja="すべて">All</a></li>
+                <li style="display: inline-block; margin-right: 20px;"><a href="#" onclick="showOlympicGames()" style="text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s ease;" class="nav-item" data-en="Olympic Games" data-hi="ओलंपिक खेल" data-te="ఒలింపిక్ గేమ్స్" data-zh="奥林匹克运动会" data-ja="オリンピックゲーム">Olympic Games</a></li>
+                <li style="display: inline-block; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #333;" class="nav-item" data-en="Olympic Winter Games" data-hi="ओलंपिक विंटर गेम्स" data-te="ఒలింపిక్ వింటర్ గేమ్స్" data-zh="冬季奥运会" data-ja="オリンピック冬季大会">Olympic Winter Games</a></li>
+                <li style="display: inline-block; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #333;" class="nav-item" data-en="Summer Youth Olympic Games" data-hi="गर्मी युवा ओलंपिक खेल" data-te="గ్రీష్మ యూత్ ఒలింపిక్ గేమ్స్" data-zh="夏季青年奥林匹克运动会" data-ja="夏季ユースオリンピック大会">Summer Youth Olympic Games</a></li>
+                <li style="display: inline-block; margin-right: 20px;"><a href="#" style="text-decoration: none; color: #333;" class="nav-item" data-en="Winter Youth Olympic Games" data-hi="विंटर युवा ओलंपिक खेल" data-te="వింటర్ యువ ఒలింపిక్ గేమ్స్" data-zh="冬季青年奥林匹克运动会" data-ja="冬季ユースオリンピック大会">Winter Youth Olympic Games</a></li>
+                </ul>
+            </div>
+            
+            <div class="games-section" id="games-section" style="padding: 30px; display: grid; grid-template-columns: repeat(8, 1fr); gap: 20px; background-color: #fff;">
+                <div class="game-item" style="text-align: center; padding: 10px; background-color: #f0f0f0; border-radius: 5px; cursor: pointer; transition: transform 0.3s ease;">
+                <div class="game-name" data-en="Salt Lake City-Utah 2034" data-hi="साल्ट लेक सिटी-यूटा 2034" data-te="సాల్ట్ లేక్స్ సిటీ-యూటా 2034" data-zh="盐湖城-犹他州 2034" data-ja="ソルトレイクシティ・ユタ 2034">Salt Lake City-Utah 2034</div>
+                </div>
+                <div class="game-item" style="text-align: center; padding: 10px; background-color: #f0f0f0; border-radius: 5px; cursor: pointer; transition: transform 0.3s ease;">
+                <div class="game-name" data-en="Dakar 2026" data-hi="डाकार 2026" data-te="డాకార్ 2026" data-zh="达喀尔 2026" data-ja="ダカール 2026">Dakar 2026</div>
+                </div>
+                <!-- Add other game items similarly -->
+            </div>
+
+            
+            <script>
+                function showAll() {
+                const gamesSection = document.getElementById('games-section');
+                gamesSection.style.gridTemplateColumns = 'repeat(8, 1fr)';
+                const items = gamesSection.getElementsByClassName('game-item');
+                for (let i = 0; i < items.length; i++) {
+                    items[i].style.display = 'block';
+                }
+                }
+            
+                function showOlympicGames() {
+                const gamesSection = document.getElementById('games-section');
+                gamesSection.style.gridTemplateColumns = 'repeat(4, 1fr)';
+                const items = gamesSection.getElementsByClassName('game-item');
+                for (let i = 0; i < items.length; i++) {
+                    if (i >= 8) {
+                    items[i].style.display = 'none';
+                    } else {
+                    items[i].style.display = 'block';
+                    }
+                }
+                }
+            </script>
+            
+        </div>
+    
+
+        <!-- Move to India -->
+        <div style="background-color: #c4e4e5; height: 90vh; width: 100%; display: flex; gap: 1%;">
+            <!-- Left side text -->
+            <div style="width: 50%; margin-left: 2%;">
+                <h1 data-en="Champions Trophy 2025" data-hi="चैंपियंस ट्रॉफी 2025" data-te="ఛాంపియన్స్ ట్రోఫీ 2025" data-zh="冠军奖杯2025" data-ja="チャンピオンズトロフィー2025" style="font-size: 60px;">Champions Trophy 2025</h1>
+                <p data-en="India has announced its squad for the 2025 Champions Trophy, starting on February 19, and the three-match ODI series preceding it. The team will begin its campaign against Bangladesh the following day." 
+                    data-hi="भारत ने 2025 चैंपियंस ट्रॉफी के लिए अपनी टीम की घोषणा कर दी है, जो 19 फरवरी से शुरू होगी, और उससे पहले होने वाली तीन मैचों की वनडे सीरीज़ की भी। टीम अगले दिन बांग्लादेश के खिलाफ अपना अभियान शुरू करेगी।" 
+                    data-te="భారతదేశం 2025 ఛాంపియన్స్ ట్రోఫీ కోసం తన జట్టును ప్రకటించింది, ఇది ఫిబ్రవరి 19న ప్రారంభమవుతుంది, మరియు దానికి ముందు మూడు వన్డే మ్యాచ్‌ల సిరీస్ ఉంటుంది. జట్టు翌రోజు బంగ్లాదేశ్‌పై తమ పయనాన్ని ప్రారంభిస్తుంది." 
+                    data-zh="印度已宣布参加2025年冠军奖杯的阵容，该赛事将于2月19日开始，之前还有三场ODI系列赛。球队将在第二天对阵孟加拉国开启他们的征程。" 
+                    data-ja="インドは、2025年チャンピオンズトロフィーのメンバーを発表しました。この大会は2月19日に開幕し、その前に3試合のODIシリーズが行われます。チームは翌日、バングラデシュとのキャンペーンを開始します。" 
+                    style="font-size: 20px;">India has announced its squad for the 2025 Champions Trophy, starting on February 19, and the three-match ODI series preceding it. The team will begin its campaign against Bangladesh the following day.
+                </p>
+                <p data-en="with a marquee clash against Pakistan scheduled for February 23 in Dubai. Last month, the ICC agreed on a hybrid model that will see India’s matches in the eight-team event take place in Dubai." 
+                    data-hi="23 फरवरी को दुबई में पाकिस्तान के खिलाफ एक बड़े मुकाबले की योजना है। पिछले महीने, ICC ने एक हाइब्रिड मॉडल पर सहमति व्यक्त की, जिसके तहत आठ टीमों के इस टूर्नामेंट में भारत के मैच दुबई में खेले जाएंगे।" 
+                    data-te="ఫిబ్రవరి 23న దుబాయ్‌లో పాకిస్తాన్‌తో marquee తలపడి ఉంది. గత నెలలో, ICC హైబ్రిడ్ మోడల్‌ను అంగీకరించింది, దానితో భారతదేశపు మ్యాచ్‌లు ఎనిమిది జట్ల ఈవెంట్‌లో దుబాయ్‌లో జరుగుతాయి." 
+                    data-zh="与巴基斯坦的重磅对决定于2月23日在迪拜举行。上个月，ICC同意采用一种混合模式，印度在这场八支队伍的赛事中的比赛将在迪拜进行。" 
+                    data-ja="2月23日にドバイでパキスタンとの注目の対戦が予定されています。先月、ICCはインドの試合を8チームが参加するこのイベントでドバイで行うというハイブリッドモデルに合意しました。" 
+                    style="font-size: 20px;">with a marquee clash against Pakistan scheduled for February 23 in Dubai. Last month, the ICC agreed on a hybrid model that will see India’s matches in the eight-team event take place in Dubai.
+                </p>
+                <p data-en="Harshit Rana, who made his international debut during the Border-Gavaskar Trophy series, will fill in for Bumrah during the England series."
+                    data-hi="हर्षित राणा, जिन्होंने बॉर्डर-गावस्कर ट्रॉफी श्रृंखला के दौरान अपना अंतरराष्ट्रीय डेब्यू किया था, इंग्लैंड श्रृंखला के दौरान बुमराह की जगह लेंगे।"
+                    data-te="బోర్డర్-గావస్కర్ ట్రోఫీ సిరీస్‌లో తన అంతర్జాతీయ అరంగేట్రం చేసిన హర్షిత్ రాణా, ఇంగ్లాండ్ సిరీస్‌లో బుమ్రా స్థానంలో ఆడనున్నారు." 
+                    data-zh="在边境-加瓦斯卡奖杯系列赛中完成国际首秀的哈希特·拉纳将在英格兰系列赛中顶替布姆拉。" 
+                    data-ja="ボーダー・ガバスカー・トロフィーシリーズで国際デビューを果たしたハルシット・ラナが、イングランドシリーズでブムラの代役を務めます。" 
+                    style="font-size: 20px;">Harshit Rana, who made his international debut during the Border-Gavaskar Trophy series, will fill in for Bumrah during the England series.
+                </p>
+                <a href="#" style="text-decoration: none;">
+                    <button style="width: 200px; background-color: #000; color: white; border-radius: 25px; border: 1px solid #f0f0f0; font-size: 30px; margin-top: 20px;">More info</button>
+                </a>
+            </div>
+
+            <!-- Right side image -->
+            <div style="width: 45%; margin-right: 2%; margin-top: 60px;">
+                <img src="https://ss-i.thgim.com/public/incoming/7dgo6y/article69080105.ece/alternates/LANDSCAPE_1200/PTI08_07_2024_000292A.jpg" alt="" style="width: 100%;">
+            </div>
+        </div>
+
+        <!-- 2036 olyumpics-->
+        <div style="background-color: #000; height: 80vh; width: 100%; display: flex; gap: 1%;">
+            <!-- Left side image -->
+            <div style="width: 45%; margin-left: 2%; margin-top: 60px;">
+                <img src="https://ss-i.thgim.com/public/incoming/gxshoa/article69127374.ece/alternates/LANDSCAPE_1200/PTI01_20_2025_000021A.jpg" alt="" style="width: 100%;">
+            </div>
+
+            <!-- Right side text -->
+            <div style="width: 45%; margin-left: 3%;">
+                <h1 data-en="2036 Olympics" data-hi="2036 ओलंपिक" data-te="2036 ఒలింపిక్స్" data-zh="2036年奥运会" data-ja="2036年オリンピック" style="font-size: 60px; color: white;">2036 Olympics</h1>
+                <p data-en="On Wednesday, Sports Minister Mansukh Mandaviya expressed the government’s commitment to promote traditional Indian sports on a global scale. He emphasised that a collective effort is needed to include kho kho in the Asian Games and the 2036 Olympics." 
+                    data-hi="बुधवार को, खेल मंत्री मनसुख मंदविया ने सरकार के पारंपरिक भारतीय खेलों को वैश्विक स्तर पर बढ़ावा देने के लिए प्रतिबद्धता व्यक्त की। उन्होंने उज्जवल किया कि एशियाई खेलों और 2036 ओलंपिक में kho kho को शामिल करने के लिए सामूहिक प्रयास की आवश्यकता है।" 
+                    data-te="బుధవారం, స్పోర్ట్స్ మంత్రి మనసుఖ్ మండవియా ప్రభుత్వంకు పరంపరాగత భారతీయ క్రీడలను ప్రపంచ వ్యాప్తంగా ప్రోత్సహించడానికి ప్రతిజ్ఞ చేసినట్లు వ్యక్తం చేశాడు. అతను ఏషియన్ గేమ్స్ మరియు 2036 ఓలంపిక్స్‌లో kho kho ను ప్రవేశించడానికి సమూహం ప్రయత్నం అవసరం ఉందని అంగీకరించాడు." 
+                    data-zh="印度体育部长曼苏克·曼达维亚周三表示，政府致力于在全球范围内推广印度传统体育。他强调，需要集体努力将kho kho纳入亚运会和2036年奥运会。" 
+                    data-ja="水曜日、スポーツ大臣マンスク・マンダビヤは、インドの伝統的なスポーツを世界的に促進するための政府の取り組みを表明しました。彼は、アジア大会と2036年のオリンピックにkho khoを含めるために協力が必要であると強調しました。" 
+                    style="font-size: 20px; color: white;">On Wednesday, Sports Minister Mansukh Mandaviya expressed the government’s commitment to promote traditional Indian sports on a global scale. He emphasised that a collective effort is needed to include kho kho in the Asian Games and the 2036 Olympics.
+                </p>
+                <p style="font-size: 20px; color: white;" 
+                    data-en="India is aiming to host the 2036 Olympics and has submitted a ‘Letter of Intent’ to the International Olympic Committee’s Future Host Commission. If India secures the hosting rights, kho kho is one of six sports that the ministry’s Mission Olympic Cell plans to recommend for inclusion in the 2036 Olympics."
+                    data-hi="भारत ने 2036 ओलंपिक्स को आयोजित करने का लक्ष्य रखा है और अंतरराष्ट्रीय ओलंपिक समिति के भविष्य के मेजबान आयोग को 'इंटेंट का पत्र' प्रस्तुत किया है। यदि भारत आयोजन के अधिकारों को सुनिश्चित करता है, तो खो खो उन छह खेलों में से एक है जिन्हें मंत्रालय की मिशन ओलंपिक सेल ने 2036 ओलंपिक में शामिल करने के लिए सिफारिश करने की योजना बनाई है।"
+                    data-te="భారతం 2036 ఒలింపిక్స్ ని ఆయోజించడానికి లక్ష్యం చేస్తోంది మరియు అంతర్జాతీయ ఒలింపిక్ కమిటి యొక్క భవిష్య హోస్ట్ కమిషన్‌కు 'ఇంటెంట్ లేఖ' సమర్పించాడు. భారతం ఆయోజన హక్కులను సురక్షిత్తగా పొందితే, ఖో ఖో మంత్రాలయం మిషన్ ఒలింపిక్ సెల్ కు సిఫారసు చేయడానికి యొక్క ఆలోచనలు చేస్తుంది."
+                    data-zh="印度计划举办2036年奥运会，并向国际奥林匹克委员会未来主办地委员会提交了一份“意向书”。如果印度获得主办权，kho kho是体育部奥林匹克使命小组计划推荐纳入2036年奥运会的六项体育项目之一。"
+                    data-ja="インドは2036年のオリンピックの開催を目指しており、国際オリンピック委員会の将来のホスト委員会に「意向書」を提出しました。インドが開催権を獲得した場合、kho khoは、省のミッションオリンピックセルが2036年のオリンピックに推薦する6つのスポーツの1つです。">
+                    India is aiming to host the 2036 Olympics and has submitted a ‘Letter of Intent’ to the International Olympic Committee’s Future Host Commission. If India secures the hosting rights, kho kho is one of six sports that the ministry’s Mission Olympic Cell plans to recommend for inclusion in the 2036 Olympics. 
+                </p>
+                <a href="https://sportstar.thehindu.com/other-sports/kho-kho-asian-games-olympics-sports-minister-mansukh-mandaviya/article69127369.ece" style="text-decoration: none;">
+                    <button style="width: 200px; background-color: white; color: #000; border-radius: 25px; border: 1px solid #f0f0f0; font-size: 30px; margin-top: 30px;">More info</button>
+                </a>
+            </div>
+        </div>
+
+        
+
+        <!-- Footer -->
+        <footer style="font-family: sans-serif; color: #fff; background-color: #fff; margin: 0; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+                <!-- HSGN+ -->
+                <div>
+                    <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+                    <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+                    </div>
+                </div>
+    
+                <!-- quick links -->
+                <div>
+                    <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+                    <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+                    </div>
+                </div>
+    
+                <!-- Fantasy -->
+                <div>
+                    <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+                    <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                        <div>
+                            <!-- Football Link -->
+                            <a href="#" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                                <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                                Football
+                            </a>
+                        
+                            <!-- Football Overlay -->
+                            <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                                <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                                    <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                        <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <script>
+                                function openFootballOverlay1post() {
+                                    document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                                    document.getElementById('footballOverlay1post').style.display = "flex";
+                                }
+                        
+                                function closeFootballOverlay1post() {
+                                    document.getElementById('footballFrame1post').src = ""; // Stop video
+                                    document.getElementById('footballOverlay1post').style.display = "none";
+                                }
+                            </script>
+                        </div>
+                        
+                        <div>
+                            <!-- Baseball Link -->
+                            <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                                <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                                Baseball
+                            </a>
+                        
+                            <!-- Baseball Overlay -->
+                            <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                                <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                                    <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                                        <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <script>
+                                function openBaseballOverlay() {
+                                    document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                                    document.getElementById('baseballOverlay').style.display = "flex";
+                                }
+                        
+                                function closeBaseballOverlay() {
+                                    document.getElementById('baseballFrame').src = ""; // Stop video
+                                    document.getElementById('baseballOverlay').style.display = "none";
+                                }
+                            </script>
+                        </div>
+                        
+                        
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+                        </div>
+                </div>
+    
+                <!-- sites -->
+                <div>
+                    <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+                    <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+                    </div>
+                </div>
+    
+                <!-- apps -->
+                <div>
+                    <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+                    <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+                    </div>
+                </div>
+    
+                <!-- social media -->
+                <div>
+                    <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+                    <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+                        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+                    </div>
+                </div>
+    
+            </div>
+    
+            <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+                <!-- HSGN Logo -->
+                <div>
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                        alt="HSGN Logo" style="height: 40px;">
+                </div>
+            
+                <!-- Vertical Line Separator -->
+                <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+                <!-- Footer Links -->
+                <div style="color: #000;">
+                    <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+                    <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+                    <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+                    <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

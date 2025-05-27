@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive golf news, tournament highlights, upcoming fixtures, and golf literature">
+    <meta name="keywords" content="golf, tournaments, PGA, masters, US Open, golf news">
+    <title>Golf Universe - News, Tournaments & Stories</title>
+    <style>body{margin:0;font-family:'Arial',sans-serif;scroll-behavior:smooth;}a{text-decoration:none;}</style>
+</head>
+<body>
+
+   <style>
+    a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    nav a.special {
+      background-color: #28a745;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px !important;
+        flex-wrap: wrap !important;
+      }
+      .search-container {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: flex-start !important;
+        margin: 10px 0 !important;
+      }
+      .search-box {
+        width: 100% !important;
+      }
+      #mainNav {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        background: #f0f4f8 !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      #mainNav.active {
+        display: flex !important;
+      }
+      #hamburgerMenu {
+        display: flex !important;
+      }
+      #mainNav a {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+  </style>
+  <header style="max-width: 100%; display:flex; gap: 40px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+        <div >
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+  </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+    <!-- Hero Section with Animated Background -->
+    <section id="hero" style="height:80vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:white;text-align:center;">
+    
+        <!-- Background image layers -->
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/golf_bg.png');background-size:cover;background-position:center;animation:fade1 24s infinite;z-index:-1;opacity:0;"></div>
+        
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/golf_bg.png');background-size:cover;background-position:center;animation:fade2 24s infinite;z-index:-1;opacity:0;"></div>
+        
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/golf_bg.png');background-size:cover;background-position:center;animation:fade3 24s infinite;z-index:-1;opacity:0;"></div>
+        
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/golf_bg.png');background-size:cover;background-position:center;animation:fade4 24s infinite;z-index:-1;opacity:0;"></div>
+
+        <!-- Content -->
+        <div style="z-index:1;max-width:800px;padding:30px;background-color:rgba(0,0,0,0.7);border-radius:15px;backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.1);">
+            <h1 style="font-size:4rem;margin-bottom:25px;text-shadow:2px 2px 8px #000;font-weight:800;letter-spacing:1px;">Golf Universe</h1>
+            <p style="font-size:1.5rem;margin-bottom:40px;text-shadow:1px 1px 3px #000;">Your ultimate destination for golf news, tournaments and stories</p>
+            <a href="#majors" style="padding:15px 40px;background:#e63946;color:white;border-radius:50px;font-weight:bold;transition:all 0.3s;display:inline-block;font-size:1.1rem;box-shadow:0 4px 15px rgba(230,57,70,0.4);" 
+            onmouseover="this.style.transform='scale(1.05)';this.style.background='#d62839'" 
+            onmouseout="this.style.transform='scale(1)';this.style.background='#e63946'">Explore Tournaments</a>
+        </div>
+    </section>
+
+    <style>
+    @keyframes fade1 {
+    0% { opacity: 0.8; }
+    25% { opacity: 0; }
+    100% { opacity: 0.8; }
+    }
+    @keyframes fade2 {
+    0%, 25% { opacity: 0; }
+    25%, 50% { opacity: 0.8; }
+    50%, 100% { opacity: 0; }
+    }
+    @keyframes fade3 {
+    0%, 50% { opacity: 0; }
+    50%, 75% { opacity: 0.8; }
+    75%, 100% { opacity: 0; }
+    }
+    @keyframes fade4 {
+    0%, 75% { opacity: 0; }
+    75%, 100% { opacity: 0.8; }
+    }
+    </style>
+
+    <!-- Latest News Section -->
+    <section id="news" style="padding:80px 20px;background-color:#f8f9fa;position:relative;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#333;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">Latest Golf News</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px;">
+
+                <!-- News Card 1 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#e63946;">Record Breaking PGA Tour Signing</h3>
+                    <p style="color:#666;">The latest on the record-breaking PGA Tour signing that's shaking the golf world this season.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#e63946;font-weight:bold;" id="toggle-link-more1">Read More →</a>
+                    <div id="more1" style="display:none;color:#444;margin-top:10px;">
+                        Reports suggest the player involved is set to sign a contract worth over $20 million, breaking all previous records in PGA Tour history.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#e63946;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#e63946;">New Golf Course Unveiled</h3>
+                    <p style="color:#666;">First look at the revolutionary new golf course design that could change golf architecture.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#e63946;font-weight:bold;" id="toggle-link-more2">Read More →</a>
+                    <div id="more2" style="display:none;color:#444;margin-top:10px;">
+                        The course includes innovative water features, solar-paneled clubhouse, and a championship layout—designed with sustainability in mind.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#e63946;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#e63946;">Junior Golf Breakthrough</h3>
+                    <p style="color:#666;">How one junior program is producing world-class talent year after year.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#e63946;font-weight:bold;" id="toggle-link-more3">Read More →</a>
+                    <div id="more3" style="display:none;color:#444;margin-top:10px;">
+                        The junior program has invested in state-of-the-art facilities, professional mentorship, and personalized development plans for each player.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#e63946;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+    function toggleText(id) {
+        const content = document.getElementById(id);
+        const link = document.getElementById("toggle-link-" + id);
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            link.style.display = "none"; // hide the "Read More"
+        } else {
+            content.style.display = "none";
+            link.style.display = "inline"; // show "Read More" again
+        }
+    }
+    </script>
+
+   <!-- upcoming majors -->
+<!-- majors section -->
+    <section>
+        <div id="majors" style="font-family: 'Segoe UI', sans-serif; max-width: 100%; margin: auto; padding: 25px; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden;">
+            <!-- Header with animated gradient text -->
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h1 style="margin: 0; font-size: 2.5rem; background: linear-gradient(to right, #1a3e72, #e63946); -webkit-background-clip: text; background-clip: text; color: transparent; animation: fadeIn 0.8s ease-in-out;">GOLF MAJORS 2024</h1>
+                <p style="color: #555; font-size: 1.2rem;">Countdown: <span id="countdown" style="font-weight: bold; color: #e63946; animation: pulse 2s infinite;">-- days --:--:--</span></p>
+            </div>
+
+            <!-- Full-width Tournament Cards Container -->
+            <div style="width: 100%; overflow-x: auto; padding: 10px 0; -webkit-overflow-scrolling: touch;">
+                <div style="display: flex; gap: 20px; padding: 20px 0; width: max-content; min-width: 100%;">
+                    <!-- Card 1 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.5s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- Tournament Info -->
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">The Masters</div>
+                                <div style="font-size: 1em; color: #666;">Augusta National Golf Club</div>
+                            </div>
+
+                            <!-- Details -->
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                <img src="https://flagcdn.com/ge.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">April 11-14, 2024</div>
+                                <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                    <strong>Defending Champion</strong><br>
+                                    <small style="font-size: 0.8em;">Jon Rahm</small>
+                                </div>
+                            </div>
+
+                            <!-- Related Text -->
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                The first major of the year at the iconic Augusta National.
+                            </div>
+
+                            <!-- Date & Time -->
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">Augusta, Georgia</div>
+                                <div style="font-size: 0.9em; color: #666;">Par 72 • 7,510 yards</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.7s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- Tournament Info -->
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">PGA Championship</div>
+                                <div style="font-size: 1em; color: #666;">Valhalla Golf Club</div>
+                            </div>
+
+                            <!-- Details -->
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                <img src="https://flagcdn.com/us.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">May 16-19, 2024</div>
+                                <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                    <strong>Defending Champion</strong><br>
+                                    <small style="font-size: 0.8em;">Brooks Koepka</small>
+                                </div>
+                            </div>
+
+                            <!-- Related Text -->
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                The second major of the year returns to Valhalla.
+                            </div>
+
+                            <!-- Date & Time -->
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">Louisville, Kentucky</div>
+                                <div style="font-size: 0.9em; color: #666;">Par 72 • 7,600 yards</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.9s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">U.S. Open</div>
+                                <div style="font-size: 1em; color: #666;">Pinehurst Resort</div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                <img src="https://flagcdn.com/us.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">June 13-16, 2024</div>
+                                <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                    <strong>Defending Champion</strong><br>
+                                    <small style="font-size: 0.8em;">Wyndham Clark</small>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                The toughest test in golf returns to Pinehurst.
+                            </div>
+
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">Pinehurst, North Carolina</div>
+                                <div style="font-size: 0.9em; color: #666;">Par 70 • 7,548 yards</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.1s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">The Open Championship</div>
+                                <div style="font-size: 1em; color: #666;">Royal Troon Golf Club</div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                <img src="https://flagcdn.com/gb.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">July 18-21, 2024</div>
+                                <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                    <strong>Defending Champion</strong><br>
+                                    <small style="font-size: 0.8em;">Brian Harman</small>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                The oldest major returns to Royal Troon.
+                            </div>
+
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">Troon, Scotland</div>
+                                <div style="font-size: 0.9em; color: #666;">Par 71 • 7,190 yards</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+            @keyframes slideInUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(40px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            </style>
+
+            <!-- Animated Buttons -->
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+                <button id="alertBtn" 
+                        style="padding: 12px 30px; border: none; border-radius: 50px; background: linear-gradient(to right, #e63946, #ff6b6b); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(230,57,70,0.3); display: flex; align-items: center; gap: 10px; font-size: 1.1rem;"
+                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(230,57,70,0.4)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 20px rgba(230,57,70,0.3)'"
+                        onclick="toggleAlerts()">
+                    <i class="fas fa-bell" id="bellIcon" style="font-size: 1.2rem;"></i>
+                    <span id="alertText">Get Tournament Alerts</span>
+                    <i class="fas fa-check" id="checkIcon" style="display: none; margin-left: 8px; font-size: 1.2rem;"></i>
+                </button>
+                <a href="#upcoming" style="text-decoration:none;">
+                    <button style="padding: 12px 30px; border: none; border-radius: 50px; background: linear-gradient(to right, #1a3e72, #4a7bd0); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(26,62,114,0.3); display: flex; align-items: center; gap: 10px; font-size: 1.1rem;"
+                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(26,62,114,0.4)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 20px rgba(26,62,114,0.3)'">
+                        <i class="fas fa-trophy" style="font-size: 1.2rem;"></i>
+                        View All Tournaments
+                    </button>
+                </a>
+            </div>        
+
+            <!-- Add Font Awesome for icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+            <!-- Countdown Timer Script -->
+            <script>
+                let alertsActive = false;
+                
+                function toggleAlerts() {
+                    const bellIcon = document.getElementById('bellIcon');
+                    const checkIcon = document.getElementById('checkIcon');
+                    const alertText = document.getElementById('alertText');
+                    const alertBtn = document.getElementById('alertBtn');
+                    
+                    alertsActive = !alertsActive;
+                    
+                    if (alertsActive) {
+                        // Show confirmation
+                        checkIcon.style.display = 'inline-block';
+                        alertText.textContent = 'Alerts Activated';
+                        alertBtn.style.background = 'linear-gradient(to right, #4CAF50, #2E7D32)';
+                        
+                        // Change bell to active state
+                        bellIcon.classList.remove('fa-bell');
+                        bellIcon.classList.add('fa-bell-slash');
+                        
+                        // Show temporary confirmation message
+                        setTimeout(() => {
+                            alertText.textContent = 'Get Tournament Alerts';
+                        }, 2000);
+                    } else {
+                        // Hide confirmation
+                        checkIcon.style.display = 'none';
+                        alertText.textContent = 'Get Tournament Alerts';
+                        alertBtn.style.background = 'linear-gradient(to right, #e63946, #ff6b6b)';
+                        
+                        // Change back to regular bell
+                        bellIcon.classList.remove('fa-bell-slash');
+                        bellIcon.classList.add('fa-bell');
+                    }
+                }
+                
+                // Set the target date (April 11, 2024 - Masters)
+                const targetDate = new Date("2026-04-11T08:00:00Z").getTime();
+                
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const distance = targetDate - now;
+                    
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    document.getElementById("countdown").innerHTML = 
+                        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                    
+                    // Blink animation when under 7 days
+                    if (days < 7) {
+                        document.getElementById("countdown").style.animation = "pulse 1s infinite";
+                    }
+                }
+                
+                setInterval(updateCountdown, 1000);
+                updateCountdown();
+            </script>
+        </div>
+    </section>
+
+<!-- ...existing code... -->
+<section>
+    <style>
+        @keyframes shine {
+        0% { background-position: -200px; }
+        100% { background-position: 200px; }
+        }
+
+        @keyframes cardAppear {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes expand {
+        from { width: 0; opacity: 0; }
+        to { width: 200px; opacity: 1; }
+        }
+    </style>
+    <div style="max-width: 1200px; margin:auto; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
+        
+        <!-- Retro Major Header with Animation -->
+        <div style="text-align: center; margin-bottom: 25px;">
+        <h1 style="margin: 0; font-size: 2rem; background: linear-gradient(to right, #d4af37, #c0c0c0); -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 3s infinite alternate; text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">Major Champions</h1>
+        <p style="color: #6c757d; margin-top: 8px; animation: fadeIn 1.5s ease-in-out;">Relive the most memorable moments from recent golf majors</p>
+        <div style="height: 3px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 10px auto; width: 200px; animation: expand 2s ease-out;"></div>
+        </div>
+
+        <!-- Major Timeline -->
+        <div style="position: relative; margin: 30px 0; padding-left: 30px; border-left: 3px dashed rgba(212, 175, 55, 0.5);">
+
+        <!-- Major Cards: Inserted Here -->
+        <div id="majorCards">
+            <!-- 2024 Masters -->
+            <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; animation: cardAppear 0.6s ease-out;"
+            onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'">
+            <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #d4af37; border: 3px solid white; box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);"></div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <span style="font-size: 0.8rem; background: #d4af37; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2024 Masters</span>
+                <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">April 14, 2024</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxwN6LBjLgGmxQ0tLS2dX7dAGr-b5n1guh1lujuTiV7aMUTG1wAJ0IwtDuZbOm" width="50" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    <div style="font-weight: bold; font-size: 1.1rem; margin: 10px 0;">Jon Rahm</div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">-12</div>
+                </div>
+                <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">🏆</div>
+                <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <img src="https://flagcdn.com/us.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    <div style="font-size: 1.1rem; margin: 10px 0;">Augusta National</div>
+                    <div style="font-size: 1rem; color: #888;">Georgia, USA</div>
+                </div>
+            </div>
+            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+                <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #d4af37;"></i>Augusta, Georgia
+                <span style="float: right;"><i class="fas fa-trophy" style="margin-right: 5px; color: #d4af37;"></i> 2nd Major Title</span>
+            </div>
+            </div>
+
+            <!-- 2023 PGA Championship -->
+            <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; animation: cardAppear 0.8s ease-out;"
+            onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'">
+            <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #d4af37; border: 3px solid white; box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);"></div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <span style="font-size: 0.8rem; background: #d4af37; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2023 PGA Championship</span>
+                <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">May 21, 2023</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <img src="https://flagcdn.com/us.svg" width="50" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    <div style="font-weight: bold; font-size: 1.1rem; margin: 10px 0;">Brooks Koepka</div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">-9</div>
+                </div>
+                <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">🏆</div>
+                <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <img src="https://flagcdn.com/us.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    <div style="font-size: 1.1rem; margin: 10px 0;">Oak Hill Country Club</div>
+                    <div style="font-size: 1rem; color: #888;">New York, USA</div>
+                </div>
+            </div>
+            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+                <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #d4af37;"></i>Rochester, New York
+                <span style="float: right;"><i class="fas fa-trophy" style="margin-right: 5px; color: #d4af37;"></i> 5th Major Title</span>
+            </div>
+            </div>
+
+            <!-- 2023 US Open -->
+            <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; animation: cardAppear 1s ease-out;">
+            <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #d4af37; border: 3px solid white; box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);"></div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <span style="font-size: 0.8rem; background: #d4af37; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2023 U.S. Open</span>
+                <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">June 18, 2023</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <img src="https://flagcdn.com/us.svg" width="50" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    <div style="font-weight: bold; font-size: 1.1rem; margin: 10px 0;">Wyndham Clark</div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">-10</div>
+                </div>
+                <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">🏆</div>
+                <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <img src="https://flagcdn.com/us.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    <div style="font-size: 1.1rem; margin: 10px 0;">Los Angeles Country Club</div>
+                    <div style="font-size: 1rem; color: #888;">California, USA</div>
+                </div>
+            </div>
+            <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+                <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #d4af37;"></i>Los Angeles, California
+                <span style="float: right;"><i class="fas fa-trophy" style="margin-right: 5px; color: #d4af37;"></i> 1st Major Title</span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- Golf Novel Section -->
+<section id="novel" style="background-color:#1a1a2e;color:#e6e6e6;padding:60px 20px;position:relative;overflow:hidden;">
+    <h2 style="text-align:center;font-size:2.5rem;margin-bottom:40px;color:#fff;">Golf Novel: The Final Putt</h2>
+    <div style="max-width:800px;margin:0 auto;position:relative;">
+        <div class="novel-content" style="height:400px;overflow-y:scroll;padding-right:20px;scrollbar-width:thin;scrollbar-color:#e63946 #1a1a2e;">
+            <h3 style="color:#e63946;margin-top:0;">Chapter 1: The Driving Range</h3>
+            <p>The sun was just rising over the dew-soaked fairways as Alex lined up his first shot. The driving range was empty except for the distant sound of sprinklers and the soft thud of balls landing on the grass. This was his sanctuary, the place where he could forget about missed cuts and mounting bills.</p>
+            <p>Coach Miller watched from behind, arms folded. "Focus on your follow-through, Alex. Let the club do the work."</p>
+            <p>Alex exhaled, swung, and sent the ball soaring into the pink morning sky. For a moment, all his doubts faded away.</p>
+            <h3 style="color:#e63946;margin-top:30px;">Chapter 2: The Invitation</h3>
+            <p>Later that day, Alex found an envelope slipped under his apartment door. Inside was an invitation to the National Open Qualifier. His hands trembled as he read the details. This was the chance he'd been waiting for—a shot at the big leagues.</p>
+            <p>He called Coach Miller immediately. "You’re in," the coach said, pride evident in his voice. "Now let’s get to work."</p>
+            <h3 style="color:#e63946;margin-top:30px;">Chapter 3: The Qualifier</h3>
+            <p>The course was packed with hopefuls, each one dreaming of glory. Alex felt the pressure mounting with every hole. A double bogey on the 7th nearly shattered his confidence, but a birdie on the 16th put him back in contention.</p>
+            <p>Standing over his final putt, Alex blocked out the noise. He drew a deep breath, steadied his hands, and rolled the ball straight into the cup. He’d made it.</p>
+            <h3 style="color:#e63946;margin-top:30px;">Chapter 4: The Open</h3>
+            <p>The National Open was a different world—TV cameras, roaring crowds, and the best players in the country. Alex battled nerves and tough conditions, but his game held up. On the final day, he found himself tied for the lead with one hole to play.</p>
+            <p>His drive found the fairway, his approach landed safely on the green. Now, just one putt stood between him and a life-changing victory...</p>
+            <p style="margin-bottom:100px;">[To be continued...]</p>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;width:100%;height:50px;background:linear-gradient(to top, #1a1a2e, transparent);pointer-events:none;"></div>
+    </div>
+</section>
+
+<!-- Top Golfers -->
+<section id="players" style="padding:80px 20px;background-color:#f1faee;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#1d3557;">Top Golfers of the Season</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));gap:30px;">
+            <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                <img src="https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2020/08/Rahm%20winners%202023%20Masters.jpg.rend.hgtvcom.966.644.suffix/1681079345469.jpeg" alt="Jon Rahm" style="width:100%;height:150px;object-fit:cover;">
+                <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                    <h3 style="margin:0 0 10px;color:#a8dadc;">Jon Rahm</h3>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Majors:</span><span>2</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>World Ranking:</span><span>3</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Spain</span></div>
+                </div>
+                <div style="padding:15px;text-align:center;">
+                    <h3 style="margin:0;color:#1d3557;">Jon Rahm</h3>
+                    <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">2024 Masters Champion</p>
+                </div>
+            </div>
+            <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                <img src="https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2023/06/1200/675/Brooks-Koepka2.jpg?ve=1&tl=1" alt="Brooks Koepka" style="width:100%;height:150px;object-fit:cover;">
+                <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                    <h3 style="margin:0 0 10px;color:#a8dadc;">Brooks Koepka</h3>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Majors:</span><span>5</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>World Ranking:</span><span>7</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>USA</span></div>
+                </div>
+                <div style="padding:15px;text-align:center;">
+                    <h3 style="margin:0;color:#1d3557;">Brooks Koepka</h3>
+                    <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">2023 PGA Champion</p>
+                </div>
+            </div>
+            <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                <img src="https://media.cnn.com/api/v1/images/stellar/prod/230508100053-02-wells-fargo-championship-050723-wyndham-clark.jpg?c=original" alt="Wyndham Clark" style="width:100%;height:150px;object-fit:cover;">
+                <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                    <h3 style="margin:0 0 10px;color:#a8dadc;">Wyndham Clark</h3>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Majors:</span><span>1</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>World Ranking:</span><span>10</span></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>USA</span></div>
+                </div>
+                <div style="padding:15px;text-align:center;">
+                    <h3 style="margin:0;color:#1d3557;">Wyndham Clark</h3>
+                    <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">2023 US Open Champion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Golf Tactics Section -->
+<section id="tactics" style="padding:80px 20px;background-color:#1d3557;color:white;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;">Strategic Insights in Golf</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+            <div>
+                <h3 style="font-size:1.8rem;color:#a8dadc;margin-top:0;">Course Management</h3>
+                <p>Elite golfers know that success is about more than just hitting the ball far. Strategic course management—choosing the right club, aiming for safe landing zones, and playing to your strengths—can make the difference between victory and defeat.</p>
+                <p>Reading greens, understanding wind conditions, and knowing when to play aggressively or conservatively are all part of the mental game that separates champions from the rest.</p>
+                <div style="margin-top:30px;">
+                    <div style="display:flex;align-items:center;margin-bottom:15px;">
+                        <div style="width:30px;height:30px;background:#e63946;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">1</div>
+                        <div>Visualizing each shot before stepping up to the ball</div>
+                    </div>
+                    <div style="display:flex;align-items:center;margin-bottom:15px;">
+                        <div style="width:30px;height:30px;background:#e63946;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">2</div>
+                        <div>Adapting to changing weather and course conditions</div>
+                    </div>
+                    <div style="display:flex;align-items:center;">
+                        <div style="width:30px;height:30px;background:#e63946;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">3</div>
+                        <div>Maintaining focus and composure under pressure</div>
+                    </div>
+                </div>
+            </div>
+            <div style="position:relative;">
+                <img src="https://www.golfsidekick.com/wp-content/uploads/2022/04/2-shots-to-par-4-approachu.jpeg" alt="Golf course strategy diagram" style="width:100%;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,0.3);">
+                <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.7);color:white;padding:5px 10px;border-radius:5px;font-size:0.8rem;">Course Management</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Iconic Golf Courses -->
+<section id="stadiums" style="padding:80px 20px;background-color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#1d3557;">Iconic Golf Courses</h2>
+        <div style="display:flex;gap:30px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:10px;">
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="https://images.ctfassets.net/pg9ls4pr74b0/5oyD6oXH2nzC88X07VeoVu/45192ab4b32fde87ab878b26e1a2f5cd/landmarks-augusta.jpg" alt="Augusta National" style="width:100%;height:200px;object-fit:cover;">
+                <div style="padding:20px;">
+                    <h3 style="margin-top:0;color:#e63946;">Augusta National</h3>
+                    <p style="color:#666;margin-bottom:20px;">Home of The Masters, Augusta National is renowned for its beauty and tradition.</p>
+                    <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                        <span>📍 Georgia, USA</span>
+                        <span>🏟 Par 72</span>
+                    </div>
+                </div>
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="https://thestandrewsgolfclub.co.uk/wp-content/uploads/2020/05/004-1.jpg" alt="St Andrews" style="width:100%;height:200px;object-fit:cover;">
+                <div style="padding:20px;">
+                    <h3 style="margin-top:0;color:#e63946;">St Andrews</h3>
+                    <p style="color:#666;margin-bottom:20px;">The "Home of Golf," St Andrews is the oldest and most iconic course in the world.</p>
+                    <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                        <span>📍 Scotland</span>
+                        <span>🏟 Par 72</span>
+                    </div>
+                </div>
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="https://www.checkitofftravel.com/golfing-at-pebble-beach/wp-content/uploads/Pebble-Beach-Golf-1024x616.jpg" alt="Pebble Beach" style="width:100%;height:200px;object-fit:cover;">
+                <div style="padding:20px;">
+                    <h3 style="margin-top:0;color:#e63946;">Pebble Beach</h3>
+                    <p style="color:#666;margin-bottom:20px;">A breathtaking coastal course, Pebble Beach is a favorite for both pros and fans.</p>
+                    <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                        <span>📍 California, USA</span>
+                        <span>🏟 Par 72</span>
+                    </div>
+                </div>
+            </div>
+            <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <img src="https://www.royaltroon.co.uk/wp-content/uploads/2019/12/Royal-Troon-Old-Course-Hole-18-1.jpg" alt="Royal Troon" style="width:100%;height:200px;object-fit:cover;">
+                <div style="padding:20px;">
+                    <h3 style="margin-top:0;color:#e63946;">Royal Troon</h3>
+                    <p style="color:#666;margin-bottom:20px;">A classic links course, Royal Troon has hosted many memorable Open Championships.</p>
+                    <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                        <span>📍 Scotland</span>
+                        <span>🏟 Par 71</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Golf History Section -->
+<section id="history" style="padding:80px 20px;background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/golf_history.png');background-size:cover;background-attachment:fixed;color:white;">
+    <div style="max-width:1200px;margin:0 auto;text-align:center;">
+        <h2 style="font-size:2.5rem;margin-bottom:30px;">Golf Through the Ages</h2>
+        <p style="max-width:800px;margin:0 auto 40px;font-size:1.1rem;line-height:1.6;">From its origins in Scotland to its global popularity today, golf has a rich and storied history. Explore the milestones that shaped the game.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:30px;margin-top:50px;">
+            <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">15th Century</div>
+                <h3 style="margin-top:0;color:#a8dadc;">Early Origins</h3>
+                <p style="font-size:0.9rem;">Golf is believed to have originated in Scotland, with the first written record dating back to 1457.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1860</div>
+                <h3 style="margin-top:0;color:#a8dadc;">First Open Championship</h3>
+                <p style="font-size:0.9rem;">The inaugural Open Championship was played at Prestwick Golf Club, Scotland.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1934</div>
+                <h3 style="margin-top:0;color:#a8dadc;">First Masters Tournament</h3>
+                <p style="font-size:0.9rem;">The Masters was first played at Augusta National, quickly becoming one of golf's most prestigious events.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1997</div>
+                <h3 style="margin-top:0;color:#a8dadc;">Tiger Woods' Breakthrough</h3>
+                <p style="font-size:0.9rem;">Tiger Woods wins his first Masters, ushering in a new era for golf worldwide.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section id="newsletter" style="padding:80px 20px;background-color:#f1faee;">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+        <h2 style="font-size:2rem;margin-bottom:20px;color:#1d3557;">Stay Updated</h2>
+        <p style="color:#457b9d;margin-bottom:30px;">Subscribe to our newsletter for the latest Golf news, tournament analysis, and exclusive content.</p>
+        <form style="display:flex;max-width:500px;margin:0 auto;">
+            <input type="email" placeholder="Your email address" style="flex:1;padding:12px 15px;border:1px solid #ddd;border-radius:30px 0 0 30px;font-size:1rem;outline:none;">
+            <button type="submit" style="padding:12px 25px;background:#e63946;color:white;border:none;border-radius:0 30px 30px 0;font-weight:bold;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.background='#d62839'" onmouseout="this.style.background='#e63946'">Subscribe</button>
+        </form>
+        <p style="font-size:0.8rem;color:#666;margin-top:20px;">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;"> Football</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;"> Baseball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+            </div>
+        </div>
+        <!-- sites -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+            </div>
+        </div>
+        <!-- apps -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+            <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+            </div>
+        </div>
+        <!-- social media -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+            <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+            </div>
+        </div>
+        <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+            <!-- HSGN Logo -->
+            <div>
+                <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                    alt="HSGN Logo" style="height: 40px;">
+            </div>
+            <!-- Vertical Line Separator -->
+            <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            <!-- Footer Links -->
+            <div style="color: #000;">
+                <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+                <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+                <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+                <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ...existing code... -->

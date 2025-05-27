@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Befit</title>
+    <script src="https://kit.fontawesome.com/YOUR_FONTAWESOME_KIT.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Animation Keyframes */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Section Animation Classes */
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+        }
+
+        /* Hide sections initially */
+        .animated-section {
+            opacity: 0;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .cta button {
+            
+            background-color: #ff6f00;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero {
+            background-image: url('https://blogs.nottingham.ac.uk/newsroom/files/2017/01/fitness-blog.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .hero-content button {
+            background-color: #ff6f00;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .body-items {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .body-item {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .body-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .body-item h2 {
+            font-size: 2em;
+            color: #ff6f00;
+            margin-top: 20px;
+        }
+
+        .body-item p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .body-item button {
+            background-color: #ff6f00;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .passes {
+            background-color: #8ba5c7;
+            padding: 30px;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .pass {
+            background-color: #1c1c1c;
+            color: #e8e8e8;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            width: 32%;
+        }
+
+        .pass strong {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(to right, #f1c40f, #f39c12);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .pass span {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #ecf0f1;
+        }
+
+        .pass button {
+            background-color: #c0392b;
+            color: white;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .plans {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            padding: 50px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .plans h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .plans p {
+            font-size: 1.2em;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .plan-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .plan-card {
+            background: linear-gradient(145deg, #333, #222);
+            padding: 30px;
+            border-radius: 15px;
+            width: 180px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .plan-card p {
+            font-size: 1.2em;
+            color: #ffcc00;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .plan-card span {
+            font-size: 1.1em;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .comparison {
+            background-color: #878686;
+            color: #fff;
+            font-family: 'Georgia', serif;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison table {
+            width: 100%;
+            border-collapse: collapse;
+            max-width: 900px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.562);
+        }
+
+        .comparison th, .comparison td {
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        .comparison th {
+            font-weight: normal;
+            font-size: 1.4em;
+            color: #ffcc00;
+            border-bottom: 2px solid #444;
+        }
+
+        .comparison td {
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .comparison button {
+            background-color: #ffcc00;
+            color: #111;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 60px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .card button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            margin-top: 30px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer img {
+            width: 140px;
+        }
+
+        footer p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        footer .app-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        footer .app-buttons img {
+            width: 130px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <img src="images/BEFIT.png" alt="Befit Logo">
+        </div>
+        <ul>
+            <li><a href="#">FITNESS</a></li>
+            <li><a href="#">CARE</a></li>
+            <li><a href="#">MIND</a></li>
+            <li><a href="#">STORE</a></li>
+            <li style="margin-left: auto; display: flex; gap: 30px;margin-left: 60px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+        </ul>
+        <div class="cta">
+            <div id="location">
+                <i class="fas fa-map-marker-alt" style="color: #ff6f00; margin-right: 5px;"></i>
+                <span id="user-location">Fetching location...</span>
+            </div>
+            <button>GET APP</button>
+            <button style="background-color: transparent; color: #333; border: 1px solid #333;">Login</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero animated-section">
+        <div class="hero-content">
+            <h2>WE ARE</h2>
+            <h1 class="cult">Befit</h1>
+            <p>A fitness movement that is worth<br> breaking a sweat for</p>
+            <button class="explore">EXPLORE FITPASS</button>
+        </div>
+    </section>
+
+    <!-- Body Items -->
+    <section class="body-items animated-section">
+        <div class="body-item">
+            <div class="body-item-image">
+                <img src="https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_404,q_auto:eco,dpr_1,f_auto,fl_progressive//image/test/introducting-cult-pass/icp_cg.png" alt="Fitness">
+            </div>
+            <h2>Fitness</h2>
+            <p>Achieve your fitness goals with top-class workouts and training programs.</p>
+            <button>EXPLORE</button>
+        </div>
+        <div class="body-item">
+            <div class="body-item-image">
+                <img src="https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_404,q_auto:eco,dpr_1,f_auto,fl_progressive//image/test/introducting-cult-pass/icp_cl.png" alt="Yoga">
+            </div>
+            <h2>Yoga</h2>
+            <p>Enhance flexibility, balance, and inner peace with guided yoga sessions.</p>
+            <button>EXPLORE</button>
+        </div>
+        <div class="body-item">
+            <div class="body-item-image">
+                <img src="https://img.goodfon.com/original/1920x1080/f/b1/meditaciya-kosmos-chelovek-dusha.jpg" alt="Meditation">
+            </div>
+            <h2>Meditation</h2>
+            <p>Calm your mind and reduce stress with guided meditation practices.</p>
+            <button>EXPLORE</button>
+        </div>
+    </section>
+
+    <!-- Passes Section -->
+    <div class="passes animated-section">
+        <div class="pass">
+            <strong>BeFit ELITE</strong><br>
+            <span>Unlimited access to all group classes & Elite / Pro gyms</span><br>
+            <span>₹898 / month</span><br>
+            <button>BUY NOW</button>
+        </div>
+        <div class="pass">
+            <strong>BeFit PRO</strong><br>
+            <span>Unlimited access to all Pro gyms</span><br>
+            <span>₹715 / month</span><br>
+            <button>BUY NOW</button>
+        </div>
+        <div class="pass">
+            <strong>BeFit PLAY</strong><br>
+            <span>Unlimited access to multiple sports</span><br>
+            <span>₹812 / month</span><br>
+            <button>BUY NOW</button>
+        </div>
+    </div>
+
+    <!-- Plans Section -->
+    <div class="plans animated-section">
+        <h2>Choose Your Cultpass</h2>
+        <p>Flexible plans to suit your fitness needs</p>
+        <div class="plan-cards">
+            <div class="plan-card">
+                <p>12 MONTHS</p>
+                <span>₹1133/MO</span>
+            </div>
+            <div class="plan-card">
+                <p>6 MONTHS</p>
+                <span>₹1815/MO</span>
+            </div>
+            <div class="plan-card">
+                <p>3 MONTHS</p>
+                <span>₹2730/MO</span>
+            </div>
+            <div class="plan-card">
+                <p>24 MONTHS</p>
+                <span>₹898/MO</span>
+            </div>
+            <div class="plan-card">
+                <p>1 MONTH</p>
+                <span>₹5290/MO</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Section -->
+    <div class="comparison animated-section">
+        <div style="display: flex; justify-content: center; margin-bottom: 40px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><span>ELITE PLUS</span><br><span>₹1258/MO*</span></th>
+                        <th><span>ELITE</span><br><span>₹1133/MO*</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Membership Pause Days</td>
+                        <td>60</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Other City Sessions</td>
+                        <td>60</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Swimming Sessions</td>
+                        <td>5</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Membership Transfer</td>
+                        <td>✓</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Video workouts</td>
+                        <td>✓</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Total Payable</td>
+                        <td>₹15090<br><span>+2857 (Taxes & Fees)</span></td>
+                        <td>₹13590<br><span>+2587 (Taxes & Fees)</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button>BUY</button></td>
+                        <td><button>BUY</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="cards animated-section">
+        <div class="card">
+            <img src="https://cdn12.picryl.com/photo/2016/12/31/to-lose-weight-weight-nutrition-food-drink-ac695d-1024.jpg" alt="Cult Transform">
+            <h2>cult transform</h2>
+            <p>Get coached to lose weight for good</p>
+            <button>Learn More</button>
+            <p></p>
+        </div>
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHtR73CFNhuCCAbIfBfaJzLxkJvt02P1gxXA&s" alt="The .fit way">
+            <h2>The .fit way</h2>
+            <p>Making health easy, one day at a time</p>
+            <button>Learn More</button>
+            <p></p>
+        </div>
+        <div class="card">
+            <img src="https://img.goodfon.com/original/2560x1440/a/56/workout-fitness-sportswear.jpg" alt="Workout Gear">
+            <h2>Workout Gear</h2>
+            <p>Everything you need for your workout</p>
+            <button>Learn More</button>
+            <p></p>
+        </div>
+        <div class="card">
+            <img src="https://www.shutterstock.com/shutterstock/videos/3670111175/thumb/1.jpg?ip=x480" alt="Sugar.fit">
+            <h2>Sugar.fit</h2>
+            <p>Reverse Type 2 Diabetes and Prediabetes</p>
+            <button>Learn More</button>
+            <p></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="animated-section">
+        <div style="padding: 40px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; width: 99%; margin: auto;">
+            <!-- Top Section -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; width: 80%; margin-bottom: 30px;">
+                <div>
+                    <img src="images/BEFIT1.png" alt="befit Logo" style="width: 140px;">
+                </div>
+                <!-- Social Media Icons -->
+            <div style="display: flex; gap: 60px;">
+                <div style="display: flex; gap: 20px; margin-top: 20px;">
+                    <a href="#" style="color: #fff; font-size: 20px; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="color: #fff; font-size: 20px; text-decoration: none;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: #fff; font-size: 20px; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #fff; font-size: 20px; text-decoration: none;"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div style="gap: 15px; display: flex;">
+                    <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/012/871/374/non_2x/app-store-download-button-in-white-colors-download-on-the-apple-app-store-free-png.png" alt="App Store" style="width: 130px;"></a>
+                    <a href="#"><img src="https://static.vecteezy.com/system/resources/thumbnails/012/871/364/small/google-play-store-download-button-in-white-colors-download-on-the-google-play-store-free-png.png" alt="Google Play" style="width: 130px;"></a>
+                </div>
+            </div>
+            </div>
+        
+            <!-- Middle Section (Paragraph Left) -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 30px;">
+                <div style="width: 40%; min-width: 280px; text-align: left; font-size: 16px; line-height: 1.6;">
+                    <p>At <b>befit</b>, we make group workouts fun, daily food healthy & tasty, mental fitness easy with yoga & meditation, Medical & lifestyle care hassle-free. <b>#BeBetterEveryDay</b></p>
+                </div>
+                <div style="width: 55%; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <div style="display: flex; flex-direction: column; gap: 12px; min-width: 150px;">
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">befit for business</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">befit franchise</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">corporate partnerships</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">befit pass network</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">t&c for business</a>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 12px; min-width: 150px;">
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">contact us</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">blogs</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">security</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">careers</a>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 12px; min-width: 150px;">
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">privacy policy</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">befit bmi calculator</a>
+                        <a href="#" style="color: #bbb; text-decoration: none; font-size: 14px;">terms & conditions</a>
+                    </div>
+                </div>
+            </div>
+        
+            
+        </div>
+        <p>&copy; 2025 Befit. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to handle intersection observer
+        const animateOnScroll = () => {
+            const sections = document.querySelectorAll('.animated-section');
+
+            const options = {
+                threshold: 0.1, // Trigger when 10% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const section = entry.target;
+                        if (section.classList.contains('animated-section')) {
+                            // Alternate between left and right animations
+                            if (Array.from(sections).indexOf(section) % 2 === 0) {
+                                section.classList.add('slide-in-left');
+                            } else {
+                                section.classList.add('slide-in-right');
+                            }
+                            observer.unobserve(section); // Stop observing once animated
+                        }
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        };
+
+        // Call the function when the page loads
+        window.addEventListener('load', animateOnScroll);
+
+
+
+
+
+
+
+        // location fetching
+        
+        function fetchLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+
+                        // Use OpenStreetMap Nominatim API to fetch location details
+                        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                const city = data.address.city || data.address.town || data.address.village || "Unknown Location";
+                                document.getElementById("user-location").textContent = city;
+                            })
+                            .catch(() => {
+                                document.getElementById("user-location").textContent = "Location unavailable";
+                            });
+                    },
+                    (error) => {
+                        // Handle geolocation errors
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED:
+                                document.getElementById("user-location").textContent = "Location permission denied";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                document.getElementById("user-location").textContent = "Location information unavailable";
+                                break;
+                            case error.TIMEOUT:
+                                document.getElementById("user-location").textContent = "Location request timed out";
+                                break;
+                            default:
+                                document.getElementById("user-location").textContent = "Unknown error fetching location";
+                        }
+                    }
+                );
+            } else {
+                document.getElementById("user-location").textContent = "Geolocation not supported by this browser";
+            }
+        }
+
+        // Call the function when the page loads
+        window.addEventListener('load', fetchLocation);
+
+    </script>
+</body>
+</html>

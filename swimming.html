@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive swimming news, meet highlights, upcoming events, and swimming literature">
+    <meta name="keywords" content="swimming, olympics, world championships, meets, swimming news">
+    <title>Swimming Universe - News, Meets & Stories</title>
+    <style>body{margin:0;font-family:'Arial',sans-serif;scroll-behavior:smooth;}a{text-decoration:none;}</style>
+</head>
+<body>
+
+<style>
+a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #2b2b2b;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+a:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+nav a.special {
+  background-color: #28a745;
+  color: white;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px !important;
+    flex-wrap: wrap !important;
+  }
+  .search-container {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: flex-start !important;
+    margin: 10px 0 !important;
+  }
+  .search-box {
+    width: 100% !important;
+  }
+  #mainNav {
+    display: none !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    background: #f0f4f8 !important;
+    position: absolute !important;
+    top: 70px !important;
+    left: 0;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  #mainNav.active {
+    display: flex !important;
+  }
+  #hamburgerMenu {
+    display: flex !important;
+  }
+  #mainNav a {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+</style>
+<header style="max-width: 100%; display:flex; gap: 40px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+  <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+    <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+    SportZone
+  </div>
+  <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+    <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+  </div>
+  <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+    <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+      <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+      <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+    </div>
+  </div>
+  <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <a href="index.html">Home</a>
+    <a href="befit.html">BeFit</a>
+    <a href="">Sports</a>
+    <a href="">Games</a>
+    <a href="news.html">News</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="special">Join Us</a>
+  </nav>
+  <div class="social-icons" style="display:flex;align-items:center;gap:5px;">
+    <div>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+    </div>
+  </div>
+</header>
+
+<script>
+function searchSections() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const sections = document.querySelectorAll('#content .section');
+  sections.forEach(section => {
+    const keywords = section.getAttribute('id');
+    section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburgerMenu');
+  const nav = document.getElementById('mainNav');
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+});
+</script>
+
+<!-- Hero Section with Animated Background -->
+<section id="hero" style="height:80vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:white;text-align:center;">
+  <!-- Background image layers -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/swimming-bg.png');background-size:cover;background-position:center;animation:fade1 24s infinite;z-index:-1;opacity:0;"></div>
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/swimming-bg.png');background-size:cover;background-position:center;animation:fade2 24s infinite;z-index:-1;opacity:0;"></div>
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/swimming-bg.png');background-size:cover;background-position:center;animation:fade3 24s infinite;z-index:-1;opacity:0;"></div>
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/swimming-bg.png');background-size:cover;background-position:center;animation:fade4 24s infinite;z-index:-1;opacity:0;"></div>
+  <!-- Content -->
+  <div style="z-index:1;max-width:800px;padding:30px;background-color:rgba(0,0,0,0.7);border-radius:15px;backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.1);">
+    <h1 style="font-size:4rem;margin-bottom:25px;text-shadow:2px 2px 8px #000;font-weight:800;letter-spacing:1px;">Swimming Universe</h1>
+    <p style="font-size:1.5rem;margin-bottom:40px;text-shadow:1px 1px 3px #000;">Your ultimate destination for swimming news, meets and stories</p>
+    <a href="#world-champs" style="padding:15px 40px;background:#0077b6;color:white;border-radius:50px;font-weight:bold;transition:all 0.3s;display:inline-block;font-size:1.1rem;box-shadow:0 4px 15px rgba(0,119,182,0.4);" 
+      onmouseover="this.style.transform='scale(1.05)';this.style.background='#023e8a'" 
+      onmouseout="this.style.transform='scale(1)';this.style.background='#0077b6'">Explore Meets</a>
+  </div>
+</section>
+<style>
+@keyframes fade1 { 0% { opacity: 0.8; } 25% { opacity: 0; } 100% { opacity: 0.8; } }
+@keyframes fade2 { 0%, 25% { opacity: 0; } 25%, 50% { opacity: 0.8; } 50%, 100% { opacity: 0; } }
+@keyframes fade3 { 0%, 50% { opacity: 0; } 50%, 75% { opacity: 0.8; } 75%, 100% { opacity: 0; } }
+@keyframes fade4 { 0%, 75% { opacity: 0; } 75%, 100% { opacity: 0.8; } }
+</style>
+
+<!-- Latest News Section -->
+<section id="news" style="padding:80px 20px;background-color:#f8f9fa;position:relative;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#333;">Latest Swimming News</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px;">
+      <!-- News Card 1 -->
+      <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+        <h3 style="margin-top:0;color:#0077b6;">Dressel Returns to Form</h3>
+        <p style="color:#666;">Caeleb Dressel posts world-leading times at the US Trials, signaling a strong comeback ahead of Paris 2024.</p>
+        <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#0077b6;font-weight:bold;" id="toggle-link-more1">Read More →</a>
+        <div id="more1" style="display:none;color:#444;margin-top:10px;">
+          Dressel, after a year away from competition, clocked 47.8 in the 100m freestyle and 49.3 in the 100m butterfly, both among the fastest in the world this year.
+          <div style="margin-top:10px;">
+            <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#0077b6;font-weight:bold;">Read Less ↑</a>
+          </div>
+        </div>
+      </div>
+      <!-- News Card 2 -->
+      <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+        <h3 style="margin-top:0;color:#0077b6;">McKeown Breaks 200m Backstroke Record</h3>
+        <p style="color:#666;">Australia's Kaylee McKeown sets a new world record in the 200m backstroke at the World Championships.</p>
+        <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#0077b6;font-weight:bold;" id="toggle-link-more2">Read More →</a>
+        <div id="more2" style="display:none;color:#444;margin-top:10px;">
+          McKeown touched in 2:03.14, lowering her own previous mark and cementing her status as the world's top backstroker.
+          <div style="margin-top:10px;">
+            <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#0077b6;font-weight:bold;">Read Less ↑</a>
+          </div>
+        </div>
+      </div>
+      <!-- News Card 3 -->
+      <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+        <h3 style="margin-top:0;color:#0077b6;">Relay Teams Set for Paris</h3>
+        <p style="color:#666;">USA and Australia finalize their relay squads for the upcoming Olympic Games, with fierce competition for spots.</p>
+        <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#0077b6;font-weight:bold;" id="toggle-link-more3">Read More →</a>
+        <div id="more3" style="display:none;color:#444;margin-top:10px;">
+          Both nations boast deep talent pools, with several swimmers ranked in the world top 10 for their respective relay legs.
+          <div style="margin-top:10px;">
+            <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#0077b6;font-weight:bold;">Read Less ↑</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function toggleText(id) {
+  const content = document.getElementById(id);
+  const link = document.getElementById("toggle-link-" + id);
+  if (content.style.display === "none" || content.style.display === "") {
+    content.style.display = "block";
+    link.style.display = "none";
+  } else {
+    content.style.display = "none";
+    link.style.display = "inline";
+  }
+}
+</script>
+
+<!-- World Championships Section -->
+<section>
+  <div id="world-champs" style="font-family: 'Segoe UI', sans-serif; max-width: 100%; margin: auto; padding: 25px; background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden;">
+    <!-- Header with animated gradient text -->
+    <div style="text-align: center; margin-bottom: 25px;">
+      <h1 style="margin: 0; font-size: 2.5rem; background: linear-gradient(to right, #0077b6, #00b4d8); -webkit-background-clip: text; background-clip: text; color: transparent; animation: fadeIn 0.8s ease-in-out;">WORLD AQUATICS CHAMPIONSHIPS 2025</h1>
+      <p style="color: #555; font-size: 1.2rem;">Countdown: <span id="countdown" style="font-weight: bold; color: #0077b6; animation: pulse 2s infinite;">-- days --:--:--</span></p>
+    </div>
+    <!-- Full-width Meet Cards Container -->
+    <div style="width: 100%; overflow-x: auto; padding: 10px 0; -webkit-overflow-scrolling: touch;">
+      <div style="display: flex; gap: 20px; padding: 20px 0; width: max-content; min-width: 100%;">
+        <!-- Card 1 -->
+        <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.5s ease-out;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+          onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-weight: bold; color: #0077b6; font-size: 1.2rem;">Men's 100m Freestyle Final</div>
+              <div style="font-size: 1em; color: #666;">National Aquatics Centre, Singapore</div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                <img src="https://flagcdn.com/us.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Caeleb Dressel</div>
+                <div style="font-size: 0.9em; color: #0077b6; background: #e0f7fa; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                  <strong>47.67</strong><br>
+                  <small style="font-size: 0.8em;">Gold Medal</small>
+                </div>
+              </div>
+              <div style="font-weight: bold; color: #00b4d8; font-size: 1.5rem; margin: 0 10px;">VS</div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                <img src="https://flagcdn.com/au.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Kyle Chalmers</div>
+                <div style="font-size: 0.9em; color: #0077b6; background: #e0f7fa; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                  <strong>47.85</strong><br>
+                  <small style="font-size: 0.8em;">Silver Medal</small>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+              Dressel edges Chalmers in a thrilling finish, both under 48 seconds.
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+              <div style="font-weight: bold; color: #0077b6; font-size: 1.3rem;">July 20, 2025 • 19:00 SGT</div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.7s ease-out;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+          onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-weight: bold; color: #0077b6; font-size: 1.2rem;">Women's 200m Backstroke Final</div>
+              <div style="font-size: 1em; color: #666;">National Aquatics Centre, Singapore</div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                <img src="https://flagcdn.com/au.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Kaylee McKeown</div>
+                <div style="font-size: 0.9em; color: #0077b6; background: #e0f7fa; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                  <strong>2:03.14</strong><br>
+                  <small style="font-size: 0.8em;">World Record</small>
+                </div>
+              </div>
+              <div style="font-weight: bold; color: #00b4d8; font-size: 1.5rem; margin: 0 10px;">VS</div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                <img src="https://flagcdn.com/us.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Regan Smith</div>
+                <div style="font-size: 0.9em; color: #0077b6; background: #e0f7fa; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                  <strong>2:04.00</strong><br>
+                  <small style="font-size: 0.8em;">Silver Medal</small>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+              McKeown lowers her own world record, Smith takes silver.
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+              <div style="font-weight: bold; color: #0077b6; font-size: 1.3rem;">July 21, 2025 • 20:00 SGT</div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.9s ease-out;"
+          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+          onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-weight: bold; color: #0077b6; font-size: 1.2rem;">Men's 200m Butterfly Final</div>
+              <div style="font-size: 1em; color: #666;">National Aquatics Centre, Singapore</div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                <img src="https://flagcdn.com/hu.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Kristóf Milák</div>
+                <div style="font-size: 0.9em; color: #0077b6; background: #e0f7fa; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                  <strong>1:50.34</strong><br>
+                  <small style="font-size: 0.8em;">Gold Medal</small>
+                </div>
+              </div>
+              <div style="font-weight: bold; color: #00b4d8; font-size: 1.5rem; margin: 0 10px;">VS</div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                <img src="https://flagcdn.com/jp.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Tomoru Honda</div>
+                <div style="font-size: 0.9em; color: #0077b6; background: #e0f7fa; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                  <strong>1:52.08</strong><br>
+                  <small style="font-size: 0.8em;">Silver Medal</small>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+              Milák dominates the field, Honda claims silver for Japan.
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+              <div style="font-weight: bold; color: #0077b6; font-size: 1.3rem;">July 22, 2025 • 19:30 SGT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+    @keyframes slideInUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    </style>
+    <!-- Animated Buttons -->
+    <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+      <button id="alertBtn" 
+        style="padding: 12px 30px; border: none; border-radius: 50px; background: linear-gradient(to right, #0077b6, #00b4d8); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0,119,182,0.3); display: flex; align-items: center; gap: 10px; font-size: 1.1rem;"
+        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(0,119,182,0.4)'"
+        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 20px rgba(0,119,182,0.3)'"
+        onclick="toggleAlerts()">
+        <i class="fas fa-bell" id="bellIcon" style="font-size: 1.2rem;"></i>
+        <span id="alertText">Get Meet Alerts</span>
+        <i class="fas fa-check" id="checkIcon" style="display: none; margin-left: 8px; font-size: 1.2rem;"></i>
+      </button>
+      <a href="#upcoming" style="text-decoration:none;">
+        <button style="padding: 12px 30px; border: none; border-radius: 50px; background: linear-gradient(to right, #00b4d8, #48cae4); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0,180,216,0.3); display: flex; align-items: center; gap: 10px; font-size: 1.1rem;"
+          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(0,180,216,0.4)'"
+          onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 20px rgba(0,180,216,0.3)'">
+          <i class="fas fa-trophy" style="font-size: 1.2rem;"></i>
+          View All Events
+        </button>
+      </a>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+      let alertsActive = false;
+      function toggleAlerts() {
+        const bellIcon = document.getElementById('bellIcon');
+        const checkIcon = document.getElementById('checkIcon');
+        const alertText = document.getElementById('alertText');
+        const alertBtn = document.getElementById('alertBtn');
+        alertsActive = !alertsActive;
+        if (alertsActive) {
+          checkIcon.style.display = 'inline-block';
+          alertText.textContent = 'Alerts Activated';
+          alertBtn.style.background = 'linear-gradient(to right, #43ea7c, #1b8a5a)';
+          bellIcon.classList.remove('fa-bell');
+          bellIcon.classList.add('fa-bell-slash');
+          setTimeout(() => {
+            alertText.textContent = 'Get Meet Alerts';
+          }, 2000);
+        } else {
+          checkIcon.style.display = 'none';
+          alertText.textContent = 'Get Meet Alerts';
+          alertBtn.style.background = 'linear-gradient(to right, #0077b6, #00b4d8)';
+          bellIcon.classList.remove('fa-bell-slash');
+          bellIcon.classList.add('fa-bell');
+        }
+      }
+      // Set the target date (July 20, 2025)
+      const targetDate = new Date("2025-07-20T11:00:00Z").getTime();
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = 
+          `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        if (days < 7) {
+          document.getElementById("countdown").style.animation = "pulse 1s infinite";
+        }
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </div>
+</section>
+
+<!-- Swimming History Section -->
+<section>
+  <div style="font-family: 'Segoe UI', sans-serif; max-width: 1200px; margin:auto; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
+    <div style="text-align: center; margin-bottom: 25px;">
+      <h1 style="margin: 0; font-size: 2rem; background: linear-gradient(to right, #00b4d8, #48cae4); -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 3s infinite alternate; text-transform: uppercase; letter-spacing: 2px;">Swimming History</h1>
+      <p style="color: #6c757d; margin-top: 8px; animation: fadeIn 1.5s ease-in-out;">Relive the most memorable moments from past championships</p>
+      <div style="height: 3px; background: linear-gradient(to right, transparent, #00b4d8, transparent); margin: 10px auto; width: 200px; animation: expand 2s ease-out;"></div>
+    </div>
+    <div style="position: relative; margin: 30px 0; padding-left: 30px; border-left: 3px dashed rgba(0,180,216,0.5);">
+      <!-- Historic Cards -->
+      <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; animation: cardAppear 0.6s ease-out;"
+        onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'">
+        <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #00b4d8; border: 3px solid white; box-shadow: 0 0 0 4px rgba(0,180,216,0.3);"></div>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <span style="font-size: 0.8rem; background: #00b4d8; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2023 World Champs</span>
+          <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">Fukuoka, Japan</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px; text-align: center;">
+            <img src="https://flagcdn.com/au.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+            <div style="font-weight: bold; font-size: 1.1rem; margin: 10px 0;">Ariarne Titmus</div>
+            <div style="font-size: 1.8rem; font-weight: bold; color: #00b4d8; margin: 5px 0;">400m Free WR</div>
+          </div>
+          <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">🏆</div>
+          <div style="flex: 1; min-width: 200px; text-align: center;">
+            <img src="https://flagcdn.com/us.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+            <div style="font-size: 1.1rem; margin: 10px 0;">Katie Ledecky</div>
+            <div style="font-size: 1rem; color: #888;">Silver</div>
+          </div>
+        </div>
+        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+          <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #00b4d8;"></i> Fukuoka, Japan
+          <span style="float: right;"><i class="fas fa-trophy" style="margin-right: 5px; color: #00b4d8;"></i> World Record: 3:55.38</span>
+        </div>
+      </div>
+      <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; animation: cardAppear 0.8s ease-out;"
+        onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'">
+        <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #00b4d8; border: 3px solid white; box-shadow: 0 0 0 4px rgba(0,180,216,0.3);"></div>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <span style="font-size: 0.8rem; background: #00b4d8; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2021 Olympics</span>
+          <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">Tokyo, Japan</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px; text-align: center;">
+            <img src="https://flagcdn.com/us.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+            <div style="font-weight: bold; font-size: 1.1rem; margin: 10px 0;">Caeleb Dressel</div>
+            <div style="font-size: 1.8rem; font-weight: bold; color: #00b4d8; margin: 5px 0;">5 Golds</div>
+          </div>
+          <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">🏅</div>
+          <div style="flex: 1; min-width: 200px; text-align: center;">
+            <img src="https://flagcdn.com/au.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+            <div style="font-size: 1.1rem; margin: 10px 0;">Emma McKeon</div>
+            <div style="font-size: 1rem; color: #888;">7 Medals</div>
+          </div>
+        </div>
+        <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+          <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #00b4d8;"></i> Tokyo, Japan
+          <span style="float: right;"><i class="fas fa-trophy" style="margin-right: 5px; color: #00b4d8;"></i> Dressel: 100m Free WR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Top Swimmers Section -->
+<section id="players" style="padding:80px 20px;background-color:#e0f7fa;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#0077b6;">Top Swimmers of the Season</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));gap:30px;">
+      <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Caeleb_Dressel_during_100_fly_%2842052333224%29.jpg" alt="Caeleb Dressel" style="width:100%;height:150px;object-fit:cover;">
+        <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,119,182,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+          <h3 style="margin:0 0 10px;color:#48cae4;">Caeleb Dressel</h3>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Golds:</span><span>5</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>World Records:</span><span>3</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>USA</span></div>
+        </div>
+        <div style="padding:15px;text-align:center;">
+          <h3 style="margin:0;color:#0077b6;">Caeleb Dressel</h3>
+          <p style="margin:5px 0 0;color:#00b4d8;font-size:0.9rem;">Sprint Freestyle/Butterfly</p>
+        </div>
+      </div>
+      <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+        <img src="https://live.staticflickr.com/65535/51347406174_7484aa6e75_b.jpg" alt="Kaylee McKeown" style="width:100%;height:150px;object-fit:cover;">
+        <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,119,182,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+          <h3 style="margin:0 0 10px;color:#48cae4;">Kaylee McKeown</h3>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Golds:</span><span>4</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>World Records:</span><span>3</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Australia</span></div>
+        </div>
+        <div style="padding:15px;text-align:center;">
+          <h3 style="margin:0;color:#0077b6;">Kaylee McKeown</h3>
+          <p style="margin:5px 0 0;color:#00b4d8;font-size:0.9rem;">Backstroke/IM</p>
+        </div>
+      </div>
+      <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Becky_Adlington2012_Olympic_Parade.jpg" alt="Ariarne Titmus" style="width:100%;height:150px;object-fit:cover;">
+        <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,119,182,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+          <h3 style="margin:0 0 10px;color:#48cae4;">Ariarne Titmus</h3>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Golds:</span><span>3</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>World Records:</span><span>1</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Australia</span></div>
+        </div>
+        <div style="padding:15px;text-align:center;">
+          <h3 style="margin:0;color:#0077b6;">Ariarne Titmus</h3>
+          <p style="margin:5px 0 0;color:#00b4d8;font-size:0.9rem;">Freestyle</p>
+        </div>
+      </div>
+      <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Krist%C3%B3f_Mil%C3%A1k_%282016%29.jpg" alt="Kristóf Milák" style="width:100%;height:150px;object-fit:cover;">
+        <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,119,182,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+          <h3 style="margin:0 0 10px;color:#48cae4;">Kristóf Milák</h3>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Golds:</span><span>2</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>World Records:</span><span>1</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Country:</span><span>Hungary</span></div>
+        </div>
+        <div style="padding:15px;text-align:center;">
+          <h3 style="margin:0;color:#0077b6;">Kristóf Milák</h3>
+          <p style="margin:5px 0 0;color:#00b4d8;font-size:0.9rem;">Butterfly</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swimming Novel Section -->
+<section id="novel" style="background-color:#1a1a2e;color:#e6e6e6;padding:60px 20px;position:relative;overflow:hidden;">
+  <h2 style="text-align:center;font-size:2.5rem;margin-bottom:40px;color:#fff;">Swimming Novel: The Final Lap</h2>
+  <div style="max-width:800px;margin:0 auto;position:relative;">
+    <div class="novel-content" style="height:400px;overflow-y:scroll;padding-right:20px;scrollbar-width:thin;scrollbar-color:#0077b6 #1a1a2e;">
+      <h3 style="color:#0077b6;margin-top:0;">Chapter 1: The Early Morning</h3>
+      <p>The pool was silent except for the rhythmic splash of arms cutting through water. For Mia, every morning started before sunrise, chasing the dream of Olympic gold. The cold water was her second home, the black line her only companion.</p>
+      <p>Coach Ramirez watched from the deck, stopwatch in hand. "Again, Mia. Focus on your turns."</p>
+      <p>She nodded, pushing off the wall, determined to shave another tenth off her time.</p>
+      <h3 style="color:#0077b6;margin-top:30px;">Chapter 2: The Rival</h3>
+      <p>At the regional meet, Mia faced her toughest rival yet—Sophie, the reigning national champion. The tension was palpable as they stepped onto the blocks, each refusing to break eye contact.</p>
+      <p>The starter's gun echoed. Mia exploded off the blocks, her mind blank except for the rhythm of her stroke. At the final turn, she was neck and neck with Sophie.</p>
+      <p>With every ounce of strength, Mia surged for the wall...</p>
+      <h3 style="color:#0077b6;margin-top:30px;">Chapter 3: The Setback</h3>
+      <p>The scoreboard flashed: Sophie 1st, Mia 2nd. Disappointment stung, but Coach Ramirez was quick to encourage. "You’re closing the gap. Next time, you’ll get her."</p>
+      <p>Mia returned to training with renewed determination, analyzing every detail of her race, perfecting her technique, and visualizing victory.</p>
+      <h3 style="color:#0077b6;margin-top:30px;">Chapter 4: The Breakthrough</h3>
+      <p>Months later, at the national championships, Mia and Sophie met again. This time, Mia’s start was flawless, her turns sharp, her finish unstoppable. She touched the wall first, a new personal best and a ticket to the Olympic Trials.</p>
+      <p>As the crowd cheered, Mia realized her journey was just beginning...</p>
+      <p style="margin-bottom:100px;">[To be continued...]</p>
+    </div>
+    <div style="position:absolute;bottom:0;left:0;width:100%;height:50px;background:linear-gradient(to top, #1a1a2e, transparent);pointer-events:none;"></div>
+  </div>
+</section>
+
+<!-- Iconic Swimming Venues -->
+<section id="stadiums" style="padding:80px 20px;background-color:#fff;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#0077b6;">Iconic Swimming Venues</h2>
+    <div style="display:flex;gap:30px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:10px;">
+      <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://live.staticflickr.com/2079/2287232047_8413816dd5_b.jpg" alt="National Aquatics Centre" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="margin-top:0;color:#0077b6;">National Aquatics Centre</h3>
+          <p style="color:#666;margin-bottom:20px;">Known as the "Water Cube," this Beijing venue hosted the 2008 Olympics and saw 25 world records broken.</p>
+          <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+            <span>📍 Beijing, China</span>
+            <span>🏟 17,000 capacity</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://iuindyjags.com/images/2025/1/29/iu-natatorium-202425-1.jpg" alt="IU Natatorium" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="margin-top:0;color:#0077b6;">IU Natatorium</h3>
+          <p style="color:#666;margin-bottom:20px;">A legendary US venue, home to countless national and world records and Olympic Trials.</p>
+          <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+            <span>📍 Indianapolis, USA</span>
+            <span>🏟 4,700 capacity</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://live.staticflickr.com/3589/3816965887_6f554a26f7_o.jpg" alt="Foro Italico" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="margin-top:0;color:#0077b6;">Foro Italico</h3>
+          <p style="color:#666;margin-bottom:20px;">Rome's historic pool, host of the 1960 Olympics and multiple World Championships.</p>
+          <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+            <span>📍 Rome, Italy</span>
+            <span>🏟 12,000 capacity</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Sydney_Olympic_Park_Aquatic_Centre_%285714949105%29.jpg" alt="Sydney Olympic Park Aquatic Centre" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="margin-top:0;color:#0077b6;">Sydney Olympic Park Aquatic Centre</h3>
+          <p style="color:#666;margin-bottom:20px;">Site of the 2000 Olympics, famous for thrilling races and world records.</p>
+          <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+            <span>📍 Sydney, Australia</span>
+            <span>🏟 10,000 capacity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section id="newsletter" style="padding:80px 20px;background-color:#e0f7fa;">
+  <div style="max-width:600px;margin:0 auto;text-align:center;">
+    <h2 style="font-size:2rem;margin-bottom:20px;color:#0077b6;">Stay Updated</h2>
+    <p style="color:#00b4d8;margin-bottom:30px;">Subscribe to our newsletter for the latest swimming news, meet analysis, and exclusive content.</p>
+    <form style="display:flex;max-width:500px;margin:0 auto;">
+      <input type="email" placeholder="Your email address" style="flex:1;padding:12px 15px;border:1px solid #ddd;border-radius:30px 0 0 30px;font-size:1rem;outline:none;">
+      <button type="submit" style="padding:12px 25px;background:#0077b6;color:white;border:none;border-radius:0 30px 30px 0;font-weight:bold;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.background='#023e8a'" onmouseout="this.style.background='#0077b6'">Subscribe</button>
+    </form>
+    <p style="font-size:0.8rem;color:#666;margin-top:20px;">We respect your privacy. Unsubscribe at any time.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    <!-- HSGN+ -->
+    <div>
+      <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+      <hr style="border: none; border-top: 1px solid #00b4d8; width: 100%; margin: 5px 0;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Olympic_rings_without_rims.svg" alt="Olympics" style="height: 20px;"> Olympics</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Fina_logo.png" alt="World Aquatics" style="height: 20px;"> World Aquatics</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Paralympic_Agitos.svg" alt="Paralympics" style="height: 20px;"> Paralympics</a></div>
+      </div>
+    </div>
+    <!-- Quick Links -->
+    <div>
+      <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+      <hr style="border: none; border-top: 1px solid #48cae4; width: 100%; margin: 5px 0;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+        <div><a href="#" style="color: #000; text-decoration: none;">Olympic Records</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;">World Records</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;">Upcoming Meets</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;">Swim Rankings</a></div>
+      </div>
+    </div>
+    <!-- Social Media -->
+    <div>
+      <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+      <hr style="border: none; border-top: 1px solid #0077b6; width: 100%; margin: 5px 0;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+        <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+      </div>
+    </div>
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+      <div>
+        <img src="images/logo.png" alt="HSGN Logo" style="height: 40px;">
+      </div>
+      <div style="height: 40px; width: 1px; background-color: #000;"></div>
+      <div style="color: #000;">
+        <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+        <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+        <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+        <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!-- filepath: d:\SPLTechnology\sports_web\boxing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest boxing news, match highlights, upcoming fights, and boxing legends">
+    <meta name="keywords" content="boxing, fights, champions, boxing news, matches, legends">
+    <title>Boxing Arena - News, Fights & Legends</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-...your-integrity-key..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>body{margin:0;font-family:'Arial',sans-serif;scroll-behavior:smooth;}a{text-decoration:none;}</style>
+</head>
+<body>
+
+   <style>
+    a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    nav a.special {
+      background-color: #e63946;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px !important;
+        flex-wrap: wrap !important;
+      }
+      .search-container {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: flex-start !important;
+        margin: 10px 0 !important;
+      }
+      .search-box {
+        width: 100% !important;
+      }
+      #mainNav {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        background: #f0f4f8 !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      #mainNav.active {
+        display: flex !important;
+      }
+      #hamburgerMenu {
+        display: flex !important;
+      }
+      #mainNav a {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+  </style>
+  <header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+        <div >
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+  </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+    <!-- Hero Section with Animated Background -->
+    <section id="hero" style="height:80vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:white;text-align:center;">
+        <!-- Background image layers -->
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/boxing-bg.png');background-size:cover;background-position:center;animation:fade1 24s infinite;z-index:-1;opacity:0;"></div>
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/boxing-bg2.png');background-size:cover;background-position:center;animation:fade2 24s infinite;z-index:-1;opacity:0;"></div>
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/boxing-bg.png');background-size:cover;background-position:center;animation:fade3 24s infinite;z-index:-1;opacity:0;"></div>
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/boxing-bg2.png');background-size:cover;background-position:center;animation:fade4 24s infinite;z-index:-1;opacity:0;"></div>
+        <!-- Content -->
+        <div style="z-index:1;max-width:800px;padding:30px;background-color:rgba(0,0,0,0.7);border-radius:15px;backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.1);">
+            <h1 style="font-size:4rem;margin-bottom:25px;text-shadow:2px 2px 8px #000;font-weight:800;letter-spacing:1px;">Boxing Arena</h1>
+            <p style="font-size:1.5rem;margin-bottom:40px;text-shadow:1px 1px 3px #000;">Your ultimate destination for boxing news, fights and legends</p>
+            <a href="#championships" style="padding:15px 40px;background:#e63946;color:white;border-radius:50px;font-weight:bold;transition:all 0.3s;display:inline-block;font-size:1.1rem;box-shadow:0 4px 15px rgba(230,57,70,0.4);" 
+            onmouseover="this.style.transform='scale(1.05)';this.style.background='#d62839'" 
+            onmouseout="this.style.transform='scale(1)';this.style.background='#e63946'">Explore Fights</a>
+        </div>
+    </section>
+
+    <style>
+        @keyframes fade1 {
+        0% { opacity: 0.8; }
+        25% { opacity: 0; }
+        100% { opacity: 0.8; }
+        }
+        @keyframes fade2 {
+        0%, 25% { opacity: 0; }
+        25%, 50% { opacity: 0.8; }
+        50%, 100% { opacity: 0; }
+        }
+        @keyframes fade3 {
+        0%, 50% { opacity: 0; }
+        50%, 75% { opacity: 0.8; }
+        75%, 100% { opacity: 0; }
+        }
+        @keyframes fade4 {
+        0%, 75% { opacity: 0; }
+        75%, 100% { opacity: 0.8; }
+        }
+    </style>
+
+    <!-- Latest News Section -->
+    <section id="news" style="padding:80px 20px;background-color:#f8f9fa;position:relative;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#333;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">Latest Boxing News</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px;">
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.08);padding:20px;">
+                    <h3 style="color:#e63946;">Fury vs Usyk: Undisputed Heavyweight Showdown Announced</h3>
+                    <p>Tyson Fury and Oleksandr Usyk will finally meet in the ring for the undisputed heavyweight championship. The bout is scheduled for August 2024 in Riyadh, Saudi Arabia.</p>
+                </div>
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.08);padding:20px;">
+                    <h3 style="color:#e63946;">Katie Taylor Retains Lightweight Titles</h3>
+                    <p>Katie Taylor defended her undisputed lightweight crown in a thrilling rematch, cementing her legacy as one of the greatest female boxers.</p>
+                </div>
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.08);padding:20px;">
+                    <h3 style="color:#e63946;">Canelo Alvarez Eyes Light Heavyweight Return</h3>
+                    <p>Canelo Alvarez is in talks for a blockbuster fight at light heavyweight, aiming to become a multi-division world champion once again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Championships Section -->
+    <section id="championships" style="padding:80px 20px;background:linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);color:white;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;text-shadow:1px 1px 3px rgba(0,0,0,0.3);">World Championship Highlights</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(350px, 1fr));gap:30px;">
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;">
+                        <h3 style="margin-top:0;color:#fdbb2d;">Fury vs Wilder III</h3>
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">Tyson Fury retained his WBC heavyweight title in a dramatic trilogy fight, knocking out Deontay Wilder in the 11th round.</p>
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;">
+                        <h3 style="margin-top:0;color:#fdbb2d;">Canelo vs GGG II</h3>
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">Canelo Alvarez edged Gennady Golovkin in a classic middleweight rematch, claiming the unified titles by majority decision.</p>
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;">
+                        <h3 style="margin-top:0;color:#fdbb2d;">Katie Taylor vs Amanda Serrano</h3>
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">Katie Taylor and Amanda Serrano delivered a fight for the ages at Madison Square Garden, with Taylor winning by split decision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Fights Section -->
+    <section id="upcoming" style="padding:80px 20px;background-color:#fff;position:relative;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#333;">Upcoming Fights</h2>
+            <div style="background:#f8f9fa;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:30px;padding:30px;">
+                    <div style="background:white;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;">
+                        <h3 style="color:#e63946;">Anthony Joshua vs Francis Ngannou</h3>
+                        <p>Date: September 2024<br>Location: London, UK</p>
+                    </div>
+                    <div style="background:white;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;">
+                        <h3 style="color:#e63946;">Naoya Inoue vs Luis Nery</h3>
+                        <p>Date: October 2024<br>Location: Tokyo, Japan</p>
+                    </div>
+                    <div style="background:white;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;">
+                        <h3 style="color:#e63946;">Claressa Shields vs Savannah Marshall II</h3>
+                        <p>Date: November 2024<br>Location: Las Vegas, USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boxing Legends Section -->
+    <section id="legends" style="padding:80px 20px;background-color:#f1faee;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#1d3557;">Boxing Legends</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));gap:30px;">
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;">
+                    <img src="https://w0.peakpx.com/wallpaper/901/940/HD-wallpaper-muhammed-ali-black-boks-boksor-boxing-khaliah-mohammed-muhammad-muhammet-sport-thumbnail.jpg" alt="Muhammad Ali" style="width:100%;height:150px;object-fit:cover;">
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#e63946;">Muhammad Ali</h3>
+                        <p style="margin:10px 0 0 0;">The Greatest. Three-time heavyweight world champion, Olympic gold medalist, and global icon.</p>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;">
+                    <img src="https://img.goodfon.com/original/4096x2677/e/10/maik-taison-lennoks-liuis-mike-iron-tyson-lennox-lewis.jpg" alt="Mike Tyson" style="width:100%;height:150px;object-fit:cover;">
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#e63946;">Mike Tyson</h3>
+                        <p style="margin:10px 0 0 0;">Youngest heavyweight champion in history, known for his ferocious power and speed.</p>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;">
+                    <img src="https://cdn12.picryl.com/photo/2016/12/31/manny-pacquiao-boxer-boxing-65414b-1024.jpg" alt="Manny Pacquiao" style="width:100%;height:150px;object-fit:cover;">
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#e63946;">Manny Pacquiao</h3>
+                        <p style="margin:10px 0 0 0;">Eight-division world champion, legendary southpaw, and Filipino national hero.</p>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;">
+                    <img src="https://img.goodfon.com/original/1920x1080/5/4b/floyd-mayweather-jr-boxing.jpg" alt="Floyd Mayweather Jr." style="width:100%;height:150px;object-fit:cover;">
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#e63946;">Floyd Mayweather Jr.</h3>
+                        <p style="margin:10px 0 0 0;">Undefeated five-division world champion, renowned for his defensive mastery and ring IQ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tactics Analysis Section -->
+    <section id="tactics" style="padding:80px 20px;background-color:#1d3557;color:white;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;">Tactical Breakdown</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+                <div>
+                    <h3>Defensive Mastery</h3>
+                    <p>Boxers like Floyd Mayweather Jr. and Pernell Whitaker are known for their elusive defensive skills, using head movement, footwork, and counterpunching to frustrate opponents.</p>
+                </div>
+                <div>
+                    <h3>Offensive Power</h3>
+                    <p>Legends such as Mike Tyson and George Foreman dominated with aggressive offense, overwhelming rivals with speed and knockout power.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iconic Venues Section -->
+    <section id="venues" style="padding:80px 20px;background-color:#fff;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#1d3557;">Iconic Boxing Venues</h2>
+            <div style="display:flex;gap:30px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:10px;">
+                <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Madison_Square_Garden_Transformation_Stage_1.jpg" alt="Madison Square Garden" style="width:100%;height:200px;object-fit:cover;">
+                    <div style="padding:20px;">
+                        <h3 style="margin-top:0;color:#e63946;">Madison Square Garden</h3>
+                        <p style="color:#666;margin-bottom:20px;">The "Mecca of Boxing" in New York City, host to countless legendary bouts.</p>
+                    </div>
+                </div>
+                <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="https://live.staticflickr.com/3168/2897520648_1a40bd0270_b.jpg" alt="MGM Grand Garden Arena" style="width:100%;height:200px;object-fit:cover;">
+                    <div style="padding:20px;">
+                        <h3 style="margin-top:0;color:#e63946;">MGM Grand Garden Arena</h3>
+                        <p style="color:#666;margin-bottom:20px;">Las Vegas' premier boxing venue, home to many modern super fights.</p>
+                    </div>
+                </div>
+                <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/203aae6a-f633-442c-9759-d7bf9e151167/dyfvhg-f7db98b8-f43b-4f82-9a40-cd9ea45e12b9.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIwM2FhZTZhLWY2MzMtNDQyYy05NzU5LWQ3YmY5ZTE1MTE2N1wvZHlmdmhnLWY3ZGI5OGI4LWY0M2ItNGY4Mi05YTQwLWNkOWVhNDVlMTJiOS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.agW8euw6Ap-BCtKwu--r_-ppUM241iVrS76mm1AcMmU" alt="Wembley Stadium" style="width:100%;height:200px;object-fit:cover;">
+                    <div style="padding:20px;">
+                        <h3 style="margin-top:0;color:#e63946;">Wembley Stadium</h3>
+                        <p style="color:#666;margin-bottom:20px;">London's iconic stadium, host to historic heavyweight showdowns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" style="padding:80px 20px;background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080?text=Boxing+History');background-size:cover;background-attachment:fixed;color:white;">
+        <div style="max-width:1200px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:2.5rem;margin-bottom:30px;">Boxing Through the Ages</h2>
+            <p style="max-width:800px;margin:0 auto 40px;font-size:1.1rem;line-height:1.6;">From bare-knuckle brawls to modern-day super fights, boxing has a rich and storied history. Explore the evolution of the sweet science.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:30px;margin-top:50px;">
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1867</div>
+                    <h3 style="margin-top:0;color:#a8dadc;">Marquess of Queensberry Rules</h3>
+                    <p style="font-size:0.9rem;">The modern rules of boxing are established, introducing gloves and timed rounds.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1964</div>
+                    <h3 style="margin-top:0;color:#a8dadc;">Ali Becomes Champion</h3>
+                    <p style="font-size:0.9rem;">Cassius Clay (Muhammad Ali) stuns Sonny Liston to win the heavyweight title.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1986</div>
+                    <h3 style="margin-top:0;color:#a8dadc;">Tyson: Youngest Heavyweight</h3>
+                    <p style="font-size:0.9rem;">Mike Tyson becomes the youngest heavyweight champion at age 20.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+                    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">2015</div>
+                    <h3 style="margin-top:0;color:#a8dadc;">Mayweather vs Pacquiao</h3>
+                    <p style="font-size:0.9rem;">The richest fight in boxing history, watched by millions worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

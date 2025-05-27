@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Hitaishi Sports</title>
+
+   <style>
+    a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    nav a.special {
+      background-color: #28a745;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px !important;
+        flex-wrap: wrap !important;
+      }
+      .search-container {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: flex-start !important;
+        margin: 10px 0 !important;
+      }
+      .search-box {
+        width: 100% !important;
+      }
+      #mainNav {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        background: #f0f4f8 !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      #mainNav.active {
+        display: flex !important;
+      }
+      #hamburgerMenu {
+        display: flex !important;
+      }
+      #mainNav a {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body style="margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f7; color: #333;">
+
+
+   <style>
+    a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    nav a.special {
+      background-color: #28a745;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px !important;
+        flex-wrap: wrap !important;
+      }
+      .search-container {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: flex-start !important;
+        margin: 10px 0 !important;
+      }
+      .search-box {
+        width: 100% !important;
+      }
+      #mainNav {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        background: #f0f4f8 !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      #mainNav.active {
+        display: flex !important;
+      }
+      #hamburgerMenu {
+        display: flex !important;
+      }
+      #mainNav a {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+  </style>
+  <header style="max-width: 100%; display:flex; gap: 40px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+        <div >
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+  </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+
+
+
+  <!-- Hero Section -->
+  <section style="
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    color: white;
+    padding: 80px 20px 60px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  ">
+    <h1 style="font-size: 3rem; margin: 0 0 10px; font-weight: 700; letter-spacing: 1.1px;">
+      Contact Hitaishi Sports & Games
+    </h1>
+    <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.85;">
+      We're here to support your sporting journey. Reach out for information, training programs, or community events.
+    </p>
+  </section>
+
+  <!-- Main content wrapper -->
+  <div style=" max-width: 1100px; margin: 50px auto 70px; display: flex; gap: 45px; padding: 0 20px; flex-wrap: wrap; justify-content: center;">
+
+    <!-- Left Card: Contact Info -->
+    <div style=" flex: 1 1 380px; background: white; border-radius: 14px; box-shadow: 0 10px 30px rgba(37,117,252,0.2); padding: 35px 30px; transition: box-shadow 0.3s ease;" onmouseenter="this.style.boxShadow='0 15px 45px rgba(37,117,252,0.35)'" onmouseleave="this.style.boxShadow='0 10px 30px rgba(37,117,252,0.2)'">
+      <h2 style="color: #2575fc; margin-bottom: 25px; font-weight: 700; letter-spacing: 0.8px;">Contact Details</h2>
+      <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 18px;">
+        <strong>Address:</strong><br />
+        123 Sports Avenue,<br />
+        Cityville, Country 456789
+      </p>
+      <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 18px;">
+        <strong>Phone:</strong><br />
+        <a href="tel:+12345678900" style="color: #2575fc; text-decoration: none;">+1 234 567 8900</a>
+      </p>
+      <p style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 18px;">
+        <strong>Email:</strong><br />
+        <a href="mailto:contact@hitaishisports.com" style="color: #2575fc; text-decoration: none;">contact@hitaishisports.com</a>
+      </p>
+      <p style="font-size: 1.15rem; line-height: 1.6;">
+        <strong>Office Hours:</strong><br />
+        Mon - Fri: 9:00 AM - 6:00 PM
+      </p>
+
+      <!-- Google Map Section -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15226.210197692667!2d78.38268694999999!3d17.44977945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93d457f8e1c1%3A0x2b0d01b7f4a9b40!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1716460438760!5m2!1sen!2sin" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%;">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Right Card: Contact Form -->
+    <div style="
+      flex: 1 1 480px;
+      background: white; 
+      border-radius: 14px; 
+      box-shadow: 0 10px 30px rgba(37,117,252,0.2);
+      padding: 40px 35px;
+      transition: box-shadow 0.3s ease;
+    " onmouseenter="this.style.boxShadow='0 15px 45px rgba(37,117,252,0.35)'" onmouseleave="this.style.boxShadow='0 10px 30px rgba(37,117,252,0.2)'">
+      <h2 style="color: #2575fc; margin-bottom: 30px; font-weight: 700; letter-spacing: 0.8px; text-align: center;">Get in Touch</h2>
+      <form action="contact_action.html" method="post" style="display: flex; flex-direction: column; gap: 20px;" onsubmit="return validateContactForm()">
+        <input type="text" name="name" placeholder="Your Name" required
+          style="padding: 14px 16px; border-radius: 12px; border: 2px solid #ddd; font-size: 1.1rem; transition: border-color 0.3s ease;"
+          onfocus="this.style.borderColor='#2575fc'" onblur="this.style.borderColor='#ddd'" />
+        <input type="email" name="email" placeholder="Your Email" required
+          style="padding: 14px 16px; border-radius: 12px; border: 2px solid #ddd; font-size: 1.1rem; transition: border-color 0.3s ease;"
+          onfocus="this.style.borderColor='#2575fc'" onblur="this.style.borderColor='#ddd'" />
+        <input type="text" name="subject" placeholder="Subject" required
+          style="padding: 14px 16px; border-radius: 12px; border: 2px solid #ddd; font-size: 1.1rem; transition: border-color 0.3s ease;"
+          onfocus="this.style.borderColor='#2575fc'" onblur="this.style.borderColor='#ddd'" />
+        <textarea name="message" placeholder="Your Message" rows="5" required
+          style="padding: 14px 16px; border-radius: 12px; border: 2px solid #ddd; font-size: 1.1rem; resize: vertical; transition: border-color 0.3s ease;"
+          onfocus="this.style.borderColor='#2575fc'" onblur="this.style.borderColor='#ddd'"></textarea>
+        <button type="submit"
+          style="padding: 16px; background-color: #2575fc; color: white; font-size: 1.2rem; border: none; border-radius: 14px; cursor: pointer; font-weight: 700; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(37,117,252,0.4); transition: background-color 0.3s ease;">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- About Sections -->
+<div style="max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+  <style>
+    /* Container animation on load */
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sport-section {
+      background: white;
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-shadow: 0 10px 30px rgba(37, 117, 252, 0.1);
+      margin-bottom: 35px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: default;
+      animation: fadeSlideUp 0.6s ease forwards;
+    }
+
+    /* Stagger animation delays */
+    .sport-section:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .sport-section:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    .sport-section:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+
+    .sport-section:hover {
+      box-shadow: 0 15px 45px rgba(37, 117, 252, 0.25);
+      transform: translateY(-6px);
+    }
+
+    .sport-section h2 {
+      color: #2575fc;
+      margin-bottom: 18px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      font-size: 1.9rem;
+    }
+
+    .sport-section p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #444;
+      user-select: text;
+    }
+
+    /* Responsive text scaling for smaller screens */
+    @media (max-width: 600px) {
+      .sport-section {
+        padding: 25px 20px;
+      }
+      .sport-section h2 {
+        font-size: 1.5rem;
+      }
+      .sport-section p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+  <section class="sport-section">
+    <h2>About Hitaishi Sports</h2>
+    <p>
+      Hitaishi Sports is committed to promoting healthy lifestyles through various sports activities and
+      training programs. We provide state-of-the-art facilities and expert coaching to help athletes reach
+      their full potential.
+    </p>
+  </section>
+
+  <section class="sport-section">
+    <h2>Games & Training Programs</h2>
+    <p>
+      We offer training in multiple sports including football, basketball, swimming, athletics, and more.
+      Our programs are tailored for all age groups and skill levels, focusing on fitness, teamwork, and
+      competitive excellence.
+    </p>
+  </section>
+
+  <section class="sport-section">
+    <h2>Community Engagement</h2>
+    <p>
+      Hitaishi Sports actively organizes local tournaments, workshops, and community events to foster a spirit
+      of sportsmanship and healthy competition. We encourage participation and strive to build a strong sports
+      community.
+    </p>
+  </section>
+
+</div>
+
+
+<script>
+  function validateContactForm() {
+    const form = document.forms[0];
+    if (form.name.value.trim() === "" || form.email.value.trim() === "" || form.subject.value.trim() === "" || form.message.value.trim() === "") {
+      alert("Please fill all the fields before submitting.");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="#" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

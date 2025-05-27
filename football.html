@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive football news, match highlights, upcoming fixtures, and football literature">
+    <meta name="keywords" content="football, soccer, matches, premier league, champions league, football news">
+    <title>Football Universe - News, Matches & Stories</title>
+    <style>body{margin:0;font-family:'Arial',sans-serif;scroll-behavior:smooth;}a{text-decoration:none;}</style>
+</head>
+<body>
+
+
+   <style>
+    a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    nav a.special {
+      background-color: #28a745;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px !important;
+        flex-wrap: wrap !important;
+      }
+      .search-container {
+        order: 3;
+        flex-basis: 100%;
+        justify-content: flex-start !important;
+        margin: 10px 0 !important;
+      }
+      .search-box {
+        width: 100% !important;
+      }
+      #mainNav {
+        display: none !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        background: #f0f4f8 !important;
+        position: absolute !important;
+        top: 70px !important;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      #mainNav.active {
+        display: flex !important;
+      }
+      #hamburgerMenu {
+        display: flex !important;
+      }
+      #mainNav a {
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+  </style>
+  <header style="max-width: 100%; display:flex; gap: 40px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+        <div >
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+  </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+    <!-- Hero Section with Animated Background -->
+    <section id="hero" style="height:80vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:white;text-align:center;">
+    
+    <!-- Background image layers -->
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/stadium.png');background-size:cover;background-position:center;animation:fade1 24s infinite;z-index:-1;opacity:0;"></div>
+    
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/stadium2.png');background-size:cover;background-position:center;animation:fade2 24s infinite;z-index:-1;opacity:0;"></div>
+    
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/stadium3.png');background-size:cover;background-position:center;animation:fade3 24s infinite;z-index:-1;opacity:0;"></div>
+    
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/stadium4.png');background-size:cover;background-position:center;animation:fade4 24s infinite;z-index:-1;opacity:0;"></div>
+
+    <!-- Content -->
+    <div style="z-index:1;max-width:800px;padding:30px;background-color:rgba(0,0,0,0.7);border-radius:15px;backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,0.1);">
+        <h1 style="font-size:4rem;margin-bottom:25px;text-shadow:2px 2px 8px #000;font-weight:800;letter-spacing:1px;">Football Universe</h1>
+        <p style="font-size:1.5rem;margin-bottom:40px;text-shadow:1px 1px 3px #000;">Your ultimate destination for football news, matches and stories</p>
+        <a href="#world-cup" style="padding:15px 40px;background:#e63946;color:white;border-radius:50px;font-weight:bold;transition:all 0.3s;display:inline-block;font-size:1.1rem;box-shadow:0 4px 15px rgba(230,57,70,0.4);" 
+        onmouseover="this.style.transform='scale(1.05)';this.style.background='#d62839'" 
+        onmouseout="this.style.transform='scale(1)';this.style.background='#e63946'">Explore Matches</a>
+    </div>
+    </section>
+
+    <style>
+    @keyframes fade1 {
+    0% { opacity: 0.8; }
+    25% { opacity: 0; }
+    100% { opacity: 0.8; }
+    }
+    @keyframes fade2 {
+    0%, 25% { opacity: 0; }
+    25%, 50% { opacity: 0.8; }
+    50%, 100% { opacity: 0; }
+    }
+    @keyframes fade3 {
+    0%, 50% { opacity: 0; }
+    50%, 75% { opacity: 0.8; }
+    75%, 100% { opacity: 0; }
+    }
+    @keyframes fade4 {
+    0%, 75% { opacity: 0; }
+    75%, 100% { opacity: 0.8; }
+    }
+    </style>
+
+    <!-- Latest News Section -->
+    <section id="news" style="padding:80px 20px;background-color:#f8f9fa;position:relative;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#333;position:relative;display:inline-block;left:50%;transform:translateX(-50%);">Latest Football News</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px;">
+
+                <!-- News Card 1 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#e63946;">Record Breaking Transfer</h3>
+                    <p style="color:#666;">The latest on the world record transfer that's shaking the football world this summer.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#e63946;font-weight:bold;" id="toggle-link-more1">Read More →</a>
+                    <div id="more1" style="display:none;color:#444;margin-top:10px;">
+                        Reports suggest the player involved is set to sign a five-year deal worth over €200 million, breaking all previous records.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more1')" style="color:#e63946;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#e63946;">New Stadium Unveiled</h3>
+                    <p style="color:#666;">First look at the revolutionary new stadium design that could change football architecture.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#e63946;font-weight:bold;" id="toggle-link-more2">Read More →</a>
+                    <div id="more2" style="display:none;color:#444;margin-top:10px;">
+                        The stadium includes a retractable pitch, solar-paneled roof, and seating for 90,000 fans—designed with sustainability in mind.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more2')" style="color:#e63946;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div style="background:white;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;padding:20px;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="margin-top:0;color:#e63946;">Youth Academy Breakthrough</h3>
+                    <p style="color:#666;">How one club's youth system is producing world-class talent year after year.</p>
+                    <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#e63946;font-weight:bold;" id="toggle-link-more3">Read More →</a>
+                    <div id="more3" style="display:none;color:#444;margin-top:10px;">
+                        The club has invested in state-of-the-art facilities, professional mentorship, and personalized development plans for each player.
+                        <div style="margin-top:10px;">
+                            <a href="javascript:void(0);" onclick="toggleText('more3')" style="color:#e63946;font-weight:bold;">Read Less ↑</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+    function toggleText(id) {
+        const content = document.getElementById(id);
+        const link = document.getElementById("toggle-link-" + id);
+
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            link.style.display = "none"; // hide the "Read More"
+        } else {
+            content.style.display = "none";
+            link.style.display = "inline"; // show "Read More" again
+        }
+    }
+    </script>
+
+    <!-- wolrd cup -->
+    <section>
+        <div id="world-cup" style="font-family: 'Segoe UI', sans-serif; max-width: 100%; margin: auto; padding: 25px; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden;">
+            <!-- Header with animated gradient text -->
+            <div style="text-align: center; margin-bottom: 25px;">
+                <h1 style="margin: 0; font-size: 2.5rem; background: linear-gradient(to right, #1a3e72, #e63946); -webkit-background-clip: text; background-clip: text; color: transparent; animation: fadeIn 0.8s ease-in-out;">WORLD CUP 2026 MATCHES</h1>
+                <p style="color: #555; font-size: 1.2rem;">Countdown: <span id="countdown" style="font-weight: bold; color: #e63946; animation: pulse 2s infinite;">-- days --:--:--</span></p>
+            </div>
+
+            <!-- Full-width Match Cards Container -->
+            <div style="width: 100%; overflow-x: auto; padding: 10px 0; -webkit-overflow-scrolling: touch;">
+                <div style="display: flex; gap: 20px; padding: 20px 0; width: max-content; min-width: 100%;">
+                    <!-- Card 1 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.5s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- Match Info -->
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">Group Stage • Match 1</div>
+                                <div style="font-size: 1em; color: #666;">AT&T Stadium, Dallas</div>
+                            </div>
+
+                            <!-- Teams -->
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/br.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Brazil</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>5 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(1958, 1962, 1970, 1994, 2002)</small>
+                                    </div>
+                                </div>
+
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.5rem; margin: 0 10px;">VS</div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/de.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Germany</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>4 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(1954, 1974, 1990, 2014)</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Related Text -->
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                Brazil (5 titles) faces Germany (4 titles) in a true clash of World Cup legends.
+                            </div>
+
+                            <!-- Date & Time -->
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">June 12, 2026 • 20:00 GMT</div>
+                                <div style="font-size: 0.9em; color: #666;">Local: 15:00 CDT</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.7s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- Match Info -->
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">Group Stage • Match 2</div>
+                                <div style="font-size: 1em; color: #666;">Estadio Azteca, Mexico</div>
+                            </div>
+
+                            <!-- Teams -->
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/ar.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Argentina</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>3 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(1978, 1986, 2022)</small>
+                                    </div>
+                                </div>
+
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.5rem; margin: 0 10px;">VS</div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/fr.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">France</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>2 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(1998, 2018)</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Related Text -->
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                A high-stakes duel: Argentina (3 titles) vs France (2 titles) for modern football supremacy.
+                            </div>
+
+                            <!-- Date & Time -->
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">June 14, 2026 • 18:00 GMT</div>
+                                <div style="font-size: 0.9em; color: #666;">Local: 13:00 CST</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 0.9s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">Group Stage • Match 3</div>
+                                <div style="font-size: 1em; color: #666;">Lusail Iconic Stadium, Lusail</div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/es.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Spain</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>1 World Cup</strong><br>
+                                        <small style="font-size: 0.8em;">(2010)</small>
+                                    </div>
+                                </div>
+
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.5rem; margin: 0 10px;">VS</div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/it.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Italy</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>4 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(1934, 1938, 1982, 2006)</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                Spain's flair meets Italy's resilience in a thrilling Group Stage encounter.
+                            </div>
+
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">June 16, 2026 • 17:00 GMT</div>
+                                <div style="font-size: 0.9em; color: #666;">Local: 12:00 AST</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.1s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">Group Stage • Match 4</div>
+                                <div style="font-size: 1em; color: #666;">Rose Bowl, Pasadena</div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/pt.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Portugal</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>0 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(Best: 3rd place, 1966)</small>
+                                    </div>
+                                </div>
+
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.5rem; margin: 0 10px;">VS</div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/eng.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">England</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>1 World Cup</strong><br>
+                                        <small style="font-size: 0.8em;">(1966)</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                Portugal and England battle for supremacy in this historic rivalry.
+                            </div>
+
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">June 18, 2026 • 21:00 GMT</div>
+                                <div style="font-size: 0.9em; color: #666;">Local: 14:00 PDT</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.3s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">Group Stage • Match 5</div>
+                                <div style="font-size: 1em; color: #666;">Mercedes-Benz Stadium, Atlanta</div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/nl.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Netherlands</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>0 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(3 times runners-up)</small>
+                                    </div>
+                                </div>
+
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.5rem; margin: 0 10px;">VS</div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/ur.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Uruguay</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>2 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(1930, 1950)</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                A nostalgic matchup with Netherlands seeking first win vs historic Uruguay.
+                            </div>
+
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">June 20, 2026 • 19:00 GMT</div>
+                                <div style="font-size: 0.9em; color: #666;">Local: 14:00 EDT</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.5s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">Group Stage • Match 6</div>
+                                <div style="font-size: 1em; color: #666;">Soldier Field, Chicago</div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/eng.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">England</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>1 World Cup</strong><br>
+                                        <small style="font-size: 0.8em;">(1966)</small>
+                                    </div>
+                                </div>
+
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.5rem; margin: 0 10px;">VS</div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/ca.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">Canada</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>0 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(Hosts)</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                England takes on host Canada in an exciting Group Stage encounter.
+                            </div>
+
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">June 22, 2026 • 20:00 GMT</div>
+                                <div style="font-size: 0.9em; color: #666;">Local: 15:00 CDT</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div style="min-width: 350px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; animation: slideInUp 1.7s ease-out;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" 
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)'">
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="font-weight: bold; color: #1a3e72; font-size: 1.2rem;">Group Stage • Match 7</div>
+                                <div style="font-size: 1em; color: #666;">Gillette Stadium, Foxborough</div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/us.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">USA</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>0 World Cups</strong><br>
+                                        <small style="font-size: 0.8em;">(Hosts)</small>
+                                    </div>
+                                </div>
+
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.5rem; margin: 0 10px;">VS</div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;">
+                                    <img src="https://flagcdn.com/gb.svg" width="50" style="border-radius: 5px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+                                    <div style="font-weight: bold; text-align: center; font-size: 1.2rem;">United Kingdom</div>
+                                    <div style="font-size: 0.9em; color: #1a3e72; background: #f0f4f8; padding: 5px 10px; border-radius: 15px; text-align: center;">
+                                        <strong>1 World Cup</strong><br>
+                                        <small style="font-size: 0.8em;">(1966)</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; font-size: 1em; color: #333; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                                The USA host the UK in a marquee match at Gillette Stadium.
+                            </div>
+
+                            <div style="text-align: center; margin-top: 15px;">
+                                <div style="font-weight: bold; color: #e63946; font-size: 1.3rem;">June 24, 2026 • 18:00 GMT</div>
+                                <div style="font-size: 0.9em; color: #666;">Local: 14:00 EDT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+            @keyframes slideInUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(40px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            </style>
+
+            <!-- Animated Buttons -->
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+                <button id="alertBtn" 
+                        style="padding: 12px 30px; border: none; border-radius: 50px; background: linear-gradient(to right, #e63946, #ff6b6b); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(230,57,70,0.3); display: flex; align-items: center; gap: 10px; font-size: 1.1rem;"
+                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(230,57,70,0.4)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 20px rgba(230,57,70,0.3)'"
+                        onclick="toggleAlerts()">
+                    <i class="fas fa-bell" id="bellIcon" style="font-size: 1.2rem;"></i>
+                    <span id="alertText">Get Match Alerts</span>
+                    <i class="fas fa-check" id="checkIcon" style="display: none; margin-left: 8px; font-size: 1.2rem;"></i>
+                </button>
+                <a href="#upcoming" style="text-decoration:none;">
+                    <button style="padding: 12px 30px; border: none; border-radius: 50px; background: linear-gradient(to right, #1a3e72, #4a7bd0); color: white; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(26,62,114,0.3); display: flex; align-items: center; gap: 10px; font-size: 1.1rem;"
+                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(26,62,114,0.4)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='0 5px 20px rgba(26,62,114,0.3)'">
+                        <i class="fas fa-trophy" style="font-size: 1.2rem;"></i>
+                        View All Fixtures
+                    </button>
+                </a>
+            </div>        
+
+            <!-- Add Font Awesome for icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+            <!-- Countdown Timer Script -->
+            <script>
+                let alertsActive = false;
+                
+                function toggleAlerts() {
+                    const bellIcon = document.getElementById('bellIcon');
+                    const checkIcon = document.getElementById('checkIcon');
+                    const alertText = document.getElementById('alertText');
+                    const alertBtn = document.getElementById('alertBtn');
+                    
+                    alertsActive = !alertsActive;
+                    
+                    if (alertsActive) {
+                        // Show confirmation
+                        checkIcon.style.display = 'inline-block';
+                        alertText.textContent = 'Alerts Activated';
+                        alertBtn.style.background = 'linear-gradient(to right, #4CAF50, #2E7D32)';
+                        
+                        // Change bell to active state
+                        bellIcon.classList.remove('fa-bell');
+                        bellIcon.classList.add('fa-bell-slash');
+                        
+                        // Show temporary confirmation message
+                        setTimeout(() => {
+                            alertText.textContent = 'Get Match Alerts';
+                        }, 2000);
+                    } else {
+                        // Hide confirmation
+                        checkIcon.style.display = 'none';
+                        alertText.textContent = 'Get Match Alerts';
+                        alertBtn.style.background = 'linear-gradient(to right, #e63946, #ff6b6b)';
+                        
+                        // Change back to regular bell
+                        bellIcon.classList.remove('fa-bell-slash');
+                        bellIcon.classList.add('fa-bell');
+                    }
+                }
+                
+                // Set the target date (June 12, 2026)
+                const targetDate = new Date("2026-06-12T20:00:00Z").getTime();
+                
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const distance = targetDate - now;
+                    
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    document.getElementById("countdown").innerHTML = 
+                        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                    
+                    // Blink animation when under 7 days
+                    if (days < 7) {
+                        document.getElementById("countdown").style.animation = "pulse 1s infinite";
+                    }
+                }
+                
+                setInterval(updateCountdown, 1000);
+                updateCountdown();
+            </script>
+        </div>
+    </section>
+
+    <section>
+    <div style="font-family: 'Segoe UI', sans-serif; max-width: 1200px; margin:auto; padding: 25px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
+        
+        <!-- Retro World Cup Header with Animation -->
+        <div style="text-align: center; margin-bottom: 25px;">
+        <h1 style="margin: 0; font-size: 2rem; background: linear-gradient(to right, #d4af37, #c0c0c0); -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 3s infinite alternate; text-transform: uppercase; letter-spacing: 2px;">World Cup History</h1>
+        <p style="color: #6c757d; margin-top: 8px; animation: fadeIn 1.5s ease-in-out;">Relive the most memorable matches from past tournaments</p>
+        <div style="height: 3px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 10px auto; width: 200px; animation: expand 2s ease-out;"></div>
+        </div>
+
+        <!-- Match Timeline -->
+        <div style="position: relative; margin: 30px 0; padding-left: 30px; border-left: 3px dashed rgba(212, 175, 55, 0.5);">
+
+            <!-- Match 1 - 2022 Final -->
+                <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; transform-origin: left center; animation: cardAppear 0.6s ease-out;"
+                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'">
+                <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #d4af37; border: 3px solid white; box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 0.8rem; background: #d4af37; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2022 Final</span>
+                    <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">Dec 18, 2022</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: flex-end;">
+                        <span style="font-weight: bold; font-size: 1.1rem; margin-right: 15px;">Argentina</span>
+                        <img src="https://flagcdn.com/ar.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    </div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">4</div>
+                    </div>
+                    <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">-</div>
+                    <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: flex-start;">
+                        <img src="https://flagcdn.com/fr.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                        <span style="font-weight: bold; font-size: 1.1rem; margin-left: 15px;">France</span>
+                    </div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">2</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #d4af37;"></i> Lusail Stadium, Qatar
+                    <span style="float: right;">
+                    <i class="fas fa-trophy" style="margin-right: 5px; color: #d4af37;"></i> Argentina (3rd title)
+                    </span>
+                </div>
+                </div>
+
+                <!-- Match 2 - 2018 Final -->
+                <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; transform-origin: left center; animation: cardAppear 0.8s ease-out;"
+                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'">
+                <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #d4af37; border: 3px solid white; box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 0.8rem; background: #d4af37; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2018 Final</span>
+                    <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">Jul 15, 2018</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: flex-end;">
+                        <span style="font-weight: bold; font-size: 1.1rem; margin-right: 15px;">France</span>
+                        <img src="https://flagcdn.com/fr.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                    </div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">4</div>
+                    </div>
+                    <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">-</div>
+                    <div style="flex: 1; min-width: 200px; text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: flex-start;">
+                        <img src="https://flagcdn.com/hr.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                        <span style="font-weight: bold; font-size: 1.1rem; margin-left: 15px;">Croatia</span>
+                    </div>
+                    <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">2</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #d4af37;"></i> Luzhniki Stadium, Russia
+                    <span style="float: right;">
+                    <i class="fas fa-trophy" style="margin-right: 5px; color: #d4af37;"></i> France (2nd title)
+                    </span>
+                </div>
+                </div>
+
+
+        <!-- Toggle Button -->
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="toggleButton" onclick="toggleMatches()" style="padding: 10px 25px; border: 2px solid #d4af37; background: transparent; color: #d4af37; font-weight: bold; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden;"
+            onmouseover="this.style.backgroundColor='rgba(212, 175, 55, 0.1)'; this.querySelector('span').style.transform='translateX(5px)'"
+            onmouseout="this.style.backgroundColor='transparent'; this.querySelector('span').style.transform='translateX(0)'">
+            <span style="display: inline-block; transition: transform 0.3s ease;">View More Historic Matches</span>
+            <i class="fas fa-chevron-down" style="margin-left: 8px; font-size: 0.9em;"></i>
+            </button>
+        </div>
+
+        </div>
+
+        <!-- Hidden Extra Matches -->
+        <div id="moreMatches" style="display: none;">
+        <div style="position: relative; margin-bottom: 30px; background: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: all 0.4s ease; transform-origin: left center; animation: cardAppear 1s ease-out;">
+                <div style="position: absolute; left: -36px; top: 20px; width: 24px; height: 24px; border-radius: 50%; background: #d4af37; border: 3px solid white; box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 0.8rem; background: #d4af37; color: white; padding: 3px 10px; border-radius: 20px; font-weight: bold;">2014 Final</span>
+                    <span style="margin-left: auto; font-size: 0.9rem; color: #6c757d;">Jul 13, 2014</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: flex-end;">
+                            <span style="font-weight: bold; font-size: 1.1rem; margin-right: 15px;">Germany</span>
+                            <img src="https://flagcdn.com/de.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                        </div>
+                        <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">1</div>
+                    </div>
+                    <div style="width: 40px; text-align: center; font-weight: bold; color: #6c757d;">-</div>
+                    <div style="flex: 1; min-width: 200px; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: flex-start;">
+                            <img src="https://flagcdn.com/ar.svg" width="40" style="box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 4px;">
+                            <span style="font-weight: bold; font-size: 1.1rem; margin-left: 15px;">Argentina</span>
+                        </div>
+                        <div style="font-size: 1.8rem; font-weight: bold; color: #d4af37; margin: 5px 0;">0</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.9rem; color: #6c757d;">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #d4af37;"></i> Maracanã Stadium, Brazil
+                    <span style="float: right;">
+                        <i class="fas fa-trophy" style="margin-right: 5px; color: #d4af37;"></i> Germany (4th title)
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Styles -->
+        <style>
+        @keyframes shine {
+            from { background-position: -200px; }
+            to { background-position: 200px; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes expand {
+            from { width: 0; opacity: 0; }
+            to { width: 200px; opacity: 1; }
+        }
+        @keyframes cardAppear {
+            from { transform: translateX(-20px) scale(0.95); opacity: 0; }
+            to { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        </style>
+
+        <!-- Script -->
+        <script>
+        function toggleMatches() {
+            const moreMatches = document.getElementById("moreMatches");
+            const button = document.getElementById("toggleButton");
+            const span = button.querySelector("span");
+            const icon = button.querySelector("i");
+
+            if (moreMatches.style.display === "none") {
+            moreMatches.style.display = "block";
+            span.textContent = "Hide Historic Matches";
+            icon.className = "fas fa-chevron-up";
+            } else {
+            moreMatches.style.display = "none";
+            span.textContent = "View More Historic Matches";
+            icon.className = "fas fa-chevron-down";
+            }
+        }
+        </script>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </div>
+    </section>
+
+    <!-- Previous Matches Section -->
+    
+    <section id="matches" style="padding:80px 20px;background:linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);color:white;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;text-shadow:1px 1px 3px rgba(0,0,0,0.3);">Previous Matches Highlights</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(350px, 1fr));gap:30px;">
+                <!-- Match 1 -->
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);">
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Man United</p>
+                        </div>
+                        <div style="flex:0 0 90px;text-align:center;">
+                            <div style="font-size:2rem;font-weight:bold;margin:5px 0;">3 - 2</div>
+                            <div style="font-size:0.9rem;background:rgba(0,0,0,0.3);padding:3px 8px;border-radius:15px;display:inline-block;">Premier League</div>
+                        </div>
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Liverpool</p>
+                        </div>
+                    </div>
+                    <div style="padding:20px;">
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">A thrilling comeback victory with two late goals from Bruno Fernandes securing the win in stoppage time at Old Trafford.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+                            <span style="font-size:0.85rem;opacity:0.8;">April 15, 2023</span>
+                            <a href="#" onclick="toggleReport('report1', event)" style="padding:8px 20px;background:rgba(255,255,255,0.2);border-radius:20px;color:white;font-size:0.9rem;font-weight:bold;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">Match Report →</a>
+                        </div>
+                    </div>
+                    <div id="report1" style="display:none;padding:0 20px 20px;background:rgba(0,0,0,0.1);">
+                        <h3 style="margin-top:0;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:10px;">Match Report</h3>
+                        <p>Manchester United staged a dramatic late comeback to defeat Liverpool 3-2 in a Premier League classic at Old Trafford. Bruno Fernandes was the hero with two goals in stoppage time after Liverpool had led for most of the match. The victory keeps United's top-four hopes alive while dealing a blow to Liverpool's title aspirations.</p>
+                        <p>Key moments:</p>
+                        <ul>
+                            <li>23' - Salah opens scoring for Liverpool</li>
+                            <li>45+2' - Nunez doubles Liverpool's lead</li>
+                            <li>68' - Rashford pulls one back for United</li>
+                            <li>90+2' - Fernandes equalizes with a penalty</li>
+                            <li>90+5' - Fernandes heads in the winner</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);">
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Real Madrid</p>
+                        </div>
+                        <div style="flex:0 0 90px;text-align:center;">
+                            <div style="font-size:2rem;font-weight:bold;margin:5px 0;">0 - 0</div>
+                            <div style="font-size:0.9rem;background:rgba(0,0,0,0.3);padding:3px 8px;border-radius:15px;display:inline-block;">Champions League</div>
+                        </div>
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Man City</p>
+                        </div>
+                    </div>
+                    <div style="padding:20px;">
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">A tactical stalemate at Santiago Bernabeu with both teams canceling each other out in this quarter-final first leg.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+                            <span style="font-size:0.85rem;opacity:0.8;">May 3, 2023</span>
+                            <a href="#" onclick="toggleReport('report2', event)" style="padding:8px 20px;background:rgba(255,255,255,0.2);border-radius:20px;color:white;font-size:0.9rem;font-weight:bold;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">Match Report →</a>
+                        </div>
+                    </div>
+                    <div id="report2" style="display:none;padding:0 20px 20px;background:rgba(0,0,0,0.1);">
+                        <h3 style="margin-top:0;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:10px;">Match Report</h3>
+                        <p>Real Madrid and Manchester City played out a goalless draw in the first leg of their Champions League quarter-final at the Bernabeu. Both teams had chances but were ultimately canceled out by excellent defensive performances.</p>
+                        <p>Key moments:</p>
+                        <ul>
+                            <li>34' - Vinicius Jr. hits the post for Madrid</li>
+                            <li>56' - Haaland's header saved by Courtois</li>
+                            <li>72' - De Bruyne's free kick just over</li>
+                            <li>88' - Rodrygo's shot blocked by Dias</li>
+                        </ul>
+                        <p>The result leaves everything to play for in the second leg at the Etihad Stadium.</p>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+                    <div style="padding:20px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);">
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Chelsea</p>
+                        </div>
+                        <div style="flex:0 0 90px;text-align:center;">
+                            <div style="font-size:2rem;font-weight:bold;margin:5px 0;">4 - 1</div>
+                            <div style="font-size:0.9rem;background:rgba(0,0,0,0.3);padding:3px 8px;border-radius:15px;display:inline-block;">FA Cup</div>
+                        </div>
+                        <div style="flex:1;text-align:center;">
+                            <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Arsenal</p>
+                        </div>
+                    </div>
+                    <div style="padding:20px;">
+                        <p style="margin:0;font-size:1rem;line-height:1.5;">Chelsea dominated Arsenal with a comprehensive 4-1 victory to reach the FA Cup semi-finals, highlighted by a brace from Mount.</p>
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+                            <span style="font-size:0.85rem;opacity:0.8;">March 18, 2023</span>
+                            <a href="#" onclick="toggleReport('report3', event)" style="padding:8px 20px;background:rgba(255,255,255,0.2);border-radius:20px;color:white;font-size:0.9rem;font-weight:bold;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">Match Report →</a>
+                        </div>
+                    </div>
+                    <div id="report3" style="display:none;padding:0 20px 20px;background:rgba(0,0,0,0.1);">
+                        <h3 style="margin-top:0;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:10px;">Match Report</h3>
+                        <p>Chelsea overwhelmed Arsenal in the FA Cup quarter-final with a commanding 4-1 win at Stamford Bridge. Mason Mount starred with two goals while Kai Havertz and Reece James also scored to send Chelsea through.</p>
+                        <p>Key moments:</p>
+                        <ul>
+                            <li>10' - Mount opens scoring for Chelsea</li>
+                            <li>35' - Havertz doubles Chelsea's lead</li>
+                            <li>52' - Smith Rowe scores for Arsenal</li>
+                            <li>68' - Mount scores his second</li>
+                            <li>85' - James nets a late goal</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Match 4 -->
+                <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;box-shadow:0 8px 20px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 20px rgba(0,0,0,0.2)'">
+        <div style="padding:20px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);">
+            <div style="flex:1;text-align:center;">
+                <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Barcelona</p>
+            </div>
+            <div style="flex:0 0 90px;text-align:center;">
+                <div style="font-size:2rem;font-weight:bold;margin:5px 0;">2 - 1</div>
+                <div style="font-size:0.9rem;background:rgba(0,0,0,0.3);padding:3px 8px;border-radius:15px;display:inline-block;">La Liga</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+                <p style="font-weight:bold;margin:10px 0 0;font-size:1.1rem;">Atlético Madrid</p>
+            </div>
+        </div>
+        <div style="padding:20px;">
+            <p style="margin:0;font-size:1rem;line-height:1.5;">A late strike from Lewandowski gave Barça a narrow win in a tense title-chasing encounter at Camp Nou.</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+                <span style="font-size:0.85rem;opacity:0.8;">April 8, 2023</span>
+                <a href="#" onclick="toggleReport('report4', event)" style="padding:8px 20px;background:rgba(255,255,255,0.2);border-radius:20px;color:white;font-size:0.9rem;font-weight:bold;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">Match Report →</a>
+            </div>
+        </div>
+        <div id="report4" style="display:none;padding:0 20px 20px;background:rgba(0,0,0,0.1);">
+            <h3 style="margin-top:0;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:10px;">Match Report</h3>
+            <p>Robert Lewandowski's late winner gave Barcelona a crucial 2-1 victory over Atlético Madrid in a tense La Liga encounter at Camp Nou, strengthening their position at the top of the table.</p>
+            <p>Key moments:</p>
+            <ul>
+                <li>38' - Griezmann scores against former club to put Atlético ahead</li>
+                <li>65' - Raphinha equalizes for Barcelona</li>
+                <li>88' - Lewandowski heads in the winner</li>
+            </ul>
+            <p>The victory extends Barcelona's lead at the top of La Liga to 8 points over rivals Real Madrid.</p>
+        </div>
+    </div>
+
+            </div>
+        </div>
+
+        <script>
+            function toggleReport(id, event) {
+                event.preventDefault();
+                const report = document.getElementById(id);
+                if (report.style.display === 'none' || report.style.display === '') {
+                    report.style.display = 'block';
+                } else {
+                    report.style.display = 'none';
+                }
+            }
+        </script>
+    </section>
+
+    <!-- Upcoming Matches Section -->
+    <section id="upcoming" style="padding:80px 20px;background-color:#fff;position:relative;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#333;">Upcoming Fixtures</h2>
+            <div style="background:#f8f9fa;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+
+            <!-- Visible Fixtures -->
+            <div id="visible-fixtures">
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;background:#e63946;color:white;font-weight:bold;text-align:center;padding:15px 0;">
+                    <div>Date & Time</div>
+                    <div>Home Team</div>
+                    <div>Away Team</div>
+                    <div>Competition</div>
+                </div>
+                
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;text-align:center;padding:15px 0;border-bottom:1px solid #eee;transition:background 0.3s;" 
+                    onmouseover="this.style.background='#f8f8f8'" onmouseout="this.style.background='#fff'">
+                    <div style="font-weight:bold;color:#e63946;">Sat, May 25<br>15:00 GMT</div>
+                    <div>Team M</div>
+                    <div>Team N</div>
+                    <div>Premier League</div>
+                </div>
+                
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;text-align:center;padding:15px 0;border-bottom:1px solid #eee;transition:background 0.3s;" 
+                    onmouseover="this.style.background='#f8f8f8'" onmouseout="this.style.background='#fff'">
+                    <div style="font-weight:bold;color:#e63946;">Tue, May 28<br>20:00 GMT</div>
+                    <div>Team O</div>
+                    <div>Team P</div>
+                    <div>Champions League</div>
+                </div>
+                
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;text-align:center;padding:15px 0;border-bottom:1px solid #eee;transition:background 0.3s;" 
+                    onmouseover="this.style.background='#f8f8f8'" onmouseout="this.style.background='#fff'">
+                    <div style="font-weight:bold;color:#e63946;">Sun, Jun 2<br>14:30 GMT</div>
+                    <div>Team Q</div>
+                    <div>Team R</div>
+                    <div>FA Cup Final</div>
+                </div>
+                
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;text-align:center;padding:15px 0;transition:background 0.3s;" 
+                    onmouseover="this.style.background='#f8f8f8'" onmouseout="this.style.background='#fff'">
+                    <div style="font-weight:bold;color:#e63946;">Fri, Jun 7<br>19:45 GMT</div>
+                    <div>Team S</div>
+                    <div>Team T</div>
+                    <div>International Friendly</div>
+                </div>
+            </div>
+
+            <!-- Hidden Fixtures -->
+            <div id="hidden-fixtures" style="display:none;">
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;text-align:center;padding:15px 0;border-bottom:1px solid #eee;transition:background 0.3s;" 
+                    onmouseover="this.style.background='#f8f8f8'" onmouseout="this.style.background='#fff'">
+                    <div style="font-weight:bold;color:#e63946;">Mon, Jun 10<br>18:00 GMT</div>
+                    <div>Team U</div>
+                    <div>Team V</div>
+                    <div>Europa League</div>
+                </div>
+                
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;align-items:center;text-align:center;padding:15px 0;transition:background 0.3s;" 
+                    onmouseover="this.style.background='#f8f8f8'" onmouseout="this.style.background='#fff'">
+                    <div style="font-weight:bold;color:#e63946;">Wed, Jun 12<br>21:00 GMT</div>
+                    <div>Team W</div>
+                    <div>Team X</div>
+                    <div>Conference League</div>
+                </div>
+            </div>
+            </div>
+
+            <div style="text-align:center;margin-top:30px;">
+                <button id="toggle-fixtures" 
+                    style="padding:10px 25px;background:#e63946;color:white;border:none;border-radius:30px;font-weight:bold;display:inline-block;transition:all 0.3s;cursor:pointer;" 
+                    onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 5px 15px rgba(230,57,70,0.4)'" 
+                    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'"
+                    onclick="
+                        const hidden = document.getElementById('hidden-fixtures');
+                        const button = document.getElementById('toggle-fixtures');
+                        if(hidden.style.display==='none'){
+                            hidden.style.display='block';
+                            button.textContent = 'Hide Fixtures';
+                        } else {
+                            hidden.style.display='none';
+                            button.textContent = 'View All Fixtures';
+                        }
+                    ">
+                    View All Fixtures
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Football Novel Section (Continuous Scrolling) -->
+    <section id="novel" style="background-color:#1a1a2e;color:#e6e6e6;padding:60px 20px;position:relative;overflow:hidden;">
+        <h2 style="text-align:center;font-size:2.5rem;margin-bottom:40px;color:#fff;">Football Novel: The Last Minute</h2>
+        <div style="max-width:800px;margin:0 auto;position:relative;">
+            <div class="novel-content" style="height:400px;overflow-y:scroll;padding-right:20px;scrollbar-width:thin;scrollbar-color:#e63946 #1a1a2e;">
+                <h3 style="color:#e63946;margin-top:0;">Chapter 1: The Trial</h3>
+                <p>The stadium lights burned like a thousand suns as Jamie stepped onto the pitch. This was it - his last chance to impress the scouts, his final opportunity to escape the dead-end factory job that awaited him if football didn't work out.</p>
+                <p>He could feel the eyes of the coaches on him as he warmed up, their clipboards at the ready to record his every move. The other trialists moved with the confidence of players who had been in academies since they could walk, while Jamie's boots were still stiff from the box.</p>
+                <p>"Alright, let's see what you've got," barked the head coach, blowing his whistle to start the small-sided game.</p>
+                <p>The ball came to Jamie faster than he expected, a crisp pass from a midfielder who clearly didn't trust him. He controlled it with his left foot - not perfectly, but well enough - and looked up to see two defenders closing in.</p>
+                <p>In that moment, time seemed to slow. Jamie remembered the hours spent kicking a ball against the garage door, the YouTube tutorials he'd studied late at night, the way his dad's face fell just a little every time he mentioned "getting a proper job."</p>
+                <p>He feinted left, went right, and suddenly he was past the first defender. The second came in hard, but Jamie nicked the ball through his legs and was gone. The goal opened up before him like a dream.</p>
+                <p>Then everything went black.</p>
+                
+                <h3 style="color:#e63946;margin-top:30px;">Chapter 2: Waking Up</h3>
+                <p>The smell of antiseptic hit Jamie before he even opened his eyes. Hospital. Again. How many times had he been here after matches growing up? Too many, according to his mum.</p>
+                <p>"You're awake." The voice was familiar but unexpected. Jamie turned his head - a mistake, as pain shot through his skull - to see none other than Alex Morgan, the first team's star striker, sitting in the visitor's chair.</p>
+                <p>"What... what are you doing here?" Jamie's throat felt like he'd swallowed sandpaper.</p>
+                <p>Morgan leaned forward. "That was some tackle you took. Dirty from Johnson, but what do you expect from City's thugs?" He handed Jamie a glass of water. "The gaffer sent me. Wants to know if you'll sign."</p>
+                <p>Jamie nearly choked. "Sign? But I didn't even finish the trial!"</p>
+                <p>"Thirty seconds was enough," Morgan said, grinning. "You've got something, kid. Raw, but something. We can work with that."</p>
+                <p>Jamie's head spun worse than from the concussion. This couldn't be real. It had to be the pain meds. But when Morgan slid a contract across the bedside table, the club crest gleamed unmistakably in the fluorescent light.</p>
+                
+                <h3 style="color:#e63946;margin-top:30px;">Chapter 3: First Training</h3>
+                <p>The training ground was bigger than Jamie's entire neighborhood. State-of-the-art facilities stretched as far as he could see, and the first team players moved with a grace and power that made his trialists look like schoolboys.</p>
+                <p>"Don't stare, you'll make yourself dizzy," Morgan said, clapping him on the back. "Come on, I'll introduce you."</p>
+                <p>Jamie recognized faces he'd only seen on TV. National team players. Champions League winners. And now, somehow, his teammates.</p>
+                <p>The training session was brutal. Every pass had to be perfect, every run timed to the millisecond. Jamie made mistakes - lots of them - but to his surprise, the veterans helped rather than mocked.</p>
+                <p>"We were all there once," said the captain, a grizzled midfielder with 100 international caps. "Well, except maybe Morgan. Rumor is he was born in full kit."</p>
+                <p>Laughter rang out across the pitch, and for the first time, Jamie felt like he might belong here.</p>
+                <p>That was when the manager called him over. "You're in the squad for Saturday."</p>
+                <p>Jamie's heart stopped. "The... the derby?"</p>
+                <p>The manager nodded. "Welcome to the big time, kid."</p>
+                
+                <h3 style="color:#e63946;margin-top:30px;">Chapter 4: Derby Day</h3>
+                <p>The stadium roared like a living thing. Eighty thousand voices created a wall of sound that vibrated in Jamie's chest as he sat on the bench, trying to remember how to breathe.</p>
+                <p>On the pitch, the game was a battle. Tackles flew in, tempers flared, and the referee's whistle pierced the noise at regular intervals. Jamie watched Morgan work his magic, twisting and turning past defenders, but even he was struggling against City's organized defense.</p>
+                <p>Then, in the 78th minute, disaster struck. A reckless challenge left Morgan writhing in pain, and the physio's face said it all as he helped the star striker off.</p>
+                <p>"Jamie! You're on!"</p>
+                <p>The manager's voice cut through Jamie's panic. This couldn't be happening. Not like this. Not in the derby.</p>
+                <p>As he stepped onto the pitch, the noise seemed to fade away. All Jamie could hear was his own heartbeat. The ball came to him almost immediately, and without thinking, he turned and ran at the defense...</p>
+                <p style="margin-bottom:100px;">[To be continued...]</p>
+            </div>
+            <div style="position:absolute;bottom:0;left:0;width:100%;height:50px;background:linear-gradient(to top, #1a1a2e, transparent);pointer-events:none;"></div>
+        </div>
+    </section>
+
+    <!-- Top Players Section -->
+        
+    <section id="players" style="padding:80px 20px;background-color:#f1faee;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#1d3557;">Top Players of the Season</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));gap:30px;">
+
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                    <img src="images/Ronaldo.png" alt="Top player 10" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                            <h3 style="margin:0 0 10px;color:#a8dadc;">Cristiano Ronaldo</h3>
+                            <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Goals:</span><span>30</span></div>
+                            <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Assists:</span><span>8</span></div>
+                            <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Team:</span><span>Al-Nassr</span></div>
+                        </div>
+                        <div style="padding:15px;text-align:center;">
+                            <h3 style="margin:0;color:#1d3557;">Cristiano Ronaldo</h3>
+                            <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">Forward</p>
+                        </div>
+                </div>
+
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                        <img src="images/messi.png" alt="Top player 1"  style="width:100%;height:150px;object-fit:cover;">
+                        <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                            <h3 style="margin:0 0 10px;color:#a8dadc;">Lionel Messi</h3>
+                            <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Goals:</span><span>28</span></div>
+                            <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Assists:</span><span>15</span></div>
+                            <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Team:</span><span>PSG</span></div>
+                        </div>
+                        <div style="padding:15px;text-align:center;">
+                            <h3 style="margin:0;color:#1d3557;">Lionel Messi</h3>
+                            <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">Forward</p>
+                        </div>
+                </div>
+            <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+            <img src="images/sunil.png" alt="Top player Sunil Chhetri" style="width:100%;height:150px;object-fit:cover;">
+            <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                <h3 style="margin:0 0 10px;color:#a8dadc;">Sunil Chhetri</h3>
+                <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Goals:</span><span>12</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Assists:</span><span>22</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Team:</span><span>India</span></div>
+            </div>
+            <div style="padding:15px;text-align:center;">
+                <h3 style="margin:0;color:#1d3557;">Sunil Chhetri</h3>
+                <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">Forward</p>
+            </div>
+            </div>
+
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                    <img src="images/kylian.png" alt="Top player 5" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#a8dadc;">Kylian Mbappé</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Goals:</span><span>30</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Assists:</span><span>10</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Team:</span><span>PSG</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#1d3557;">Kylian Mbappé</h3>
+                        <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">Forward</p>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                    <img src="images/salah.png" alt="Top player 6"  style="width:100%;height:150px;object-fit:cover;">
+                    <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#a8dadc;">Mohamed Salah</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Goals:</span><span>25</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Assists:</span><span>8</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Team:</span><span>Liverpool</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#1d3557;">Mohamed Salah</h3>
+                        <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">Winger</p>
+                    </div>
+                </div>
+                <div style="background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:all 0.3s;position:relative;" onmouseover="this.style.transform='translateY(-10px)';this.querySelector('.player-stats').style.opacity='1'" onmouseout="this.style.transform='translateY(0)';this.querySelector('.player-stats').style.opacity='0'">
+                    <img src="images/modric.png" alt="Top player 7" style="width:100%;height:150px;object-fit:cover;">
+                    <div class="player-stats" style="position:absolute;bottom:0;left:0;right:0;background:rgba(29,53,87,0.9);color:white;padding:20px;opacity:0;transition:opacity 0.3s;">
+                        <h3 style="margin:0 0 10px;color:#a8dadc;">Luka Modrić</h3>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Pass Accuracy:</span><span>91%</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;margin-bottom:5px;"><span>Assists:</span><span>14</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.9rem;"><span>Team:</span><span>Real Madrid</span></div>
+                    </div>
+                    <div style="padding:15px;text-align:center;">
+                        <h3 style="margin:0;color:#1d3557;">Luka Modrić</h3>
+                        <p style="margin:5px 0 0;color:#457b9d;font-size:0.9rem;">Midfielder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tactics Analysis Section -->
+    <section id="tactics" style="padding:80px 20px;background-color:#1d3557;color:white;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;">Tactical Breakdown</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+                <div>
+                    <h3 style="font-size:1.8rem;color:#a8dadc;margin-top:0;">The Rise of 3-2-4-1</h3>
+                    <p>This season has seen a tactical revolution with several top clubs adopting an aggressive 3-2-4-1 formation that overloads the midfield while maintaining defensive stability.</p>
+                    <p>The system relies on versatile wing-backs who can transition quickly between defense and attack, and a double pivot in midfield that provides cover for the back three.</p>
+                    <p>When executed properly, this formation creates numerical superiority in midfield while allowing for quick transitions to attack through the overloaded central areas.</p>
+                    <div style="margin-top:30px;">
+                        <div style="display:flex;align-items:center;margin-bottom:15px;">
+                            <div style="width:30px;height:30px;background:#e63946;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">1</div>
+                            <div>Pressing triggers coordinated by the front four</div>
+                        </div>
+                        <div style="display:flex;align-items:center;margin-bottom:15px;">
+                            <div style="width:30px;height:30px;background:#e63946;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">2</div>
+                            <div>Overlapping center-backs create passing options</div>
+                        </div>
+                        <div style="display:flex;align-items:center;">
+                            <div style="width:30px;height:30px;background:#e63946;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">3</div>
+                            <div>Flexible positioning confuses marker-based defenses</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="position:relative;">
+                    <img src="images/diagram.png" alt="Football tactics diagram" style="width:100%;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,0.3);">
+                    <div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.7);color:white;padding:5px 10px;border-radius:5px;font-size:0.8rem;">3-2-4-1 Formation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stadiums Section -->
+    <section id="stadiums" style="padding:80px 20px;background-color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="text-align:center;font-size:2.5rem;margin-bottom:50px;color:#1d3557;">Iconic Football Stadiums</h2>
+        <div style="display:flex;gap:30px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:10px;">
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/camp.png" alt="Camp Nou stadium" style="width:100%;height:200px;object-fit:cover;">
+            <div style="padding:20px;">
+            <h3 style="margin-top:0;color:#e63946;">Camp Nou</h3>
+            <p style="color:#666;margin-bottom:20px;">Home of FC Barcelona with a capacity of 99,354, making it the largest stadium in Europe.</p>
+            <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                <span>📍 Barcelona, Spain</span>
+                <span>🏟 99,354 capacity</span>
+            </div>
+            </div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/trafford.png" alt="Old Trafford stadium" style="width:100%;height:200px;object-fit:cover;">
+            <div style="padding:20px;">
+            <h3 style="margin-top:0;color:#e63946;">Old Trafford</h3>
+            <p style="color:#666;margin-bottom:20px;">The "Theatre of Dreams" home to Manchester United with a capacity of 74,140.</p>
+            <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                <span>📍 Manchester, UK</span>
+                <span>🏟 74,140 capacity</span>
+            </div>
+            </div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/maracana.png" alt="Maracanã stadium" style="width:100%;height:200px;object-fit:cover;">
+            <div style="padding:20px;">
+            <h3 style="margin-top:0;color:#e63946;">Maracanã</h3>
+            <p style="color:#666;margin-bottom:20px;">Historic Brazilian stadium that hosted two World Cup finals, with a capacity of 78,838.</p>
+            <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                <span>📍 Rio de Janeiro, Brazil</span>
+                <span>🏟 78,838 capacity</span>
+            </div>
+            </div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/berlin.png" alt="Olympiastadion Berlin" style="width:100%;height:200px;object-fit:cover;">
+            <div style="padding:20px;">
+            <h3 style="margin-top:0;color:#e63946;">Olympiastadion Berlin</h3>
+            <p style="color:#666;margin-bottom:20px;">Historic stadium built for the 1936 Olympics with a seating capacity of 74,475.</p>
+            <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                <span>📍 Berlin, Germany</span>
+                <span>🏟 74,475 capacity</span>
+            </div>
+            </div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s;position:relative;min-width:350px;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="images/santiago.png" alt="Estadio Santiago Bernabéu" style="width:100%;height:200px;object-fit:cover;">
+            <div style="padding:20px;">
+            <h3 style="margin-top:0;color:#e63946;">Estadio Santiago Bernabéu</h3>
+            <p style="color:#666;margin-bottom:20px;">Home of Real Madrid with a capacity of 81,044, known for its rich history and atmosphere.</p>
+            <div style="display:flex;justify-content:space-between;color:#666;font-size:0.9rem;">
+                <span>📍 Madrid, Spain</span>
+                <span>🏟 81,044 capacity</span>
+            </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" style="padding:80px 20px;background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080?text=Football+History');background-size:cover;background-attachment:fixed;color:white;">
+    <div style="max-width:1200px;margin:0 auto;text-align:center;">
+        <h2 style="font-size:2.5rem;margin-bottom:30px;">Football Through the Ages</h2>
+        <p style="max-width:800px;margin:0 auto 40px;font-size:1.1rem;line-height:1.6;">From its origins in medieval England to the global phenomenon it is today, football has captivated billions. Explore the rich history of the beautiful game.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:30px;margin-top:50px;">
+        <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1863</div>
+            <h3 style="margin-top:0;color:#a8dadc;">FA Founded</h3>
+            <p style="font-size:0.9rem;">The Football Association is formed in England, standardizing the rules of the game.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1930</div>
+            <h3 style="margin-top:0;color:#a8dadc;">First World Cup</h3>
+            <p style="font-size:0.9rem;">Uruguay hosts and wins the inaugural FIFA World Cup tournament.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1958</div>
+            <h3 style="margin-top:0;color:#a8dadc;">Pelé's Debut</h3>
+            <p style="font-size:0.9rem;">A 17-year-old Pelé announces himself on the world stage at the Sweden World Cup.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(5px);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(230,57,70,0.4)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-size:3rem;margin-bottom:15px;color:#e63946;">1992</div>
+            <h3 style="margin-top:0;color:#a8dadc;">Champions League</h3>
+            <p style="font-size:0.9rem;">The European Cup is rebranded as the UEFA Champions League with a new format.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" style="padding:80px 20px;background-color:#f1faee;">
+        <div style="max-width:600px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:2rem;margin-bottom:20px;color:#1d3557;">Stay Updated</h2>
+            <p style="color:#457b9d;margin-bottom:30px;">Subscribe to our newsletter for the latest football news, match analysis, and exclusive content.</p>
+            <form style="display:flex;max-width:500px;margin:0 auto;">
+                <input type="email" placeholder="Your email address" style="flex:1;padding:12px 15px;border:1px solid #ddd;border-radius:30px 0 0 30px;font-size:1rem;outline:none;">
+                <button type="submit" style="padding:12px 25px;background:#e63946;color:white;border:none;border-radius:0 30px 30px 0;font-weight:bold;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.background='#d62839'" onmouseout="this.style.background='#e63946'">Subscribe</button>
+            </form>
+            <p style="font-size:0.8rem;color:#666;margin-top:20px;">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+
+    <script>
+        
+        
+        // Custom cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        // Make cursor bigger on hover
+        const interactiveElements = document.querySelectorAll('a, button, [onmouseover]');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseover', () => {
+                cursor.style.width = '40px';
+                cursor.style.height = '40px';
+            });
+            el.addEventListener('mouseout', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+            });
+        });
+        
+        // Lazy loading for images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+
+    <style>
+        @keyframes heroAnim {
+            0%, 100% { opacity: 0.8; }
+            25% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+            75% { opacity: 0.4; }
+        }
+        
+        /* Scrollbar styling for novel section */
+        .novel-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .novel-content::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        
+        .novel-content::-webkit-scrollbar-thumb {
+            background: #e63946;
+            border-radius: 4px;
+        }
+    </style>
+
+
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="#" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

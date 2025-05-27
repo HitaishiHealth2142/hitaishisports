@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SportZone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-...your-integrity-key..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+       <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
+
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+       </style>
+</head>
+<body style="margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f7; color: #333;">
+
+  <header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+        <div >
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+  </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+    <section style="position: relative; padding: 60px 30px; background-image: url(images/home-bg.png); background-size: cover; background-position: center; color: white;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
+            <div style="position: relative; z-index: 2; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                <div style="flex: 1 1 100%; max-width: 100%; margin-bottom: 40px; text-align: center;">
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Your Ultimate Sports & <br/> Games Destination</h1>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px;">Discover the latest in sports news, game reviews, and<br>upcoming events all in one place.</p>
+                    <div>
+                        <button onclick="showSection('sports')" style="padding: 15px 25px; font-size: 1rem; border: none; border-radius: 8px; margin: 10px; cursor: pointer; font-weight: 600; background-color: white; color: #3b82f6;">Explore Sports</button>
+                        <button onclick="showSection('games')" style="padding: 15px 25px; font-size: 1rem; border: 2px solid white; border-radius: 8px; margin: 10px; cursor: pointer; font-weight: 600; background-color: transparent; color: white;">Discover Games</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .tab-buttons {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .tab-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: #444;
+      border-bottom: 3px solid transparent;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    .tab-buttons button.active {
+      color: #3b82f6;
+      border-bottom: 3px solid #3b82f6;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      width: 280px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+
+    .card-header {
+      padding: 20px;
+      color: white;
+      position: relative;
+    }
+
+    .card-header img.icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    .link {
+      float: right;
+      color: #3b82f6;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tab-buttons button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9fafb;
+      text-align: center;
+    }
+    .tab-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: #444;
+      border-bottom: 3px solid transparent;
+      margin: 0 5px;
+      transition: color 0.3s, border-bottom-color 0.3s;
+    }
+    .tab-buttons button.active {
+      color: #3b82f6;
+      border-bottom: 3px solid #3b82f6;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .card {
+      width: 280px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      cursor: default;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .card-header {
+      padding: 20px;
+      color: white;
+      position: relative;
+    }
+    .card-header img {
+      opacity: 0.3;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .card-body {
+      padding: 20px;
+      text-align: left;
+    }
+    .card-body p {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .card-body span {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+    .card-body a {
+      float: right;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    /* Background colors for cards */
+    .bg-soccer { background: #3b82f6; }
+    .bg-basketball { background: #f97316; }
+    .bg-tennis { background: #22c55e; }
+    .bg-baseball { background: #9333ea; }
+    .bg-american-football { background: #fbbf24; }
+    .bg-golf { background: #f43f5e; }
+    .bg-chess { background: #8b5cf6; }
+    .bg-video-games { background: #ec4899; }
+    .bg-board-games { background: #fbbf24; }
+    .bg-card-games { background: #3b82f6; }
+
+    /* View All Button */
+    .view-all-btn {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 40px;
+    }
+    .view-all-btn:hover {
+      background-color: #2563eb;
+    }
+</style>
+
+
+
+<!-- ----------------------------------------------------------------------------- -->
+<style>
+  /* Hover effect for cards */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+  }
+  /* Transition must be applied in inline style, but we keep this for hover */
+</style>
+
+  <!-- Tabs -->
+  <div style="text-align: center; margin-bottom: 30px;">
+    <button id="sports-tab-btn" class="active" 
+      onclick="showSection('sports')" 
+      style="
+        padding: 10px 20px; border: none; background: none; font-weight: bold; 
+        font-size: 1.1rem; cursor: pointer; color: #444; border-bottom: 3px solid #3b82f6; 
+        margin: 0 5px; transition: color 0.3s, border-bottom-color 0.3s;"
+    >Sports</button>
+    <button id="games-tab-btn" 
+      onclick="showSection('games')" 
+      style="
+        padding: 10px 20px; border: none; background: none; font-weight: bold; 
+        font-size: 1.1rem; cursor: pointer; color: #444; border-bottom: 3px solid transparent; 
+        margin: 0 5px; transition: color 0.3s, border-bottom-color 0.3s;"
+    >Games</button>
+  </div>
+
+  <!-- Sports Section -->
+    <div id="sports" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 70%; margin: 20px auto ;">
+        <!-- Sports cards will be inserted here -->
+    </div>
+    <button id="view-all-sports" onclick="viewAll('sports')" 
+        style=" background-color: #3b82f6; color: white; border: none; padding: 10px 25px; font-size: 1rem; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease; margin-bottom: 40px;"
+        onmouseover="this.style.backgroundColor='#2563eb'" 
+        onmouseout="this.style.backgroundColor='#3b82f6'">View All Sports
+    </button>
+
+  <!-- Games Section -->
+  <div id="games" style="display: none; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; flex-direction: row ;  max-width: 70%; margin: 20px auto; ">
+    <!-- Games cards will be inserted here -->
+  </div>
+  <button id="view-all-games" 
+    onclick="viewAll('games')" 
+    style="
+      display: none; background-color: #3b82f6; color: white; border: none; padding: 10px 25px; 
+      font-size: 1rem; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease; 
+      margin-bottom: 40px;
+    "
+    onmouseover="this.style.backgroundColor='#2563eb'" 
+    onmouseout="this.style.backgroundColor='#3b82f6'"
+  >View All Games</button>
+
+<script>
+  const sportsData = [
+    {
+      title: "Soccer",
+      desc: "The world's most popular sport with billions of fans globally.",
+      type: "Team Sport",
+      bgColor: "#3b82f6",
+      icon: "https://img.icons8.com/?size=100&id=59&format=png&color=000000",
+      linkColor: "#3b82f6",
+      link: "football.html"
+    },
+    {
+      title: "Basketball",
+      desc: "Fast-paced court game popular in the US and increasingly worldwide.",
+      type: "Team Sport",
+      bgColor: "#f97316",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/basketball.png",
+      linkColor: "#f97316",
+      link: "basketball.html"
+    },
+    {
+      title: "Tennis",
+      desc: "A racket sport played individually or in doubles on a court.",
+      type: "Individual Sport",
+      bgColor: "#22c55e",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/tennis.png",
+      linkColor: "#22c55e",
+      link: "tennis.html"
+    },
+    {
+      title: "Baseball",
+      desc: "A bat-and-ball game played between two teams of nine players.",
+      type: "Team Sport",
+      bgColor: "#9333ea",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/baseball.png",
+      linkColor: "#9333ea",
+      link: "baseball.html"
+    },
+    {
+      title: "Cricket",
+      desc: "A contact sport played by two teams of eleven players on a circular field.",
+      type: "Team Sport",
+      bgColor: "#fbbf24",
+      icon: "https://img.icons8.com/?size=100&id=paX21G6Oq7QC&format=png&color=000000",
+      linkColor: "#fbbf24",
+      link: "cricket.html"
+    },
+    {
+      title: "Golf",
+      desc: "A club-and-ball sport where players hit a ball into a series of holes on a course.",
+      type: "Individual Sport",
+      bgColor: "#f43f5e",
+      icon: "https://img.icons8.com/?size=100&id=9767&format=png&color=000000",
+      linkColor: "#f43f5e",
+      link : "golf.html"
+    },
+    {
+      title: "Swimming",
+      desc: "An individual or team sport that involves racing through water using various strokes.",
+      type: "Individual Sport",
+      bgColor: "#06b6d4",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/swimming.png",
+      linkColor: "#06b6d4",
+      link: "swimming.html"
+    },
+    {
+      title: "Athletics",
+      desc: "A collection of sporting events that involve competitive running, jumping, throwing, and walking.",
+      type: "Individual Sport",
+      bgColor: "#f59e42",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/track-and-field.png",
+      linkColor: "#f59e42",
+      link: "Athletic.html"
+    },
+    {
+      title: "Hockey",
+      desc: "A fast-paced team sport played on ice or field, where players use sticks to direct a puck or ball into the opponent's goal.",
+      type: "Team Sport",
+      bgColor: "#0ea5e9",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/hockey.png",
+      linkColor: "#0ea5e9",
+      link: "hockey.html"
+    },
+    {
+      title: "Snowboarding",
+      desc: "A winter sport where athletes descend snow-covered slopes on a board, performing tricks and racing against the clock.",
+      type: "Individual Sport",
+      bgColor: "#60a5fa",
+      icon: "https://img.icons8.com/?size=100&id=50912&format=png&color=000000",
+      linkColor: "#60a5fa",
+      link: "snowboard.html"
+    },
+    {
+      title: "Ice Hockey",
+      desc: "A high-speed team sport played on ice, where players use sticks to hit a puck into the opponent's goal.",
+      type: "Team Sport",
+      bgColor: "#38bdf8",
+      icon: "https://img.icons8.com/?size=100&id=75363&format=png&color=000000",
+      linkColor: "#38bdf8",
+      link: "icehockey.html"
+    },
+    {
+      title: "Rugby",
+      desc: "A physically demanding team sport where players carry, pass, and kick an oval ball to score tries and goals.",
+      type: "Team Sport",
+      bgColor: "#16a34a",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/rugby.png",
+      linkColor: "#16a34a",
+      link: "rugby.html"
+    },
+    {
+      title: "Handball",
+      desc: "A fast-paced team sport where players pass and bounce a ball to throw it into the opposing team's goal.",
+      type: "Team Sport",
+      bgColor: "#eab308",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/handball.png",
+      linkColor: "#eab308",
+      link: "handball.html"
+    },
+    {
+      title: "Volleyball",
+      desc: "A team sport where players hit a ball over a net to score points by grounding it on the opponent's side.",
+      type: "Team Sport",
+      bgColor: "#fbbf24",
+      icon: "https://img.icons8.com/ios-filled/100/ffffff/volleyball.png",
+      linkColor: "#fbbf24",
+      link: "volleyball.html"
+    }
+
+  ];
+
+  const gamesData = [
+  {
+    title: "Archery",
+    desc: "A sport of shooting arrows with a bow at a target.",
+    type: "Individual Sport",
+    bgColor: "#3b82f6",
+    icon: "https://img.icons8.com/?size=100&id=AQPUZd9cVVXg&format=png&color=000000",
+    linkColor: "#3b82f6",
+      link: "Archery.html"
+  },
+  {
+    title: "Chess",
+    desc: "A strategic board game played by millions across the world.",
+    type: "Mind Game",
+    bgColor: "#8b5cf6",
+    icon: "https://img.icons8.com/?size=100&id=3-Nof1VM7bAQ&format=png&color=000000",
+    linkColor: "#8b5cf6",
+      link: "chess.html"
+  },
+  {
+    title: "Badminton",
+    desc: "A racquet sport played with a shuttlecock and a net.",
+    type: "Individual Sport",
+    bgColor: "#3b82f6",
+    icon: "https://img.icons8.com/?size=100&id=24308&format=png&color=000000",
+    linkColor: "#3b82f6",
+      link: "badminton.html"
+  },
+  {
+    title: "Boxing",
+    desc: "A combat sport in which two people throw punches at each other.",
+    type: "Combat Sport",
+    bgColor: "#ef4444",
+    icon: "https://img.icons8.com/?size=100&id=bmN5lE2JEwPt&format=png&color=000000",
+    linkColor: "#ef4444",
+    link: "boxing.html"
+  },
+  {
+    title: "Handball",
+    desc: "A team sport where players pass a ball using their hands with the aim of throwing it into the goal of the other team.",
+    type: "Team Sport",
+    bgColor: "#f97316",
+    icon: "https://img.icons8.com/?size=100&id=9821&format=png&color=000000",
+    linkColor: "#f97316",
+    link: "handball.html"
+  },
+  {
+    title: "Judo",
+    desc: "A modern martial art and Olympic sport focusing on throws and grappling.",
+    type: "Combat Sport",
+    bgColor: "#10b981",
+    icon: "https://img.icons8.com/?size=100&id=71286&format=png&color=000000",
+    linkColor: "#10b981",
+      link: "judo.html"
+  },
+  {
+    title: "Karate",
+    desc: "A martial art developed in the Ryukyu Kingdom from indigenous fighting methods.",
+    type: "Combat Sport",
+    bgColor: "#facc15",
+    icon: "https://img.icons8.com/?size=100&id=71285&format=png&color=000000",
+    linkColor: "#facc15",
+      link: "karate.html"
+  },
+  {
+    title: "Golf",
+    desc: "A club-and-ball sport in which players use clubs to hit balls into holes on a course.",
+    type: "Individual Sport",
+    bgColor: "#16a34a",
+    icon: "https://img.icons8.com/?size=100&id=9767&format=png&color=000000",
+    linkColor: "#16a34a",
+      link: "golf.html"
+  },
+  {
+    title: "Wrestling",
+    desc: "A combat sport involving grappling-type techniques.",
+    type: "Combat Sport",
+    bgColor: "#db2777",
+    icon: "https://img.icons8.com/?size=100&id=19742&format=png&color=000000",
+    linkColor: "#db2777",
+      link: "wrestling.html"
+  },
+  {
+    title: "Taekwondo",
+    desc: "A Korean martial art characterized by its emphasis on head-height kicks, jumping and spinning kicks.",
+    type: "Combat Sport",
+    bgColor: "#0ea5e9",
+    icon: "https://img.icons8.com/?size=100&id=71285&format=png&color=000000",
+    linkColor: "#0ea5e9",
+      link: "taekwondo.html"
+  },
+  {
+    title: "Poker",
+    desc: "A card game that combines gambling, strategy, and skill.",
+    type: "Card Game",
+    bgColor: "#ec4899",
+    icon: "https://img.icons8.com/?size=100&id=571&format=png&color=000000",
+    linkColor: "#ec4899",
+      link: "poker.html"
+  },
+  {
+    title: "Surfing",
+    desc: "A water sport where an individual rides a wave toward the shore.",
+    type: "Water Sport",
+    bgColor: "#3b82f6",
+    icon: "https://img.icons8.com/?size=100&id=9832&format=png&color=000000",
+    linkColor: "#3b82f6",
+      link: "surfing.html"
+  }
+];
+
+
+  const sportsContainer = document.getElementById('sports');
+  const gamesContainer = document.getElementById('games');
+  const viewAllSportsBtn = document.getElementById('view-all-sports');
+  const viewAllGamesBtn = document.getElementById('view-all-games');
+
+  let sportsShowingAll = false;
+  let gamesShowingAll = false;
+
+  // Utility function to create a card with inline styles
+  function createCard(data) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    Object.assign(card.style, {
+      width: '280px',
+      background: 'white',
+      borderRadius: '12px',
+      boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+      overflow: 'hidden',
+      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+      position: 'relative',
+      cursor: 'default',
+      display: 'flex',
+      flexDirection: 'column'
+    });
+
+    // Header
+    const header = document.createElement('div');
+    Object.assign(header.style, {
+      padding: '20px',
+      color: 'white',
+      position: 'relative',
+      backgroundColor: data.bgColor,
+      minHeight: '100px',
+      flexShrink: '0'
+    });
+
+    // Icon in header
+    const iconImg = document.createElement('img');
+    iconImg.src = data.icon;
+    iconImg.alt = data.title + ' icon';
+    Object.assign(iconImg.style, {
+      position: 'absolute',
+      top: '30%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      opacity: '0.3',
+      width: '100px',
+      height: '100px',
+      pointerEvents: 'none',
+      userSelect: 'none'
+    });
+    header.appendChild(iconImg);
+
+    // Title
+    const title = document.createElement('h3');
+    title.textContent = data.title;
+    Object.assign(title.style, {
+      position: 'relative',
+      zIndex: '1',
+      margin: '0'
+    });
+    header.appendChild(title);
+
+    card.appendChild(header);
+
+    // Body
+    const body = document.createElement('div');
+    Object.assign(body.style, {
+      padding: '20px',
+      textAlign: 'left',
+      flexGrow: '1',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    });
+
+    const descP = document.createElement('p');
+    descP.textContent = data.desc;
+    Object.assign(descP.style, {
+      margin: '0 0 10px',
+      fontSize: '0.9rem',
+      color: '#333',
+      flexGrow: '1'
+    });
+    body.appendChild(descP);
+
+    const footerDiv = document.createElement('div');
+    footerDiv.style.display = 'flex';
+    footerDiv.style.justifyContent = 'space-between';
+    footerDiv.style.alignItems = 'center';
+
+    const typeSpan = document.createElement('span');
+    typeSpan.textContent = data.type;
+    Object.assign(typeSpan.style, {
+      backgroundColor: data.linkColor,
+      color: 'white',
+      padding: '5px 10px',
+      borderRadius: '5px',
+      fontSize: '0.8rem',
+      marginTop: '10px',
+      display: 'inline-block'
+    });
+    footerDiv.appendChild(typeSpan);
+
+    const link = document.createElement('a');
+    link.textContent = 'More info';
+    link.href = data.link;
+    Object.assign(link.style, {
+      color: data.linkColor,
+      textDecoration: 'none',
+      fontSize: '0.9rem',
+      marginLeft: 'auto',
+      marginTop: '10px',
+      cursor: 'pointer'
+    });
+    footerDiv.appendChild(link);
+
+    body.appendChild(footerDiv);
+    card.appendChild(body);
+
+    return card;
+  }
+
+  // Initial rendering of cards for Sports and Games
+  function renderCards() {
+    // Sports - first 4 cards only
+    sportsData.forEach((item, idx) => {
+      const card = createCard(item);
+      if (idx >= 4) card.style.display = 'none'; // hide extras initially
+      sportsContainer.appendChild(card);
+    });
+
+    // Games - first 4 cards only
+    gamesData.forEach((item, idx) => {
+      const card = createCard(item);
+      if (idx >= 4) card.style.display = 'none'; // hide extras initially
+      gamesContainer.appendChild(card);
+    });
+  }
+
+  // Show section and toggle buttons
+  function showSection(section) {
+    if (section === 'sports') {
+      document.getElementById('sports').style.display = 'flex';
+      document.getElementById('games').style.display = 'none';
+      viewAllSportsBtn.style.display = 'inline-block';
+      viewAllGamesBtn.style.display = 'none';
+      document.getElementById('sports-tab-btn').style.borderBottomColor = '#3b82f6';
+      document.getElementById('games-tab-btn').style.borderBottomColor = 'transparent';
+    } else {
+      document.getElementById('sports').style.display = 'none';
+      document.getElementById('games').style.display = 'flex';
+      viewAllSportsBtn.style.display = 'none';
+      viewAllGamesBtn.style.display = 'inline-block';
+      document.getElementById('sports-tab-btn').style.borderBottomColor = 'transparent';
+      document.getElementById('games-tab-btn').style.borderBottomColor = '#3b82f6';
+    }
+  }
+
+  // View all toggle function
+  function viewAll(section) {
+    if (section === 'sports') {
+      sportsShowingAll = !sportsShowingAll;
+      const cards = sportsContainer.children;
+      for(let i=0; i<cards.length; i++) {
+        cards[i].style.display = sportsShowingAll ? 'flex' : (i < 4 ? 'flex' : 'none');
+      }
+      viewAllSportsBtn.textContent = sportsShowingAll ? 'View Less' : 'View All Sports';
+    } else {
+      gamesShowingAll = !gamesShowingAll;
+      const cards = gamesContainer.children;
+      for(let i=0; i<cards.length; i++) {
+        cards[i].style.display = gamesShowingAll ? 'flex' : (i < 4 ? 'flex' : 'none');
+      }
+      viewAllGamesBtn.textContent = gamesShowingAll ? 'View Less' : 'View All Games';
+    }
+  }
+
+  // Initialize
+  renderCards();
+</script>
+
+<!-- ------------------------------------------------------------------------------------------------- -->
+
+    <!-- Upcoming Events Section -->
+    <section id="events" style="background-color: #1e3c72; padding: 4rem 1rem; color: white;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; position: relative; display: inline-block; left: 50%; transform: translateX(-50%);">
+          Upcoming Events
+          <span style="position: absolute; bottom: -10px; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #ff6b6b, white);"></span>
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <!-- Event 1 -->
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 10px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;"
+              onmouseover="this.style.transform='scale(1.03)'; this.style.backgroundColor='rgba(255,255,255,0.15)'"
+              onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='rgba(255,255,255,0.1)'">
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <div style="background-color: #ff6b6b; width: 60px; height: 60px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 1rem;">
+                <span style="font-size: 1.5rem; font-weight: bold;">24</span>
+                <span style="font-size: 0.8rem;">JUN</span>
+              </div>
+              <div>
+                <h3 style="margin: 0; font-size: 1.2rem;">International Football Cup</h3>
+                <p style="margin: 0.3rem 0 0; color: #ccc;">Stadium Arena, 9:00 PM</p>
+              </div>
+            </div>
+            <p style="color: #ddd; margin-bottom: 1.5rem;">Witness the clash of titans as national teams compete for the prestigious International Football Cup.</p>
+            <button class="ticket-btn" style="background-color: transparent; color: white; border: 1px solid white; padding: 0.5rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease;"
+                    onmouseover="this.style.backgroundColor='white'; this.style.color='#1e3c72'; this.style.borderColor='white'"
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'; this.style.borderColor='white'">Get Tickets</button>
+          </div>
+
+          <!-- Event 2 -->
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 10px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;"
+              onmouseover="this.style.transform='scale(1.03)'; this.style.backgroundColor='rgba(255,255,255,0.15)'"
+              onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='rgba(255,255,255,0.1)'">
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <div style="background-color: #4CAF50; width: 60px; height: 60px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 1rem;">
+                <span style="font-size: 1.5rem; font-weight: bold;">30</span>
+                <span style="font-size: 0.8rem;">JUN</span>
+              </div>
+              <div>
+                <h3 style="margin: 0; font-size: 1.2rem;">Grand Slam Tennis Open</h3>
+                <p style="margin: 0.3rem 0 0; color: #ccc;">Central Court, 2:00 PM</p>
+              </div>
+            </div>
+            <p style="color: #ddd; margin-bottom: 1.5rem;">The world's top tennis players compete in this year's most anticipated Grand Slam tournament.</p>
+            <button class="ticket-btn" style="background-color: transparent; color: white; border: 1px solid white; padding: 0.5rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease;"
+                    onmouseover="this.style.backgroundColor='white'; this.style.color='#1e3c72'; this.style.borderColor='white'"
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'; this.style.borderColor='white'">Get Tickets</button>
+          </div>
+
+          <!-- Event 3 -->
+          <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 10px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;"
+              onmouseover="this.style.transform='scale(1.03)'; this.style.backgroundColor='rgba(255,255,255,0.15)'"
+              onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='rgba(255,255,255,0.1)'">
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+              <div style="background-color: #FF9800; width: 60px; height: 60px; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 1rem;">
+                <span style="font-size: 1.5rem; font-weight: bold;">05</span>
+                <span style="font-size: 0.8rem;">JUL</span>
+              </div>
+              <div>
+                <h3 style="margin: 0; font-size: 1.2rem;">Marathon Championship</h3>
+                <p style="margin: 0.3rem 0 0; color: #ccc;">City Center, 7:00 AM</p>
+              </div>
+            </div>
+            <p style="color: #ddd; margin-bottom: 1.5rem;">Join thousands of runners in this year's marathon through the scenic routes of the city.</p>
+            <button id="registerNowBtn" style="background-color: transparent; color: white; border: 1px solid white; padding: 0.5rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease;"
+                    onmouseover="this.style.backgroundColor='white'; this.style.color='#1e3c72'; this.style.borderColor='white'"
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'; this.style.borderColor='white'">Register Now</button>
+          </div>
+          <!-- Registration Overlay & Popup -->
+          <div id="regOverlay" style="display:none; position: fixed; inset: 0; background-color: rgba(0,0,0,0.6); z-index: 999;"></div>
+          <div id="registrationPopup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+              background-color: white; border-radius: 1rem; padding: 2rem; width: 90%; max-width: 400px; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #333;">
+            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; text-align: center;">🏃 Marathon Registration</h2>
+            <form id="registrationForm" style="display: flex; flex-direction: column; gap: 1rem;">
+              <input type="text" id="runnerName" placeholder="Full Name" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;"/>
+              <input type="email" id="runnerEmail" placeholder="Email Address" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;"/>
+              <input type="tel" id="runnerMobile" placeholder="Mobile Number" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;"/>
+              <select id="runnerCategory" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;">
+                <option value="">Select Category</option>
+                <option value="5k">5K Run</option>
+                <option value="10k">10K Run</option>
+                <option value="half-marathon">Half Marathon</option>
+                <option value="full-marathon">Full Marathon</option>
+              </select>
+
+              <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                <button type="button" onclick="closeRegistration()" style="background-color: #e53e3e; color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 9999px; cursor: pointer; font-weight: 600; transition: background-color 0.3s ease;">
+                  Cancel
+                </button>
+                <button type="button" onclick="submitRegistration()" style="background-color: #3182ce; color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 9999px; cursor: pointer; font-weight: 600; transition: background-color 0.3s ease;">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+          <script>
+            // Show registration popup
+            document.getElementById('registerNowBtn').addEventListener('click', () => {
+              document.getElementById('registrationPopup').style.display = 'block';
+              document.getElementById('regOverlay').style.display = 'block';
+              document.getElementById('registrationForm').reset();
+            });
+
+            // Close popup function
+            function closeRegistration() {
+              document.getElementById('registrationPopup').style.display = 'none';
+              document.getElementById('regOverlay').style.display = 'none';
+            }
+
+            // Close if clicking overlay
+            document.getElementById('regOverlay').addEventListener('click', closeRegistration);
+
+            // Submit registration
+            function submitRegistration() {
+              const name = document.getElementById('runnerName').value.trim();
+              const email = document.getElementById('runnerEmail').value.trim();
+              const mobile = document.getElementById('runnerMobile').value.trim();
+              const category = document.getElementById('runnerCategory').value;
+
+              if (!name || !email || !mobile || !category) {
+                alert('Please fill all fields.');
+                return;
+              }
+
+              const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+              }
+
+              alert(`Thanks ${name}! You have successfully registered for the ${category.replace('-', ' ')}.`);
+              closeRegistration();
+            }
+          </script>
+        </div>
+      </div>
+
+      <!-- Ticket Purchase Overlay & Popup -->
+      <div id="overlay" style="display:none; position: fixed; inset: 0; background-color: rgba(0,0,0,0.6); z-index: 999;"></div>
+
+      <div id="ticketPopup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+          background-color: white; border-radius: 1rem; padding: 2rem; width: 90%; max-width: 450px; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #333;">
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; text-align: center;">🎫 Book Your Seat</h2>
+        <p style="color: #555; margin-bottom: 1.5rem; text-align: center;">Enter your details and select your seat row to proceed.</p>
+        <form id="bookingForm" style="display: flex; flex-direction: column; gap: 1rem;">
+          <input type="text" id="name" placeholder="Full Name" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;"/>
+          <input type="email" id="email" placeholder="Email Address" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;"/>
+          <input type="tel" id="mobile" placeholder="Mobile Number" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;"/>
+          <input type="number" id="ticketCount" placeholder="Number of Tickets" min="1" max="10" value="1" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;"/>
+          <select id="seatRow" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;">
+            <option value="">Select Seat Row</option>
+            <option value="A">Row A (₹3000)</option>
+            <option value="B">Row B (₹2500)</option>
+            <option value="C">Row C (₹2000)</option>
+            <option value="D">Row D (₹1500)</option>
+            <option value="E">Row E (₹1000)</option>
+          </select>
+          <select id="paymentMethod" style="padding: 0.8rem; border: 1px solid #ccc; border-radius: 0.5rem; outline:none;">
+            <option value="">Select Payment Method</option>
+            <option value="credit">Credit Card</option>
+            <option value="debit">Debit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="upi">UPI</option>
+          </select>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+            <button type="button" onclick="closePopup()" style="background-color: #e53e3e; color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 9999px; cursor: pointer; font-weight: 600; transition: background-color 0.3s ease;">
+              Cancel
+            </button>
+            <button type="button" onclick="handlePurchase()" style="background-color: #3182ce; color: white; padding: 0.6rem 1.5rem; border: none; border-radius: 9999px; cursor: pointer; font-weight: 600; transition: background-color 0.3s ease;">
+              Confirm & Pay
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <script>
+        // Show popup and overlay
+        function openPopup() {
+          document.getElementById('ticketPopup').style.display = 'block';
+          document.getElementById('overlay').style.display = 'block';
+          // Clear form fields when opening
+          document.getElementById('bookingForm').reset();
+        }
+
+        // Close popup and overlay
+        function closePopup() {
+          document.getElementById('ticketPopup').style.display = 'none';
+          document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Handle purchase (example validation + alert)
+        function handlePurchase() {
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const mobile = document.getElementById('mobile').value.trim();
+          const ticketCount = document.getElementById('ticketCount').value;
+          const seatRow = document.getElementById('seatRow').value;
+          const paymentMethod = document.getElementById('paymentMethod').value;
+
+          if (!name || !email || !mobile || !ticketCount || !seatRow || !paymentMethod) {
+            alert('Please fill out all fields before proceeding.');
+            return;
+          }
+
+          // Simple email validation
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+
+          alert(`Thank you, ${name}! Your booking for ${ticketCount} ticket(s) in seat row ${seatRow} has been received. Payment method: ${paymentMethod}.`);
+          closePopup();
+        }
+
+        // Attach event listeners to all Get Tickets buttons once DOM is ready
+        window.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('.ticket-btn').forEach(button => {
+            button.addEventListener('click', openPopup);
+          });
+
+          // Also close popup if overlay clicked
+          document.getElementById('overlay').addEventListener('click', closePopup);
+        });
+      </script>
+    </section>
+
+
+    <!-- Popular Games Section -->
+    <section id="games" style="padding: 4rem 1rem; max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #333; position: relative; display: inline-block; left: 50%; transform: translateX(-50%);">
+            Popular eSports Games
+            <span style="position: absolute; bottom: -10px; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #ff6b6b, #1e3c72);"></span>
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <!-- Game 1 -->
+            <div style="position: relative; border-radius: 10px; overflow: hidden; height: 300px; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.1)'; this.querySelector('.game-overlay').style.opacity='1'" onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.game-overlay').style.opacity='0.7'">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="League of Legends" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                <div class="game-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(30,60,114,0.9), rgba(255,107,107,0.7)); opacity: 0.7; transition: opacity 0.3s ease;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; color: white; z-index: 2;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">League of Legends</h3>
+                    <p style="margin: 0.5rem 0 1rem; color: #ddd;">MOBA | Riot Games</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="background-color: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">PC</span>
+                        <span style="background-color: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">Multiplayer</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 2 -->
+            <div style="position: relative; border-radius: 10px; overflow: hidden; height: 300px; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.1)'; this.querySelector('.game-overlay').style.opacity='1'" onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.game-overlay').style.opacity='0.7'">
+                <img src="https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Fortnite" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                <div class="game-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(30,60,114,0.9), rgba(255,107,107,0.7)); opacity: 0.7; transition: opacity 0.3s ease;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; color: white; z-index: 2;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">Fortnite</h3>
+                    <p style="margin: 0.5rem 0 1rem; color: #ddd;">Battle Royale | Epic Games</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="background-color: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">Multiplatform</span>
+                        <span style="background-color: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">100 Players</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 3 -->
+            <div style="position: relative; border-radius: 10px; overflow: hidden; height: 300px; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.1)'; this.querySelector('.game-overlay').style.opacity='1'" onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.game-overlay').style.opacity='0.7'">
+                <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="CS:GO" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                <div class="game-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(30,60,114,0.9), rgba(255,107,107,0.7)); opacity: 0.7; transition: opacity 0.3s ease;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; color: white; z-index: 2;">
+                    <h3 style="margin: 0; font-size: 1.5rem;">CS:GO</h3>
+                    <p style="margin: 0.5rem 0 1rem; color: #ddd;">FPS | Valve</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="background-color: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">PC</span>
+                        <span style="background-color: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem;">5v5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section style="background-color: #2a5298; padding: 4rem 1rem; color: white;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Stay Updated</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Subscribe to our newsletter for the latest sports news and gaming updates</p>
+            <form style="display: flex; max-width: 500px; margin: 0 auto;" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" placeholder="Your email address" required style="flex: 1; padding: 0.8rem 1rem; border: none; border-radius: 50px 0 0 50px; font-size: 1rem;">
+                <button type="submit" style="background-color: #ff6b6b; color: white; border: none; padding: 0 1.5rem; border-radius: 0 50px 50px 0; cursor: pointer; font-weight: bold; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#ff5252'" onmouseout="this.style.backgroundColor='#ff6b6b'">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+
+
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

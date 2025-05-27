@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poker | HSGN+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616554.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+            color: #222;
+        }
+        h1, h2, h3 {
+            color: #1565c0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .legend-card, .variant-card, .venue-card, .timeline-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: box-shadow 0.3s;
+        }
+        .legend-card:hover, .variant-card:hover, .venue-card:hover, .timeline-card:hover {
+            box-shadow: 0 10px 25px rgba(21,101,192,0.15);
+        }
+        .legend-img, .venue-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .legend-content, .variant-content, .venue-content, .timeline-content {
+            padding: 18px 20px;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .timeline-card {
+            background: linear-gradient(120deg, #1976d2 60%, #fff 100%);
+            color: #fff;
+            border: none;
+        }
+        .timeline-card h3 {
+            color: #fff;
+        }
+        .timeline-card p {
+            color: #e3f2fd;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #0d47a1;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 20px 5px; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+
+
+         <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
+
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+       </style>
+       
+  <header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+    <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+      <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+      SportZone
+    </div>
+    <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+      <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+    </div>
+    <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+      <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+        <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+      </div>
+    </div>
+    <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+      <a href="index.html">Home</a>
+      <a href="befit.html">BeFit</a>
+      <a href="">Sports</a>
+      <a href="">Games</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="special">Join Us</a>
+    </nav>
+    
+    <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+        <div >
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+            <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+        </div>
+    </div>
+  </header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+<!-- Poker Hero Section -->
+<section id="hero" style="height: 60vh; padding: 80px 20px; background-image: url('images/poker-bg.png'); background-position: center; background-size: cover; color: white; text-align: center;">
+  <div style="margin: 15% auto;">
+    <h1 style="font-size: 3rem; margin: auto; font-weight: bolder;">Poker</h1>
+    <p style="font-size: 1.3rem; max-width: 700px; margin: auto; font-weight: bolder;">
+      The ultimate card game of skill, strategy, and psychology. Dive into the world of Texas Hold'em, Omaha, tournaments, and high-stakes legends.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- Poker Legends Section -->
+<section style="background-color:#e3f2fd; padding: 80px 0 40px 0;">
+    <div class="container">
+        <h2 class="section-title">Poker Legends</h2>
+        <div class="grid">
+            <div class="legend-card">
+                <img class="legend-img" src="https://live.staticflickr.com/65535/52579178120_7e8613f97f_b.jpg" alt="Doyle Brunson">
+                <div class="legend-content">
+                    <h3>Doyle Brunson</h3>
+                    <p>"Texas Dolly", 10-time WSOP bracelet winner, author of Super/System, poker icon for 50+ years.</p>
+                </div>
+            </div>
+            <div class="legend-card">
+                <img class="legend-img" src="https://live.staticflickr.com/4374/36554362260_5c67e4eaf9_b.jpg" alt="Phil Hellmuth">
+                <div class="legend-content">
+                    <h3>Phil Hellmuth</h3>
+                    <p>Record 17 WSOP bracelets, known for his "Poker Brat" persona and tournament dominance.</p>
+                </div>
+            </div>
+            <div class="legend-card">
+                <img class="legend-img" src="https://live.staticflickr.com/676/23795598341_6466a37bb8_b.jpg" alt="Daniel Negreanu">
+                <div class="legend-content">
+                    <h3>Daniel Negreanu</h3>
+                    <p>Six WSOP bracelets, two-time WPT champion, famed for his reads and table talk.</p>
+                </div>
+            </div>
+            <div class="legend-card">
+                <img class="legend-img" src="https://live.staticflickr.com/420/19597570693_487a95b461_b.jpg" alt="Vanessa Selbst">
+                <div class="legend-content">
+                    <h3>Vanessa Selbst</h3>
+                    <p>Three WSOP bracelets, highest-earning female poker player, Yale Law graduate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Poker Variants Section -->
+<section style="background-color:#1565c0; color:#fff; padding: 80px 0 40px 0;">
+    <div class="container">
+        <h2 class="section-title" style="color:#fff;">Popular Poker Variants</h2>
+        <div class="grid">
+            <div class="variant-card variant-content">
+                <h3>Texas Hold'em</h3>
+                <p style="color: #1565c0;">The most popular poker game worldwide. Each player gets two hole cards, five community cards are dealt face up. Make the best five-card hand.</p>
+            </div>
+            <div class="variant-card variant-content">
+                <h3>Omaha</h3>
+                <p style="color: #1565c0;">Similar to Hold'em, but each player gets four hole cards and must use exactly two, plus three from the board, to make their hand.</p>
+            </div>
+            <div class="variant-card variant-content">
+                <h3>Seven Card Stud</h3>
+                <p style="color: #1565c0;">No community cards. Players receive seven cards (some face up, some down) and make the best five-card hand.</p>
+            </div>
+            <div class="variant-card variant-content">
+                <h3>Draw Poker</h3>
+                <p style="color: #1565c0;">Classic style where players are dealt a complete hand and can exchange cards for new ones to improve their hand.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Iconic Poker Venues -->
+<section style="background-color:#fff; padding: 80px 0 40px 0;">
+    <div class="container">
+        <h2 class="section-title">Iconic Poker Venues</h2>
+        <div class="grid">
+            <div class="venue-card">
+                <img class="venue-img" src="https://upload.wikimedia.org/wikipedia/commons/3/30/Binion%27s_Horseshoe_sign_-_Neon_Museum.jpg" alt="Binion's Horseshoe">
+                <div class="venue-content">
+                    <h3>Binion's Horseshoe</h3>
+                    <p>Las Vegas casino where the World Series of Poker began in 1970.</p>
+                </div>
+            </div>
+            <div class="venue-card">
+                <img class="venue-img" src="https://live.staticflickr.com/65535/52438070618_f80983baa0_b.jpg" alt="Bellagio Poker Room">
+                <div class="venue-content">
+                    <h3>Bellagio Poker Room</h3>
+                    <p>Home of the legendary "Bobby's Room" (now Legends Room), where high-stakes cash games are played.</p>
+                </div>
+            </div>
+            <div class="venue-card">
+                <img class="venue-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Rio_2008_World_Series_of_Poker.jpg" alt="WSOP at Rio">
+                <div class="venue-content">
+                    <h3>WSOP at Rio</h3>
+                    <p>Hosted the World Series of Poker from 2005 to 2021, attracting thousands of players from around the globe.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Poker History Timeline -->
+<section style="background:linear-gradient(rgba(21,101,192,0.8), rgba(21,101,192,0.8)), url('https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=1500&q=80');background-size:cover;background-attachment:fixed;color:white;padding:80px 0 40px 0;">
+    <div class="container" style="text-align:center;">
+        <h2 class="section-title" style="color:#fff;">Poker Through the Ages</h2>
+        <p style="max-width:800px;margin:0 auto 40px;font-size:1.1rem;line-height:1.6;">Poker's roots stretch back centuries, evolving from Persian and European card games to the global phenomenon it is today.</p>
+        <div class="timeline">
+            <div class="timeline-card timeline-content">
+                <div style="font-size:2rem;margin-bottom:10px;">c. 1829</div>
+                <h3>Early Poker in America</h3>
+                <p>Poker is played in New Orleans, using a 20-card deck and betting mechanics.</p>
+            </div>
+            <div class="timeline-card timeline-content">
+                <div style="font-size:2rem;margin-bottom:10px;">1970</div>
+                <h3>First WSOP</h3>
+                <p>Benny Binion hosts the first World Series of Poker at Binion's Horseshoe.</p>
+            </div>
+            <div class="timeline-card timeline-content">
+                <div style="font-size:2rem;margin-bottom:10px;">2003</div>
+                <h3>Moneymaker Boom</h3>
+                <p>Chris Moneymaker wins the WSOP Main Event, sparking a global poker boom.</p>
+            </div>
+            <div class="timeline-card timeline-content">
+                <div style="font-size:2rem;margin-bottom:10px;">2020s</div>
+                <h3>Online & Live Poker</h3>
+                <p>Poker thrives both online and in casinos, with major tournaments worldwide.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer (copied from wrestling.html for consistency) -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;"> Football</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;"> Baseball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+            </div>
+        </div>
+        <!-- sites -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+            </div>
+        </div>
+        <!-- apps -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+            <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+            </div>
+        </div>
+        <!-- social media -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+            <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

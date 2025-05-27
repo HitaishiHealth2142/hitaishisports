@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The ultimate tennis hub for live scores, player rankings, Grand Slam updates, and expert analysis. Stay ahead with the latest ATP & WTA news.">
+    <meta name="keywords" content="tennis, ATP, WTA, Grand Slam, rankings, live scores, Wimbledon, US Open, French Open, Australian Open">
+    <title>ACE Tennis | Live Scores, Rankings & Grand Slam News</title>
+    <link rel="canonical" href="https://www.example.com">
+    <style>
+        @keyframes heroTennis { 0% { background-image: url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } 25% { background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } 50% { background-image: url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } 75% { background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } 100% { background-image: url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); } }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body style="margin:0;padding:0;font-family:'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;line-height:1.6;color:#333;background-color:#f8f9fa;">
+
+    <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
+
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+    </style>
+
+
+<header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+        <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+        <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+        SportZone
+        </div>
+        <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        </div>
+        <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+        <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+            <input id="searchInput" type="text" placeholder="Search..." style="border:none;outline:none;font-size:14px;width:100%;" onkeyup="searchSections()" />
+            <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+        </div>
+        </div>
+        <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="befit.html">BeFit</a>
+        <a href="">Sports</a>
+        <a href="">Games</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="special">Join Us</a>
+        </nav>
+        
+        <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+            <div >
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+            </div>
+        </div>
+</header>
+
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+
+
+
+
+    <!-- 1. Animated Hero Section (Floating Ball Effect) -->
+    <section style="height:100vh;background-size:cover;background-position:center;animation:heroTennis 20s infinite;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;">
+        <div style="background:rgba(0,0,0,0.6);padding:3rem;border-radius:15px;max-width:800px;margin:0 1rem;backdrop-filter:blur(5px);box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+            <h1 style="font-size:3.5rem;margin-bottom:1rem;text-shadow:2px 2px 5px rgba(0,0,0,0.5);">DOMINATE THE COURT</h1>
+            <p style="font-size:1.3rem;margin-bottom:2rem;text-shadow:1px 1px 3px rgba(0,0,0,0.5);">Live scores, rankings, and Grand Slam updates</p>
+            <div style="display:flex;gap:1rem;justify-content:center;">
+                <a href="#live-scores" style="background:#e63946;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;animation:pulse 2s infinite;">LIVE SCORES</a>
+                <a href="#rankings" style="background:transparent;color:#fff;border:2px solid #fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;">RANKINGS</a>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/502/502127.png" alt="Tennis ball" style="width:60px;position:absolute;bottom:-30px;right:50px;animation:float 3s infinite;">
+        </div>
+    </section>
+
+    <!-- 2. Live Scores Section (Card Slider Effect) -->
+    <section id="live-scores" style="width:100vw; overflow-x:hidden; background: #f9f9f9; color:#222; padding: 20px 0; font-family: Arial, sans-serif;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;position:relative; margin-top:-10px; color:#333;">Live Scores</h2>
+        
+        <div style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden;">
+            
+            <!-- Slider container -->
+            <div id="slider" style="display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 0; scrollbar-width:none; -ms-overflow-style:none;">
+            <style>
+                #slider::-webkit-scrollbar { display: none; }
+            </style>
+
+            <!-- Cards -->
+            <div style="min-width: 280px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #4CAF50;" 
+                onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="text-align:center; margin-bottom: 15px;">
+                <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#2e7d32;">Team A vs Team B</p>
+                <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Quarter Finals</p>
+                <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #4CAF50;">78 - 65</p>
+                <p style="font-size: 0.85rem; color: #999;">3rd Quarter - 08:45</p>
+                </div>
+            </div>
+
+            <div style="min-width: 280px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #F44336;" 
+                onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="text-align:center; margin-bottom: 15px;">
+                <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#c62828;">Team C vs Team D</p>
+                <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Semi Finals</p>
+                <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #F44336;">54 - 61</p>
+                <p style="font-size: 0.85rem; color: #999;">2nd Quarter - 05:30</p>
+                </div>
+            </div>
+
+            <div style="min-width: 280px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #2196F3;" 
+                onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="text-align:center; margin-bottom: 15px;">
+                <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#1565c0;">Team E vs Team F</p>
+                <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Finals</p>
+                <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #2196F3;">88 - 87</p>
+                <p style="font-size: 0.85rem; color: #999;">4th Quarter - 00:12</p>
+                </div>
+            </div>
+
+            <div style="min-width: 280px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 10px; padding: 20px; flex-shrink: 0; cursor: pointer; transition: transform 0.3s ease; border-left: 5px solid #FF9800;" 
+                onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="text-align:center; margin-bottom: 15px;">
+                <p style="font-weight: 700; font-size: 1.2rem; margin: 0; color:#ef6c00;">Team G vs Team H</p>
+                <p style="color: #666; font-size: 0.9rem; margin: 5px 0;">Group Stage</p>
+                <p style="font-size: 2rem; font-weight: 800; margin: 5px 0; color: #FF9800;">42 - 56</p>
+                <p style="font-size: 0.85rem; color: #999;">1st Quarter - 10:30</p>
+                </div>
+            </div>
+            </div>
+
+            <!-- Arrows -->
+            <button onclick="document.getElementById('slider').scrollBy({left: -300, behavior: 'smooth'})" 
+                    style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background: rgba(0,0,0,0.1); border: none; border-radius: 50%; width: 40px; height: 40px; color: #333; font-size: 24px; cursor: pointer; user-select:none; transition: background 0.3s;">
+            &#8592;
+            </button>
+            <button onclick="document.getElementById('slider').scrollBy({left: 300, behavior: 'smooth'})" 
+                    style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background: rgba(0,0,0,0.1); border: none; border-radius: 50%; width: 40px; height: 40px; color: #333; font-size: 24px; cursor: pointer; user-select:none; transition: background 0.3s;">
+            &#8594;
+            </button>
+        </div>
+    </section>
+
+  
+    <!-- 3. Rankings Section (Interactive Table) -->
+    <section id="rankings" style="background:#1a2a3a;padding:5rem 5%;color:#fff;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <h2 style="font-size:2.5rem;text-align:center;margin-top:-50px;margin-bottom:3rem;position:relative;">
+                ATP & WTA RANKINGS 
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+            </h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+                <div>
+                    <h3 style="color:#e63946;margin-top:0;display:flex;align-items:center;gap:0.5rem;">
+                        <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        ATP TOP 5
+                    </h3>
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
+                        <table style="width:100%;border-collapse:collapse;">
+                            <thead>
+                                <tr style="background:rgba(230,57,70,0.2);">
+                                    <th style="padding:1rem;text-align:left;">Rank</th>
+                                    <th style="padding:1rem;text-align:left;">Player</th>
+                                    <th style="padding:1rem;text-align:right;">Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                                    <td style="padding:1rem;font-weight:600;">1</td>
+                                    <td style="padding:1rem;">Novak Djokovic</td>
+                                    <td style="padding:1rem;text-align:right;font-weight:600;">11,780</td>
+                                </tr>
+                                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                                    <td style="padding:1rem;font-weight:600;">2</td>
+                                    <td style="padding:1rem;">Carlos Alcaraz</td>
+                                    <td style="padding:1rem;text-align:right;font-weight:600;">9,525</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:1rem;font-weight:600;">3</td>
+                                    <td style="padding:1rem;">Daniil Medvedev</td>
+                                    <td style="padding:1rem;text-align:right;font-weight:600;">8,230</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color:#e63946;margin-top:0;display:flex;align-items:center;gap:0.5rem;">
+                        <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        WTA TOP 5
+                    </h3>
+                    <div style="background:rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
+                        <table style="width:100%;border-collapse:collapse;">
+                            <thead>
+                                <tr style="background:rgba(230,57,70,0.2);">
+                                    <th style="padding:1rem;text-align:left;">Rank</th>
+                                    <th style="padding:1rem;text-align:left;">Player</th>
+                                    <th style="padding:1rem;text-align:right;">Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                                    <td style="padding:1rem;font-weight:600;">1</td>
+                                    <td style="padding:1rem;">Iga Świątek</td>
+                                    <td style="padding:1rem;text-align:right;font-weight:600;">10,105</td>
+                                </tr>
+                                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                                    <td style="padding:1rem;font-weight:600;">2</td>
+                                    <td style="padding:1rem;">Aryna Sabalenka</td>
+                                    <td style="padding:1rem;text-align:right;font-weight:600;">8,725</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:1rem;font-weight:600;">3</td>
+                                    <td style="padding:1rem;">Elena Rybakina</td>
+                                    <td style="padding:1rem;text-align:right;font-weight:600;">6,890</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Grand Slam Section (Card Grid) -->
+    <section style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+            GRAND SLAM TOURNAMENTS
+            <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;">
+            <!-- Australian Open -->
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;">
+                <img src="https://cdn.images.express.co.uk/img/dynamic/72/590x/2000404_1.jpg" alt="Australian Open" style="width:100%;height:150px;object-fit:cover;">
+                <div style="padding:1.5rem;">
+                    <h3 style="margin-top:0;color:#1a2a3a;">Australian Open</h3>
+                    <p style="color:#666;margin-bottom:1.5rem;">Australia | Hard Court</p>
+                    <div id="more1" style="display:none;color:#444;margin-bottom:1rem;">
+                        Held annually in Melbourne, the Australian Open is known for its intense summer heat, thrilling night matches, and passionate fans. It is the first Grand Slam of the calendar year.
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <p style="margin:0;font-weight:600;color:#e63946;">Jan 15-28, 2024</p>
+                        <a href="javascript:void(0);" onclick="toggleMore('1')" id="btn1" style="color:#1a2a3a;text-decoration:none;font-weight:600;">READ MORE →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- French Open -->
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;">
+                <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="French Open" style="width:100%;height:150px;object-fit:cover;">
+                <div style="padding:1.5rem;">
+                    <h3 style="margin-top:0;color:#1a2a3a;">French Open</h3>
+                    <p style="color:#666;margin-bottom:1.5rem;">Paris, France | Clay Court</p>
+                    <div id="more2" style="display:none;color:#444;margin-bottom:1rem;">
+                        Played on red clay, Roland Garros tests stamina and strategy. It is the only Grand Slam held on this unique surface and home to many historic tennis battles.
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <p style="margin:0;font-weight:600;color:#e63946;">May 28-Jun 11, 2024</p>
+                        <a href="javascript:void(0);" onclick="toggleMore('2')" id="btn2" style="color:#1a2a3a;text-decoration:none;font-weight:600;">READ MORE →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wimbledon -->
+            <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.3s ease;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9WPKxeXbB9BykVrmfINpfeQWRvZccq0fjzZzqrYxukZOg2YQsoQSxelQPrYuDkvMorvg&usqp=CAU" alt="Wimbledon" style="width:100%;height:150px;object-fit:cover;">
+                <div style="padding:1.5rem;">
+                    <h3 style="margin-top:0;color:#1a2a3a;">Wimbledon</h3>
+                    <p style="color:#666;margin-bottom:1.5rem;">London, UK | Grass Court</p>
+                    <div id="more3" style="display:none;color:#444;margin-bottom:1rem;">
+                        Known for its tradition, white dress code, and royal guests, Wimbledon is the oldest and most prestigious tennis tournament in the world.
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <p style="margin:0;font-weight:600;color:#e63946;">Jul 3-16, 2024</p>
+                        <a href="javascript:void(0);" onclick="toggleMore('3')" id="btn3" style="color:#1a2a3a;text-decoration:none;font-weight:600;">READ MORE →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMore(id) {
+            var content = document.getElementById("more" + id);
+            var button = document.getElementById("btn" + id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                button.textContent = "READ LESS ←";
+            } else {
+                content.style.display = "none";
+                button.textContent = "READ MORE →";
+            }
+        }
+    </script>
+
+    <!-- 5. Player Spotlight (Floating Card Effect) -->
+    <section style="background:#f1f1f1;padding:5rem 5%;">
+        <div style="max-width:1200px;margin:0 auto;text-align:center;">
+            <h2 style="font-size:2.5rem;margin-bottom:3rem;color:#1a2a3a;position:relative;">
+                PLAYER SPOTLIGHT 
+                <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+            </h2>
+            <div style="background:#fff;border-radius:15px;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,0.1);max-width:800px;margin:0 auto;transition:transform 0.3s ease;">
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:3rem;align-items:center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbtYDYMk7voYXsLFzXaaLTF4rteuLmyZ8T7w&s" alt="Carlos Alcaraz" style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:5px solid #e63946;">
+                    <div style="text-align:left;max-width:400px;">
+                        <h3 style="font-size:1.8rem;color:#e63946;margin-top:0;">Carlos Alcaraz</h3>
+                        <p style="font-size:1.1rem;margin-bottom:1.5rem;">Spain | Age: 20 | ATP Rank: #2</p>
+                        <p style="margin-bottom:1.5rem;">The youngest World No. 1 in ATP history. Known for his explosive power and versatility across all surfaces.</p>
+                        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem;">
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">Titles</p>
+                                <p style="font-size:1.5rem;margin:0;color:#e63946;">12</p>
+                            </div>
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">Win %</p>
+                                <p style="font-size:1.5rem;margin:0;color:#e63946;">78.4%</p>
+                            </div>
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">Grand Slams</p>
+                                <p style="font-size:1.5rem;margin:0;color:#e63946;">2</p>
+                            </div>
+                            <div>
+                                <p style="font-weight:600;margin-bottom:0.5rem;">Aces</p>
+                                <p style="font-size:1.5rem;margin:0;color:#e63946;">487</p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0);" onclick="toggleProfile()" id="profileBtn" style="background-color:#1a2a3a;color:#fff;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-block;">FULL PROFILE</a>
+                        <div id="fullProfile" style="display:none;margin-top:1.5rem;color:#444;">
+                            <p><strong>Career Overview:</strong> Carlos Alcaraz has quickly risen through the ranks with an electrifying playing style, combining aggressive baseline play with finesse at the net. He is often seen as the heir to the "Big Three" legacy.</p>
+                            <p><strong>Notable Wins:</strong> Grand Slam titles at the US Open and Wimbledon. Victories against Novak Djokovic and Rafael Nadal at crucial events have highlighted his mental strength and stamina.</p>
+                            <p><strong>Playing Style:</strong> A mix of modern power and classic shot-making. He frequently uses drop shots and incredible court coverage to outplay opponents.</p>
+                            <a href="javascript:void(0);" onclick="toggleProfile()" style="color:#e63946;text-decoration:none;font-weight:600;">CLOSE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleProfile() {
+            var full = document.getElementById("fullProfile");
+            var btn = document.getElementById("profileBtn");
+            if (full.style.display === "none") {
+                full.style.display = "block";
+                btn.textContent = "LESS PROFILE";
+            } else {
+                full.style.display = "none";
+                btn.textContent = "FULL PROFILE";
+            }
+        }
+    </script>
+
+    <!-- 6. Training Tips (Accordion Style) -->
+    <section style="padding:5rem 5%;max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;color:#1a2a3a;position:relative;">TENNIS TRAINING TIPS <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span></h2>
+        <div style="background:#fff;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);overflow:hidden;">
+            <div style="border-bottom:1px solid #eee;">
+                <button style="width:100%;padding:1.5rem;text-align:left;border:none;background:none;font-weight:600;font-size:1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+                    <span>Improve Your Serve</span>
+                    <svg style="width:20px;height:20px;transition:transform 0.3s ease;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div style="padding:0 1.5rem 1.5rem;">
+                    <p style="color:#666;">Focus on the toss consistency, knee bend, and pronation. Practice serving at 70% power first to improve accuracy.</p>
+                </div>
+            </div>
+            <div style="border-bottom:1px solid #eee;">
+                <button style="width:100%;padding:1.5rem;text-align:left;border:none;background:none;font-weight:600;font-size:1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+                    <span>Master the Backhand</span>
+                    <svg style="width:20px;height:20px;transition:transform 0.3s ease;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div style="padding:0 1.5rem 1.5rem;">
+                    <p style="color:#666;">For a one-handed backhand, keep your elbow slightly bent. For two-handed, synchronize your shoulder rotation with your swing.</p>
+                </div>
+            </div>
+            <div>
+                <button style="width:100%;padding:1.5rem;text-align:left;border:none;background:none;font-weight:600;font-size:1.1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+                    <span>Footwork Drills</span>
+                    <svg style="width:20px;height:20px;transition:transform 0.3s ease;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div style="padding:0 1.5rem 1.5rem;">
+                    <p style="color:#666;">Practice the "split-step" before every shot. Use ladder drills to improve agility and side-to-side movement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--7. TOP TENNIS MOMENTS -->
+    <section style="background:#1a2a3a;padding:5rem 5%;color:#fff;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.5rem;text-align:center;margin-bottom:3rem;position:relative;">
+        TOP TENNIS MOMENTS
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:100px;height:4px;background-color:#e63946;"></span>
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
+        <div style="background:#fff;color:#1a2a3a;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.2);transition:transform 0.3s, box-shadow 0.3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 5px 20px rgba(0,0,0,0.2)'">
+            <h3 style="margin-top:0;color:#e63946;">Federer's Comeback in 2017 Australian Open</h3>
+            <p>One of the most memorable moments in tennis history when Roger Federer returned from injury and defeated Rafael Nadal in a thrilling five-set match, clinching his 18th Grand Slam title.</p>
+        </div>
+        <div style="background:#fff;color:#1a2a3a;padding:2rem;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.2);transition:transform 0.3s, box-shadow 0.3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 5px 20px rgba(0,0,0,0.2)'">
+            <h3 style="margin-top:0;color:#e63946;">Serena Williams' Dominance</h3>
+            <p>Serena's record-breaking 23rd Grand Slam title at the 2017 Australian Open while being 8 weeks pregnant is a testament to her unmatched dominance and strength in the sport.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- 8. MATCH HIGHLIGHTS -->
+    <section style="background:#e2e2e2;padding:5rem 5%;color:#000000;overflow-x:hidden;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.8rem;text-align:center;margin-bottom:3rem;font-weight:700;letter-spacing:1px;position:relative;">
+        MATCH HIGHLIGHTS
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:4px;background-color:#22d3ee;border-radius:2px;"></span>
+        </h2>
+        <div style="display:flex;overflow-x:auto;gap:1.5rem;scroll-behavior:smooth;padding-bottom:1rem;-webkit-overflow-scrolling:touch;">
+        <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+            <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Federer's Comeback in 2017 Australian Open</h3>
+            <p style="font-size:0.95rem;line-height:1.6;">Roger Federer returned from injury and defeated Rafael Nadal in a thrilling five-set match to claim his 18th Grand Slam title — a moment of resilience and brilliance.</p>
+        </div>
+        <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+            <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Serena Williams' Dominance</h3>
+            <p style="font-size:0.95rem;line-height:1.6;">Serena won her 23rd Grand Slam at the 2017 Australian Open while pregnant — a record-breaking moment of unmatched strength and legacy in tennis.</p>
+        </div>
+        <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+            <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Nadal vs Djokovic 2012 Australian Open</h3>
+            <p style="font-size:0.95rem;line-height:1.6;">The longest Grand Slam final ever, lasting 5 hours and 53 minutes. A physically and emotionally draining masterpiece of endurance and heart.</p>
+        </div>
+        <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+            <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Venus Williams' Wimbledon Glory</h3>
+            <p style="font-size:0.95rem;line-height:1.6;">Venus claimed her fifth Wimbledon title in 2008 with elegance and power, showing the world her supreme grass-court skill and fierce competitive spirit.</p>
+        </div>
+        <div style="flex:0 0 320px;background:linear-gradient(145deg,#1e293b,#0f172a);color:#e0f2fe;padding:2rem;border-radius:20px;box-shadow:inset 0 0 10px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);transition:transform 0.3s ease;cursor:pointer;">
+            <h3 style="margin-top:0;color:#38bdf8;font-size:1.4rem;">Nishikori's US Open 2014 Final</h3>
+            <p style="font-size:0.95rem;line-height:1.6;">Kei Nishikori became the first Asian male to reach a Grand Slam final, breaking ground and bringing global excitement to Japanese tennis fans.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <section style="background:#f5f7fa;padding:5rem 5%;font-family:'Segoe UI', sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.8rem;text-align:center;margin-bottom:4rem;color:#1a2a3a;position:relative;">
+        EQUIPMENT GUIDE
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:120px;height:4px;background-color:#e63946;"></span>
+        </h2>
+
+        <!-- Item 1 -->
+        <div style="display:flex;flex-wrap:wrap;align-items:center;margin-bottom:4rem;">
+        <div style="flex:1;min-width:300px;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzEty0Vawke4BtnjwjDZBZ4ZFZO3nZlAmHNw&s" alt="Tennis Racket" style="width:100%;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="flex:1;min-width:300px;padding:2rem;">
+            <h3 style="color:#e63946;font-size:2rem;margin-bottom:1rem;">Choosing the Right Racket</h3>
+            <p style="font-size:1.1rem;color:#333;line-height:1.6;">
+            Finding a tennis racket that fits your game style is crucial. Factors like head size, grip thickness, frame stiffness, and string tension all impact your performance. Beginners should go for lighter rackets with larger heads, while advanced players often prefer smaller, control-oriented rackets.
+            </p>
+        </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div style="display:flex;flex-wrap:wrap;align-items:center;flex-direction:row-reverse;margin-bottom:4rem;">
+        <div style="flex:1;min-width:300px;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj05f6saW72pTogWtjTcGmBUy55q6yk6UJng&s" alt="Tennis Shoes" style="width:100%;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="flex:1;min-width:300px;padding:2rem;">
+            <h3 style="color:#e63946;font-size:2rem;margin-bottom:1rem;">Tennis Shoes & Court Surfaces</h3>
+            <p style="font-size:1.1rem;color:#333;line-height:1.6;">
+            Tennis shoes are designed for specific court types — hard court, clay, or grass. Hard court shoes offer durability and cushioning, clay court shoes provide traction and support for sliding, while grass court shoes have nubs for grip. Always match your shoes to your playing surface for maximum performance and injury prevention.
+            </p>
+        </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div style="display:flex;flex-wrap:wrap;align-items:center;margin-bottom:4rem;">
+        <div style="flex:1;min-width:300px;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4qwthCe1z0H5pLVYgGh3G_KR1DCj64rjjqg&s" alt="Tennis Strings" style="width:100%;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.1);">
+        </div>
+        <div style="flex:1;min-width:300px;padding:2rem;">
+            <h3 style="color:#e63946;font-size:2rem;margin-bottom:1rem;">Strings & Tension Guide</h3>
+            <p style="font-size:1.1rem;color:#333;line-height:1.6;">
+            The type and tension of your strings greatly affect spin, control, and power. Polyester strings are popular among advanced players for durability and spin, while multifilament strings offer more comfort and power. Tension-wise, higher tension provides more control, whereas lower tension increases power.
+            </p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <section style="background:#fff8f0;padding:5rem 5%;font-family:'Segoe UI',sans-serif;">
+    <div style="max-width:1200px;margin:0 auto;">
+        <h2 style="font-size:2.8rem;text-align:center;margin-bottom:4rem;color:#1a2a3a;position:relative;">
+        TENNIS NEWS
+        <span style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:120px;height:4px;background-color:#ff6f61;"></span>
+        </h2>
+
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;align-items:start;">
+
+        <!-- Sidebar headlines -->
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div style="background:#fff;border-left:6px solid #ff6f61;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#fff2ec'" onmouseout="this.style.background='#fff'">
+            <h4 style="margin:0;color:#1a2a3a;">Wimbledon Increases Prize Money by 12% for 2025</h4>
+        </div>
+        <div style="background:#fff;border-left:6px solid #ff6f61;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#fff2ec'" onmouseout="this.style.background='#fff'">
+            <h4 style="margin:0;color:#1a2a3a;">Nadal Confirms Comeback for French Open</h4>
+        </div>
+        <div style="background:#fff;border-left:6px solid #ff6f61;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#fff2ec'" onmouseout="this.style.background='#fff'">
+            <h4 style="margin:0;color:#1a2a3a;">New Generation Rising: Carlos Alcaraz Reaches No. 1</h4>
+        </div>
+        <div style="background:#fff;border-left:6px solid #ff6f61;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#fff2ec'" onmouseout="this.style.background='#fff'">
+            <h4 style="margin:0;color:#1a2a3a;">WTA Introduces Equal Prize Money Policy</h4>
+        </div>
+        <div style="background:#fff;border-left:6px solid #ff6f61;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#fff2ec'" onmouseout="this.style.background='#fff'">
+            <h4 style="margin:0;color:#1a2a3a;">Andy Murray Announces Retirement After Wimbledon</h4>
+        </div>
+        <div style="background:#fff;border-left:6px solid #ff6f61;padding:1rem 1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);cursor:pointer;transition:background 0.3s;" onmouseover="this.style.background='#fff2ec'" onmouseout="this.style.background='#fff'">
+            <h4 style="margin:0;color:#1a2a3a;">Djokovic Withdraws from Miami Open Due to Injury</h4>
+        </div>
+        </div>
+        <!-- Featured article -->
+        <div style="background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);overflow:hidden;">
+        <img src="https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2021-08/novak-djokovic-071121-getty-ftr_10p29b2k1ofd21eb50jqkpfy1m.jpg?itok=HsHkUJex" alt="Tennis News Image" style="width:100%;height:auto;">
+        <div style="padding:2rem;">
+            <h3 style="color:#ff6f61;margin-top:0;margin-bottom:1rem;">Novak Djokovic Wins Record 24th Grand Slam Title</h3>
+
+            <p id="short-story" style="font-size:1.1rem;color:#333;line-height:1.6;">
+            In an extraordinary display of determination and dominance, Novak Djokovic secured his 24th Grand Slam title at the US Open...
+            </p>
+
+            <p id="full-story" style="font-size:1.1rem;color:#333;line-height:1.6;display:none;">
+            In an extraordinary display of determination and dominance, Novak Djokovic secured his 24th Grand Slam title at the US Open. Facing fierce competition and overcoming physical setbacks, Djokovic once again cemented his legacy as one of the greatest tennis players of all time. This historic win ties him with legends in overall title count and showcases his unmatched consistency, fitness, and tactical brilliance. His performance across all surfaces continues to elevate the standards of modern tennis.
+            </p>
+
+            <a href="#" id="read-more-btn" onclick="toggleStory(event)" style="display:inline-block;margin-top:1rem;color:#ff6f61;text-decoration:none;font-weight:bold;">Read Full Story →</a>
+            <a href="#" id="read-less-btn" onclick="toggleStory(event)" style="display:none;margin-top:1rem;color:#ff6f61;text-decoration:none;font-weight:bold;">Read Less ↑</a>
+        </div>
+        </div>
+
+        <script>
+        function toggleStory(event) {
+            event.preventDefault();
+            const shortStory = document.getElementById("short-story");
+            const fullStory = document.getElementById("full-story");
+            const readMore = document.getElementById("read-more-btn");
+            const readLess = document.getElementById("read-less-btn");
+
+            const isHidden = fullStory.style.display === "none";
+
+            shortStory.style.display = isHidden ? "none" : "block";
+            fullStory.style.display = isHidden ? "block" : "none";
+            readMore.style.display = isHidden ? "none" : "inline-block";
+            readLess.style.display = isHidden ? "inline-block" : "none";
+        }
+        </script>
+
+
+        </div>
+    </div>
+    </section>
+
+
+    
+<!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
