@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest upcoming news on cricket, soccer, tennis, golf, hockey, chess, badminton, boxing, and surfing">
+    <meta name="keywords" content="sports news, games news, cricket updates, soccer news, tennis tournaments, golf events, hockey matches, chess championships, badminton news, boxing fights, surfing competitions">
+    <title>Sports  | Upcoming Games and Sports News</title>
+    <style>
+        :root {
+            --cricket: #1e3799;
+            --soccer: #27ae60;
+            --tennis: #e74c3c;
+            --golf: #16a085;
+            --hockey: #f39c12;
+            --chess: #8e44ad;
+            --badminton: #d35400;
+            --boxing: #c0392b;
+            --surfing: #3498db;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+       
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        
+        
+        nav ul li a:hover {
+            background-color: rgba(102, 188, 245, 0.2);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .news-ticker {
+            background-color: var(--tennis);
+            color: white;
+            padding: 1rem 0;
+            overflow: hidden;
+            font-weight: bold;
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.1);
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-category {
+            display: inline-block;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .news-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .read-more:hover {
+            transform: translateX(5px);
+        }
+        
+        /* Cricket Section */
+        #cricket .section-title h2::after {
+            background-color: var(--cricket);
+        }
+        
+        #cricket .news-category {
+            background-color: var(--cricket);
+        }
+        
+        #cricket .read-more {
+            color: var(--cricket);
+            background-color: rgba(30, 55, 153, 0.1);
+        }
+        
+        #cricket .read-more:hover {
+            background-color: rgba(30, 55, 153, 0.2);
+        }
+        
+        /* Soccer Section */
+        #soccer .section-title h2::after {
+            background-color: var(--soccer);
+        }
+        
+        #soccer .news-category {
+            background-color: var(--soccer);
+        }
+        
+        #soccer .read-more {
+            color: var(--soccer);
+            background-color: rgba(39, 174, 96, 0.1);
+        }
+        
+        #soccer .read-more:hover {
+            background-color: rgba(39, 174, 96, 0.2);
+        }
+        
+        /* Tennis Section */
+        #tennis .section-title h2::after {
+            background-color: var(--tennis);
+        }
+        
+        #tennis .news-category {
+            background-color: var(--tennis);
+        }
+        
+        #tennis .read-more {
+            color: var(--tennis);
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        
+        #tennis .read-more:hover {
+            background-color: rgba(231, 76, 60, 0.2);
+        }
+        
+        /* Golf Section */
+        #golf .section-title h2::after {
+            background-color: var(--golf);
+        }
+        
+        #golf .news-category {
+            background-color: var(--golf);
+        }
+        
+        #golf .read-more {
+            color: var(--golf);
+            background-color: rgba(22, 160, 133, 0.1);
+        }
+        
+        #golf .read-more:hover {
+            background-color: rgba(22, 160, 133, 0.2);
+        }
+        
+        /* Hockey Section */
+        #hockey .section-title h2::after {
+            background-color: var(--hockey);
+        }
+        
+        #hockey .news-category {
+            background-color: var(--hockey);
+        }
+        
+        #hockey .read-more {
+            color: var(--hockey);
+            background-color: rgba(243, 156, 18, 0.1);
+        }
+        
+        #hockey .read-more:hover {
+            background-color: rgba(243, 156, 18, 0.2);
+        }
+        
+        /* Chess Section */
+        #chess .section-title h2::after {
+            background-color: var(--chess);
+        }
+        
+        #chess .news-category {
+            background-color: var(--chess);
+        }
+        
+        #chess .read-more {
+            color: var(--chess);
+            background-color: rgba(142, 68, 173, 0.1);
+        }
+        
+        #chess .read-more:hover {
+            background-color: rgba(142, 68, 173, 0.2);
+        }
+        
+        /* Badminton Section */
+        #badminton .section-title h2::after {
+            background-color: var(--badminton);
+        }
+        
+        #badminton .news-category {
+            background-color: var(--badminton);
+        }
+        
+        #badminton .read-more {
+            color: var(--badminton);
+            background-color: rgba(211, 84, 0, 0.1);
+        }
+        
+        #badminton .read-more:hover {
+            background-color: rgba(211, 84, 0, 0.2);
+        }
+        
+        /* Boxing Section */
+        #boxing .section-title h2::after {
+            background-color: var(--boxing);
+        }
+        
+        #boxing .news-category {
+            background-color: var(--boxing);
+        }
+        
+        #boxing .read-more {
+            color: var(--boxing);
+            background-color: rgba(192, 57, 43, 0.1);
+        }
+        
+        #boxing .read-more:hover {
+            background-color: rgba(192, 57, 43, 0.2);
+        }
+        
+        /* Surfing Section */
+        #surfing .section-title h2::after {
+            background-color: var(--surfing);
+        }
+        
+        #surfing .news-category {
+            background-color: var(--surfing);
+        }
+        
+        #surfing .read-more {
+            color: var(--surfing);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        #surfing .read-more:hover {
+            background-color: rgba(52, 152, 219, 0.2);
+        }
+        
+        /* New Articles */
+        .new-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+            z-index: 2;
+        }
+        
+        /* Recent News Section */
+        #recent {
+            background-color: var(--dark);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        #recent .section-title h2 {
+            color: white;
+        }
+        
+        #recent .section-title h2::after {
+            background-color: var(--tennis);
+        }
+        
+        #recent .news-card {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        #recent .news-title {
+            color: white;
+        }
+        
+        #recent .news-excerpt {
+            color: #ddd;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--tennis);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--tennis);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--tennis);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="max-width: 100%;  display:flex; gap: 10px; justify-content:space-between;align-items:center;padding:20px 60px;background-color:#f0f4f8;flex-wrap:wrap;position:relative;">
+        <div class="logo" style="display:flex;align-items:center;font-size:1.5rem;font-weight:700;color:#2b2b2b;">
+        <img src="images/logo.png" alt="logo" style="height:30px;margin-right:10px;" />
+        SportZone
+        </div>
+        <div id="hamburgerMenu" style="display:none;cursor:pointer;flex-direction:column;justify-content:space-around;width:30px;height:25px;">
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        <div style="width:100%;height:3px;background-color:#333;border-radius:3px;"></div>
+        </div>
+        <div class="search-container" style="flex-grow:1;display:flex;justify-content:center;">
+        <div style="position:relative;">
+        <div class="search-box" style="display:flex;align-items:center;border:1px solid #ccc;border-radius:20px;padding:5px 10px;min-width:250px;">
+            <input id="searchInput" type="text" placeholder="Search..." 
+                style="border:none;outline:none;font-size:14px;width:100%;" 
+                onkeyup="handleInput(event)" 
+                autocomplete="off" />
+            <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" style="margin-left:5px;" alt="Search" />
+        </div>
+        <ul id="suggestions" style="list-style:none;padding:0;margin:0;position:absolute;top:40px;left:0;background:#fff;border:1px solid #ccc;width:100%;max-height:150px;overflow-y:auto;display:none;z-index:999;border-radius:5px;"></ul>
+        </div>
+
+        <script>
+            const availablePages = [
+                "archery", "athletic", "badminton", "baseball", "basketball", "befit", "boxing",
+                "chess", "cricket", "football", "games", "golf", "handball", "hockey", "icehockey",
+                "ipl", "judo", "karate", "poker", "rugby", "snowboarding", "sports", "surfing",
+                "swimming", "taekwondo", "tennis", "volleyball", "wrestling"
+            ];
+
+            function handleInput(event) {
+                const input = event.target.value.toLowerCase().trim();
+                const suggestionsBox = document.getElementById("suggestions");
+                suggestionsBox.innerHTML = "";
+
+                if (input.length === 0) {
+                    suggestionsBox.style.display = "none";
+                    return;
+                }
+
+                const matches = availablePages.filter(page => page.includes(input));
+
+                if (matches.length === 0) {
+                    suggestionsBox.style.display = "none";
+                    return;
+                }
+
+                matches.forEach(match => {
+                    const li = document.createElement("li");
+                    li.textContent = match;
+                    li.style.padding = "8px 10px";
+                    li.style.cursor = "pointer";
+                    li.addEventListener("click", () => {
+                        window.location.href = match + ".html";
+                    });
+                    li.addEventListener("mouseover", () => {
+                        li.style.background = "#f0f0f0";
+                    });
+                    li.addEventListener("mouseout", () => {
+                        li.style.background = "#fff";
+                    });
+                    suggestionsBox.appendChild(li);
+                });
+
+                suggestionsBox.style.display = "block";
+            }
+
+            // Optional: Hide suggestions when clicking outside
+            document.addEventListener("click", function (e) {
+                const suggestionsBox = document.getElementById("suggestions");
+                const searchInput = document.getElementById("searchInput");
+                if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                    suggestionsBox.style.display = "none";
+                }
+            });
+        </script>
+
+
+        </div>
+        <nav id="mainNav" style="display:flex;align-items:center;flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="befit.html">BeFit</a>
+        <a href="sports.html">Sports</a>
+        <a href="games.html">Games</a>
+        <a href="news.html">News</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="special">Join Us</a>
+        </nav>
+        
+        <div class="social-icons" style="display:flex;align-items:center;gap:5px; ; ">
+            <div >
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/facebook-new.png" alt="Facebook" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/twitter.png" alt="Twitter" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/instagram-new.png" alt="Instagram" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn" /></a>
+                <a href="#" style="text-decoration:none;color:#2b2b2b;"><img src="https://img.icons8.com/ios-filled/24/000000/youtube-play.png" alt="YouTube" /></a>
+            </div>
+        </div>
+    </header>
+  <style>
+            a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2b2b2b;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
+            }
+            a:hover {
+            background-color: #007bff;
+            color: #fff;
+            }
+            nav a.special {
+            background-color: #28a745;
+            color: white;
+            }
+
+            @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-wrap: wrap !important;
+            }
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start !important;
+                margin: 10px 0 !important;
+            }
+            .search-box {
+                width: 100% !important;
+            }
+            #mainNav {
+                display: none !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                background: #f0f4f8 !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0;
+                padding: 10px 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            #mainNav.active {
+                display: flex !important;
+            }
+            #hamburgerMenu {
+                display: flex !important;
+            }
+            #mainNav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+            }
+    </style>
+  <script>
+    function searchSections() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('#content .section');
+      sections.forEach(section => {
+        const keywords = section.getAttribute('id');
+        section.style.display = keywords && keywords.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburgerMenu');
+      const nav = document.getElementById('mainNav');
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+    
+    <div class="news-ticker">
+        <div class="ticker-content">
+            ⚡ BREAKING: World Chess Championship dates announced • Upcoming: India vs Australia Test Series • Just in: Wimbledon wildcards to be announced • New: Surfing added to Olympics • Latest: Tiger Woods confirms participation in Masters
+        </div>
+    </div>
+    
+    <section id="news-articles" style="padding: 60px 0; background: #f8f9fa; font-family: 'Segoe UI', Roboto, sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h2 style="font-size: 2.5rem; color: #2c3e50; margin-bottom: 10px;">Upcoming Matches News</h2>
+      <p style="font-size: 1.1rem; color: #7f8c8d; font-weight: 300;">The most anticipated sporting events coming soon</p>
+    </div>
+
+    <!-- Article 1 -->
+    <article style="background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 40px; overflow: hidden; border-left: 5px solid #e74c3c;">
+      <div style="display: flex; flex-direction: row; align-items: stretch; gap: 20px;">
+        <div style="flex: 1;">
+          <img src="images/cricketmatch.png" alt="India vs Pakistan cricket match" style="width: 100%; height: 250px; object-fit: cover; border-radius: 0;">
+        </div>
+        <div style="flex: 2; padding: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="padding: 5px 10px; background: #3498db; color: white; font-weight: bold; border-radius: 4px;">Cricket</span>
+            <span style="background: #e74c3c; color: white; font-size: 0.75rem; padding: 5px 10px; border-radius: 4px;">HOT TOPIC</span>
+          </div>
+          <h3 style="font-size: 1.5rem; color: #2c3e50; margin: 15px 0;">India vs Pakistan World Cup 2025: The Ultimate Rivalry Renewed</h3>
+          <p style="color: #7f8c8d;">November 12, 2025</p>
+          <p style="color: #34495e; margin-top: 10px;">India faces Pakistan at Narendra Modi Stadium. Both teams are in top form, featuring legends and rising stars.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 2 (image right) -->
+    <article style="background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 40px; overflow: hidden;">
+      <div style="display: flex; flex-direction: row-reverse; align-items: stretch; gap: 20px;">
+        <div style="flex: 1;">
+          <img src="images/soccer.png" alt="Barcelona vs PSG" style="width: 100%; height: 250px; object-fit: cover; border-radius: 0;">
+        </div>
+        <div style="flex: 2; padding: 20px;">
+          <div style="display: flex; justify-content: flex-start; align-items: center;">
+            <span style="padding: 5px 10px; background: #2ecc71; color: white; font-weight: bold; border-radius: 4px;">Soccer</span>
+          </div>
+          <h3 style="font-size: 1.5rem; color: #2c3e50; margin: 15px 0;">Barcelona vs PSG: Champions League Quarter-Final Preview</h3>
+          <p style="color: #7f8c8d;">April 3, 2026</p>
+          <p style="color: #34495e; margin-top: 10px;">Messi returns to Camp Nou as PSG faces Barcelona in a high-stakes Champions League clash.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Article 3 -->
+    <article style="background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 40px; overflow: hidden;">
+      <div style="display: flex; flex-direction: row; align-items: stretch; gap: 20px;">
+        <div style="flex: 1;">
+          <img src="images/tennis.png" alt="US Open 2025" style="width: 100%; height: 250px; object-fit: cover; border-radius: 0;">
+        </div>
+        <div style="flex: 2; padding: 20px;">
+          <div style="display: flex; justify-content: flex-start; align-items: center;">
+            <span style="padding: 5px 10px; background: #9b59b6; color: white; font-weight: bold; border-radius: 4px;">Tennis</span>
+          </div>
+          <h3 style="font-size: 1.5rem; color: #2c3e50; margin: 15px 0;">US Open 2025: Next Generation Ready to Shine</h3>
+          <p style="color: #7f8c8d;">August 25 - September 7, 2025</p>
+          <p style="color: #34495e; margin-top: 10px;">Carlos Alcaraz and Coco Gauff headline a US Open full of talent and thrilling matchups.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+    </section>
+
+    <section id="cricket" class="section" style="background-color: #f5f9ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: #1e3799;">Upcoming ICC Cricket Tournaments</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Left Column - Content -->
+                <div>
+                    <h3 style="color: #1e3799; margin-bottom: 1rem;">ICC Tournament Calendar 2025-2031</h3>
+                    <p style="margin-bottom: 1.5rem;">The International Cricket Council has announced an exciting lineup of global tournaments over the next seven years, featuring all formats of the game and including both men's and women's events.</p>
+                    
+                    <div class="news-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+                        <h4 style="color: #1e3799; margin-bottom: 0.5rem;">World Test Championship Final 2025</h4>
+                        <p style="color: #555; margin-bottom: 0.5rem;">The pinnacle of Test cricket will see Australia and South Africa battle for supremacy at Lord's on June 15, 2025.</p>
+                    </div>
+                    
+                    <div class="news-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+                        <h4 style="color: #1e3799; margin-bottom: 0.5rem;">T20 World Cup 2026</h4>
+                        <p style="color: #555; margin-bottom: 0.5rem;">India and Sri Lanka will co-host the ninth edition of the T20 World Cup, promising thrilling matches across iconic venues.</p>
+                    </div>
+
+                    <!-- New Card 1 -->
+                    <div class="news-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+                        <h4 style="color: #1e3799; margin-bottom: 0.5rem;">Women's ODI World Cup 2026</h4>
+                        <p style="color: #555; margin-bottom: 0.5rem;">India will host the Women's ODI World Cup, bringing together top international sides in a month-long battle for cricketing glory.</p>
+                    </div>
+
+                    <!-- New Card 2 -->
+                    <div class="news-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h4 style="color: #1e3799; margin-bottom: 0.5rem;">ODI World Cup 2027</h4>
+                        <p style="color: #555; margin-bottom: 0.5rem;">The 2027 ODI World Cup will be hosted across South Africa, Zimbabwe, and Namibia, returning the prestigious event to the African continent.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column - Table (unchanged) -->
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: fit-content;">
+                    <h4 style="color: #1e3799; margin-bottom: 1rem; text-align: center;">ICC Tournament Schedule</h4>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: #1e3799; color: white;">
+                                <th style="padding: 0.75rem; text-align: left;">Year</th>
+                                <th style="padding: 0.75rem; text-align: left;">Tournament</th>
+                                <th style="padding: 0.75rem; text-align: left;">Host</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2025</td>
+                                <td style="padding: 0.75rem;">Champions Trophy</td>
+                                <td style="padding: 0.75rem;">Pakistan</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2025</td>
+                                <td style="padding: 0.75rem;">World Test Championship Final</td>
+                                <td style="padding: 0.75rem;">England</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2026</td>
+                                <td style="padding: 0.75rem;">T20 World Cup</td>
+                                <td style="padding: 0.75rem;">India & Sri Lanka</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2026</td>
+                                <td style="padding: 0.75rem;">Women's ODI World Cup</td>
+                                <td style="padding: 0.75rem;">India</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2026</td>
+                                <td style="padding: 0.75rem;">Women's T20 World Cup</td>
+                                <td style="padding: 0.75rem;">England</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2027</td>
+                                <td style="padding: 0.75rem;">World Test Championship Final</td>
+                                <td style="padding: 0.75rem;">England</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2027</td>
+                                <td style="padding: 0.75rem;">ODI World Cup</td>
+                                <td style="padding: 0.75rem;">South Africa, Zimbabwe, Namibia</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2027</td>
+                                <td style="padding: 0.75rem;">Women's Champions Trophy</td>
+                                <td style="padding: 0.75rem;">Sri Lanka</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2028</td>
+                                <td style="padding: 0.75rem;">T20 World Cup</td>
+                                <td style="padding: 0.75rem;">Australia & New Zealand</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2029</td>
+                                <td style="padding: 0.75rem;">Champions Trophy</td>
+                                <td style="padding: 0.75rem;">India</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 0.75rem;">2030</td>
+                                <td style="padding: 0.75rem;">T20 World Cup</td>
+                                <td style="padding: 0.75rem;">England, Ireland, Scotland</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem;">2031</td>
+                                <td style="padding: 0.75rem;">ODI World Cup</td>
+                                <td style="padding: 0.75rem;">India & Bangladesh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Additional Content Below -->
+            <div style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: #1e3799; margin-bottom: 1rem;">ICC Men's Cricket World Cup League 2 2027</h3>
+                <p style="margin-bottom: 1rem;">The pathway to the 2027 ODI World Cup begins with League 2, featuring 36 series played across 2.5 years between 2023-2026. The top 4 teams will qualify directly for the World Cup, while the bottom 4 will enter the Qualifier Play-off.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: #f0f5ff; padding: 1rem; border-radius: 6px;">
+                        <h4 style="color: #1e3799; margin-bottom: 0.5rem; font-size: 1rem;">Participating Teams</h4>
+                        <ul style="padding-left: 1.2rem; color: #555;">
+                            <li>Scotland</li>
+                            <li>Namibia</li>
+                            <li>Nepal</li>
+                            <li>Oman</li>
+                            <li>USA</li>
+                            <li>UAE</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f0f5ff; padding: 1rem; border-radius: 6px;">
+                        <h4 style="color: #1e3799; margin-bottom: 0.5rem; font-size: 1rem;">Format</h4>
+                        <ul style="padding-left: 1.2rem; color: #555;">
+                            <li>Tri-series format</li>
+                            <li>36 total series</li>
+                            <li>Each team plays 24 ODIs</li>
+                            <li>2 points per win</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f0f5ff; padding: 1rem; border-radius: 6px;">
+                        <h4 style="color: #1e3799; margin-bottom: 0.5rem; font-size: 1rem;">Schedule</h4>
+                        <ul style="padding-left: 1.2rem; color: #555;">
+                            <li>August 2023 - January 2026</li>
+                            <li>Matches every 2-3 months</li>
+                            <li>Final standings by March 2026</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="soccer" class="section" style="background: linear-gradient(to bottom, #f5f5f5, #e8f4f8); padding: 3rem 0;">
+        <div class="container">
+            <div class="section-title" style="text-align: center; margin-bottom: 2.5rem;">
+                <h2 style="font-size: 2.2rem; color: #0056b3; position: relative; display: inline-block;">
+                    <span style="background: #0056b3; color: white; padding: 0 1rem; border-radius: 4px;">2026 FIFA World Cup</span>
+                    <span style="display: block; font-size: 1.2rem; color: #333; margin-top: 0.5rem;">& ICC Tournaments 2025-2031</span>
+                </h2>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+                <!-- FIFA World Cup Column -->
+                <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #0056b3;">
+                    <div style="position: relative;">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="2026 FIFA World Cup" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="position: absolute; top: 10px; right: 10px; background: #ffde00; color: #0056b3; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: bold; font-size: 0.9rem;">MEGA EVENT</div>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3 style="color: #0056b3; margin-bottom: 1rem; font-size: 1.5rem;">2026 FIFA World Cup</h3>
+                        <div style="display: flex; margin-bottom: 1rem;">
+                            <div style="flex: 1; border-right: 1px solid #eee; padding-right: 1rem;">
+                                <div style="font-size: 0.9rem; color: #666;">Host Nations</div>
+                                <div style="font-weight: 600;">USA, Canada, Mexico</div>
+                            </div>
+                            <div style="flex: 1; padding-left: 1rem;">
+                                <div style="font-size: 0.9rem; color: #666;">Dates</div>
+                                <div style="font-weight: 600;">June 11 - July 19, 2026</div>
+                            </div>
+                        </div>
+                        <p style="color: #555; margin-bottom: 1.5rem;">The first 48-team World Cup will be jointly hosted across 16 cities in North America, featuring 80 matches over 39 days.</p>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
+                            <h4 style="color: #0056b3; margin-bottom: 0.5rem; font-size: 1rem;">Key Features:</h4>
+                            <ul style="padding-left: 1.2rem; color: #555;">
+                                <li>Expanded to 48 teams (16 groups of 3)</li>
+                                <li>11 US venues + 3 in Mexico + 2 in Canada</li>
+                                <li>Final at MetLife Stadium, New Jersey</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ICC Tournaments Column -->
+                <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 4px solid #1e3799;">
+                    <div style="padding: 1.5rem;">
+                        <h3 style="color: #1e3799; margin-bottom: 1rem; font-size: 1.5rem;">ICC Tournaments 2025-2031</h3>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+                                <thead>
+                                    <tr style="background: #1e3799; color: white;">
+                                        <th style="padding: 0.75rem; text-align: left;">Year</th>
+                                        <th style="padding: 0.75rem; text-align: left;">Tournament</th>
+                                        <th style="padding: 0.75rem; text-align: left;">Host</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">2025</td>
+                                        <td style="padding: 0.75rem;">Champions Trophy</td>
+                                        <td style="padding: 0.75rem;">Pakistan</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee; background: #f8f9fa;">
+                                        <td style="padding: 0.75rem;">2025</td>
+                                        <td style="padding: 0.75rem;">WTC Final</td>
+                                        <td style="padding: 0.75rem;">England</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">2026</td>
+                                        <td style="padding: 0.75rem;">T20 World Cup</td>
+                                        <td style="padding: 0.75rem;">India/Sri Lanka</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee; background: #f8f9fa;">
+                                        <td style="padding: 0.75rem;">2027</td>
+                                        <td style="padding: 0.75rem;">ODI World Cup</td>
+                                        <td style="padding: 0.75rem;">South Africa</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee;">
+                                        <td style="padding: 0.75rem;">2028</td>
+                                        <td style="padding: 0.75rem;">T20 World Cup</td>
+                                        <td style="padding: 0.75rem;">Australia/NZ</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #eee; background: #f8f9fa;">
+                                        <td style="padding: 0.75rem;">2029</td>
+                                        <td style="padding: 0.75rem;">Champions Trophy</td>
+                                        <td style="padding: 0.75rem;">India</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.75rem;">2031</td>
+                                        <td style="padding: 0.75rem;">ODI World Cup</td>
+                                        <td style="padding: 0.75rem;">India/Bangladesh</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="margin-top: 1.5rem; background: #f0f5ff; padding: 1rem; border-radius: 6px;">
+                            <h4 style="color: #1e3799; margin-bottom: 0.5rem; font-size: 1rem;">Upcoming Highlight:</h4>
+                            <p style="color: #555; margin-bottom: 0.5rem;"><strong>2026 T20 World Cup:</strong> First dual-host edition with 20 teams competing across India and Sri Lanka venues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tennis" class="section" style="background: linear-gradient(135deg, #f9f9f9, #fff); padding: 3rem 0; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3;">
+    <div class="container">
+        <div class="section-title" style="text-align: center; margin-bottom: 2.5rem;">
+            <h2 style="font-size: 2.2rem; color: #d52b1e; position: relative; display: inline-block;">
+                <span style="background: #d52b1e; color: white; padding: 0.2rem 1.5rem; border-radius: 30px; display: inline-flex; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+                        <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5 3.874"></path>
+                    </svg>
+                    2025 Men's Tennis Tour
+                </span>
+            </h2>
+            <p style="color: #666; margin-top: 1rem; font-size: 1.1rem;">Complete ATP Tour calendar with Grand Slams, Masters 1000 & key tournaments</p>
+        </div>
+
+        <!-- Grand Slams Section -->
+        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 2.5rem;">
+            <div style="background: #d52b1e; padding: 1rem; color: white; display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.8rem;">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <h3 style="margin: 0; font-size: 1.3rem;">Grand Slam Tournaments</h3>
+            </div>
+            <div style="padding: 1.5rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <!-- Australian Open -->
+                    <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+                        <div style="height: 150px; background: linear-gradient(135deg, #1a3e72, #3a6ea5); display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-size: 1.5rem; font-weight: 600;">Australian Open</span>
+                        </div>
+                        <div style="padding: 1.2rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Dates</span>
+                                <span style="font-weight: 600;">Jan 13-26, 2025</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Location</span>
+                                <span style="font-weight: 600;">Melbourne, Australia</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Surface</span>
+                                <span style="font-weight: 600;">Hard Court</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- French Open -->
+                    <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+                        <div style="height: 150px; background: linear-gradient(135deg, #1a5276, #5dade2); display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-size: 1.5rem; font-weight: 600;">Roland Garros</span>
+                        </div>
+                        <div style="padding: 1.2rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Dates</span>
+                                <span style="font-weight: 600;">May 26-Jun 8, 2025</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Location</span>
+                                <span style="font-weight: 600;">Paris, France</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Surface</span>
+                                <span style="font-weight: 600;">Clay Court</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wimbledon -->
+                    <div style="border: 1px solid #eee; border-radius: 8px; overflow: hidden;">
+                        <div style="height: 150px; background: linear-gradient(135deg, #0e6655, #27ae60); display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-size: 1.5rem; font-weight: 600;">Wimbledon</span>
+                        </div>
+                        <div style="padding: 1.2rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Dates</span>
+                                <span style="font-weight: 600;">Jun 30-Jul 13, 2025</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Location</span>
+                                <span style="font-weight: 600;">London, UK</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span style="font-size: 0.9rem; color: #666;">Surface</span>
+                                <span style="font-weight: 600;">Grass Court</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Masters 1000 Section -->
+        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+            <div style="background: #333; padding: 1rem; color: white; display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.8rem;">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <h3 style="margin: 0; font-size: 1.3rem;">ATP Masters 1000 Tournaments</h3>
+            </div>
+            <div style="padding: 1.5rem;">
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                        <thead>
+                            <tr style="background: #f5f5f5;">
+                                <th style="padding: 1rem; text-align: left;">Tournament</th>
+                                <th style="padding: 1rem; text-align: left;">Dates</th>
+                                <th style="padding: 1rem; text-align: left;">Location</th>
+                                <th style="padding: 1rem; text-align: left;">Surface</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 1rem; font-weight: 600;">Indian Wells</td>
+                                <td style="padding: 1rem;">Mar 6-16, 2025</td>
+                                <td style="padding: 1rem;">California, USA</td>
+                                <td style="padding: 1rem;">Hard</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                                <td style="padding: 1rem; font-weight: 600;">Miami Open</td>
+                                <td style="padding: 1rem;">Mar 19-30, 2025</td>
+                                <td style="padding: 1rem;">Florida, USA</td>
+                                <td style="padding: 1rem;">Hard</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 1rem; font-weight: 600;">Monte-Carlo</td>
+                                <td style="padding: 1rem;">Apr 7-13, 2025</td>
+                                <td style="padding: 1rem;">Monaco</td>
+                                <td style="padding: 1rem;">Clay</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                                <td style="padding: 1rem; font-weight: 600;">Madrid Open</td>
+                                <td style="padding: 1rem;">Apr 28-May 4, 2025</td>
+                                <td style="padding: 1rem;">Madrid, Spain</td>
+                                <td style="padding: 1rem;">Clay</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 1rem; font-weight: 600;">Italian Open</td>
+                                <td style="padding: 1rem;">May 5-11, 2025</td>
+                                <td style="padding: 1rem;">Rome, Italy</td>
+                                <td style="padding: 1rem;">Clay</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                                <td style="padding: 1rem; font-weight: 600;">Canadian Open</td>
+                                <td style="padding: 1rem;">Aug 4-10, 2025</td>
+                                <td style="padding: 1rem;">Toronto, Canada</td>
+                                <td style="padding: 1rem;">Hard</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 1rem; font-weight: 600;">Cincinnati</td>
+                                <td style="padding: 1rem;">Aug 11-17, 2025</td>
+                                <td style="padding: 1rem;">Ohio, USA</td>
+                                <td style="padding: 1rem;">Hard</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee; background: #fafafa;">
+                                <td style="padding: 1rem; font-weight: 600;">Shanghai</td>
+                                <td style="padding: 1rem;">Oct 6-12, 2025</td>
+                                <td style="padding: 1rem;">Shanghai, China</td>
+                                <td style="padding: 1rem;">Hard</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; font-weight: 600;">Paris Masters</td>
+                                <td style="padding: 1rem;">Oct 27-Nov 2, 2025</td>
+                                <td style="padding: 1rem;">Paris, France</td>
+                                <td style="padding: 1rem;">Hard (Indoor)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+    <section id="golf" style="padding: 3rem 1rem; background: #eef5fa;">
+        <h2 style="text-align: center; color: #154360; font-size: 2rem; margin-bottom: 2rem;">Golf PGA Championship Locations</h2>
+        <div style="display: flex; max-width: 1200px; margin: auto;">
+            
+            <!-- ID List -->
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+            <div onmouseover="showCard(0)" style="padding: 1rem; background: #d6eaf8; border-radius: 10px; cursor: pointer; font-weight: bold; text-align: center;">2026</div>
+            <div onmouseover="showCard(1)" style="padding: 1rem; background: #d6eaf8; border-radius: 10px; cursor: pointer; font-weight: bold; text-align: center;">2027</div>
+            <div onmouseover="showCard(2)" style="padding: 1rem; background: #d6eaf8; border-radius: 10px; cursor: pointer; font-weight: bold; text-align: center;">2028</div>
+            <div onmouseover="showCard(3)" style="padding: 1rem; background: #d6eaf8; border-radius: 10px; cursor: pointer; font-weight: bold; text-align: center;">2029</div>
+            <div onmouseover="showCard(4)" style="padding: 1rem; background: #d6eaf8; border-radius: 10px; cursor: pointer; font-weight: bold; text-align: center;">2030</div>
+            </div>
+
+            <div style="flex: 3; position: relative; overflow: hidden; min-height: 400px;">
+
+  <!-- Card 1 -->
+  <div class="pga-card" style="position: absolute; top: 0; left: 100%; width: 100%; transition: all 0.6s ease; background: white; padding: 2rem; border-radius: 2rem 0 2rem 0; box-shadow: 0 15px 30px rgba(46, 134, 193, 0.2); display: flex; align-items: flex-start; gap: 1rem;">
+    <div style="font-size: 2rem; font-weight: bold; color: #3498db;">01</div>
+    <div>
+      <h3 style="color: #1e8449; margin: 0;">2026 – Aronimink, PA</h3>
+      <p style="color: #333; margin-top: 0.5rem;">
+        Aronimink Golf Club in Pennsylvania will host with precision greens and classic fairways — a true test of tradition and skill. Known for its Donald Ross design, the course will demand accuracy and finesse as players navigate tight landing zones and undulating terrain under championship pressure.
+        Its tree-lined layout and small greens make every shot critical. Historically, Aronimink has produced drama in the closing holes. Players will need discipline to attack pins without risking bogeys. Weather could also play a significant role. Fans can expect an intense, old-school challenge.
+        The course favors players with strong iron play and a solid short game, especially around tricky bunkers guarding the greens. In recent years, Aronimink has become a favorite stop for top professionals, appreciated for its balance between challenge and fairness. The clubhouse offers stunning views of the Philadelphia skyline, enhancing the tournament’s atmosphere.
+        Spectators will enjoy close access to key holes, ensuring an engaging live experience. Preparations for 2026 have focused on maintaining course integrity while improving fan amenities. This venue promises a memorable chapter in PGA history.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="pga-card" style="position: absolute; top: 0; left: 100%; width: 100%; transition: all 0.6s ease; background: white; padding: 2rem; border-radius: 2rem 0 2rem 0; box-shadow: 0 15px 30px rgba(88, 214, 141, 0.2); display: flex; align-items: flex-start; gap: 1rem;">
+    <div style="font-size: 2rem; font-weight: bold; color: #2ecc71;">02</div>
+    <div>
+      <h3 style="color: #1e8449; margin: 0;">2027 – PGA Frisco, TX</h3>
+      <p style="color: #333; margin-top: 0.5rem;">
+        Frisco's Fields Ranch East brings a cutting-edge layout to the PGA calendar with its premier hosting debut. As the new home of PGA of America, the course will combine innovation and strategic challenges, giving rising stars and seasoned pros an exciting and unpredictable test.
+        Designed by Gil Hanse, it blends modern aesthetics with historical roots. Wide fairways contrast sharply with heavily bunkered greens. Texas winds will likely influence club selection and distance control. The layout rewards creative shot-making. Fans will witness a true modern major.
+        The venue also features advanced practice facilities, including state-of-the-art simulators and putting greens, enhancing player preparation. The local community is gearing up for a golf festival atmosphere, with fan zones, clinics, and interactive exhibits planned.
+        Sustainability initiatives in course maintenance are a highlight, demonstrating PGA’s commitment to environmental stewardship. Media coverage will be extensive, with innovative broadcast technology capturing every shot. This tournament will showcase the future of golf.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="pga-card" style="position: absolute; top: 0; left: 100%; width: 100%; transition: all 0.6s ease; background: white; padding: 2rem; border-radius: 2rem 0 2rem 0; box-shadow: 0 15px 30px rgba(165, 105, 189, 0.2); display: flex; align-items: flex-start; gap: 1rem;">
+    <div style="font-size: 2rem; font-weight: bold; color: #8e44ad;">03</div>
+    <div>
+      <h3 style="color: #1e8449; margin: 0;">2028 – Olympic Club, CA</h3>
+      <p style="color: #333; margin-top: 0.5rem;">
+        San Francisco’s iconic Olympic Club will test players with tight fairways and breezy Pacific conditions. The club, rich in championship history, challenges even the best with severe slopes and unpredictable winds that have turned leads into heartbreak in past major events.
+        Its Lake Course has hosted legends and surprises alike. The venue punishes inaccuracy off the tee and on approach. Recovery shots are rarely easy. Cold coastal air reduces distance, further complicating club selection. Fans will enjoy breathtaking views and intense Sunday finishes.
+        Course conditions tend to favor tactical play over power, with penal rough and tricky doglegs requiring strategic planning. The rugged coastal environment tests players’ mental toughness and shot creativity.
+        The city’s vibrant culture adds to the excitement, with plenty for visitors to explore outside the ropes. Olympic Club remains one of the most revered venues on the major circuit.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="pga-card" style="position: absolute; top: 0; left: 100%; width: 100%; transition: all 0.6s ease; background: white; padding: 2rem; border-radius: 2rem 0 2rem 0; box-shadow: 0 15px 30px rgba(244, 208, 63, 0.25); display: flex; align-items: flex-start; gap: 1rem;">
+    <div style="font-size: 2rem; font-weight: bold; color: #f4d03f;">04</div>
+    <div>
+      <h3 style="color: #1e8449; margin: 0;">2029 – Baltusrol, NJ</h3>
+      <p style="color: #333; margin-top: 0.5rem;">
+        The Lower Course at Baltusrol returns to the spotlight with its timeless championship setup. Known for its rich legacy and meticulously maintained fairways, Baltusrol blends beauty and brute challenge — demanding precision tee shots and nerves of steel on its lightning-fast greens.
+        This A.W. Tillinghast masterpiece has produced thrilling finishes. Water hazards and bunkers come into play frequently. Success here requires elite short-game skill. A strong mental game is just as vital. Expect a leaderboard filled with experienced, disciplined competitors.
+        The course’s layout encourages aggressive but calculated play, with several holes offering risk-reward options that could shift momentum quickly. The historic clubhouse and surrounding gardens offer a grand setting, making Baltusrol a favorite for players and fans alike.
+        Spectators appreciate easy walking routes and excellent viewing vantage points, making the tournament a fan-friendly experience. Efforts to preserve the course’s heritage continue with modern agronomy techniques.
+      </p>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="pga-card" style="position: absolute; top: 0; left: 100%; width: 100%; transition: all 0.6s ease; background: white; padding: 2rem; border-radius: 2rem 0 2rem 0; box-shadow: 0 15px 30px rgba(231, 76, 60, 0.2); display: flex; align-items: flex-start; gap: 1rem;">
+    <div style="font-size: 2rem; font-weight: bold; color: #e74c3c;">05</div>
+    <div>
+      <h3 style="color: #1e8449; margin: 0;">2030 – Congressional, MD</h3>
+      <p style="color: #333; margin-top: 0.5rem;">
+        Redesigned for modern majors, Congressional's rolling landscape and hazards promise drama in 2030. Set in the heart of Bethesda, the course features challenging elevation changes, water-protected greens, and a legacy of unforgettable moments in PGA history.
+        With recent renovations by Rees Jones, it now boasts a bolder design. The risk-reward par-5s offer scoring chances but punish errors. Precision off the tee is crucial. Green complexes demand proper angles of approach. Expect the final stretch to deliver pure championship drama.
+        Congressional is famous for its intimidating back nine, where pressure mounts and champions are forged. The course’s wide fairways may mislead; hazards and thick rough catch errant shots easily. Spectators will be treated to a classic test of golf intelligence and endurance.
+        Local support and volunteer enthusiasm add to the tournament’s energy. Preparation and planning for 2030 are already underway to ensure an unforgettable event.
+      </p>
+    </div>
+  </div>
+
+            </div>
+
+        </div>
+        <script>
+            const cards = document.querySelectorAll(".pga-card");
+            function showCard(index) {
+            cards.forEach((card, i) => {
+                card.style.left = (i === index) ? "0%" : "100%";
+            });
+            }
+            showCard(0); // Show the first card by default
+        </script>
+    </section>
+
+    <section id="hockey" style="padding: 3rem 1rem; background: #f4f9fd;">
+      <h2 style="text-align: center; color: #154360; font-size: 2rem; margin-bottom: 2rem;">2027 Hockey World Cup – A Global Showdown Awaits</h2>
+
+        <div style="max-width: 1100px; margin: auto; background: white; border-radius: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-wrap: wrap; flex-direction: row-reverse;">
+
+    <div style="flex: 1; min-width: 300px;">
+        <img src="images/hockey.png" 
+            alt="2027 Hockey World Cup Match" 
+            style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <div style="flex: 1; min-width: 300px; padding: 2rem;">
+        <h3 style="color: #1e8449; font-size: 1.5rem; margin-top: 0;">Anticipation Builds for 2027 Hockey World Cup</h3>
+        
+        <p style="font-size: 1rem; color: #333; line-height: 1.6; margin-top: 1rem;">
+            The stage is set for one of the most anticipated sporting events of the decade — the 2027 Hockey World Cup. Scheduled to be held in <strong>Wroclaw, Poland</strong>, this edition promises to elevate the sport to new heights with world-class facilities, passionate fans, and the best hockey talent from across the globe.
+        </p>
+        
+        <p style="font-size: 1rem; color: #333; line-height: 1.6; margin-top: 1rem;">
+            With an expanded format and state-of-the-art stadiums, the tournament will feature innovations in broadcast, fan engagement, and athlete performance. Teams like India, Australia, Netherlands, Germany, and Belgium are expected to headline the event with fierce competition and tactical brilliance.
+        </p>
+        
+        <p style="font-size: 1rem; color: #333; line-height: 1.6; margin-top: 1rem;">
+            As the hockey world counts down, national squads are intensifying their training and scouting emerging talent. Poland’s role as host marks a milestone, signaling the continued growth and popularity of hockey in new regions.
+        </p>
+        
+        <p style="font-size: 1rem; color: #333; line-height: 1.6; margin-top: 1rem;">
+            The event will also highlight the rise of new hockey superstars, with many young players aiming to make their mark on the world stage. Analysts are especially watching rising stars from Argentina, Japan, and South Korea who have shown exceptional performances in recent qualifiers and league play.
+        </p>
+        
+        <p style="font-size: 1rem; color: #333; line-height: 1.6; margin-top: 1rem;">
+            Fans can expect immersive viewing experiences through cutting-edge AR/VR integrations, live data visualizations, and multi-angle broadcasts. Meanwhile, ticket sales and travel packages are already gaining momentum, with thousands expected to travel to Poland to witness this global spectacle.
+        </p>
+        
+        <p style="font-size: 1rem; color: #333; line-height: 1.6; margin-top: 1rem;">
+            As hockey continues to gain prominence on the global stage, the 2027 World Cup stands as a celebration of sport, unity, and the spirit of competition. Whether you're a die-hard hockey enthusiast or a curious newcomer, this tournament is bound to leave a lasting impression.
+        </p>
+    </div>
+
+        </div>
+
+    </section>
+    
+    <section id="chess" style="font-family: 'Verdana', sans-serif; max-width: 1200px; margin: 3rem auto; padding: 0 1rem;">
+        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="flex: 1.5; min-width: 300px;">
+            <img 
+                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" 
+                alt="Chess Tournament" 
+                style="width: 100%; border-radius: 12px; box-shadow: 0 6px 15px rgba(25, 84, 123, 0.3); object-fit: cover;"
+            />
+            </div>
+            
+            <!-- Text Right -->
+            <div style="flex: 2; min-width: 300px; color: #333;">
+            <h1 style="font-size: 2.2rem; font-weight: 900; letter-spacing: 1.2px; margin-bottom: 1rem;">
+                2026 Chess Tournament Calendar
+            </h1>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">
+                The upcoming 2026 chess tournament calendar is shaping up with many exciting events planned across the globe. Enthusiasts and professionals alike can look forward to fresh competitions, new venues, and innovative formats.
+            </p>
+            <p style="font-style: italic; font-size: 0.9rem; color: #555;">
+                Stay tuned for updates as the calendar is currently in development.
+            </p>
+            <p style="margin-top: 2rem; font-weight: bold; font-size: 0.95rem; color: #19547b;">
+                Powered by <a href="https://www.chessdom.com" target="_blank" rel="noopener" style="color: #19547b; text-decoration: underline;">Chessdom</a>
+            </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+<footer style="font-family: sans-serif; color: #fff; background-color: #dbdbdb; margin: 0; padding: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+        <!-- HSGN+ -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">HSGN+</h2>
+            <hr style="border: none; border-top: 1px solid red; width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnhl.png&w=40&h=40" alt="NHL" style="height: 20px;"> NHL</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Men's Basketball" style="height: 20px;"> NCAA Men's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NCAA Women's Basketball" style="height: 20px;"> NCAA Women's Basketball</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL PrimeTime" style="height: 20px;"> NFL PrimeTime</a></div>
+            </div>
+        </div>
+    
+        <!-- quick links -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Quick Links</h2>
+            <hr style="border: none; border-top: 1px solid rgb(234, 255, 0); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="Super Bowl LIX" style="height: 20px;"> Super Bowl LIX</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnfl.png&w=40&h=40" alt="NFL Playoff Bracket" style="height: 20px;"> NFL Playoff Bracket</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dbasketball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="Unrivaled 3-on-3" style="height: 20px;"> Unrivaled 3-on-3</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fnba.png&w=40&h=40" alt="NHL" style="height: 20px;"> NBA Trade Machine</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fmisc_logos%2F500%2Fmlb.png&w=40&h=40" alt="NBA" style="height: 20px;"> MLB Free Agency</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Flogos%2Ficon-w2w-black.png&w=60&h=60&cquality=80&location=origin" alt="NBA Draft" style="height: 20px;"> Where to watch</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fgames%2Flm%2Dstatic%2FBetting%2FBetting%2DHome.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NBA League Pass" style="height: 20px;">Today's Top ODD's</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dlisten02.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA 2K League" style="height: 20px;"> Radio : Listen Live</a></div>
+                <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fredesign%2Fassets%2Fimg%2Ficons%2FESPN%2Dicon%2Dfootball.png&w=80&h=80&scale=crop&cquality=40&location=origin" alt="NBA on HSGN" style="height: 20px;">Super Bowl Betting</a></div>
+            </div>
+        </div>
+    
+        <!-- Fantasy -->
+        <div>
+            <h2 style="margin-bottom: 10px; color: #000;">Fantasy</h2>
+            <hr style="border: none; border-top: 1px solid rgb(0, 255, 17); width: 100%; margin: 5px 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div>
+                <!-- Football Link -->
+                <a href="football.html" onclick="openFootballOverlay1post()" style="color: #000; text-decoration: none;">
+                    <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fffl.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Football" style="height: 20px;">
+                    Football
+                </a>
+                        
+                <!-- Football Overlay -->
+                <div id="footballOverlay1post" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeFootballOverlay1post()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="footballFrame1post" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = "https://www.youtube.com/embed/yd8lkvu6NkM?autoplay=1";
+                        document.getElementById('footballOverlay1post').style.display = "flex";
+                    }
+                        
+                    function closeFootballOverlay1post() {
+                        document.getElementById('footballFrame1post').src = ""; // Stop video
+                        document.getElementById('footballOverlay1post').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+            <div>
+                <!-- Baseball Link -->
+                <a href="#" onclick="openBaseballOverlay()" style="color: #000; text-decoration: none;">
+                    <img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fflb.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="Baseball" style="height: 20px;">
+                    Baseball
+                </a>
+                        
+                <!-- Baseball Overlay -->
+                <div id="baseballOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="position: relative; background: #fff; padding: 20px; border-radius: 8px; max-width: 90%; width: 600px; text-align: center;">
+                        <button onclick="closeBaseballOverlay()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 16px;">X</button>
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                            <iframe id="baseballFrame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                        
+                <script>
+                    function openBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = "https://www.youtube.com/embed/TmikDLlN1wU?autoplay=1";
+                        document.getElementById('baseballOverlay').style.display = "flex";
+                    }
+                        
+                    function closeBaseballOverlay() {
+                        document.getElementById('baseballFrame').src = ""; // Stop video
+                        document.getElementById('baseballOverlay').style.display = "none";
+                    }
+                </script>
+            </div>
+                        
+                        
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffhl.png&w=40&h=40" alt="HSGN" style="height: 20px;"> Hockey</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Ffba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;">Men's Basketball</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%2Fi%2Ffantasy%2Fwfba.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;">Women's Basketball</a></div>
+        
+        </div>
+  
+    </div>
+    
+    <!-- sites -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Sites</h2>
+        <hr style="border: none; border-top: 1px solid rgb(0, 179, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NHL" style="height: 20px;"> HSGN Deportes </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fandscape_black_onwhite.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="MLB" style="height: 20px;"> Andscape </a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" alt="NBA" style="height: 20px;"> HSGNW</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnfc_circle_500.png&w=40&h=40" alt="NFL" style="height: 20px;"> HSGNFC</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fespn%252Fnetworks_shows%252F500%252Fxgames.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="NCAA Football" style="height: 20px;"> X Games</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fsec_network.png&w=40&h=40" alt="NCAA Basketball" style="height: 20px;"> SEC Network</a></div>
+        </div>
+    </div>
+    
+    <!-- apps -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">HSGN Apps</h2>
+        <hr style="border: none; border-top: 1px solid rgb(221, 0, 255); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a1.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fespn_app_72@2x.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN" style="height: 20px;"> HSGN</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://a3.espncdn.com/combiner/i?img=%252Fi%252Fmobile%252Fwebsite%252Fimg%252Fflm%252Dapp%252Dtile.png&w=60&h=60&scale=crop&cquality=80&location=origin" alt="HSGN Fantasy" style="height: 20px;"> HSGN Fantasy</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><img src="https://chui-assets-cdn.espn.com/94763d98-7ffb-43e9-8604-4c7a47ab2451.png" alt="HSGN" style="height: 20px;"> tournament Challenge</a></div>
+        </div>
+    </div>
+    
+    <!-- social media -->
+    <div>
+        <h2 style="margin-bottom: 10px; color: #000;">Follow HSGN</h2>
+        <hr style="border: none; border-top: 1px solid rgb(32, 2, 11); width: 100%; margin: 5px 0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); grid-gap: 10px;">
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-facebook" style="font-size: 20px;"></i> Facebook</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 20px;"></i> Twitter</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 20px;"></i> Instagram</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-youtube" style="font-size: 20px;"></i> YouTube</a></div>
+            <div><a href="#" style="color: #000; text-decoration: none;"><i class="fab fa-snapchat" style="font-size: 20px;"></i> Snapchat</a></div>
+        </div>
+    </div>
+    
+
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 20px;">
+        <!-- HSGN Logo -->
+        <div>
+            <img src="https://a2.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fnetworks_shows%2F500%2Fespnw.png&w=40&h=40" 
+                alt="HSGN Logo" style="height: 40px;">
+        </div>
+            
+        <!-- Vertical Line Separator -->
+        <div style="height: 40px; width: 1px; background-color: #000;"></div>
+            
+        <!-- Footer Links -->
+        <div style="color: #000;">
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Terms of Use</a>
+            <a href="#" style="color: #000; text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+            <a href="#" style="color: #000; text-decoration: none;">Interest-Based Ads</a>
+            <div style="margin-top: 10px;">Copyright: © HSGN Sports Media Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
